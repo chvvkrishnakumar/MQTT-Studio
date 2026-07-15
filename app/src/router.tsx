@@ -5,18 +5,12 @@ import { getStoredUser } from './lib/auth-storage';
 
 // Seed the router context from persisted state for an instant first paint.
 // Guarded routes (_MainLayout) still re-validate the session server-side.
-const user = getStoredUser();
 
 const router = createRouter({
   routeTree,
   defaultNotFoundComponent: NotFound,
   defaultErrorComponent: ErrorState,
-  context: {
-    auth: {
-      isAuthenticated: !!user,
-      user,
-    },
-  },
+  context: { auth: { isAuthenticated: !!getStoredUser(), user: getStoredUser() } },
 });
 
 declare module '@tanstack/react-router' {

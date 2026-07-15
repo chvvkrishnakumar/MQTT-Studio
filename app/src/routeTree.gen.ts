@@ -8,153 +8,84 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-// Import Routes
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as MainLayoutRouteImport } from './routes/_MainLayout'
+import { Route as MainLayoutIndexRouteImport } from './routes/_MainLayout/index'
+import { Route as AuthLayoutLoginRouteImport } from './routes/_AuthLayout/login'
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as OnboardingImport } from './routes/onboarding'
-import { Route as MainLayoutImport } from './routes/_MainLayout'
-import { Route as AuthLayoutImport } from './routes/_AuthLayout'
-import { Route as MainLayoutIndexImport } from './routes/_MainLayout/index'
-import { Route as AcceptInvitationInvitationIdImport } from './routes/accept-invitation.$invitationId'
-import { Route as MainLayoutProfileImport } from './routes/_MainLayout/profile'
-import { Route as AuthLayoutLoginImport } from './routes/_AuthLayout/login'
-import { Route as AuthLayoutHomeImport } from './routes/_AuthLayout/home'
-
-// Create/Update Routes
-
-const OnboardingRoute = OnboardingImport.update({
-  id: '/onboarding',
-  path: '/onboarding',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const MainLayoutRoute = MainLayoutImport.update({
+const MainLayoutRoute = MainLayoutRouteImport.update({
   id: '/_MainLayout',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AuthLayoutRoute = AuthLayoutImport.update({
-  id: '/_AuthLayout',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const MainLayoutIndexRoute = MainLayoutIndexImport.update({
+const MainLayoutIndexRoute = MainLayoutIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => MainLayoutRoute,
 } as any)
-
-const AcceptInvitationInvitationIdRoute =
-  AcceptInvitationInvitationIdImport.update({
-    id: '/accept-invitation/$invitationId',
-    path: '/accept-invitation/$invitationId',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const MainLayoutProfileRoute = MainLayoutProfileImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => MainLayoutRoute,
-} as any)
-
-const AuthLayoutLoginRoute = AuthLayoutLoginImport.update({
-  id: '/login',
+const AuthLayoutLoginRoute = AuthLayoutLoginRouteImport.update({
+  id: '/_AuthLayout/login',
   path: '/login',
-  getParentRoute: () => AuthLayoutRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
 
-const AuthLayoutHomeRoute = AuthLayoutHomeImport.update({
-  id: '/home',
-  path: '/home',
-  getParentRoute: () => AuthLayoutRoute,
-} as any)
-
-// Populate the FileRoutesByPath interface
+export interface FileRoutesByFullPath {
+  '/': typeof MainLayoutIndexRoute
+  '/login': typeof AuthLayoutLoginRoute
+}
+export interface FileRoutesByTo {
+  '/login': typeof AuthLayoutLoginRoute
+  '/': typeof MainLayoutIndexRoute
+}
+export interface FileRoutesById {
+  __root__: typeof rootRouteImport
+  '/_MainLayout': typeof MainLayoutRouteWithChildren
+  '/_AuthLayout/login': typeof AuthLayoutLoginRoute
+  '/_MainLayout/': typeof MainLayoutIndexRoute
+}
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/login'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/login' | '/'
+  id: '__root__' | '/_MainLayout' | '/_AuthLayout/login' | '/_MainLayout/'
+  fileRoutesById: FileRoutesById
+}
+export interface RootRouteChildren {
+  MainLayoutRoute: typeof MainLayoutRouteWithChildren
+  AuthLayoutLoginRoute: typeof AuthLayoutLoginRoute
+}
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_AuthLayout': {
-      id: '/_AuthLayout'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof AuthLayoutImport
-      parentRoute: typeof rootRoute
-    }
     '/_MainLayout': {
       id: '/_MainLayout'
       path: ''
-      fullPath: ''
-      preLoaderRoute: typeof MainLayoutImport
-      parentRoute: typeof rootRoute
-    }
-    '/onboarding': {
-      id: '/onboarding'
-      path: '/onboarding'
-      fullPath: '/onboarding'
-      preLoaderRoute: typeof OnboardingImport
-      parentRoute: typeof rootRoute
-    }
-    '/_AuthLayout/home': {
-      id: '/_AuthLayout/home'
-      path: '/home'
-      fullPath: '/home'
-      preLoaderRoute: typeof AuthLayoutHomeImport
-      parentRoute: typeof AuthLayoutImport
-    }
-    '/_AuthLayout/login': {
-      id: '/_AuthLayout/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof AuthLayoutLoginImport
-      parentRoute: typeof AuthLayoutImport
-    }
-    '/_MainLayout/profile': {
-      id: '/_MainLayout/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof MainLayoutProfileImport
-      parentRoute: typeof MainLayoutImport
-    }
-    '/accept-invitation/$invitationId': {
-      id: '/accept-invitation/$invitationId'
-      path: '/accept-invitation/$invitationId'
-      fullPath: '/accept-invitation/$invitationId'
-      preLoaderRoute: typeof AcceptInvitationInvitationIdImport
-      parentRoute: typeof rootRoute
+      fullPath: '/'
+      preLoaderRoute: typeof MainLayoutRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_MainLayout/': {
       id: '/_MainLayout/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof MainLayoutIndexImport
-      parentRoute: typeof MainLayoutImport
+      preLoaderRoute: typeof MainLayoutIndexRouteImport
+      parentRoute: typeof MainLayoutRoute
+    }
+    '/_AuthLayout/login': {
+      id: '/_AuthLayout/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof AuthLayoutLoginRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-// Create and export the route tree
-
-interface AuthLayoutRouteChildren {
-  AuthLayoutHomeRoute: typeof AuthLayoutHomeRoute
-  AuthLayoutLoginRoute: typeof AuthLayoutLoginRoute
-}
-
-const AuthLayoutRouteChildren: AuthLayoutRouteChildren = {
-  AuthLayoutHomeRoute: AuthLayoutHomeRoute,
-  AuthLayoutLoginRoute: AuthLayoutLoginRoute,
-}
-
-const AuthLayoutRouteWithChildren = AuthLayoutRoute._addFileChildren(
-  AuthLayoutRouteChildren,
-)
-
 interface MainLayoutRouteChildren {
-  MainLayoutProfileRoute: typeof MainLayoutProfileRoute
   MainLayoutIndexRoute: typeof MainLayoutIndexRoute
 }
 
 const MainLayoutRouteChildren: MainLayoutRouteChildren = {
-  MainLayoutProfileRoute: MainLayoutProfileRoute,
   MainLayoutIndexRoute: MainLayoutIndexRoute,
 }
 
@@ -162,136 +93,10 @@ const MainLayoutRouteWithChildren = MainLayoutRoute._addFileChildren(
   MainLayoutRouteChildren,
 )
 
-export interface FileRoutesByFullPath {
-  '': typeof MainLayoutRouteWithChildren
-  '/onboarding': typeof OnboardingRoute
-  '/home': typeof AuthLayoutHomeRoute
-  '/login': typeof AuthLayoutLoginRoute
-  '/profile': typeof MainLayoutProfileRoute
-  '/accept-invitation/$invitationId': typeof AcceptInvitationInvitationIdRoute
-  '/': typeof MainLayoutIndexRoute
-}
-
-export interface FileRoutesByTo {
-  '': typeof AuthLayoutRouteWithChildren
-  '/onboarding': typeof OnboardingRoute
-  '/home': typeof AuthLayoutHomeRoute
-  '/login': typeof AuthLayoutLoginRoute
-  '/profile': typeof MainLayoutProfileRoute
-  '/accept-invitation/$invitationId': typeof AcceptInvitationInvitationIdRoute
-  '/': typeof MainLayoutIndexRoute
-}
-
-export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/_AuthLayout': typeof AuthLayoutRouteWithChildren
-  '/_MainLayout': typeof MainLayoutRouteWithChildren
-  '/onboarding': typeof OnboardingRoute
-  '/_AuthLayout/home': typeof AuthLayoutHomeRoute
-  '/_AuthLayout/login': typeof AuthLayoutLoginRoute
-  '/_MainLayout/profile': typeof MainLayoutProfileRoute
-  '/accept-invitation/$invitationId': typeof AcceptInvitationInvitationIdRoute
-  '/_MainLayout/': typeof MainLayoutIndexRoute
-}
-
-export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | ''
-    | '/onboarding'
-    | '/home'
-    | '/login'
-    | '/profile'
-    | '/accept-invitation/$invitationId'
-    | '/'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    | ''
-    | '/onboarding'
-    | '/home'
-    | '/login'
-    | '/profile'
-    | '/accept-invitation/$invitationId'
-    | '/'
-  id:
-    | '__root__'
-    | '/_AuthLayout'
-    | '/_MainLayout'
-    | '/onboarding'
-    | '/_AuthLayout/home'
-    | '/_AuthLayout/login'
-    | '/_MainLayout/profile'
-    | '/accept-invitation/$invitationId'
-    | '/_MainLayout/'
-  fileRoutesById: FileRoutesById
-}
-
-export interface RootRouteChildren {
-  AuthLayoutRoute: typeof AuthLayoutRouteWithChildren
-  MainLayoutRoute: typeof MainLayoutRouteWithChildren
-  OnboardingRoute: typeof OnboardingRoute
-  AcceptInvitationInvitationIdRoute: typeof AcceptInvitationInvitationIdRoute
-}
-
 const rootRouteChildren: RootRouteChildren = {
-  AuthLayoutRoute: AuthLayoutRouteWithChildren,
   MainLayoutRoute: MainLayoutRouteWithChildren,
-  OnboardingRoute: OnboardingRoute,
-  AcceptInvitationInvitationIdRoute: AcceptInvitationInvitationIdRoute,
+  AuthLayoutLoginRoute: AuthLayoutLoginRoute,
 }
-
-export const routeTree = rootRoute
+export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-/* ROUTE_MANIFEST_START
-{
-  "routes": {
-    "__root__": {
-      "filePath": "__root.tsx",
-      "children": [
-        "/_AuthLayout",
-        "/_MainLayout",
-        "/onboarding",
-        "/accept-invitation/$invitationId"
-      ]
-    },
-    "/_AuthLayout": {
-      "filePath": "_AuthLayout.tsx",
-      "children": [
-        "/_AuthLayout/home",
-        "/_AuthLayout/login"
-      ]
-    },
-    "/_MainLayout": {
-      "filePath": "_MainLayout.tsx",
-      "children": [
-        "/_MainLayout/profile",
-        "/_MainLayout/"
-      ]
-    },
-    "/onboarding": {
-      "filePath": "onboarding.tsx"
-    },
-    "/_AuthLayout/home": {
-      "filePath": "_AuthLayout/home.tsx",
-      "parent": "/_AuthLayout"
-    },
-    "/_AuthLayout/login": {
-      "filePath": "_AuthLayout/login.tsx",
-      "parent": "/_AuthLayout"
-    },
-    "/_MainLayout/profile": {
-      "filePath": "_MainLayout/profile.tsx",
-      "parent": "/_MainLayout"
-    },
-    "/accept-invitation/$invitationId": {
-      "filePath": "accept-invitation.$invitationId.tsx"
-    },
-    "/_MainLayout/": {
-      "filePath": "_MainLayout/index.tsx",
-      "parent": "/_MainLayout"
-    }
-  }
-}
-ROUTE_MANIFEST_END */
