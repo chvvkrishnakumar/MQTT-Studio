@@ -6,14 +6,12 @@
     --color-red-50: oklch(.971 .013 17.38);
     --color-red-300: oklch(.808 .114 19.571);
     --color-red-400: oklch(.704 .191 22.216);
-    --color-red-500: oklch(.637 .237 25.331);
     --color-red-600: oklch(.577 .245 27.325);
     --color-amber-500: oklch(.769 .188 70.08);
     --color-emerald-500: oklch(.696 .17 162.48);
-    --color-sky-500: oklch(.685 .169 237.323);
-    --color-violet-500: oklch(.606 .25 292.717);
     --color-gray-200: oklch(.928 .006 264.531);
     --color-black: #000;
+    --color-white: #fff;
     --spacing: .25rem;
     --container-sm: 24rem;
     --container-md: 28rem;
@@ -848,6 +846,10 @@
     min-height: 100svh;
   }
 
+  .w-1 {
+    width: calc(var(--spacing) * 1);
+  }
+
   .w-2 {
     width: calc(var(--spacing) * 2);
   }
@@ -1428,6 +1430,11 @@
     border-top-width: 1px;
   }
 
+  .border-t-2 {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 2px;
+  }
+
   .border-r {
     border-right-style: var(--tw-border-style);
     border-right-width: 1px;
@@ -1524,10 +1531,6 @@
     background-color: var(--muted);
   }
 
-  .bg-muted-foreground {
-    background-color: var(--muted-foreground);
-  }
-
   .bg-muted-foreground\/40 {
     background-color: color-mix(in oklab, var(--muted-foreground) 40%, transparent);
   }
@@ -1580,10 +1583,6 @@
     background-color: color-mix(in oklab, var(--primary) 15%, transparent);
   }
 
-  .bg-red-500 {
-    background-color: var(--color-red-500);
-  }
-
   .bg-secondary {
     background-color: var(--secondary);
   }
@@ -1596,16 +1595,8 @@
     background-color: var(--sidebar-border);
   }
 
-  .bg-sky-500 {
-    background-color: var(--color-sky-500);
-  }
-
   .bg-transparent {
     background-color: #0000;
-  }
-
-  .bg-violet-500 {
-    background-color: var(--color-violet-500);
   }
 
   .bg-gradient-to-b {
@@ -1782,6 +1773,10 @@
     padding-top: calc(var(--spacing) * 3);
   }
 
+  .pr-1 {
+    padding-right: calc(var(--spacing) * 1);
+  }
+
   .pr-2 {
     padding-right: calc(var(--spacing) * 2);
   }
@@ -1804,6 +1799,10 @@
 
   .pl-2\.5 {
     padding-left: calc(var(--spacing) * 2.5);
+  }
+
+  .pl-3 {
+    padding-left: calc(var(--spacing) * 3);
   }
 
   .pl-8 {
@@ -1942,10 +1941,6 @@
     white-space: pre-wrap;
   }
 
-  .text-accent-foreground {
-    color: var(--accent-foreground);
-  }
-
   .text-card-foreground {
     color: var(--card-foreground);
   }
@@ -2004,6 +1999,10 @@
 
   .text-transparent {
     color: #0000;
+  }
+
+  .text-white {
+    color: var(--color-white);
   }
 
   .capitalize {
@@ -2200,8 +2199,17 @@
     --tw-ring-color: color-mix(in oklab, var(--primary) 30%, transparent);
   }
 
+  .ring-ring {
+    --tw-ring-color: var(--ring);
+  }
+
   .ring-sidebar-ring {
     --tw-ring-color: var(--sidebar-ring);
+  }
+
+  .ring-offset-2 {
+    --tw-ring-offset-width: 2px;
+    --tw-ring-offset-shadow: var(--tw-ring-inset, ) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   }
 
   .ring-offset-background {
@@ -2595,6 +2603,13 @@
   }
 
   @media (hover: hover) {
+    .hover\:scale-110:hover {
+      --tw-scale-x: 110%;
+      --tw-scale-y: 110%;
+      --tw-scale-z: 110%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+
     .hover\:border-foreground:hover {
       border-color: var(--foreground);
     }
@@ -2722,6 +2737,10 @@
     color: var(--accent-foreground);
   }
 
+  .focus\:text-destructive:focus {
+    color: var(--destructive);
+  }
+
   .focus\:opacity-100:focus {
     opacity: 1;
   }
@@ -2738,6 +2757,10 @@
   .focus\:ring-offset-2:focus {
     --tw-ring-offset-width: 2px;
     --tw-ring-offset-shadow: var(--tw-ring-inset, ) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  }
+
+  .focus\:ring-offset-background:focus {
+    --tw-ring-offset-color: var(--background);
   }
 
   .focus\:outline-none:focus {

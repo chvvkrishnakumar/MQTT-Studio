@@ -1,11 +1,29 @@
-import { createFileRoute, Link, Outlet, useParams } from '@tanstack/react-router';
-import { Compass, Plus, Radio } from 'lucide-react';
+import { useState } from 'react';
+import { createFileRoute, Link, Outlet, useParams, useRouter } from '@tanstack/react-router';
+import { Compass, Copy, MoreVertical, Plus, Radio, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { cn } from '@/lib/utils';
+import { resolveColor } from '@/lib/colors';
 import { useStudio } from '@/features/explorer/store';
-import type { ConnStatus } from '@shared/schema';
+import type { Connection, ConnStatus } from '@shared/schema';
 
 export const Route = createFileRoute('/_ConnectionLayout')({
   loader: () => window.api.connections.list(),
@@ -23,7 +41,21 @@ const DOT: Record<ConnStatus, string> = {
 function ConnectionLayout() {
   const connections = Route.useLoaderData();
   const statuses = useStudio((s) => s.statuses);
+  const router = useRouter();
   const selectedId = useParams({ strict: false }).connectionId;
+
+  const duplicate = async (c: Connection) => {
+    const { id: _id, ...rest } = c;
+    const saved = await window.api.connections.save({ ...rest, name: `${c.name} copy` });
+    await router.invalidate();
+    router.navigate({ to: '/$connectionId', params: { connectionId: saved.id } });
+  };
+
+  const remove = async (c: Connection) => {
+    await window.api.connections.remove(c.id);
+    await router.invalidate();
+    if (selectedId === c.id) router.navigate({ to: '/' });
+  };
 
   return (
     <div className="flex h-screen flex-col bg-background text-foreground">
@@ -55,41 +87,16 @@ function ConnectionLayout() {
                 No connections yet.
               </p>
             )}
-            {connections.map((c) => {
-              const status = statuses[c.id] ?? 'disconnected';
-              return (
-                <div
-                  key={c.id}
-                  className={cn(
-                    'group flex items-center gap-2 rounded-md px-2 py-2 hover:bg-accent/40',
-                    selectedId === c.id && 'bg-accent',
-                  )}
-                >
-                  <span className={cn('size-2 shrink-0 rounded-full', DOT[status])} />
-                  <Link
-                    to="/$connectionId"
-                    params={{ connectionId: c.id }}
-                    className="min-w-0 flex-1"
-                  >
-                    <div className="truncate text-sm font-medium">{c.name}</div>
-                    <div className="truncate text-xs text-muted-foreground">
-                      {c.host}:{c.port}
-                    </div>
-                  </Link>
-                  <Button
-                    asChild
-                    variant="ghost"
-                    size="icon"
-                    className="size-7 opacity-0 group-hover:opacity-100"
-                    title="Open explorer"
-                  >
-                    <Link to="/explore/$connectionId" params={{ connectionId: c.id }}>
-                      <Compass className="size-4" />
-                    </Link>
-                  </Button>
-                </div>
-              );
-            })}
+            {connections.map((c) => (
+              <ConnectionRow
+                key={c.id}
+                c={c}
+                status={statuses[c.id] ?? 'disconnected'}
+                selected={selectedId === c.id}
+                onDuplicate={() => duplicate(c)}
+                onDelete={() => remove(c)}
+              />
+            ))}
           </nav>
 
           <div className="border-t p-3 text-xs text-muted-foreground">
@@ -101,6 +108,99 @@ function ConnectionLayout() {
           <Outlet />
         </main>
       </div>
+    </div>
+  );
+}
+
+function ConnectionRow({
+  c,
+  status,
+  selected,
+  onDuplicate,
+  onDelete,
+}: {
+  c: Connection;
+  status: ConnStatus;
+  selected: boolean;
+  onDuplicate: () => void;
+  onDelete: () => void;
+}) {
+  const [confirm, setConfirm] = useState(false);
+
+  return (
+    <div
+      className={cn(
+        'group relative flex items-center gap-2 rounded-md py-2 pl-3 pr-1 hover:bg-accent/40',
+        selected && 'bg-accent',
+      )}
+    >
+      <span
+        className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-full"
+        style={{ backgroundColor: resolveColor(c.color) }}
+      />
+      <span className={cn('size-2 shrink-0 rounded-full', DOT[status])} />
+      <Link to="/$connectionId" params={{ connectionId: c.id }} className="min-w-0 flex-1">
+        <div className="truncate text-sm font-medium">{c.name}</div>
+        <div className="truncate text-xs text-muted-foreground">
+          {c.host}:{c.port}
+        </div>
+      </Link>
+
+      <Button
+        asChild
+        variant="ghost"
+        size="icon"
+        className="size-7 opacity-0 group-hover:opacity-100"
+        title="Open explorer"
+      >
+        <Link to="/explore/$connectionId" params={{ connectionId: c.id }}>
+          <Compass className="size-4" />
+        </Link>
+      </Button>
+
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="size-7 opacity-0 group-hover:opacity-100 data-[state=open]:opacity-100"
+            title="More"
+          >
+            <MoreVertical className="size-4" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuItem onSelect={onDuplicate}>
+            <Copy className="size-4" /> Duplicate
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onSelect={() => setConfirm(true)}
+            className="text-destructive focus:text-destructive"
+          >
+            <Trash2 className="size-4" /> Delete
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      <AlertDialog open={confirm} onOpenChange={setConfirm}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete “{c.name}”?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This removes the connection and its stored message history. This can’t be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={onDelete}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

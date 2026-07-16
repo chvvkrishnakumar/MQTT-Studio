@@ -2,6 +2,7 @@ import { useEffect, useState, type MouseEvent } from 'react';
 import { useNavigate } from '@tanstack/react-router';
 import { Plus, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { resolveColor } from '@/lib/colors';
 import type { Connection, ConnStatus } from '@shared/schema';
 import { useStudio } from './store';
 import { useTabs } from './tabs-store';
@@ -42,44 +43,41 @@ export default function TabStrip({ activeId }: { activeId?: string }) {
   };
 
   return (
-    <div className="glass flex items-stretch gap-1 border-b px-2 pt-1.5">
-      <div className="flex min-w-0 flex-1 items-stretch gap-1 overflow-x-auto">
-        {tabs.map((id) => {
-          const active = id === activeId;
-          const status = statuses[id] ?? 'disconnected';
-          const name = names[id]?.name ?? 'Connection';
-          return (
-            <button
-              key={id}
-              type="button"
-              onClick={() =>
-                navigate({ to: '/explore/$connectionId', params: { connectionId: id } })
-              }
-              className={cn(
-                'group flex max-w-[200px] min-w-[120px] items-center gap-2 rounded-t-lg border border-b-0 px-3 py-2 text-sm transition-colors',
-                active
-                  ? 'bg-background font-medium text-foreground'
-                  : 'border-transparent text-muted-foreground hover:bg-foreground/5',
-              )}
+    <div className="glass flex items-stretch gap-1 overflow-x-auto border-b px-2 pt-1.5">
+      {tabs.map((id) => {
+        const active = id === activeId;
+        const status = statuses[id] ?? 'disconnected';
+        const name = names[id]?.name ?? 'Connection';
+        return (
+          <button
+            key={id}
+            type="button"
+            onClick={() => navigate({ to: '/explore/$connectionId', params: { connectionId: id } })}
+            style={{ borderTopColor: active ? resolveColor(names[id]?.color) : undefined }}
+            className={cn(
+              'group flex max-w-[200px] min-w-[120px] shrink-0 items-center gap-2 rounded-t-lg border border-b-0 px-3 py-2 text-sm transition-colors',
+              active
+                ? 'border-t-2 bg-background font-medium text-foreground'
+                : 'border-transparent text-muted-foreground hover:bg-foreground/5',
+            )}
+          >
+            <span className={cn('size-2 shrink-0 rounded-full', DOT[status])} />
+            <span className="truncate">{name}</span>
+            <span
+              onClick={(e) => onClose(e, id)}
+              className="ml-auto grid size-5 shrink-0 place-items-center rounded opacity-0 transition group-hover:opacity-100 hover:bg-foreground/10"
+              aria-label={`Close ${name}`}
             >
-              <span className={cn('size-2 shrink-0 rounded-full', DOT[status])} />
-              <span className="truncate">{name}</span>
-              <span
-                onClick={(e) => onClose(e, id)}
-                className="ml-auto grid size-5 shrink-0 place-items-center rounded opacity-0 transition group-hover:opacity-100 hover:bg-foreground/10"
-                aria-label={`Close ${name}`}
-              >
-                <X className="size-3.5" />
-              </span>
-            </button>
-          );
-        })}
-      </div>
+              <X className="size-3.5" />
+            </span>
+          </button>
+        );
+      })}
       <button
         type="button"
         onClick={() => navigate({ to: '/' })}
         title="New connection"
-        className="my-1 grid size-8 place-items-center self-center rounded-md text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
+        className="my-1 grid size-8 shrink-0 place-items-center self-center rounded-md text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
       >
         <Plus className="size-4" />
       </button>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from '@tanstack/react-router';
 import { ArrowLeft, Pause, Play, Plug, PlugZap, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -27,7 +27,15 @@ const STATUS_STYLE: Record<ConnStatus, string> = {
 
 export default function Explorer({ connectionId }: { connectionId: string }) {
   const [connection, setConnection] = useState<Connection | null>(null);
-  const [selected, setSelected] = useState<string>();
+  // Selection is kept per connection: this component is reused across tabs
+  // (only the `connectionId` prop changes), so a single `selected` would leak
+  // one tab's topic into another and show the wrong/empty detail.
+  const [selectedByConn, setSelectedByConn] = useState<Record<string, string | undefined>>({});
+  const selected = selectedByConn[connectionId];
+  const setSelected = useCallback(
+    (topic?: string) => setSelectedByConn((prev) => ({ ...prev, [connectionId]: topic })),
+    [connectionId],
+  );
 
   const topics = useStudio((s) => s.topics[connectionId]);
   const status = useStudio((s) => s.statuses[connectionId] ?? 'disconnected');

@@ -12307,7 +12307,7 @@ function createSlot(ownerName) {
   Slot2.displayName = `${ownerName}.Slot`;
   return Slot2;
 }
-var Slot$1 = /* @__PURE__ */ createSlot("Slot");
+var Slot$3 = /* @__PURE__ */ createSlot("Slot");
 var SLOTTABLE_IDENTIFIER = Symbol.for("radix.slottable");
 var getSlottableElementFromSlottable = (slottable, child) => {
   if ("child" in slottable.props) {
@@ -15405,7 +15405,7 @@ const buttonVariants = cva(
 );
 const Button = reactExports.forwardRef(
   ({ className, variant, size: size2, asChild = false, ...props2 }, ref) => {
-    const Comp = asChild ? Slot$1 : "button";
+    const Comp = asChild ? Slot$3 : "button";
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
       Comp,
       {
@@ -15597,50 +15597,58 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$m = [
+const __iconNode$o = [
   ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
   ["path", { d: "M19 12H5", key: "x3x0zl" }]
 ];
-const ArrowLeft = createLucideIcon("ArrowLeft", __iconNode$m);
+const ArrowLeft = createLucideIcon("ArrowLeft", __iconNode$o);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$l = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("Check", __iconNode$l);
+const __iconNode$n = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("Check", __iconNode$n);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$k = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown = createLucideIcon("ChevronDown", __iconNode$k);
+const __iconNode$m = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("ChevronDown", __iconNode$m);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$j = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("ChevronRight", __iconNode$j);
+const __iconNode$l = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("ChevronRight", __iconNode$l);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$i = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
-const ChevronUp = createLucideIcon("ChevronUp", __iconNode$i);
+const __iconNode$k = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("ChevronUp", __iconNode$k);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$h = [
+const __iconNode$j = [["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }]];
+const Circle = createLucideIcon("Circle", __iconNode$j);
+/**
+ * @license lucide-react v0.477.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$i = [
   [
     "path",
     {
@@ -15650,7 +15658,18 @@ const __iconNode$h = [
   ],
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }]
 ];
-const Compass = createLucideIcon("Compass", __iconNode$h);
+const Compass = createLucideIcon("Compass", __iconNode$i);
+/**
+ * @license lucide-react v0.477.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$h = [
+  ["rect", { width: "14", height: "14", x: "8", y: "8", rx: "2", ry: "2", key: "17jyea" }],
+  ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
+];
+const Copy = createLucideIcon("Copy", __iconNode$h);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
@@ -15658,10 +15677,11 @@ const Compass = createLucideIcon("Compass", __iconNode$h);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$g = [
-  ["rect", { width: "14", height: "14", x: "8", y: "8", rx: "2", ry: "2", key: "17jyea" }],
-  ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
+  ["circle", { cx: "12", cy: "12", r: "1", key: "41hilf" }],
+  ["circle", { cx: "12", cy: "5", r: "1", key: "gxeob9" }],
+  ["circle", { cx: "12", cy: "19", r: "1", key: "lyex9k" }]
 ];
-const Copy = createLucideIcon("Copy", __iconNode$g);
+const EllipsisVertical = createLucideIcon("EllipsisVertical", __iconNode$g);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
@@ -15885,6 +15905,52 @@ const __iconNode = [
   ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ];
 const X = createLucideIcon("X", __iconNode);
+const PALETTE = [
+  "#ef4444",
+  // red
+  "#f97316",
+  // orange
+  "#f59e0b",
+  // amber
+  "#eab308",
+  // yellow
+  "#84cc16",
+  // lime
+  "#22c55e",
+  // green
+  "#10b981",
+  // emerald
+  "#14b8a6",
+  // teal
+  "#06b6d4",
+  // cyan
+  "#0ea5e9",
+  // sky
+  "#3b82f6",
+  // blue
+  "#6366f1",
+  // indigo
+  "#8b5cf6",
+  // violet
+  "#a855f7",
+  // purple
+  "#ec4899",
+  // pink
+  "#f43f5e"
+  // rose
+];
+const NAMED = {
+  red: "#ef4444",
+  green: "#22c55e",
+  blue: "#3b82f6",
+  purple: "#a855f7",
+  sky: "#0ea5e9"
+};
+function resolveColor(color2) {
+  if (!color2) return NAMED.sky;
+  if (color2.startsWith("#")) return color2;
+  return NAMED[color2] ?? NAMED.sky;
+}
 const KEY$1 = "mqtt-studio.open-tabs";
 function load$1() {
   try {
@@ -15946,8 +16012,8 @@ function TabStrip({ activeId }) {
       else navigate({ to: "/" });
     }
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass flex items-stretch gap-1 border-b px-2 pt-1.5", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-w-0 flex-1 items-stretch gap-1 overflow-x-auto", children: tabs.map((id) => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass flex items-stretch gap-1 overflow-x-auto border-b px-2 pt-1.5", children: [
+    tabs.map((id) => {
       const active = id === activeId;
       const status = statuses[id] ?? "disconnected";
       const name = names[id]?.name ?? "Connection";
@@ -15956,9 +16022,10 @@ function TabStrip({ activeId }) {
         {
           type: "button",
           onClick: () => navigate({ to: "/explore/$connectionId", params: { connectionId: id } }),
+          style: { borderTopColor: active ? resolveColor(names[id]?.color) : void 0 },
           className: cn(
-            "group flex max-w-[200px] min-w-[120px] items-center gap-2 rounded-t-lg border border-b-0 px-3 py-2 text-sm transition-colors",
-            active ? "bg-background font-medium text-foreground" : "border-transparent text-muted-foreground hover:bg-foreground/5"
+            "group flex max-w-[200px] min-w-[120px] shrink-0 items-center gap-2 rounded-t-lg border border-b-0 px-3 py-2 text-sm transition-colors",
+            active ? "border-t-2 bg-background font-medium text-foreground" : "border-transparent text-muted-foreground hover:bg-foreground/5"
           ),
           children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: cn("size-2 shrink-0 rounded-full", DOT$1[status]) }),
@@ -15976,14 +16043,14 @@ function TabStrip({ activeId }) {
         },
         id
       );
-    }) }),
+    }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "button",
       {
         type: "button",
         onClick: () => navigate({ to: "/" }),
         title: "New connection",
-        className: "my-1 grid size-8 place-items-center self-center rounded-md text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground",
+        className: "my-1 grid size-8 shrink-0 place-items-center self-center rounded-md text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground",
         children: /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "size-4" })
       }
     )
@@ -16018,2673 +16085,6 @@ const badgeVariants = cva(
 );
 function Badge({ className, variant, ...props2 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: cn(badgeVariants({ variant }), className), ...props2 });
-}
-const KEY = "theme";
-function preferred() {
-  const saved = localStorage.getItem(KEY);
-  if (saved === "light" || saved === "dark") return saved;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
-function apply(theme) {
-  document.documentElement.classList.toggle("dark", theme === "dark");
-}
-function initTheme() {
-  apply(preferred());
-}
-function ThemeToggle() {
-  const [theme, setTheme] = reactExports.useState(preferred);
-  reactExports.useEffect(() => {
-    apply(theme);
-    localStorage.setItem(KEY, theme);
-  }, [theme]);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    Button,
-    {
-      variant: "ghost",
-      size: "icon",
-      "aria-label": "Toggle theme",
-      onClick: () => setTheme((t) => t === "dark" ? "light" : "dark"),
-      children: theme === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(Sun, { className: "size-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Moon, { className: "size-4" })
-    }
-  );
-}
-const Route$3 = createFileRoute("/_ConnectionLayout")({
-  loader: () => window.api.connections.list(),
-  component: ConnectionLayout
-});
-const DOT = {
-  connected: "bg-emerald-500",
-  connecting: "bg-amber-500",
-  reconnecting: "bg-amber-500",
-  disconnected: "bg-muted-foreground/40",
-  error: "bg-destructive"
-};
-function ConnectionLayout() {
-  const connections = Route$3.useLoaderData();
-  const statuses = useStudio((s) => s.statuses);
-  const selectedId = useParams({ strict: false }).connectionId;
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-screen flex-col bg-background text-foreground", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "glass z-10 flex items-center gap-2.5 border-b px-5 py-3", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/60 shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Radio, { className: "size-4 text-primary-foreground" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-base font-semibold text-transparent", children: "MQTT Studio" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ThemeToggle, {}) })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex min-h-0 flex-1", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("aside", { className: "flex w-[280px] shrink-0 flex-col border-r bg-sidebar", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { asChild: true, className: "w-full justify-start", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/$connectionId", params: { connectionId: "new" }, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "size-4" }),
-          " New connection"
-        ] }) }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "min-h-0 flex-1 space-y-1 overflow-auto px-2 pb-2", children: [
-          connections.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "px-2 py-6 text-center text-sm text-muted-foreground", children: "No connections yet." }),
-          connections.map((c) => {
-            const status = statuses[c.id] ?? "disconnected";
-            return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              "div",
-              {
-                className: cn(
-                  "group flex items-center gap-2 rounded-md px-2 py-2 hover:bg-accent/40",
-                  selectedId === c.id && "bg-accent"
-                ),
-                children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: cn("size-2 shrink-0 rounded-full", DOT[status]) }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                    Link,
-                    {
-                      to: "/$connectionId",
-                      params: { connectionId: c.id },
-                      className: "min-w-0 flex-1",
-                      children: [
-                        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "truncate text-sm font-medium", children: c.name }),
-                        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "truncate text-xs text-muted-foreground", children: [
-                          c.host,
-                          ":",
-                          c.port
-                        ] })
-                      ]
-                    }
-                  ),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    Button,
-                    {
-                      asChild: true,
-                      variant: "ghost",
-                      size: "icon",
-                      className: "size-7 opacity-0 group-hover:opacity-100",
-                      title: "Open explorer",
-                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/explore/$connectionId", params: { connectionId: c.id }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Compass, { className: "size-4" }) })
-                    }
-                  )
-                ]
-              },
-              c.id
-            );
-          })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t p-3 text-xs text-muted-foreground", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { variant: "outline", children: [
-          connections.length,
-          " saved"
-        ] }) })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "min-h-0 flex-1 overflow-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) })
-    ] })
-  ] });
-}
-const Route$2 = createFileRoute("/_ConnectionLayout/")({
-  component: Welcome
-});
-function Welcome() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-full flex-col items-center justify-center gap-4 p-8 text-center", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex size-16 items-center justify-center rounded-2xl bg-primary/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Radio, { className: "size-8 text-primary" }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-semibold", children: "Welcome to MQTT Studio" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 max-w-sm text-sm text-muted-foreground", children: "Create a connection to a broker, then open the explorer to watch topics and history update live." })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/$connectionId", params: { connectionId: "new" }, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "size-4" }),
-      " New connection"
-    ] }) })
-  ] });
-}
-var isCheckBoxInput = (element) => element.type === "checkbox";
-var isDateObject = (value) => value instanceof Date;
-var isNullOrUndefined = (value) => value == null;
-const isObjectType = (value) => typeof value === "object";
-var isObject$2 = (value) => !isNullOrUndefined(value) && !Array.isArray(value) && isObjectType(value) && !isDateObject(value);
-var getEventValue = (event) => isObject$2(event) && event.target ? isCheckBoxInput(event.target) ? event.target.checked : event.target.value : event;
-var isNameInFieldArray = (names, name) => name.split(".").some((part, index2, arr) => !isNaN(Number(part)) && names.has(arr.slice(0, index2).join(".")));
-var isPlainObject$4 = (tempObject) => {
-  const prototypeCopy = tempObject.constructor && tempObject.constructor.prototype;
-  return isObject$2(prototypeCopy) && prototypeCopy.hasOwnProperty("isPrototypeOf");
-};
-var isWeb = typeof window !== "undefined" && typeof window.HTMLElement !== "undefined" && typeof document !== "undefined";
-function cloneObject(data) {
-  if (data instanceof Date) {
-    return new Date(data);
-  }
-  const isFileListInstance = typeof FileList !== "undefined" && data instanceof FileList;
-  if (isWeb && (data instanceof Blob || isFileListInstance)) {
-    return data;
-  }
-  const isArray2 = Array.isArray(data);
-  if (!isArray2 && !(isObject$2(data) && isPlainObject$4(data))) {
-    return data;
-  }
-  const copy2 = isArray2 ? [] : Object.create(Object.getPrototypeOf(data));
-  for (const key in data) {
-    if (Object.prototype.hasOwnProperty.call(data, key)) {
-      copy2[key] = cloneObject(data[key]);
-    }
-  }
-  return copy2;
-}
-const EVENTS = {
-  BLUR: "blur",
-  FOCUS_OUT: "focusout",
-  CHANGE: "change",
-  SUBMIT: "submit",
-  TRIGGER: "trigger",
-  VALID: "valid"
-};
-const VALIDATION_MODE = {
-  onBlur: "onBlur",
-  onChange: "onChange",
-  onSubmit: "onSubmit",
-  onTouched: "onTouched",
-  all: "all"
-};
-const INPUT_VALIDATION_RULES = {
-  max: "max",
-  min: "min",
-  maxLength: "maxLength",
-  minLength: "minLength",
-  pattern: "pattern",
-  required: "required",
-  validate: "validate"
-};
-const ROOT_ERROR_TYPE = "root";
-const PROTOTYPE_KEYWORDS = ["__proto__", "constructor", "prototype"];
-const IS_KEY_RE = /^\w*$/;
-var isKey$1 = (value) => IS_KEY_RE.test(value);
-var isUndefined = (val) => val === void 0;
-const FIELD_PATH_RE = /[.[\]'"]/;
-var stringToPath = (input) => input.split(FIELD_PATH_RE).filter(Boolean);
-var get$2 = (object2, path, defaultValue) => {
-  if (!path || !isObject$2(object2)) {
-    return defaultValue;
-  }
-  const paths = isKey$1(path) ? [path] : stringToPath(path);
-  if (paths.some((key) => PROTOTYPE_KEYWORDS.includes(key))) {
-    return defaultValue;
-  }
-  const result = paths.reduce((result2, key) => {
-    return isNullOrUndefined(result2) ? void 0 : result2[key];
-  }, object2);
-  return isUndefined(result) || result === object2 ? isUndefined(object2[path]) ? defaultValue : object2[path] : result;
-};
-var isBoolean$2 = (value) => typeof value === "boolean";
-var isFunction$4 = (value) => typeof value === "function";
-var set$1 = (object2, path, value) => {
-  let index2 = -1;
-  const tempPath = isKey$1(path) ? [path] : stringToPath(path);
-  const length = tempPath.length;
-  const lastIndex = length - 1;
-  while (++index2 < length) {
-    const key = tempPath[index2];
-    let newValue = value;
-    if (index2 !== lastIndex) {
-      const objValue = object2[key];
-      newValue = isObject$2(objValue) || Array.isArray(objValue) ? objValue : !isNaN(+tempPath[index2 + 1]) ? [] : {};
-    }
-    if (PROTOTYPE_KEYWORDS.includes(key)) {
-      return;
-    }
-    object2[key] = newValue;
-    object2 = object2[key];
-  }
-};
-const HookFormControlContext = React.createContext(null);
-HookFormControlContext.displayName = "HookFormControlContext";
-const useFormControlContext = () => React.useContext(HookFormControlContext);
-var getProxyFormState = (formState, control, localProxyFormState, isRoot = true) => {
-  const result = {};
-  for (const key in formState) {
-    Object.defineProperty(result, key, {
-      get: () => {
-        const _key = key;
-        if (control._proxyFormState[_key] !== VALIDATION_MODE.all) {
-          control._proxyFormState[_key] = !isRoot || VALIDATION_MODE.all;
-        }
-        localProxyFormState && (localProxyFormState[_key] = true);
-        return formState[_key];
-      }
-    });
-  }
-  return result;
-};
-const useIsomorphicLayoutEffect$3 = isWeb ? React.useLayoutEffect : React.useEffect;
-function useFormState(props2) {
-  const formControl = useFormControlContext();
-  const { control = formControl, disabled, name, exact } = props2 || {};
-  const [formState, updateFormState] = React.useState(() => ({
-    ...control._formState,
-    defaultValues: control._defaultValues
-  }));
-  const _localProxyFormState = React.useRef({
-    isDirty: false,
-    isLoading: false,
-    dirtyFields: false,
-    touchedFields: false,
-    validatingFields: false,
-    isValidating: false,
-    isValid: false,
-    errors: false
-  });
-  useIsomorphicLayoutEffect$3(() => control._subscribe({
-    name,
-    formState: _localProxyFormState.current,
-    exact,
-    callback: (formState2) => {
-      !disabled && updateFormState({
-        ...control._formState,
-        ...formState2,
-        defaultValues: control._defaultValues
-      });
-    }
-  }), [name, disabled, exact]);
-  React.useEffect(() => {
-    _localProxyFormState.current.isValid && control._setValid(true);
-  }, [control]);
-  return React.useMemo(() => getProxyFormState(formState, control, _localProxyFormState.current, false), [formState, control]);
-}
-var isString = (value) => typeof value === "string";
-var generateWatchOutput = (names, _names, formValues, isGlobal, defaultValue) => {
-  if (isString(names)) {
-    isGlobal && _names.watch.add(names);
-    return get$2(formValues, names, defaultValue);
-  }
-  if (Array.isArray(names)) {
-    return names.map((fieldName) => (isGlobal && _names.watch.add(fieldName), get$2(formValues, fieldName)));
-  }
-  isGlobal && (_names.watchAll = true);
-  return formValues;
-};
-var isPrimitive$1 = (value) => isNullOrUndefined(value) || !isObjectType(value);
-const isEmptyObjectWithCustomPrototype = (object2, keys) => keys.length === 0 && !Array.isArray(object2) && !isPlainObject$4(object2);
-function deepEqual$1(object1, object2, visited = /* @__PURE__ */ new WeakMap()) {
-  if (object1 === object2) {
-    return true;
-  }
-  if (isPrimitive$1(object1) || isPrimitive$1(object2)) {
-    return Object.is(object1, object2);
-  }
-  if (isDateObject(object1) && isDateObject(object2)) {
-    return Object.is(object1.getTime(), object2.getTime());
-  }
-  const keys1 = Object.keys(object1);
-  const keys2 = Object.keys(object2);
-  if (keys1.length !== keys2.length) {
-    return false;
-  }
-  if (isEmptyObjectWithCustomPrototype(object1, keys1) || isEmptyObjectWithCustomPrototype(object2, keys2)) {
-    return Object.is(object1, object2);
-  }
-  if (!keys1.length && Array.isArray(object1) !== Array.isArray(object2)) {
-    return false;
-  }
-  const visitedPairs = visited.get(object1);
-  if (visitedPairs && visitedPairs.has(object2)) {
-    return true;
-  }
-  if (visitedPairs) {
-    visitedPairs.add(object2);
-  } else {
-    const ws = /* @__PURE__ */ new WeakSet();
-    ws.add(object2);
-    visited.set(object1, ws);
-  }
-  for (const key of keys1) {
-    const val1 = object1[key];
-    if (!(key in object2)) {
-      return false;
-    }
-    if (key !== "ref") {
-      const val2 = object2[key];
-      if (isDateObject(val1) && isDateObject(val2) || (isObject$2(val1) || Array.isArray(val1)) && (isObject$2(val2) || Array.isArray(val2)) ? !deepEqual$1(val1, val2, visited) : !Object.is(val1, val2)) {
-        return false;
-      }
-    }
-  }
-  return true;
-}
-function useWatch(props2) {
-  const formControl = useFormControlContext();
-  const { control = formControl, name, defaultValue, disabled, exact, compute } = props2 || {};
-  const _defaultValue = React.useRef(defaultValue);
-  const _compute = React.useRef(compute);
-  const _computeFormValues = React.useRef(void 0);
-  const _prevControl = React.useRef(control);
-  const _prevName = React.useRef(name);
-  _compute.current = compute;
-  const [value, updateValue] = React.useState(() => {
-    const defaultValue2 = control._getWatch(name, _defaultValue.current);
-    return _compute.current ? _compute.current(defaultValue2) : defaultValue2;
-  });
-  const getCurrentOutput = React.useCallback((values) => {
-    const formValues = generateWatchOutput(name, control._names, values || control._formValues, false, _defaultValue.current);
-    return _compute.current ? _compute.current(formValues) : formValues;
-  }, [control._formValues, control._names, name]);
-  const refreshValue = React.useCallback((values) => {
-    if (!disabled) {
-      const formValues = generateWatchOutput(name, control._names, values || control._formValues, false, _defaultValue.current);
-      if (_compute.current) {
-        const computedFormValues = _compute.current(formValues);
-        if (!deepEqual$1(computedFormValues, _computeFormValues.current)) {
-          updateValue(computedFormValues);
-          _computeFormValues.current = computedFormValues;
-        }
-      } else {
-        updateValue(formValues);
-      }
-    }
-  }, [control._formValues, control._names, disabled, name]);
-  useIsomorphicLayoutEffect$3(() => {
-    if (_prevControl.current !== control || !deepEqual$1(_prevName.current, name)) {
-      _prevControl.current = control;
-      _prevName.current = name;
-      refreshValue();
-    }
-    return control._subscribe({
-      name,
-      formState: {
-        values: true
-      },
-      exact,
-      callback: (formState) => {
-        refreshValue(formState.values);
-      }
-    });
-  }, [control, exact, name, refreshValue]);
-  React.useEffect(() => control._removeUnmounted());
-  const controlChanged = _prevControl.current !== control;
-  const prevName = _prevName.current;
-  const computedOutput = React.useMemo(() => {
-    if (disabled) {
-      return null;
-    }
-    const nameChanged = !controlChanged && !deepEqual$1(prevName, name);
-    const shouldReturnImmediate = controlChanged || nameChanged;
-    return shouldReturnImmediate ? getCurrentOutput() : null;
-  }, [disabled, controlChanged, name, prevName, getCurrentOutput]);
-  return computedOutput !== null ? computedOutput : value;
-}
-function useController(props2) {
-  const formControl = useFormControlContext();
-  const { name, disabled, control = formControl, shouldUnregister, defaultValue, exact = true } = props2;
-  const isArrayField = isNameInFieldArray(control._names.array, name);
-  const defaultValueMemo = React.useMemo(() => get$2(control._formValues, name, get$2(control._defaultValues, name, defaultValue)), [control, name, defaultValue]);
-  const value = useWatch({
-    control,
-    name,
-    defaultValue: defaultValueMemo,
-    exact
-  });
-  const formState = useFormState({
-    control,
-    name,
-    exact
-  });
-  const _props = React.useRef(props2);
-  const _proxyRef = React.useRef(null);
-  const _registerProps = React.useRef(control.register(name, {
-    ...props2.rules,
-    value,
-    ...isBoolean$2(props2.disabled) ? { disabled: props2.disabled } : {}
-  }));
-  _props.current = props2;
-  const fieldState = React.useMemo(() => Object.defineProperties({}, {
-    invalid: {
-      enumerable: true,
-      get: () => !!get$2(formState.errors, name)
-    },
-    isDirty: {
-      enumerable: true,
-      get: () => !!get$2(formState.dirtyFields, name)
-    },
-    isTouched: {
-      enumerable: true,
-      get: () => !!get$2(formState.touchedFields, name)
-    },
-    isValidating: {
-      enumerable: true,
-      get: () => !!get$2(formState.validatingFields, name)
-    },
-    error: {
-      enumerable: true,
-      get: () => get$2(formState.errors, name)
-    }
-  }), [formState, name]);
-  const onChange = React.useCallback((event) => {
-    const value2 = getEventValue(event);
-    if (!get$2(control._fields, name)) {
-      _registerProps.current = control.register(name, {
-        ..._props.current.rules,
-        value: value2
-      });
-    }
-    return _registerProps.current.onChange({
-      target: {
-        value: getEventValue(event),
-        name
-      },
-      type: EVENTS.CHANGE
-    });
-  }, [name, control]);
-  const onBlur = React.useCallback(() => _registerProps.current.onBlur({
-    target: {
-      value: get$2(control._formValues, name),
-      name
-    },
-    type: EVENTS.BLUR
-  }), [name, control._formValues]);
-  const ref = React.useCallback((elm) => {
-    if (elm) {
-      _proxyRef.current = {
-        focus: () => isFunction$4(elm.focus) && elm.focus(),
-        select: () => isFunction$4(elm.select) && elm.select(),
-        setCustomValidity: (message) => isFunction$4(elm.setCustomValidity) && elm.setCustomValidity(message),
-        reportValidity: () => isFunction$4(elm.reportValidity) && elm.reportValidity()
-      };
-    }
-    const field2 = get$2(control._fields, name);
-    if (field2 && field2._f && elm) {
-      field2._f.ref = _proxyRef.current;
-    }
-  }, [control._fields, name]);
-  const field = React.useMemo(() => ({
-    name,
-    value,
-    ...isBoolean$2(disabled) || formState.disabled ? { disabled: formState.disabled || disabled } : {},
-    onChange,
-    onBlur,
-    ref
-  }), [name, disabled, formState.disabled, onChange, onBlur, ref, value]);
-  React.useEffect(() => {
-    const _shouldUnregisterField = control._options.shouldUnregister || shouldUnregister;
-    control.register(name, {
-      ..._props.current.rules,
-      ...isBoolean$2(_props.current.disabled) ? { disabled: _props.current.disabled } : {}
-    });
-    const updateMounted = (name2, value2) => {
-      const field2 = get$2(control._fields, name2);
-      if (field2 && field2._f) {
-        field2._f.mount = value2;
-      }
-    };
-    updateMounted(name, true);
-    if (_shouldUnregisterField) {
-      const value2 = cloneObject(get$2(shouldUnregister ? control._defaultValues : control._options.values || control._defaultValues, name, get$2(control._options.defaultValues, name, _props.current.defaultValue)));
-      set$1(control._defaultValues, name, value2);
-      if (isUndefined(get$2(control._formValues, name))) {
-        set$1(control._formValues, name, value2);
-      }
-    }
-    !isArrayField && control.register(name);
-    if (_proxyRef.current) {
-      const field2 = get$2(control._fields, name);
-      if (field2 && field2._f) {
-        field2._f.ref = _proxyRef.current;
-      }
-    }
-    return () => {
-      (isArrayField ? _shouldUnregisterField && !control._state.action : _shouldUnregisterField) ? control.unregister(name) : updateMounted(name, false);
-    };
-  }, [name, control, isArrayField, shouldUnregister]);
-  React.useEffect(() => {
-    control._setDisabledField({
-      disabled,
-      name
-    });
-  }, [disabled, name, control]);
-  return React.useMemo(() => ({
-    field,
-    formState,
-    fieldState
-  }), [field, formState, fieldState]);
-}
-const Controller = (props2) => props2.render(useController(props2));
-const flatten$1 = (obj) => {
-  const output = {};
-  for (const key of Object.keys(obj)) {
-    if (isObjectType(obj[key]) && obj[key] !== null && !isDateObject(obj[key])) {
-      const nested = flatten$1(obj[key]);
-      for (const nestedKey of Object.keys(nested)) {
-        output[`${key}.${nestedKey}`] = nested[nestedKey];
-      }
-    } else {
-      output[key] = obj[key];
-    }
-  }
-  return output;
-};
-const HookFormContext = React.createContext(null);
-HookFormContext.displayName = "HookFormContext";
-const useFormContext = () => React.useContext(HookFormContext);
-const FormProvider = ({ children, watch, getValues, getFieldState, setError, clearErrors, setValue, setValues, trigger, formState, resetField, reset, handleSubmit, unregister, control, register, setFocus, subscribe: subscribe2 }) => {
-  const memoizedValue = React.useMemo(() => ({
-    watch,
-    getValues,
-    getFieldState,
-    setError,
-    clearErrors,
-    setValue,
-    setValues,
-    trigger,
-    formState,
-    resetField,
-    reset,
-    handleSubmit,
-    unregister,
-    control,
-    register,
-    setFocus,
-    subscribe: subscribe2
-  }), [
-    clearErrors,
-    control,
-    formState,
-    getFieldState,
-    getValues,
-    handleSubmit,
-    register,
-    reset,
-    resetField,
-    setError,
-    setFocus,
-    setValue,
-    setValues,
-    subscribe2,
-    trigger,
-    unregister,
-    watch
-  ]);
-  return React.createElement(
-    HookFormContext.Provider,
-    { value: memoizedValue },
-    React.createElement(HookFormControlContext.Provider, { value: memoizedValue.control }, children)
-  );
-};
-var appendErrors = (name, validateAllFieldCriteria, errors, type, message) => validateAllFieldCriteria ? {
-  ...errors[name],
-  types: {
-    ...errors[name] && errors[name].types ? errors[name].types : {},
-    [type]: message || true
-  }
-} : {};
-var compact = (value) => Array.isArray(value) ? value.filter(Boolean) : [];
-var convertToArrayPayload = (value) => Array.isArray(value) ? value : [value];
-var createSubject = () => {
-  let _observers = [];
-  const next = (value) => {
-    for (const observer of _observers) {
-      observer.next && observer.next(value);
-    }
-  };
-  const subscribe2 = (observer) => {
-    _observers.push(observer);
-    return {
-      unsubscribe: () => {
-        _observers = _observers.filter((o) => o !== observer);
-      }
-    };
-  };
-  const unsubscribe = () => {
-    _observers = [];
-  };
-  return {
-    get observers() {
-      return _observers;
-    },
-    next,
-    subscribe: subscribe2,
-    unsubscribe
-  };
-};
-function extractFormValues(fieldsState, formValues) {
-  const values = {};
-  for (const key in fieldsState) {
-    if (fieldsState.hasOwnProperty(key)) {
-      const fieldState = fieldsState[key];
-      const fieldValue = formValues[key];
-      if (fieldState && isObject$2(fieldState) && fieldValue) {
-        const nestedFieldsState = extractFormValues(fieldState, fieldValue);
-        if (isObject$2(nestedFieldsState)) {
-          values[key] = nestedFieldsState;
-        }
-      } else if (fieldsState[key]) {
-        values[key] = fieldValue;
-      }
-    }
-  }
-  return values;
-}
-var isEmptyObject = (value) => isObject$2(value) && !Object.keys(value).length;
-var isFileInput = (element) => element.type === "file";
-var isHTMLElement$1 = (value) => {
-  if (!isWeb) {
-    return false;
-  }
-  const owner = value ? value.ownerDocument : 0;
-  return value instanceof (owner && owner.defaultView ? owner.defaultView.HTMLElement : HTMLElement);
-};
-var isMultipleSelect = (element) => element.type === `select-multiple`;
-var isRadioInput = (element) => element.type === "radio";
-var isRadioOrCheckbox = (ref) => isRadioInput(ref) || isCheckBoxInput(ref);
-var live = (ref) => isHTMLElement$1(ref) && ref.isConnected;
-function baseGet(object2, updatePath) {
-  const length = updatePath.slice(0, -1).length;
-  let index2 = 0;
-  while (index2 < length) {
-    if (isNullOrUndefined(object2)) {
-      object2 = void 0;
-      break;
-    }
-    object2 = object2[updatePath[index2]];
-    index2++;
-  }
-  return object2;
-}
-function isEmptyArray(obj) {
-  for (const key in obj) {
-    if (obj.hasOwnProperty(key) && !isUndefined(obj[key])) {
-      return false;
-    }
-  }
-  return true;
-}
-function unset(object2, path) {
-  if (isString(path) && Object.prototype.hasOwnProperty.call(object2, path)) {
-    delete object2[path];
-    return object2;
-  }
-  const paths = Array.isArray(path) ? path : isKey$1(path) ? [path] : stringToPath(path);
-  if (paths.some((segment) => PROTOTYPE_KEYWORDS.includes(String(segment)))) {
-    return object2;
-  }
-  const childObject = paths.length === 1 ? object2 : baseGet(object2, paths);
-  const index2 = paths.length - 1;
-  const key = paths[index2];
-  if (childObject) {
-    delete childObject[key];
-  }
-  if (index2 !== 0 && (isObject$2(childObject) && isEmptyObject(childObject) || Array.isArray(childObject) && isEmptyArray(childObject))) {
-    unset(object2, paths.slice(0, -1));
-  }
-  return object2;
-}
-var objectHasFunction = (data) => {
-  for (const key in data) {
-    if (isFunction$4(data[key])) {
-      return true;
-    }
-  }
-  return false;
-};
-function isTraversable(value) {
-  return Array.isArray(value) || isObject$2(value) && !objectHasFunction(value);
-}
-function markFieldsDirty(data, fields = {}) {
-  for (const key in data) {
-    const value = data[key];
-    if (isTraversable(value)) {
-      fields[key] = Array.isArray(value) ? [] : {};
-      markFieldsDirty(value, fields[key]);
-    } else if (!isUndefined(value)) {
-      fields[key] = true;
-    }
-  }
-  return fields;
-}
-function pruneDirtyFields(value) {
-  if (value === false) {
-    return void 0;
-  }
-  if (value === true) {
-    return true;
-  }
-  if (Array.isArray(value)) {
-    const result = value.map((value2) => pruneDirtyFields(value2));
-    return result.some((value2) => value2 !== void 0) ? result : void 0;
-  }
-  if (isObject$2(value)) {
-    const result = {};
-    for (const key in value) {
-      const pruned = pruneDirtyFields(value[key]);
-      if (!isUndefined(pruned)) {
-        result[key] = pruned;
-      }
-    }
-    return Object.keys(result).length ? result : void 0;
-  }
-  return void 0;
-}
-function getDirtyFields(data, formValues, dirtyFieldsFromValues) {
-  if (!dirtyFieldsFromValues) {
-    dirtyFieldsFromValues = markFieldsDirty(formValues);
-  }
-  for (const key in data) {
-    const value = data[key];
-    if (isTraversable(value)) {
-      if (isUndefined(formValues) || isPrimitive$1(dirtyFieldsFromValues[key])) {
-        dirtyFieldsFromValues[key] = markFieldsDirty(value, Array.isArray(value) ? [] : {});
-      } else {
-        getDirtyFields(value, isNullOrUndefined(formValues) ? {} : formValues[key], dirtyFieldsFromValues[key]);
-      }
-    } else {
-      const formValue = formValues[key];
-      dirtyFieldsFromValues[key] = !deepEqual$1(value, formValue);
-    }
-  }
-  return pruneDirtyFields(dirtyFieldsFromValues) || {};
-}
-const defaultResult = {
-  value: false,
-  isValid: false
-};
-const validResult = { value: true, isValid: true };
-var getCheckboxValue = (options) => {
-  if (Array.isArray(options)) {
-    if (options.length > 1) {
-      const values = options.filter((option) => option && option.checked && !option.disabled).map((option) => option.value);
-      return { value: values, isValid: !!values.length };
-    }
-    return options[0].checked && !options[0].disabled ? (
-      // @ts-expect-error expected to work in the browser
-      options[0].attributes && !isUndefined(options[0].attributes.value) ? isUndefined(options[0].value) || options[0].value === "" ? validResult : { value: options[0].value, isValid: true } : validResult
-    ) : defaultResult;
-  }
-  return defaultResult;
-};
-var getFieldValueAs = (value, { valueAsNumber, valueAsDate, setValueAs }) => isUndefined(value) ? value : valueAsNumber ? value === "" ? NaN : value ? +value : value : valueAsDate && isString(value) ? new Date(value) : setValueAs ? setValueAs(value) : value;
-const defaultReturn = {
-  isValid: false,
-  value: null
-};
-var getRadioValue = (options) => Array.isArray(options) ? options.reduce((previous, option) => option && option.checked && !option.disabled ? {
-  isValid: true,
-  value: option.value
-} : previous, defaultReturn) : defaultReturn;
-function getFieldValue(_f) {
-  const ref = _f.ref;
-  if (isFileInput(ref)) {
-    return ref.files;
-  }
-  if (isRadioInput(ref)) {
-    return getRadioValue(_f.refs).value;
-  }
-  if (isMultipleSelect(ref)) {
-    return [...ref.selectedOptions].map(({ value }) => value);
-  }
-  if (isCheckBoxInput(ref)) {
-    return getCheckboxValue(_f.refs).value;
-  }
-  return getFieldValueAs(isUndefined(ref.value) ? _f.ref.value : ref.value, _f);
-}
-var getResolverOptions = (fieldsNames, _fields, criteriaMode, shouldUseNativeValidation) => {
-  const fields = {};
-  for (const name of fieldsNames) {
-    const field = get$2(_fields, name);
-    field && set$1(fields, name, field._f);
-  }
-  return {
-    criteriaMode,
-    names: [...fieldsNames],
-    fields,
-    shouldUseNativeValidation
-  };
-};
-var isRegex = (value) => value instanceof RegExp;
-var getRuleValue = (rule) => isUndefined(rule) ? rule : isRegex(rule) ? rule.source : isObject$2(rule) ? isRegex(rule.value) ? rule.value.source : rule.value : rule;
-var getValidationModes = (mode) => ({
-  isOnSubmit: !mode || mode === VALIDATION_MODE.onSubmit,
-  isOnBlur: mode === VALIDATION_MODE.onBlur,
-  isOnChange: mode === VALIDATION_MODE.onChange,
-  isOnAll: mode === VALIDATION_MODE.all,
-  isOnTouch: mode === VALIDATION_MODE.onTouched
-});
-const ASYNC_FUNCTION = "AsyncFunction";
-var hasPromiseValidation = (fieldReference) => {
-  if (!fieldReference || !fieldReference.validate)
-    return false;
-  if (isFunction$4(fieldReference.validate)) {
-    return fieldReference.validate.constructor.name === ASYNC_FUNCTION;
-  }
-  if (isObject$2(fieldReference.validate)) {
-    for (const key in fieldReference.validate) {
-      if (fieldReference.validate[key].constructor.name === ASYNC_FUNCTION) {
-        return true;
-      }
-    }
-  }
-  return false;
-};
-var hasValidation = (options) => options.mount && (options.required || options.min || options.max || options.maxLength || options.minLength || options.pattern || options.validate);
-var isWatched = (name, _names, isBlurEvent) => {
-  if (isBlurEvent)
-    return false;
-  if (_names.watchAll || _names.watch.has(name))
-    return true;
-  for (const watchName of _names.watch) {
-    if (name.startsWith(watchName) && name.charAt(watchName.length) === ".")
-      return true;
-  }
-  return false;
-};
-const iterateFieldsByAction = (fields, action, fieldsNames, abortEarly) => {
-  for (const key of fieldsNames || Object.keys(fields)) {
-    const field = get$2(fields, key);
-    if (field) {
-      const { _f, ...currentField } = field;
-      if (_f) {
-        if (_f.refs && _f.refs[0] && action(_f.refs[0], key) && !abortEarly) {
-          return true;
-        } else if (_f.ref && action(_f.ref, _f.name) && !abortEarly) {
-          return true;
-        } else {
-          if (iterateFieldsByAction(currentField, action)) {
-            break;
-          }
-        }
-      } else if (isObject$2(currentField)) {
-        if (iterateFieldsByAction(currentField, action)) {
-          break;
-        }
-      }
-    }
-  }
-  return;
-};
-function schemaErrorLookup(errors, _fields, name) {
-  const error = get$2(errors, name);
-  if (error || isKey$1(name)) {
-    return {
-      error,
-      name
-    };
-  }
-  const names = name.split(".");
-  while (names.length) {
-    const fieldName = names.join(".");
-    const field = get$2(_fields, fieldName);
-    const foundError = get$2(errors, fieldName);
-    if (field && !Array.isArray(field) && name !== fieldName) {
-      return { name };
-    }
-    if (foundError && foundError.type) {
-      return {
-        name: fieldName,
-        error: foundError
-      };
-    }
-    if (foundError && foundError.root && foundError.root.type) {
-      return {
-        name: `${fieldName}.root`,
-        error: foundError.root
-      };
-    }
-    names.pop();
-  }
-  return {
-    name
-  };
-}
-var shouldRenderFormState = (formStateData, _proxyFormState, updateFormState, isRoot) => {
-  updateFormState(formStateData);
-  const { name, ...formState } = formStateData;
-  const keys = Object.keys(formState);
-  return !keys.length || isRoot && keys.length >= Object.keys(_proxyFormState).length || keys.find((key) => _proxyFormState[key] === (!isRoot || VALIDATION_MODE.all));
-};
-var shouldSubscribeByName = (name, signalName, exact) => !name || !signalName || name === signalName || convertToArrayPayload(name).some((currentName) => currentName && (exact ? currentName === signalName || currentName.startsWith(signalName + ".") : currentName.startsWith(signalName) || signalName.startsWith(currentName)));
-var skipValidation = (isBlurEvent, isTouched, isSubmitted, reValidateMode, mode) => {
-  if (mode.isOnAll) {
-    return false;
-  } else if (!isSubmitted && mode.isOnTouch) {
-    return !(isTouched || isBlurEvent);
-  } else if (isSubmitted ? reValidateMode.isOnBlur : mode.isOnBlur) {
-    return !isBlurEvent;
-  } else if (isSubmitted ? reValidateMode.isOnChange : mode.isOnChange) {
-    return isBlurEvent;
-  }
-  return true;
-};
-var unsetEmptyArray = (ref, name) => !compact(get$2(ref, name)).length && unset(ref, name);
-var updateFieldArrayRootError = (errors, error, name) => {
-  const existingErrors = get$2(errors, name);
-  const fieldArrayErrors = Array.isArray(existingErrors) ? existingErrors : [];
-  set$1(fieldArrayErrors, ROOT_ERROR_TYPE, error[name]);
-  set$1(errors, name, fieldArrayErrors);
-  return errors;
-};
-function getValidateError(result, ref, type = "validate") {
-  if (isString(result) || Array.isArray(result) && result.every(isString) || isBoolean$2(result) && !result) {
-    return {
-      type,
-      message: isString(result) ? result : "",
-      ref
-    };
-  }
-}
-var getValueAndMessage = (validationData) => isObject$2(validationData) && !isRegex(validationData) ? validationData : {
-  value: validationData,
-  message: ""
-};
-var validateField = async (field, disabledFieldNames, formValues, validateAllFieldCriteria, shouldUseNativeValidation, isFieldArray) => {
-  const { ref, refs, required: required2, maxLength, minLength, min: min2, max: max2, pattern, validate, name, valueAsNumber, mount } = field._f;
-  const inputValue = get$2(formValues, name);
-  if (!mount || disabledFieldNames.has(name)) {
-    return {};
-  }
-  const inputRef = refs ? refs[0] : ref;
-  const setCustomValidity = (message) => {
-    if (shouldUseNativeValidation && inputRef.reportValidity) {
-      const validityMessage = isBoolean$2(message) ? "" : message || "";
-      if (refs) {
-        refs.forEach((ref2) => ref2.setCustomValidity(validityMessage));
-      } else {
-        inputRef.setCustomValidity(validityMessage);
-      }
-      inputRef.reportValidity();
-    }
-  };
-  const error = {};
-  const isRadio = isRadioInput(ref);
-  const isCheckBox = isCheckBoxInput(ref);
-  const isRadioOrCheckbox2 = isRadio || isCheckBox;
-  const isEmpty = (valueAsNumber || isFileInput(ref)) && isUndefined(ref.value) && isUndefined(inputValue) || isHTMLElement$1(ref) && ref.value === "" || inputValue === "" || Array.isArray(inputValue) && !inputValue.length;
-  const appendErrorsCurry = appendErrors.bind(null, name, validateAllFieldCriteria, error);
-  const getMinMaxMessage = (exceedMax, maxLengthMessage, minLengthMessage, maxType = INPUT_VALIDATION_RULES.maxLength, minType = INPUT_VALIDATION_RULES.minLength) => {
-    const message = exceedMax ? maxLengthMessage : minLengthMessage;
-    error[name] = {
-      type: exceedMax ? maxType : minType,
-      message,
-      ref,
-      ...appendErrorsCurry(exceedMax ? maxType : minType, message)
-    };
-  };
-  if (isFieldArray ? !Array.isArray(inputValue) || !inputValue.length : required2 && (!isRadioOrCheckbox2 && (isEmpty || isNullOrUndefined(inputValue)) || isBoolean$2(inputValue) && !inputValue || isCheckBox && !getCheckboxValue(refs).isValid || isRadio && !getRadioValue(refs).isValid)) {
-    const { value, message } = isString(required2) ? { value: !!required2, message: required2 } : getValueAndMessage(required2);
-    if (value) {
-      error[name] = {
-        type: INPUT_VALIDATION_RULES.required,
-        message,
-        ref: inputRef,
-        ...appendErrorsCurry(INPUT_VALIDATION_RULES.required, message)
-      };
-      if (!validateAllFieldCriteria) {
-        setCustomValidity(message);
-        return error;
-      }
-    }
-  }
-  if (!isEmpty && (!isNullOrUndefined(min2) || !isNullOrUndefined(max2))) {
-    let exceedMax;
-    let exceedMin;
-    const maxOutput = getValueAndMessage(max2);
-    const minOutput = getValueAndMessage(min2);
-    if (!isNullOrUndefined(inputValue) && !isNaN(inputValue)) {
-      const valueNumber = ref.valueAsNumber || (inputValue ? +inputValue : inputValue);
-      if (!isNullOrUndefined(maxOutput.value)) {
-        exceedMax = valueNumber > maxOutput.value;
-      }
-      if (!isNullOrUndefined(minOutput.value)) {
-        exceedMin = valueNumber < minOutput.value;
-      }
-    } else {
-      const valueDate = ref.valueAsDate || new Date(inputValue);
-      const convertTimeToDate = (time2) => /* @__PURE__ */ new Date((/* @__PURE__ */ new Date()).toDateString() + " " + time2);
-      const isTime = ref.type == "time";
-      const isWeek = ref.type == "week";
-      if (isString(maxOutput.value) && inputValue) {
-        exceedMax = isTime ? convertTimeToDate(inputValue) > convertTimeToDate(maxOutput.value) : isWeek ? inputValue > maxOutput.value : valueDate > new Date(maxOutput.value);
-      }
-      if (isString(minOutput.value) && inputValue) {
-        exceedMin = isTime ? convertTimeToDate(inputValue) < convertTimeToDate(minOutput.value) : isWeek ? inputValue < minOutput.value : valueDate < new Date(minOutput.value);
-      }
-    }
-    if (exceedMax || exceedMin) {
-      getMinMaxMessage(!!exceedMax, maxOutput.message, minOutput.message, INPUT_VALIDATION_RULES.max, INPUT_VALIDATION_RULES.min);
-      if (!validateAllFieldCriteria) {
-        setCustomValidity(error[name].message);
-        return error;
-      }
-    }
-  }
-  if ((maxLength || minLength) && !isEmpty && (isString(inputValue) || isFieldArray && Array.isArray(inputValue))) {
-    const maxLengthOutput = getValueAndMessage(maxLength);
-    const minLengthOutput = getValueAndMessage(minLength);
-    const exceedMax = !isNullOrUndefined(maxLengthOutput.value) && inputValue.length > +maxLengthOutput.value;
-    const exceedMin = !isNullOrUndefined(minLengthOutput.value) && inputValue.length < +minLengthOutput.value;
-    if (exceedMax || exceedMin) {
-      getMinMaxMessage(exceedMax, maxLengthOutput.message, minLengthOutput.message);
-      if (!validateAllFieldCriteria) {
-        setCustomValidity(error[name].message);
-        return error;
-      }
-    }
-  }
-  if (pattern && !isEmpty && isString(inputValue)) {
-    const { value: patternValue, message } = getValueAndMessage(pattern);
-    if (isRegex(patternValue) && !inputValue.match(patternValue)) {
-      error[name] = {
-        type: INPUT_VALIDATION_RULES.pattern,
-        message,
-        ref,
-        ...appendErrorsCurry(INPUT_VALIDATION_RULES.pattern, message)
-      };
-      if (!validateAllFieldCriteria) {
-        setCustomValidity(message);
-        return error;
-      }
-    }
-  }
-  if (validate) {
-    if (isFunction$4(validate)) {
-      const result = await validate(inputValue, formValues);
-      const validateError = getValidateError(result, inputRef);
-      if (validateError) {
-        error[name] = {
-          ...validateError,
-          ...appendErrorsCurry(INPUT_VALIDATION_RULES.validate, validateError.message)
-        };
-        if (!validateAllFieldCriteria) {
-          setCustomValidity(validateError.message);
-          return error;
-        }
-      }
-    } else if (isObject$2(validate)) {
-      let validationResult = {};
-      for (const key in validate) {
-        if (!isEmptyObject(validationResult) && !validateAllFieldCriteria) {
-          break;
-        }
-        const validateError = getValidateError(await validate[key](inputValue, formValues), inputRef, key);
-        if (validateError) {
-          validationResult = {
-            ...validateError,
-            ...appendErrorsCurry(key, validateError.message)
-          };
-          setCustomValidity(validateError.message);
-          if (validateAllFieldCriteria) {
-            error[name] = validationResult;
-          }
-        }
-      }
-      if (!isEmptyObject(validationResult)) {
-        error[name] = {
-          ref: inputRef,
-          ...validationResult
-        };
-        if (!validateAllFieldCriteria) {
-          return error;
-        }
-      }
-    }
-  }
-  setCustomValidity(true);
-  return error;
-};
-const defaultOptions = {
-  mode: VALIDATION_MODE.onSubmit,
-  reValidateMode: VALIDATION_MODE.onChange,
-  shouldFocusError: true
-};
-const FORM_ERROR_TYPE = "form";
-const DEFAULT_FORM_STATE = {
-  submitCount: 0,
-  isDirty: false,
-  isReady: false,
-  isValidating: false,
-  isSubmitted: false,
-  isSubmitting: false,
-  isSubmitSuccessful: false,
-  isValid: false,
-  touchedFields: {},
-  dirtyFields: {},
-  validatingFields: {}
-};
-function createFormControl(props2 = {}) {
-  let _options = {
-    ...defaultOptions,
-    ...props2
-  };
-  let _formState = {
-    ...cloneObject(DEFAULT_FORM_STATE),
-    isLoading: isFunction$4(_options.defaultValues),
-    errors: _options.errors || {},
-    disabled: _options.disabled || false
-  };
-  let _fields = {};
-  let _defaultValues = isObject$2(_options.defaultValues) || isObject$2(_options.values) ? cloneObject(_options.defaultValues || _options.values) || {} : {};
-  let _formValues = _options.shouldUnregister ? {} : cloneObject(_defaultValues);
-  let _state = {
-    action: false,
-    mount: false,
-    watch: false,
-    keepIsValid: false
-  };
-  let _names = {
-    mount: /* @__PURE__ */ new Set(),
-    disabled: /* @__PURE__ */ new Set(),
-    unMount: /* @__PURE__ */ new Set(),
-    array: /* @__PURE__ */ new Set(),
-    watch: /* @__PURE__ */ new Set(),
-    registerName: /* @__PURE__ */ new Set()
-  };
-  let delayErrorCallback;
-  let timer = 0;
-  let _valuesSubscriberCount = 0;
-  let _validationModeBeforeSubmit = getValidationModes(_options.mode);
-  let _validationModeAfterSubmit = getValidationModes(_options.reValidateMode);
-  const defaultProxyFormState = {
-    isDirty: false,
-    dirtyFields: false,
-    validatingFields: false,
-    touchedFields: false,
-    isValidating: false,
-    isValid: false,
-    errors: false
-  };
-  const _proxyFormState = {
-    ...defaultProxyFormState
-  };
-  let _proxySubscribeFormState = {
-    ..._proxyFormState
-  };
-  const _subjects = {
-    array: createSubject(),
-    state: createSubject()
-  };
-  const shouldDisplayAllAssociatedErrors = _options.criteriaMode === VALIDATION_MODE.all;
-  const debounce2 = (callback) => (wait) => {
-    clearTimeout(timer);
-    timer = setTimeout(callback, wait);
-  };
-  const _setValid = async (shouldUpdateValid) => {
-    if (_state.keepIsValid) {
-      return;
-    }
-    if (!_options.disabled && (_proxyFormState.isValid || _proxySubscribeFormState.isValid || shouldUpdateValid)) {
-      let isValid;
-      if (_options.resolver) {
-        isValid = isEmptyObject((await _runSchema()).errors);
-        _updateIsValidating();
-      } else {
-        isValid = await executeBuiltInValidation({
-          fields: _fields,
-          onlyCheckValid: true,
-          eventType: EVENTS.VALID
-        });
-      }
-      if (isValid !== _formState.isValid) {
-        _subjects.state.next({
-          isValid
-        });
-      }
-    }
-  };
-  const _updateIsValidating = (names, isValidating) => {
-    if (!_options.disabled && (_proxyFormState.isValidating || _proxyFormState.validatingFields || _proxySubscribeFormState.isValidating || _proxySubscribeFormState.validatingFields)) {
-      (names || Array.from(_names.mount)).forEach((name) => {
-        if (name) {
-          isValidating ? set$1(_formState.validatingFields, name, isValidating) : unset(_formState.validatingFields, name);
-        }
-      });
-      _subjects.state.next({
-        validatingFields: _formState.validatingFields,
-        isValidating: !isEmptyObject(_formState.validatingFields)
-      });
-    }
-  };
-  const _updateDirtyFields = () => {
-    _formState.dirtyFields = getDirtyFields(_defaultValues, _formValues);
-  };
-  const _setFieldArray = (name, values = [], method, args, shouldSetValues = true, shouldUpdateFieldsAndState = true) => {
-    if (args && method && !_options.disabled) {
-      _state.action = true;
-      if (shouldUpdateFieldsAndState && Array.isArray(get$2(_fields, name))) {
-        const fieldValues = method(get$2(_fields, name), args.argA, args.argB);
-        shouldSetValues && set$1(_fields, name, fieldValues);
-      }
-      if (shouldUpdateFieldsAndState && Array.isArray(get$2(_formState.errors, name))) {
-        const errors = method(get$2(_formState.errors, name), args.argA, args.argB);
-        shouldSetValues && set$1(_formState.errors, name, errors);
-        unsetEmptyArray(_formState.errors, name);
-      }
-      if ((_proxyFormState.touchedFields || _proxySubscribeFormState.touchedFields) && shouldUpdateFieldsAndState && Array.isArray(get$2(_formState.touchedFields, name))) {
-        const touchedFields = method(get$2(_formState.touchedFields, name), args.argA, args.argB);
-        shouldSetValues && set$1(_formState.touchedFields, name, touchedFields);
-      }
-      if (_proxyFormState.dirtyFields || _proxySubscribeFormState.dirtyFields) {
-        _updateDirtyFields();
-      }
-      _subjects.state.next({
-        name,
-        isDirty: _getDirty(name, values),
-        dirtyFields: _formState.dirtyFields,
-        errors: _formState.errors,
-        isValid: _formState.isValid
-      });
-    } else {
-      set$1(_formValues, name, values);
-    }
-  };
-  const updateErrors = (name, error) => {
-    set$1(_formState.errors, name, error);
-    _formState.errors = { ..._formState.errors };
-    _subjects.state.next({
-      errors: _formState.errors
-    });
-  };
-  const _setErrors = (errors) => {
-    _formState.errors = errors;
-    _subjects.state.next({
-      errors: _formState.errors,
-      isValid: false
-    });
-  };
-  const hasExplicitNullIntermediate = (name) => {
-    const segments = isKey$1(name) ? [name] : stringToPath(name);
-    let formValues = _formValues;
-    let defaultValues = _defaultValues;
-    for (let i = 0; i < segments.length - 1; i++) {
-      const key = segments[i];
-      formValues = isNullOrUndefined(formValues) ? formValues : formValues[key];
-      defaultValues = isNullOrUndefined(defaultValues) ? defaultValues : defaultValues[key];
-      if (formValues === null && defaultValues !== null) {
-        return true;
-      }
-    }
-    return false;
-  };
-  const updateValidAndValue = (name, shouldSkipSetValueAs, value, ref) => {
-    const field = get$2(_fields, name);
-    if (field) {
-      if (hasExplicitNullIntermediate(name)) {
-        return;
-      }
-      const wasUnsetInFormValues = isUndefined(get$2(_formValues, name));
-      const defaultValue = get$2(_formValues, name, isUndefined(value) ? get$2(_defaultValues, name) : value);
-      isUndefined(defaultValue) || ref && ref.defaultChecked || shouldSkipSetValueAs ? set$1(_formValues, name, shouldSkipSetValueAs ? defaultValue : getFieldValue(field._f)) : setFieldValue(name, defaultValue);
-      if (_state.mount && !_state.action) {
-        _setValid();
-        if (wasUnsetInFormValues && _formState.isDirty && (_proxyFormState.isDirty || _proxySubscribeFormState.isDirty)) {
-          const isDirty = _getDirty();
-          if (!isDirty) {
-            _formState.isDirty = false;
-            _subjects.state.next({ ..._formState });
-          }
-        }
-        if (props2.shouldUnregister && wasUnsetInFormValues && !isUndefined(get$2(_formValues, name)) && isWatched(name, _names)) {
-          _state.watch = true;
-        }
-      }
-    }
-  };
-  const updateTouchAndDirty = (name, fieldValue, isBlurEvent, shouldDirty, shouldRender) => {
-    let shouldUpdateField = false;
-    let isPreviousDirty = false;
-    const output = {
-      name
-    };
-    if (!_options.disabled) {
-      if (!isBlurEvent || shouldDirty) {
-        const isCurrentFieldPristine = deepEqual$1(get$2(_defaultValues, name), fieldValue);
-        if (_proxyFormState.isDirty || _proxySubscribeFormState.isDirty) {
-          isPreviousDirty = _formState.isDirty;
-          _formState.isDirty = output.isDirty = !isCurrentFieldPristine || _getDirty();
-          shouldUpdateField = isPreviousDirty !== output.isDirty;
-        }
-        isPreviousDirty = !!get$2(_formState.dirtyFields, name);
-        if (isCurrentFieldPristine !== _formState.isDirty) {
-          _formState.dirtyFields = getDirtyFields(_defaultValues, _formValues);
-        } else {
-          isCurrentFieldPristine ? unset(_formState.dirtyFields, name) : set$1(_formState.dirtyFields, name, true);
-        }
-        output.dirtyFields = _formState.dirtyFields;
-        shouldUpdateField = shouldUpdateField || (_proxyFormState.dirtyFields || _proxySubscribeFormState.dirtyFields) && isPreviousDirty !== !isCurrentFieldPristine;
-      }
-      if (isBlurEvent) {
-        const isPreviousFieldTouched = get$2(_formState.touchedFields, name);
-        if (!isPreviousFieldTouched) {
-          set$1(_formState.touchedFields, name, isBlurEvent);
-          output.touchedFields = _formState.touchedFields;
-          shouldUpdateField = shouldUpdateField || (_proxyFormState.touchedFields || _proxySubscribeFormState.touchedFields) && isPreviousFieldTouched !== isBlurEvent;
-        }
-      }
-      shouldUpdateField && shouldRender && _subjects.state.next(output);
-    }
-    return shouldUpdateField ? output : {};
-  };
-  const shouldRenderByError = (name, isValid, error, fieldState) => {
-    const previousFieldError = get$2(_formState.errors, name);
-    const shouldUpdateValid = (_proxyFormState.isValid || _proxySubscribeFormState.isValid) && isBoolean$2(isValid) && _formState.isValid !== isValid;
-    if (_options.delayError && error) {
-      delayErrorCallback = debounce2(() => updateErrors(name, error));
-      delayErrorCallback(_options.delayError);
-    } else {
-      clearTimeout(timer);
-      delayErrorCallback = null;
-      error ? set$1(_formState.errors, name, error) : unset(_formState.errors, name);
-      _formState.errors = { ..._formState.errors };
-    }
-    if ((error ? !deepEqual$1(previousFieldError, error) : previousFieldError) || !isEmptyObject(fieldState) || shouldUpdateValid) {
-      const updatedFormState = {
-        ...fieldState,
-        ...shouldUpdateValid && isBoolean$2(isValid) ? { isValid } : {},
-        errors: _formState.errors,
-        name
-      };
-      _formState = {
-        ..._formState,
-        ...updatedFormState
-      };
-      _subjects.state.next(updatedFormState);
-    }
-  };
-  const _runSchema = async (name) => {
-    _updateIsValidating(name, true);
-    return await _options.resolver(_formValues, _options.context, getResolverOptions(name || _names.mount, _fields, _options.criteriaMode, _options.shouldUseNativeValidation));
-  };
-  const executeSchemaAndUpdateState = async (names) => {
-    const { errors } = await _runSchema(names);
-    _updateIsValidating(names);
-    if (names) {
-      for (const name of names) {
-        const error = get$2(errors, name);
-        error ? _names.array.has(name) && isObject$2(error) && !Object.keys(error).some((key) => !Number.isNaN(Number(key))) ? updateFieldArrayRootError(_formState.errors, { [name]: error }, name) : set$1(_formState.errors, name, error) : unset(_formState.errors, name);
-      }
-      _formState.errors = { ..._formState.errors };
-    } else {
-      _formState.errors = errors;
-    }
-    return errors;
-  };
-  const validateForm = async ({ name, eventType }) => {
-    if (props2.validate) {
-      const result = await props2.validate({
-        formValues: _formValues,
-        formState: _formState,
-        name,
-        eventType
-      });
-      if (isObject$2(result)) {
-        for (const key in result) {
-          const error = result[key];
-          if (error) {
-            setError(`${FORM_ERROR_TYPE}.${key}`, {
-              message: isString(error.message) ? error.message : "",
-              type: error.type || INPUT_VALIDATION_RULES.validate
-            });
-          }
-        }
-      } else if (isString(result) || !result) {
-        setError(FORM_ERROR_TYPE, {
-          message: result || "",
-          type: INPUT_VALIDATION_RULES.validate
-        });
-      } else {
-        clearErrors(FORM_ERROR_TYPE);
-      }
-      return result;
-    }
-    return true;
-  };
-  const executeBuiltInValidation = async ({ fields, onlyCheckValid, name, eventType, context = {
-    valid: true,
-    runRootValidation: false
-  } }) => {
-    if (props2.validate) {
-      context.runRootValidation = true;
-      const result = await validateForm({
-        name,
-        eventType
-      });
-      if (!result) {
-        context.valid = false;
-        if (onlyCheckValid) {
-          return context.valid;
-        }
-      }
-    }
-    for (const name2 in fields) {
-      const field = fields[name2];
-      if (field) {
-        const { _f, ...fieldValue } = field;
-        if (_f) {
-          const isFieldArrayRoot = _names.array.has(_f.name);
-          const isPromiseFunction = field._f && hasPromiseValidation(field._f);
-          const shouldTrackIsValidatingState = _proxyFormState.validatingFields || _proxyFormState.isValidating || _proxySubscribeFormState.validatingFields || _proxySubscribeFormState.isValidating;
-          if (isPromiseFunction && shouldTrackIsValidatingState) {
-            _updateIsValidating([_f.name], true);
-          }
-          const fieldError = await validateField(field, _names.disabled, _formValues, shouldDisplayAllAssociatedErrors, _options.shouldUseNativeValidation && !onlyCheckValid, isFieldArrayRoot);
-          if (isPromiseFunction && shouldTrackIsValidatingState) {
-            _updateIsValidating([_f.name]);
-          }
-          if (fieldError[_f.name]) {
-            context.valid = false;
-            if (onlyCheckValid) {
-              break;
-            }
-          }
-          !onlyCheckValid && (get$2(fieldError, _f.name) ? isFieldArrayRoot ? updateFieldArrayRootError(_formState.errors, fieldError, _f.name) : set$1(_formState.errors, _f.name, fieldError[_f.name]) : unset(_formState.errors, _f.name));
-          if (props2.shouldUseNativeValidation && fieldError[_f.name]) {
-            break;
-          }
-        }
-        !isEmptyObject(fieldValue) && await executeBuiltInValidation({
-          context,
-          onlyCheckValid,
-          fields: fieldValue,
-          name: name2,
-          eventType
-        });
-      }
-    }
-    return context.valid;
-  };
-  const _removeUnmounted = () => {
-    for (const name of _names.unMount) {
-      const field = get$2(_fields, name);
-      field && (field._f.refs ? field._f.refs.every((ref) => !live(ref)) : !live(field._f.ref)) && unregister(name);
-    }
-    _names.unMount = /* @__PURE__ */ new Set();
-  };
-  const _getDirty = (name, data) => !_options.disabled && (name && data && set$1(_formValues, name, data), !deepEqual$1(_state.mount ? _formValues : _defaultValues, _defaultValues));
-  const _getWatch = (names, defaultValue, isGlobal) => generateWatchOutput(names, _names, {
-    ..._state.mount ? _formValues : isUndefined(defaultValue) ? _defaultValues : isString(names) ? { [names]: defaultValue } : defaultValue
-  }, isGlobal, defaultValue);
-  const _getFieldArray = (name) => compact(get$2(_state.mount ? _formValues : _defaultValues, name, _options.shouldUnregister ? get$2(_defaultValues, name, []) : []));
-  const setFieldValue = (name, value, options = {}, skipClone = false, skipRender = false) => {
-    const field = get$2(_fields, name);
-    let fieldValue = value;
-    if (field) {
-      const fieldReference = field._f;
-      if (fieldReference) {
-        !fieldReference.disabled && set$1(_formValues, name, getFieldValueAs(value, fieldReference));
-        fieldValue = isHTMLElement$1(fieldReference.ref) && isNullOrUndefined(value) ? "" : value;
-        if (isMultipleSelect(fieldReference.ref)) {
-          [...fieldReference.ref.options].forEach((optionRef) => optionRef.selected = fieldValue.includes(optionRef.value));
-        } else if (fieldReference.refs) {
-          if (isCheckBoxInput(fieldReference.ref)) {
-            fieldReference.refs.forEach((checkboxRef) => {
-              if (!checkboxRef.defaultChecked || !checkboxRef.disabled) {
-                if (Array.isArray(fieldValue)) {
-                  checkboxRef.checked = !!fieldValue.find((data) => data === checkboxRef.value);
-                } else {
-                  checkboxRef.checked = fieldValue === checkboxRef.value || !!fieldValue;
-                }
-              }
-            });
-          } else {
-            fieldReference.refs.forEach((radioRef) => radioRef.checked = radioRef.value === fieldValue);
-          }
-        } else if (isFileInput(fieldReference.ref)) {
-          fieldReference.ref.value = "";
-        } else {
-          fieldReference.ref.value = fieldValue;
-          if (!fieldReference.ref.type && !skipRender) {
-            _subjects.state.next({
-              name,
-              values: skipClone ? _formValues : cloneObject(_formValues)
-            });
-          }
-        }
-      }
-    }
-    (options.shouldDirty || options.shouldTouch) && updateTouchAndDirty(name, fieldValue, options.shouldTouch, options.shouldDirty, !skipRender);
-    options.shouldValidate && trigger(name);
-  };
-  const setFieldValues = (name, value, options, skipClone = false, skipRender = false) => {
-    for (const fieldKey in value) {
-      if (!value.hasOwnProperty(fieldKey)) {
-        return;
-      }
-      const fieldValue = value[fieldKey];
-      const fieldName = name + "." + fieldKey;
-      const field = get$2(_fields, fieldName);
-      (_names.array.has(name) || isObject$2(fieldValue) || field && !field._f) && !isDateObject(fieldValue) ? setFieldValues(fieldName, fieldValue, options, skipClone, skipRender) : setFieldValue(fieldName, fieldValue, options, skipClone, skipRender);
-    }
-  };
-  const _setValue = (name, value, options, skipClone, skipStateEmit = false) => {
-    const field = get$2(_fields, name);
-    const isFieldArray = _names.array.has(name);
-    const cloneValue = skipClone ? value : cloneObject(value);
-    const previousValue = get$2(_formValues, name);
-    const isValueUnchanged = deepEqual$1(previousValue, cloneValue);
-    if (!isValueUnchanged) {
-      set$1(_formValues, name, cloneValue);
-    }
-    if (isFieldArray) {
-      _subjects.array.next({
-        name,
-        values: skipClone ? _formValues : cloneObject(_formValues)
-      });
-      if ((_proxyFormState.isDirty || _proxyFormState.dirtyFields || _proxySubscribeFormState.isDirty || _proxySubscribeFormState.dirtyFields) && options.shouldDirty) {
-        _updateDirtyFields();
-        if (!skipStateEmit) {
-          _subjects.state.next({
-            name,
-            dirtyFields: _formState.dirtyFields,
-            isDirty: _getDirty(name, cloneValue)
-          });
-        }
-      }
-    } else {
-      const isEmpty = Array.isArray(cloneValue) && !cloneValue.length || isEmptyObject(cloneValue);
-      if (!field || field._f || isNullOrUndefined(cloneValue) || isEmpty) {
-        setFieldValue(name, cloneValue, options, skipClone, skipStateEmit);
-      } else {
-        setFieldValues(name, cloneValue, options, skipClone, skipStateEmit);
-      }
-    }
-    if (!isValueUnchanged && !skipStateEmit) {
-      const watched = isWatched(name, _names);
-      const values = skipClone ? _formValues : cloneObject(_formValues);
-      _subjects.state.next({
-        ...watched && _formState,
-        name: _state.mount || watched ? name : void 0,
-        values
-      });
-    }
-  };
-  const setValue = (name, value, options = {}) => _setValue(name, value, options, false);
-  const setValues = (formValues, options = {}) => {
-    const updatedFormValues = isFunction$4(formValues) ? formValues(_formValues) : formValues;
-    if (!deepEqual$1(_formValues, updatedFormValues)) {
-      _formValues = {
-        ..._formValues,
-        ...updatedFormValues
-      };
-      const flattenedUpdates = flatten$1(updatedFormValues);
-      for (const fieldName of _names.mount) {
-        if (fieldName in flattenedUpdates) {
-          _setValue(fieldName, flattenedUpdates[fieldName], options, true, true);
-        }
-      }
-      _subjects.state.next({
-        ..._formState,
-        name: void 0,
-        type: void 0,
-        ..._valuesSubscriberCount ? { values: _formValues } : {}
-      });
-      if (options.shouldValidate) {
-        _setValid();
-      }
-    }
-  };
-  const onChange = async (event) => {
-    _state.mount = true;
-    const target = event.target;
-    let name = target.name;
-    let isFieldValueUpdated = true;
-    const field = get$2(_fields, name);
-    const _updateIsFieldValueUpdated = (fieldValue) => {
-      isFieldValueUpdated = Number.isNaN(fieldValue) || isDateObject(fieldValue) && isNaN(fieldValue.getTime()) || deepEqual$1(fieldValue, get$2(_formValues, name, fieldValue));
-    };
-    if (field) {
-      let error;
-      let isValid;
-      const fieldValue = target.type ? getFieldValue(field._f) : getEventValue(event);
-      const isBlurEvent = event.type === EVENTS.BLUR || event.type === EVENTS.FOCUS_OUT;
-      const hasNoValidationEffect = !hasValidation(field._f) && !props2.validate && !_options.resolver && !get$2(_formState.errors, name) && !field._f.deps;
-      const shouldSkipValidation = hasNoValidationEffect || skipValidation(isBlurEvent, get$2(_formState.touchedFields, name), _formState.isSubmitted, _validationModeAfterSubmit, _validationModeBeforeSubmit);
-      const watched = isWatched(name, _names, isBlurEvent);
-      set$1(_formValues, name, fieldValue);
-      if (isBlurEvent) {
-        if (!target || !target.readOnly) {
-          field._f.onBlur && field._f.onBlur(event);
-          delayErrorCallback && delayErrorCallback(0);
-        }
-      } else if (field._f.onChange) {
-        field._f.onChange(event);
-      }
-      const fieldState = updateTouchAndDirty(name, fieldValue, isBlurEvent);
-      const shouldRender = !isEmptyObject(fieldState) || watched;
-      !isBlurEvent && _subjects.state.next({
-        name,
-        type: event.type,
-        ..._valuesSubscriberCount ? { values: cloneObject(_formValues) } : {}
-      });
-      if (shouldSkipValidation) {
-        if ((!hasNoValidationEffect || !_formState.isValid) && (_proxyFormState.isValid || _proxySubscribeFormState.isValid)) {
-          if (_options.mode === "onBlur") {
-            if (isBlurEvent) {
-              _setValid();
-            }
-          } else if (!isBlurEvent) {
-            _setValid();
-          }
-        }
-        return shouldRender && _subjects.state.next({ name, ...watched ? {} : fieldState });
-      }
-      if (!_options.resolver && props2.validate) {
-        await validateForm({
-          name,
-          eventType: event.type
-        });
-      }
-      !isBlurEvent && watched && _subjects.state.next({ ..._formState });
-      if (_options.resolver) {
-        const { errors } = await _runSchema([name]);
-        _updateIsValidating([name]);
-        _updateIsFieldValueUpdated(fieldValue);
-        if (!isFieldValueUpdated) {
-          !isEmptyObject(fieldState) && _subjects.state.next(fieldState);
-          return;
-        }
-        const previousErrorLookupResult = schemaErrorLookup(_formState.errors, _fields, name);
-        const errorLookupResult = schemaErrorLookup(errors, _fields, previousErrorLookupResult.name || name);
-        error = errorLookupResult.error;
-        name = errorLookupResult.name;
-        isValid = isEmptyObject(errors);
-      } else {
-        _updateIsValidating([name], true);
-        error = (await validateField(field, _names.disabled, _formValues, shouldDisplayAllAssociatedErrors, _options.shouldUseNativeValidation))[name];
-        _updateIsValidating([name]);
-        _updateIsFieldValueUpdated(fieldValue);
-        if (isFieldValueUpdated) {
-          if (error) {
-            isValid = false;
-          } else if (_proxyFormState.isValid || _proxySubscribeFormState.isValid) {
-            isValid = await executeBuiltInValidation({
-              fields: _fields,
-              onlyCheckValid: true,
-              name,
-              eventType: event.type
-            });
-          }
-        }
-      }
-      if (isFieldValueUpdated) {
-        field._f.deps && (!Array.isArray(field._f.deps) || field._f.deps.length > 0) && trigger(field._f.deps);
-        shouldRenderByError(name, isValid, error, fieldState);
-      }
-    }
-  };
-  const _focusInput = (ref, key) => {
-    if (get$2(_formState.errors, key) && ref.focus) {
-      ref.focus();
-      return 1;
-    }
-    return;
-  };
-  const trigger = async (name, options = {}) => {
-    let isValid;
-    let validationResult;
-    const fieldNames = convertToArrayPayload(name);
-    if (_options.resolver) {
-      const errors = await executeSchemaAndUpdateState(isUndefined(name) ? name : fieldNames);
-      isValid = isEmptyObject(errors);
-      validationResult = name ? !fieldNames.some((name2) => get$2(errors, name2)) : isValid;
-    } else if (name) {
-      validationResult = (await Promise.all(fieldNames.map(async (fieldName) => {
-        const field = get$2(_fields, fieldName);
-        return await executeBuiltInValidation({
-          fields: field && field._f ? { [fieldName]: field } : field,
-          eventType: EVENTS.TRIGGER
-        });
-      }))).every(Boolean);
-      !(!validationResult && !_formState.isValid) && _setValid();
-    } else {
-      validationResult = isValid = await executeBuiltInValidation({
-        fields: _fields,
-        name,
-        eventType: EVENTS.TRIGGER
-      });
-    }
-    _subjects.state.next({
-      ...!isString(name) || (_proxyFormState.isValid || _proxySubscribeFormState.isValid) && isValid !== _formState.isValid ? {} : { name },
-      ..._options.resolver || !name ? { isValid } : {},
-      errors: _formState.errors
-    });
-    options.shouldFocus && !validationResult && iterateFieldsByAction(_fields, _focusInput, name ? fieldNames : _names.mount);
-    return validationResult;
-  };
-  const getValues = (fieldNames, config2) => {
-    let values = {
-      ..._state.mount ? _formValues : _defaultValues
-    };
-    if (config2) {
-      values = extractFormValues(config2.dirtyFields ? _formState.dirtyFields : _formState.touchedFields, values);
-    }
-    return isUndefined(fieldNames) ? values : isString(fieldNames) ? get$2(values, fieldNames) : fieldNames.map((name) => get$2(values, name));
-  };
-  const getFieldState = (name, formState) => ({
-    invalid: !!get$2((formState || _formState).errors, name),
-    isDirty: !!get$2((formState || _formState).dirtyFields, name),
-    error: get$2((formState || _formState).errors, name),
-    isValidating: !!get$2(_formState.validatingFields, name),
-    isTouched: !!get$2((formState || _formState).touchedFields, name)
-  });
-  const clearErrors = (name) => {
-    const names = name ? convertToArrayPayload(name) : void 0;
-    names === null || names === void 0 ? void 0 : names.forEach((inputName) => unset(_formState.errors, inputName));
-    if (names) {
-      names.forEach((inputName) => {
-        _subjects.state.next({
-          name: inputName,
-          errors: _formState.errors
-        });
-      });
-    } else {
-      _subjects.state.next({
-        errors: {}
-      });
-    }
-  };
-  const setError = (name, error, options) => {
-    const ref = (get$2(_fields, name, { _f: {} })._f || {}).ref;
-    const currentError = get$2(_formState.errors, name) || {};
-    const { ref: currentRef, message, type, ...restOfErrorTree } = currentError;
-    set$1(_formState.errors, name, {
-      ...restOfErrorTree,
-      ...error,
-      ref
-    });
-    _subjects.state.next({
-      name,
-      errors: _formState.errors,
-      isValid: false
-    });
-    options && options.shouldFocus && ref && ref.focus && ref.focus();
-  };
-  const watch = (name, defaultValue) => {
-    if (isFunction$4(name)) {
-      _valuesSubscriberCount++;
-      const { unsubscribe } = _subjects.state.subscribe({
-        next: (payload) => "values" in payload && name(payload.values || _getWatch(void 0, defaultValue), payload)
-      });
-      let called = false;
-      return {
-        unsubscribe: () => {
-          if (called) {
-            return;
-          }
-          called = true;
-          _valuesSubscriberCount--;
-          unsubscribe();
-        }
-      };
-    }
-    return _getWatch(name, defaultValue, true);
-  };
-  const _subscribe = (props3) => {
-    var _a2;
-    const needsValues = !!((_a2 = props3.formState) === null || _a2 === void 0 ? void 0 : _a2.values);
-    if (needsValues) {
-      _valuesSubscriberCount++;
-    }
-    const { unsubscribe } = _subjects.state.subscribe({
-      next: (formState) => {
-        if (shouldSubscribeByName(props3.name, formState.name, props3.exact) && shouldRenderFormState(formState, props3.formState || _proxyFormState, _setFormState, props3.reRenderRoot)) {
-          const snapshot = { ..._formValues };
-          props3.callback({
-            values: snapshot,
-            ..._formState,
-            ...formState,
-            defaultValues: _defaultValues
-          });
-        }
-      }
-    });
-    if (!needsValues) {
-      return unsubscribe;
-    }
-    let called = false;
-    return () => {
-      if (called) {
-        return;
-      }
-      called = true;
-      _valuesSubscriberCount--;
-      unsubscribe();
-    };
-  };
-  const subscribe2 = (props3) => {
-    _state.mount = true;
-    _proxySubscribeFormState = {
-      ..._proxySubscribeFormState,
-      ...props3.formState
-    };
-    return _subscribe({
-      ...props3,
-      formState: {
-        ...defaultProxyFormState,
-        ...props3.formState
-      }
-    });
-  };
-  const unregister = (name, options = {}) => {
-    for (const fieldName of name ? convertToArrayPayload(name) : _names.mount) {
-      _names.mount.delete(fieldName);
-      _names.array.delete(fieldName);
-      if (!options.keepValue) {
-        unset(_fields, fieldName);
-        unset(_formValues, fieldName);
-      }
-      !options.keepError && unset(_formState.errors, fieldName);
-      !options.keepDirty && unset(_formState.dirtyFields, fieldName);
-      !options.keepTouched && unset(_formState.touchedFields, fieldName);
-      !options.keepIsValidating && unset(_formState.validatingFields, fieldName);
-      !_options.shouldUnregister && !options.keepDefaultValue && unset(_defaultValues, fieldName);
-    }
-    _subjects.state.next({
-      values: cloneObject(_formValues)
-    });
-    _subjects.state.next({
-      ..._formState,
-      ...!options.keepDirty ? {} : { isDirty: _getDirty() }
-    });
-    !options.keepIsValid && _setValid();
-  };
-  const _setDisabledField = ({ disabled, name }) => {
-    if (isBoolean$2(disabled) && _state.mount || !!disabled || _names.disabled.has(name)) {
-      const wasDisabled = _names.disabled.has(name);
-      const isDisabled = !!disabled;
-      const disabledStateChanged = wasDisabled !== isDisabled;
-      disabled ? _names.disabled.add(name) : _names.disabled.delete(name);
-      disabledStateChanged && _state.mount && !_state.action && _setValid();
-    }
-  };
-  const register = (name, options = {}) => {
-    let field = get$2(_fields, name);
-    const disabledIsDefined = isBoolean$2(options.disabled) || isBoolean$2(_options.disabled);
-    const shouldRevalidateRemount = !_names.registerName.has(name) && field && field._f && !field._f.mount;
-    set$1(_fields, name, {
-      ...field || {},
-      _f: {
-        ...field && field._f ? field._f : { ref: { name } },
-        name,
-        mount: true,
-        ...options
-      }
-    });
-    _names.mount.add(name);
-    if (field && !shouldRevalidateRemount) {
-      _setDisabledField({
-        disabled: isBoolean$2(options.disabled) ? options.disabled : _options.disabled,
-        name
-      });
-    } else {
-      updateValidAndValue(name, true, options.value);
-    }
-    return {
-      ...disabledIsDefined ? { disabled: options.disabled || _options.disabled } : {},
-      ..._options.progressive ? {
-        required: !!options.required,
-        min: getRuleValue(options.min),
-        max: getRuleValue(options.max),
-        minLength: getRuleValue(options.minLength),
-        maxLength: getRuleValue(options.maxLength),
-        pattern: getRuleValue(options.pattern)
-      } : {},
-      name,
-      onChange,
-      onBlur: onChange,
-      ref: (ref) => {
-        if (ref) {
-          _names.registerName.add(name);
-          register(name, options);
-          _names.registerName.delete(name);
-          field = get$2(_fields, name);
-          const fieldRef = isUndefined(ref.value) ? ref.querySelectorAll ? ref.querySelectorAll("input,select,textarea")[0] || ref : ref : ref;
-          const radioOrCheckbox = isRadioOrCheckbox(fieldRef);
-          const refs = field._f.refs || [];
-          if (radioOrCheckbox ? refs.find((option) => option === fieldRef) : fieldRef === field._f.ref) {
-            return;
-          }
-          set$1(_fields, name, {
-            _f: {
-              ...field._f,
-              ...radioOrCheckbox ? {
-                refs: [
-                  ...refs.filter(live),
-                  fieldRef,
-                  ...Array.isArray(get$2(_defaultValues, name)) ? [{}] : []
-                ],
-                ref: { type: fieldRef.type, name }
-              } : { ref: fieldRef }
-            }
-          });
-          updateValidAndValue(name, false, void 0, fieldRef);
-        } else {
-          field = get$2(_fields, name, {});
-          if (field._f) {
-            field._f.mount = false;
-          }
-          (_options.shouldUnregister || options.shouldUnregister) && !(isNameInFieldArray(_names.array, name) && _state.action) && _names.unMount.add(name);
-        }
-      }
-    };
-  };
-  const _focusError = () => _options.shouldFocusError && !_options.shouldUseNativeValidation && iterateFieldsByAction(_fields, _focusInput, _names.mount);
-  const _disableForm = (disabled) => {
-    if (isBoolean$2(disabled)) {
-      _subjects.state.next({ disabled });
-      iterateFieldsByAction(_fields, (ref, name) => {
-        const currentField = get$2(_fields, name);
-        if (currentField) {
-          ref.disabled = currentField._f.disabled || disabled;
-          if (Array.isArray(currentField._f.refs)) {
-            currentField._f.refs.forEach((inputRef) => {
-              inputRef.disabled = currentField._f.disabled || disabled;
-            });
-          }
-        }
-      }, 0, false);
-    }
-  };
-  const handleSubmit = (onValid, onInvalid) => async (e) => {
-    let onValidError = void 0;
-    if (e) {
-      e.preventDefault && e.preventDefault();
-      e.persist && e.persist();
-    }
-    let fieldValues = cloneObject(_formValues);
-    _subjects.state.next({
-      isSubmitting: true
-    });
-    if (_options.resolver) {
-      const { errors, values } = await _runSchema();
-      _updateIsValidating();
-      _formState.errors = errors;
-      fieldValues = cloneObject(values);
-    } else {
-      await executeBuiltInValidation({
-        fields: _fields,
-        eventType: EVENTS.SUBMIT
-      });
-    }
-    if (_names.disabled.size) {
-      for (const name of _names.disabled) {
-        unset(fieldValues, name);
-      }
-    }
-    unset(_formState.errors, ROOT_ERROR_TYPE);
-    if (isEmptyObject(_formState.errors)) {
-      _subjects.state.next({
-        errors: {}
-      });
-      try {
-        await onValid(fieldValues, e);
-      } catch (error) {
-        onValidError = error;
-      }
-    } else {
-      if (onInvalid) {
-        await onInvalid({ ..._formState.errors }, e);
-      }
-      _focusError();
-      setTimeout(_focusError);
-    }
-    _subjects.state.next({
-      isSubmitted: true,
-      isSubmitting: false,
-      isSubmitSuccessful: isEmptyObject(_formState.errors) && !onValidError,
-      submitCount: _formState.submitCount + 1,
-      errors: _formState.errors
-    });
-    if (onValidError) {
-      throw onValidError;
-    }
-  };
-  const resetField = (name, options = {}) => {
-    if (get$2(_fields, name)) {
-      if (isUndefined(options.defaultValue)) {
-        setValue(name, cloneObject(get$2(_defaultValues, name)));
-      } else {
-        setValue(name, options.defaultValue);
-        set$1(_defaultValues, name, cloneObject(options.defaultValue));
-      }
-      if (!options.keepTouched) {
-        unset(_formState.touchedFields, name);
-      }
-      if (!options.keepDirty) {
-        unset(_formState.dirtyFields, name);
-        _formState.isDirty = options.defaultValue ? _getDirty(name, cloneObject(get$2(_defaultValues, name))) : _getDirty();
-      }
-      if (!options.keepError) {
-        unset(_formState.errors, name);
-        _proxyFormState.isValid && _setValid();
-      }
-      _subjects.state.next({ ..._formState });
-    }
-  };
-  const _reset = (formValues, keepStateOptions = {}) => {
-    const updatedValues = formValues ? cloneObject(formValues) : _defaultValues;
-    const cloneUpdatedValues = cloneObject(updatedValues);
-    const isEmptyResetValues = isEmptyObject(formValues);
-    const values = cloneUpdatedValues;
-    if (!keepStateOptions.keepDefaultValues) {
-      _defaultValues = updatedValues;
-    }
-    if (!keepStateOptions.keepValues) {
-      if (keepStateOptions.keepDirtyValues) {
-        const fieldsToCheck = /* @__PURE__ */ new Set([
-          ..._names.mount,
-          ...Object.keys(getDirtyFields(_defaultValues, _formValues))
-        ]);
-        for (const fieldName of Array.from(fieldsToCheck)) {
-          const isDirty = get$2(_formState.dirtyFields, fieldName);
-          const existingValue = get$2(_formValues, fieldName);
-          const newValue = get$2(values, fieldName);
-          if (isDirty && !isUndefined(existingValue)) {
-            set$1(values, fieldName, existingValue);
-          } else if (!isDirty && !isUndefined(newValue)) {
-            setValue(fieldName, newValue);
-          }
-        }
-      } else {
-        if (isWeb && isUndefined(formValues)) {
-          for (const name of _names.mount) {
-            const field = get$2(_fields, name);
-            if (field && field._f) {
-              const fieldReference = Array.isArray(field._f.refs) ? field._f.refs[0] : field._f.ref;
-              if (isHTMLElement$1(fieldReference)) {
-                const form = fieldReference.closest("form");
-                if (form) {
-                  form.reset();
-                  break;
-                }
-              }
-            }
-          }
-        }
-        if (keepStateOptions.keepFieldsRef) {
-          for (const fieldName of _names.mount) {
-            setValue(fieldName, get$2(values, fieldName));
-          }
-        } else {
-          _fields = {};
-        }
-      }
-      if (_options.shouldUnregister) {
-        _formValues = keepStateOptions.keepDefaultValues ? cloneObject(_defaultValues) : {};
-        if (keepStateOptions.keepFieldsRef) {
-          for (const fieldName of _names.mount) {
-            set$1(_formValues, fieldName, get$2(values, fieldName));
-          }
-        }
-      } else {
-        _formValues = cloneObject(values);
-      }
-      _subjects.array.next({
-        values: { ...values }
-      });
-      _subjects.state.next({
-        name: void 0,
-        type: void 0,
-        values: { ...values }
-      });
-    }
-    _names = {
-      mount: keepStateOptions.keepDirtyValues ? _names.mount : /* @__PURE__ */ new Set(),
-      unMount: /* @__PURE__ */ new Set(),
-      array: /* @__PURE__ */ new Set(),
-      registerName: /* @__PURE__ */ new Set(),
-      disabled: /* @__PURE__ */ new Set(),
-      watch: /* @__PURE__ */ new Set(),
-      watchAll: false,
-      focus: ""
-    };
-    _state.mount = !_proxyFormState.isValid || !!keepStateOptions.keepIsValid || !!keepStateOptions.keepDirtyValues || !_options.shouldUnregister && !isEmptyObject(values);
-    _state.watch = !!_options.shouldUnregister;
-    _state.keepIsValid = !!keepStateOptions.keepIsValid;
-    _state.action = false;
-    if (!keepStateOptions.keepErrors) {
-      _formState.errors = {};
-    }
-    _subjects.state.next({
-      submitCount: keepStateOptions.keepSubmitCount ? _formState.submitCount : 0,
-      isDirty: isEmptyResetValues ? false : keepStateOptions.keepDirty ? _formState.isDirty : keepStateOptions.keepValues ? _getDirty() : !!(keepStateOptions.keepDefaultValues && !deepEqual$1(formValues, _defaultValues)),
-      isSubmitted: keepStateOptions.keepIsSubmitted ? _formState.isSubmitted : false,
-      dirtyFields: isEmptyResetValues ? {} : keepStateOptions.keepDirtyValues ? keepStateOptions.keepDefaultValues && _formValues ? getDirtyFields(_defaultValues, _formValues) : _formState.dirtyFields : keepStateOptions.keepDefaultValues && formValues ? getDirtyFields(_defaultValues, formValues) : keepStateOptions.keepDirty ? _formState.dirtyFields : {},
-      touchedFields: keepStateOptions.keepTouched ? _formState.touchedFields : {},
-      errors: keepStateOptions.keepErrors ? _formState.errors : {},
-      isSubmitSuccessful: keepStateOptions.keepIsSubmitSuccessful ? _formState.isSubmitSuccessful : false,
-      isSubmitting: false,
-      defaultValues: _defaultValues
-    });
-  };
-  const reset = (formValues, keepStateOptions) => _reset(isFunction$4(formValues) ? formValues(_formValues) : formValues, { ..._options.resetOptions, ...keepStateOptions });
-  const setFocus = (name, options = {}) => {
-    const field = get$2(_fields, name);
-    const fieldReference = field && field._f;
-    if (fieldReference) {
-      const fieldRef = fieldReference.refs ? fieldReference.refs[0] : fieldReference.ref;
-      if (fieldRef.focus) {
-        setTimeout(() => {
-          fieldRef.focus();
-          options.shouldSelect && isFunction$4(fieldRef.select) && fieldRef.select();
-        });
-      }
-    }
-  };
-  const _setFormState = (updatedFormState) => {
-    const { name, type, values, ...formState } = updatedFormState;
-    _formState = {
-      ..._formState,
-      ...formState
-    };
-  };
-  const _resetDefaultValues = () => isFunction$4(_options.defaultValues) && _options.defaultValues().then((values) => {
-    reset(values, _options.resetOptions);
-    _subjects.state.next({
-      isLoading: false
-    });
-  });
-  const resetDefaultValues = (values, options = {}) => {
-    _defaultValues = cloneObject(values);
-    if (!options.keepDirty) {
-      const newDirtyFields = getDirtyFields(_defaultValues, _formValues);
-      _formState.dirtyFields = newDirtyFields;
-      _formState.isDirty = !isEmptyObject(newDirtyFields);
-    }
-    if (!options.keepIsValid) {
-      _setValid();
-    }
-    _subjects.state.next({
-      ..._formState,
-      defaultValues: _defaultValues
-    });
-  };
-  const methods = {
-    control: {
-      register,
-      unregister,
-      getFieldState,
-      handleSubmit,
-      setError,
-      _subscribe,
-      _runSchema,
-      _updateIsValidating,
-      _focusError,
-      _getWatch,
-      _getDirty,
-      _setValid,
-      _setFieldArray,
-      _setDisabledField,
-      _setErrors,
-      _getFieldArray,
-      _reset,
-      _resetDefaultValues,
-      _removeUnmounted,
-      _disableForm,
-      _subjects,
-      _proxyFormState,
-      get _fields() {
-        return _fields;
-      },
-      get _formValues() {
-        return _formValues;
-      },
-      get _state() {
-        return _state;
-      },
-      set _state(value) {
-        _state = value;
-      },
-      get _defaultValues() {
-        return _defaultValues;
-      },
-      get _names() {
-        return _names;
-      },
-      set _names(value) {
-        _names = value;
-      },
-      get _formState() {
-        return _formState;
-      },
-      get _options() {
-        return _options;
-      },
-      set _options(value) {
-        _options = {
-          ..._options,
-          ...value
-        };
-        _validationModeBeforeSubmit = getValidationModes(_options.mode);
-        _validationModeAfterSubmit = getValidationModes(_options.reValidateMode);
-      }
-    },
-    subscribe: subscribe2,
-    trigger,
-    register,
-    handleSubmit,
-    watch,
-    setValue,
-    setValues,
-    getValues,
-    reset,
-    resetField,
-    resetDefaultValues,
-    clearErrors,
-    unregister,
-    setError,
-    setFocus,
-    getFieldState
-  };
-  return {
-    ...methods,
-    formControl: methods
-  };
-}
-var generateId$1 = () => {
-  if (typeof crypto !== "undefined" && crypto.randomUUID) {
-    return crypto.randomUUID();
-  }
-  const d = typeof performance === "undefined" ? Date.now() : performance.now() * 1e3;
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
-    const r2 = (Math.random() * 16 + d) % 16 | 0;
-    return (c == "x" ? r2 : r2 & 3 | 8).toString(16);
-  });
-};
-var getFocusFieldName = (name, index2, options = {}) => options.shouldFocus || isUndefined(options.shouldFocus) ? options.focusName || `${name}.${isUndefined(options.focusIndex) ? index2 : options.focusIndex}.` : "";
-var appendAt = (data, value) => [
-  ...data,
-  ...convertToArrayPayload(value)
-];
-var fillEmptyArray = (value) => Array.isArray(value) ? value.map(() => void 0) : void 0;
-function insert(data, index2, value) {
-  return [
-    ...data.slice(0, index2),
-    ...convertToArrayPayload(value),
-    ...data.slice(index2)
-  ];
-}
-var moveArrayAt = (data, from2, to2) => {
-  if (!Array.isArray(data)) {
-    return [];
-  }
-  if (isUndefined(data[to2])) {
-    data[to2] = void 0;
-  }
-  data.splice(to2, 0, data.splice(from2, 1)[0]);
-  return data;
-};
-var prependAt = (data, value) => [
-  ...convertToArrayPayload(value),
-  ...convertToArrayPayload(data)
-];
-function removeAtIndexes(data, indexes) {
-  let i = 0;
-  const temp = [...data];
-  for (const index2 of indexes) {
-    temp.splice(index2 - i, 1);
-    i++;
-  }
-  return compact(temp).length ? temp : [];
-}
-var removeArrayAt = (data, index2) => isUndefined(index2) ? [] : removeAtIndexes(data, convertToArrayPayload(index2).sort((a, b) => a - b));
-var swapArrayAt = (data, indexA, indexB) => {
-  [data[indexA], data[indexB]] = [data[indexB], data[indexA]];
-};
-var updateAt = (fieldValues, index2, value) => {
-  fieldValues[index2] = value;
-  return fieldValues;
-};
-function useFieldArray(props2) {
-  const formControl = useFormControlContext();
-  const { control = formControl, name, keyName = "id", disabled, shouldUnregister, rules } = props2;
-  const [fields, setFields] = React.useState(control._getFieldArray(name));
-  const ids = React.useRef(control._getFieldArray(name).map(generateId$1));
-  const _actioned = React.useRef(false);
-  if (!disabled) {
-    control._names.array.add(name);
-  }
-  React.useMemo(() => !disabled && rules && fields.length >= 0 && control.register(name, rules), [control, name, fields.length, rules, disabled]);
-  useIsomorphicLayoutEffect$3(() => {
-    if (disabled) {
-      return;
-    }
-    return control._subjects.array.subscribe({
-      next: ({ values, name: fieldArrayName }) => {
-        if (fieldArrayName === name || !fieldArrayName) {
-          const fieldValues = get$2(values, name);
-          if (Array.isArray(fieldValues)) {
-            setFields(fieldValues);
-            ids.current = fieldValues.map(generateId$1);
-          } else if (!fieldArrayName) {
-            setFields([]);
-            ids.current = [];
-          }
-        }
-      }
-    }).unsubscribe;
-  }, [control, name, disabled]);
-  const updateValues = React.useCallback((updatedFieldArrayValues) => {
-    _actioned.current = true;
-    control._setFieldArray(name, updatedFieldArrayValues);
-  }, [control, name]);
-  const append2 = (value, options) => {
-    if (disabled) {
-      return;
-    }
-    const appendValue = convertToArrayPayload(cloneObject(value));
-    const updatedFieldArrayValues = appendAt(control._getFieldArray(name), appendValue);
-    control._names.focus = getFocusFieldName(name, updatedFieldArrayValues.length - 1, options);
-    ids.current = appendAt(ids.current, appendValue.map(generateId$1));
-    updateValues(updatedFieldArrayValues);
-    setFields(updatedFieldArrayValues);
-    control._setFieldArray(name, updatedFieldArrayValues, appendAt, {
-      argA: fillEmptyArray(value)
-    });
-  };
-  const prepend = (value, options) => {
-    if (disabled) {
-      return;
-    }
-    const prependValue = convertToArrayPayload(cloneObject(value));
-    const updatedFieldArrayValues = prependAt(control._getFieldArray(name), prependValue);
-    control._names.focus = getFocusFieldName(name, 0, options);
-    ids.current = prependAt(ids.current, prependValue.map(generateId$1));
-    updateValues(updatedFieldArrayValues);
-    setFields(updatedFieldArrayValues);
-    control._setFieldArray(name, updatedFieldArrayValues, prependAt, {
-      argA: fillEmptyArray(value)
-    });
-  };
-  const remove = (index2) => {
-    if (disabled) {
-      return;
-    }
-    const updatedFieldArrayValues = removeArrayAt(control._getFieldArray(name), index2);
-    ids.current = removeArrayAt(ids.current, index2);
-    updateValues(updatedFieldArrayValues);
-    setFields(updatedFieldArrayValues);
-    !Array.isArray(get$2(control._fields, name)) && set$1(control._fields, name, void 0);
-    control._setFieldArray(name, updatedFieldArrayValues, removeArrayAt, {
-      argA: index2
-    });
-  };
-  const insert$1 = (index2, value, options) => {
-    if (disabled) {
-      return;
-    }
-    const insertValue = convertToArrayPayload(cloneObject(value));
-    const updatedFieldArrayValues = insert(control._getFieldArray(name), index2, insertValue);
-    control._names.focus = getFocusFieldName(name, index2, options);
-    ids.current = insert(ids.current, index2, insertValue.map(generateId$1));
-    updateValues(updatedFieldArrayValues);
-    setFields(updatedFieldArrayValues);
-    control._setFieldArray(name, updatedFieldArrayValues, insert, {
-      argA: index2,
-      argB: fillEmptyArray(value)
-    });
-  };
-  const swap2 = (indexA, indexB) => {
-    if (disabled) {
-      return;
-    }
-    const updatedFieldArrayValues = control._getFieldArray(name);
-    swapArrayAt(updatedFieldArrayValues, indexA, indexB);
-    swapArrayAt(ids.current, indexA, indexB);
-    updateValues(updatedFieldArrayValues);
-    setFields(updatedFieldArrayValues);
-    control._setFieldArray(name, updatedFieldArrayValues, swapArrayAt, {
-      argA: indexA,
-      argB: indexB
-    }, false);
-  };
-  const move = (from2, to2) => {
-    if (disabled) {
-      return;
-    }
-    const updatedFieldArrayValues = control._getFieldArray(name);
-    moveArrayAt(updatedFieldArrayValues, from2, to2);
-    moveArrayAt(ids.current, from2, to2);
-    updateValues(updatedFieldArrayValues);
-    setFields(updatedFieldArrayValues);
-    control._setFieldArray(name, updatedFieldArrayValues, moveArrayAt, {
-      argA: from2,
-      argB: to2
-    }, false);
-  };
-  const update = (index2, value) => {
-    if (disabled) {
-      return;
-    }
-    const updateValue = cloneObject(value);
-    const updatedFieldArrayValues = updateAt(control._getFieldArray(name), index2, updateValue);
-    ids.current = [...updatedFieldArrayValues].map((item, i) => !item || i === index2 ? generateId$1() : ids.current[i]);
-    updateValues(updatedFieldArrayValues);
-    setFields([...updatedFieldArrayValues]);
-    control._setFieldArray(name, updatedFieldArrayValues, updateAt, {
-      argA: index2,
-      argB: updateValue
-    }, true, false);
-  };
-  const replace = (value) => {
-    if (disabled) {
-      return;
-    }
-    const updatedFieldArrayValues = convertToArrayPayload(cloneObject(value));
-    ids.current = updatedFieldArrayValues.map(generateId$1);
-    updateValues([...updatedFieldArrayValues]);
-    setFields([...updatedFieldArrayValues]);
-    control._setFieldArray(name, [...updatedFieldArrayValues], (data) => data, {}, true, false);
-  };
-  React.useEffect(() => {
-    if (disabled) {
-      return;
-    }
-    control._state.action = false;
-    isWatched(name, control._names) && control._subjects.state.next({
-      ...control._formState
-    });
-    const validationModes = getValidationModes(control._options.mode);
-    if (_actioned.current && (!validationModes.isOnSubmit || control._formState.isSubmitted) && !getValidationModes(control._options.reValidateMode).isOnSubmit && !validationModes.isOnBlur) {
-      if (control._options.resolver) {
-        control._runSchema([name]).then((result) => {
-          var _a2, _b;
-          control._updateIsValidating([name]);
-          const error = get$2(result.errors, name);
-          const existingError = get$2(control._formState.errors, name);
-          const existingErrorType = existingError && (existingError.type || ((_a2 = existingError.root) === null || _a2 === void 0 ? void 0 : _a2.type));
-          const existingErrorMessage = existingError && (existingError.message || ((_b = existingError.root) === null || _b === void 0 ? void 0 : _b.message));
-          if (existingError ? !error && existingErrorType || error && (existingErrorType !== error.type || existingErrorMessage !== error.message) : error && error.type) {
-            if (error) {
-              isObject$2(error) && !Object.keys(error).some((key) => !Number.isNaN(+key)) ? updateFieldArrayRootError(control._formState.errors, { [name]: error }, name) : set$1(control._formState.errors, name, error);
-            } else {
-              unset(control._formState.errors, name);
-            }
-            control._subjects.state.next({
-              errors: control._formState.errors
-            });
-          }
-        });
-      } else {
-        const field = get$2(control._fields, name);
-        if (field && field._f && !(getValidationModes(control._options.reValidateMode).isOnSubmit && getValidationModes(control._options.mode).isOnSubmit)) {
-          validateField(field, control._names.disabled, control._formValues, control._options.criteriaMode === VALIDATION_MODE.all, control._options.shouldUseNativeValidation, true).then((error) => !isEmptyObject(error) && control._subjects.state.next({
-            errors: updateFieldArrayRootError(control._formState.errors, error, name)
-          }));
-        }
-      }
-    }
-    _actioned.current && control._subjects.state.next({
-      name,
-      values: cloneObject(control._formValues)
-    });
-    control._names.focus && iterateFieldsByAction(control._fields, (ref, key) => {
-      if (control._names.focus && key.startsWith(control._names.focus) && ref.focus) {
-        ref.focus();
-        return 1;
-      }
-      return;
-    });
-    control._names.focus = "";
-    control._setValid();
-    _actioned.current = false;
-  }, [fields, name, control, disabled]);
-  React.useEffect(() => {
-    if (!disabled) {
-      !get$2(control._formValues, name) && control._setFieldArray(name);
-    }
-    return () => {
-      if (disabled) {
-        return;
-      }
-      const shouldKeepFieldArrayValues = !(control._options.shouldUnregister || shouldUnregister);
-      const updateMounted = (name2, value) => {
-        const field = get$2(control._fields, name2);
-        if (field && field._f) {
-          field._f.mount = value;
-        }
-      };
-      if (_actioned.current && shouldKeepFieldArrayValues) {
-        control._subjects.state.next({
-          name,
-          values: cloneObject(control._formValues)
-        });
-      }
-      shouldKeepFieldArrayValues ? updateMounted(name, false) : control.unregister(name);
-    };
-  }, [name, control, keyName, shouldUnregister, disabled]);
-  return {
-    swap: React.useCallback(swap2, [updateValues, name, control, disabled]),
-    move: React.useCallback(move, [updateValues, name, control, disabled]),
-    prepend: React.useCallback(prepend, [
-      updateValues,
-      name,
-      control,
-      disabled
-    ]),
-    append: React.useCallback(append2, [updateValues, name, control, disabled]),
-    remove: React.useCallback(remove, [updateValues, name, control, disabled]),
-    insert: React.useCallback(insert$1, [updateValues, name, control, disabled]),
-    update: React.useCallback(update, [updateValues, name, control, disabled]),
-    replace: React.useCallback(replace, [
-      updateValues,
-      name,
-      control,
-      disabled
-    ]),
-    fields: React.useMemo(() => fields.map((field, index2) => ({
-      ...field,
-      ...isBoolean$2(disabled) ? { disabled } : {},
-      [keyName]: ids.current[index2] || generateId$1()
-    })), [fields, keyName, disabled])
-  };
-}
-function useForm(props2 = {}) {
-  const _formControl = React.useRef(void 0);
-  const _values = React.useRef(void 0);
-  const _formControlProp = React.useRef(props2.formControl);
-  const [formState, updateFormState] = React.useState(() => ({
-    ...cloneObject(DEFAULT_FORM_STATE),
-    isLoading: isFunction$4(props2.defaultValues),
-    errors: props2.errors || {},
-    disabled: props2.disabled || false,
-    defaultValues: isFunction$4(props2.defaultValues) ? void 0 : props2.defaultValues
-  }));
-  if (!_formControl.current || props2.formControl && _formControlProp.current !== props2.formControl) {
-    _formControlProp.current = props2.formControl;
-    if (props2.formControl) {
-      _formControl.current = {
-        ...props2.formControl,
-        formState
-      };
-      if (props2.defaultValues && !isFunction$4(props2.defaultValues)) {
-        props2.formControl.reset(props2.defaultValues, props2.resetOptions);
-      }
-    } else {
-      const { formControl, ...rest } = createFormControl(props2);
-      _formControl.current = {
-        ...rest,
-        formState
-      };
-    }
-  }
-  const control = _formControl.current.control;
-  control._options = props2;
-  useIsomorphicLayoutEffect$3(() => {
-    const sub = control._subscribe({
-      formState: control._proxyFormState,
-      callback: () => updateFormState({
-        ...control._formState,
-        defaultValues: control._defaultValues
-      }),
-      reRenderRoot: true
-    });
-    updateFormState((data) => ({
-      ...data,
-      isReady: true
-    }));
-    control._formState.isReady = true;
-    return sub;
-  }, [control]);
-  React.useEffect(() => control._disableForm(props2.disabled), [control, props2.disabled]);
-  React.useEffect(() => {
-    if (props2.mode) {
-      control._options.mode = props2.mode;
-    }
-    if (props2.reValidateMode) {
-      control._options.reValidateMode = props2.reValidateMode;
-    }
-  }, [control, props2.mode, props2.reValidateMode]);
-  React.useEffect(() => {
-    if (props2.errors) {
-      control._setErrors(props2.errors);
-      control._focusError();
-    }
-  }, [control, props2.errors]);
-  React.useEffect(() => {
-    props2.shouldUnregister && control._subjects.state.next({
-      values: control._getWatch()
-    });
-  }, [control, props2.shouldUnregister]);
-  React.useEffect(() => {
-    if (control._proxyFormState.isDirty) {
-      const isDirty = control._getDirty();
-      if (isDirty !== formState.isDirty) {
-        control._subjects.state.next({
-          isDirty
-        });
-      }
-    }
-  }, [control, formState.isDirty]);
-  React.useEffect(() => {
-    var _a2;
-    if (props2.values && !deepEqual$1(props2.values, _values.current)) {
-      control._reset(props2.values, {
-        keepFieldsRef: true,
-        ...control._options.resetOptions
-      });
-      if (!((_a2 = control._options.resetOptions) === null || _a2 === void 0 ? void 0 : _a2.keepIsValid)) {
-        control._setValid();
-      }
-      _values.current = props2.values;
-      updateFormState((state) => ({ ...state }));
-    } else {
-      control._resetDefaultValues();
-    }
-  }, [control, props2.values]);
-  React.useEffect(() => {
-    if (!control._state.mount) {
-      control._setValid();
-      control._state.mount = true;
-    }
-    if (control._state.watch) {
-      control._state.watch = false;
-      control._subjects.state.next({ ...control._formState });
-    }
-    control._removeUnmounted();
-  });
-  _formControl.current.formState = React.useMemo(() => getProxyFormState(formState, control), [control, formState]);
-  return _formControl.current;
 }
 function composeEventHandlers(originalEventHandler, ourEventHandler, { checkForDefaultPrevented = true } = {}) {
   return function handleEvent(event) {
@@ -18754,6 +16154,107 @@ function composeContextScopes(...scopes) {
   createScope2.scopeName = baseScope.scopeName;
   return createScope2;
 }
+var useLayoutEffect2 = globalThis?.document ? reactExports.useLayoutEffect : () => {
+};
+var useInsertionEffect = React$1[" useInsertionEffect ".trim().toString()] || useLayoutEffect2;
+function useControllableState({
+  prop,
+  defaultProp,
+  onChange = () => {
+  },
+  caller
+}) {
+  const [uncontrolledProp, setUncontrolledProp, onChangeRef] = useUncontrolledState({
+    defaultProp,
+    onChange
+  });
+  const isControlled = prop !== void 0;
+  const value = isControlled ? prop : uncontrolledProp;
+  {
+    const isControlledRef = reactExports.useRef(prop !== void 0);
+    reactExports.useEffect(() => {
+      const wasControlled = isControlledRef.current;
+      if (wasControlled !== isControlled) {
+        const from2 = wasControlled ? "controlled" : "uncontrolled";
+        const to2 = isControlled ? "controlled" : "uncontrolled";
+        console.warn(
+          `${caller} is changing from ${from2} to ${to2}. Components should not switch from controlled to uncontrolled (or vice versa). Decide between using a controlled or uncontrolled value for the lifetime of the component.`
+        );
+      }
+      isControlledRef.current = isControlled;
+    }, [isControlled, caller]);
+  }
+  const setValue = reactExports.useCallback(
+    (nextValue) => {
+      if (isControlled) {
+        const value2 = isFunction$4(nextValue) ? nextValue(prop) : nextValue;
+        if (value2 !== prop) {
+          onChangeRef.current?.(value2);
+        }
+      } else {
+        setUncontrolledProp(nextValue);
+      }
+    },
+    [isControlled, prop, setUncontrolledProp, onChangeRef]
+  );
+  return [value, setValue];
+}
+function useUncontrolledState({
+  defaultProp,
+  onChange
+}) {
+  const [value, setValue] = reactExports.useState(defaultProp);
+  const prevValueRef = reactExports.useRef(value);
+  const onChangeRef = reactExports.useRef(onChange);
+  useInsertionEffect(() => {
+    onChangeRef.current = onChange;
+  }, [onChange]);
+  reactExports.useEffect(() => {
+    if (prevValueRef.current !== value) {
+      onChangeRef.current?.(value);
+      prevValueRef.current = value;
+    }
+  }, [value, prevValueRef]);
+  return [value, setValue, onChangeRef];
+}
+function isFunction$4(value) {
+  return typeof value === "function";
+}
+var NODES = [
+  "a",
+  "button",
+  "div",
+  "form",
+  "h2",
+  "h3",
+  "img",
+  "input",
+  "label",
+  "li",
+  "nav",
+  "ol",
+  "p",
+  "select",
+  "span",
+  "svg",
+  "ul"
+];
+var Primitive = NODES.reduce((primitive, node) => {
+  const Slot2 = /* @__PURE__ */ createSlot(`Primitive.${node}`);
+  const Node2 = reactExports.forwardRef((props2, forwardedRef) => {
+    const { asChild, ...primitiveProps } = props2;
+    const Comp = asChild ? Slot2 : node;
+    if (typeof window !== "undefined") {
+      window[Symbol.for("radix-ui")] = true;
+    }
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Comp, { ...primitiveProps, ref: forwardedRef });
+  });
+  Node2.displayName = `Primitive.${node}`;
+  return { ...primitive, [node]: Node2 };
+}, {});
+function dispatchDiscreteCustomEvent(target, event) {
+  if (target) reactDomExports.flushSync(() => target.dispatchEvent(event));
+}
 function createCollection(name) {
   const PROVIDER_NAME2 = name + "CollectionProvider";
   const [createCollectionContext, createCollectionScope2] = createContextScope(PROVIDER_NAME2);
@@ -18816,51 +16317,10 @@ function createCollection(name) {
     createCollectionScope2
   ];
 }
-var useLayoutEffect2 = globalThis?.document ? reactExports.useLayoutEffect : () => {
-};
-var useReactId = React$1[" useId ".trim().toString()] || (() => void 0);
-var count$1 = 0;
-function useId$2(deterministicId) {
-  const [id, setId] = reactExports.useState(useReactId());
-  useLayoutEffect2(() => {
-    setId((reactId) => reactId ?? String(count$1++));
-  }, [deterministicId]);
-  return id ? `radix-${id}` : "";
-}
-var NODES = [
-  "a",
-  "button",
-  "div",
-  "form",
-  "h2",
-  "h3",
-  "img",
-  "input",
-  "label",
-  "li",
-  "nav",
-  "ol",
-  "p",
-  "select",
-  "span",
-  "svg",
-  "ul"
-];
-var Primitive = NODES.reduce((primitive, node) => {
-  const Slot2 = /* @__PURE__ */ createSlot(`Primitive.${node}`);
-  const Node2 = reactExports.forwardRef((props2, forwardedRef) => {
-    const { asChild, ...primitiveProps } = props2;
-    const Comp = asChild ? Slot2 : node;
-    if (typeof window !== "undefined") {
-      window[Symbol.for("radix-ui")] = true;
-    }
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Comp, { ...primitiveProps, ref: forwardedRef });
-  });
-  Node2.displayName = `Primitive.${node}`;
-  return { ...primitive, [node]: Node2 };
-}, {});
-function dispatchDiscreteCustomEvent(target, event) {
-  if (target) reactDomExports.flushSync(() => target.dispatchEvent(event));
+var DirectionContext = reactExports.createContext(void 0);
+function useDirection(localDir) {
+  const globalDir = reactExports.useContext(DirectionContext);
+  return localDir || globalDir || "ltr";
 }
 function useCallbackRef$1(callback) {
   const callbackRef = reactExports.useRef(callback);
@@ -18868,707 +16328,6 @@ function useCallbackRef$1(callback) {
     callbackRef.current = callback;
   });
   return reactExports.useMemo(() => ((...args) => callbackRef.current?.(...args)), []);
-}
-var useInsertionEffect = React$1[" useInsertionEffect ".trim().toString()] || useLayoutEffect2;
-function useControllableState({
-  prop,
-  defaultProp,
-  onChange = () => {
-  },
-  caller
-}) {
-  const [uncontrolledProp, setUncontrolledProp, onChangeRef] = useUncontrolledState({
-    defaultProp,
-    onChange
-  });
-  const isControlled = prop !== void 0;
-  const value = isControlled ? prop : uncontrolledProp;
-  {
-    const isControlledRef = reactExports.useRef(prop !== void 0);
-    reactExports.useEffect(() => {
-      const wasControlled = isControlledRef.current;
-      if (wasControlled !== isControlled) {
-        const from2 = wasControlled ? "controlled" : "uncontrolled";
-        const to2 = isControlled ? "controlled" : "uncontrolled";
-        console.warn(
-          `${caller} is changing from ${from2} to ${to2}. Components should not switch from controlled to uncontrolled (or vice versa). Decide between using a controlled or uncontrolled value for the lifetime of the component.`
-        );
-      }
-      isControlledRef.current = isControlled;
-    }, [isControlled, caller]);
-  }
-  const setValue = reactExports.useCallback(
-    (nextValue) => {
-      if (isControlled) {
-        const value2 = isFunction$3(nextValue) ? nextValue(prop) : nextValue;
-        if (value2 !== prop) {
-          onChangeRef.current?.(value2);
-        }
-      } else {
-        setUncontrolledProp(nextValue);
-      }
-    },
-    [isControlled, prop, setUncontrolledProp, onChangeRef]
-  );
-  return [value, setValue];
-}
-function useUncontrolledState({
-  defaultProp,
-  onChange
-}) {
-  const [value, setValue] = reactExports.useState(defaultProp);
-  const prevValueRef = reactExports.useRef(value);
-  const onChangeRef = reactExports.useRef(onChange);
-  useInsertionEffect(() => {
-    onChangeRef.current = onChange;
-  }, [onChange]);
-  reactExports.useEffect(() => {
-    if (prevValueRef.current !== value) {
-      onChangeRef.current?.(value);
-      prevValueRef.current = value;
-    }
-  }, [value, prevValueRef]);
-  return [value, setValue, onChangeRef];
-}
-function isFunction$3(value) {
-  return typeof value === "function";
-}
-var DirectionContext = reactExports.createContext(void 0);
-function useDirection(localDir) {
-  const globalDir = reactExports.useContext(DirectionContext);
-  return localDir || globalDir || "ltr";
-}
-var _isHydrated = false;
-function useIsHydrated() {
-  const [isHydrated, setIsHydrated] = reactExports.useState(_isHydrated);
-  reactExports.useEffect(() => {
-    if (!_isHydrated) {
-      _isHydrated = true;
-      setIsHydrated(true);
-    }
-  }, []);
-  return isHydrated;
-}
-var useReactSyncExternalStore = React$1[" useSyncExternalStore ".trim().toString()];
-function subscribe() {
-  return () => {
-  };
-}
-function useIsHydratedModern() {
-  return useReactSyncExternalStore(
-    subscribe,
-    () => true,
-    () => false
-  );
-}
-var useIsHydrated2 = typeof useReactSyncExternalStore === "function" ? useIsHydratedModern : useIsHydrated;
-var ENTRY_FOCUS = "rovingFocusGroup.onEntryFocus";
-var EVENT_OPTIONS$1 = { bubbles: false, cancelable: true };
-var GROUP_NAME$1 = "RovingFocusGroup";
-var [Collection$1, useCollection$1, createCollectionScope$1] = createCollection(GROUP_NAME$1);
-var [createRovingFocusGroupContext, createRovingFocusGroupScope] = createContextScope(
-  GROUP_NAME$1,
-  [createCollectionScope$1]
-);
-var [RovingFocusProvider, useRovingFocusContext] = createRovingFocusGroupContext(GROUP_NAME$1);
-var RovingFocusGroup = reactExports.forwardRef(
-  (props2, forwardedRef) => {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Collection$1.Provider, { scope: props2.__scopeRovingFocusGroup, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collection$1.Slot, { scope: props2.__scopeRovingFocusGroup, children: /* @__PURE__ */ jsxRuntimeExports.jsx(RovingFocusGroupImpl, { ...props2, ref: forwardedRef }) }) });
-  }
-);
-RovingFocusGroup.displayName = GROUP_NAME$1;
-var RovingFocusGroupImpl = reactExports.forwardRef((props2, forwardedRef) => {
-  const {
-    __scopeRovingFocusGroup,
-    orientation,
-    loop = false,
-    dir,
-    currentTabStopId: currentTabStopIdProp,
-    defaultCurrentTabStopId,
-    onCurrentTabStopIdChange,
-    onEntryFocus,
-    preventScrollOnEntryFocus = false,
-    ...groupProps
-  } = props2;
-  const ref = reactExports.useRef(null);
-  const composedRefs = useComposedRefs(forwardedRef, ref);
-  const direction = useDirection(dir);
-  const [currentTabStopId, setCurrentTabStopId] = useControllableState({
-    prop: currentTabStopIdProp,
-    defaultProp: defaultCurrentTabStopId ?? null,
-    onChange: onCurrentTabStopIdChange,
-    caller: GROUP_NAME$1
-  });
-  const [isTabbingBackOut, setIsTabbingBackOut] = reactExports.useState(false);
-  const handleEntryFocus = useCallbackRef$1(onEntryFocus);
-  const getItems = useCollection$1(__scopeRovingFocusGroup);
-  const isClickFocusRef = reactExports.useRef(false);
-  const [focusableItemsCount, setFocusableItemsCount] = reactExports.useState(0);
-  reactExports.useEffect(() => {
-    const node = ref.current;
-    if (node) {
-      node.addEventListener(ENTRY_FOCUS, handleEntryFocus);
-      return () => node.removeEventListener(ENTRY_FOCUS, handleEntryFocus);
-    }
-  }, [handleEntryFocus]);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    RovingFocusProvider,
-    {
-      scope: __scopeRovingFocusGroup,
-      orientation,
-      dir: direction,
-      loop,
-      currentTabStopId,
-      onItemFocus: reactExports.useCallback(
-        (tabStopId) => setCurrentTabStopId(tabStopId),
-        [setCurrentTabStopId]
-      ),
-      onItemShiftTab: reactExports.useCallback(() => setIsTabbingBackOut(true), []),
-      onFocusableItemAdd: reactExports.useCallback(
-        () => setFocusableItemsCount((prevCount) => prevCount + 1),
-        []
-      ),
-      onFocusableItemRemove: reactExports.useCallback(
-        () => setFocusableItemsCount((prevCount) => prevCount - 1),
-        []
-      ),
-      children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        Primitive.div,
-        {
-          tabIndex: isTabbingBackOut || focusableItemsCount === 0 ? -1 : 0,
-          "data-orientation": orientation,
-          ...groupProps,
-          ref: composedRefs,
-          style: { outline: "none", ...props2.style },
-          onMouseDown: composeEventHandlers(props2.onMouseDown, () => {
-            isClickFocusRef.current = true;
-          }),
-          onFocus: composeEventHandlers(props2.onFocus, (event) => {
-            const isKeyboardFocus = !isClickFocusRef.current;
-            if (event.target === event.currentTarget && isKeyboardFocus && !isTabbingBackOut) {
-              const entryFocusEvent = new CustomEvent(ENTRY_FOCUS, EVENT_OPTIONS$1);
-              event.currentTarget.dispatchEvent(entryFocusEvent);
-              if (!entryFocusEvent.defaultPrevented) {
-                const items = getItems().filter((item) => item.focusable);
-                const activeItem = items.find((item) => item.active);
-                const currentItem = items.find((item) => item.id === currentTabStopId);
-                const candidateItems = [activeItem, currentItem, ...items].filter(
-                  Boolean
-                );
-                const candidateNodes = candidateItems.map((item) => item.ref.current);
-                focusFirst$1(candidateNodes, preventScrollOnEntryFocus);
-              }
-            }
-            isClickFocusRef.current = false;
-          }),
-          onBlur: composeEventHandlers(props2.onBlur, () => setIsTabbingBackOut(false))
-        }
-      )
-    }
-  );
-});
-var ITEM_NAME$1 = "RovingFocusGroupItem";
-var RovingFocusGroupItem = reactExports.forwardRef(
-  (props2, forwardedRef) => {
-    const {
-      __scopeRovingFocusGroup,
-      focusable = true,
-      active = false,
-      tabStopId,
-      children,
-      ...itemProps
-    } = props2;
-    const autoId = useId$2();
-    const id = tabStopId || autoId;
-    const context = useRovingFocusContext(ITEM_NAME$1, __scopeRovingFocusGroup);
-    const isCurrentTabStop = context.currentTabStopId === id;
-    const getItems = useCollection$1(__scopeRovingFocusGroup);
-    const { onFocusableItemAdd, onFocusableItemRemove, currentTabStopId } = context;
-    const isHydrated = useIsHydrated2();
-    useLayoutEffect2(() => {
-      if (!isHydrated || !focusable) {
-        return;
-      }
-      onFocusableItemAdd();
-      return () => onFocusableItemRemove();
-    }, [isHydrated, focusable, onFocusableItemAdd, onFocusableItemRemove]);
-    reactExports.useEffect(() => {
-      if (isHydrated || !focusable) {
-        return;
-      }
-      onFocusableItemAdd();
-      return () => onFocusableItemRemove();
-    }, [isHydrated, focusable, onFocusableItemAdd, onFocusableItemRemove]);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Collection$1.ItemSlot,
-      {
-        scope: __scopeRovingFocusGroup,
-        id,
-        focusable,
-        active,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Primitive.span,
-          {
-            tabIndex: isCurrentTabStop ? 0 : -1,
-            "data-orientation": context.orientation,
-            ...itemProps,
-            ref: forwardedRef,
-            onMouseDown: composeEventHandlers(props2.onMouseDown, (event) => {
-              if (!focusable) event.preventDefault();
-              else context.onItemFocus(id);
-            }),
-            onFocus: composeEventHandlers(props2.onFocus, () => context.onItemFocus(id)),
-            onKeyDown: composeEventHandlers(props2.onKeyDown, (event) => {
-              if (event.key === "Tab" && event.shiftKey) {
-                context.onItemShiftTab();
-                return;
-              }
-              if (event.target !== event.currentTarget) return;
-              const focusIntent = getFocusIntent(event, context.orientation, context.dir);
-              if (focusIntent !== void 0) {
-                if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
-                event.preventDefault();
-                const items = getItems().filter((item) => item.focusable);
-                let candidateNodes = items.map((item) => item.ref.current);
-                if (focusIntent === "last") candidateNodes.reverse();
-                else if (focusIntent === "prev" || focusIntent === "next") {
-                  if (focusIntent === "prev") candidateNodes.reverse();
-                  const currentIndex = candidateNodes.indexOf(event.currentTarget);
-                  candidateNodes = context.loop ? wrapArray$1(candidateNodes, currentIndex + 1) : candidateNodes.slice(currentIndex + 1);
-                }
-                setTimeout(() => focusFirst$1(candidateNodes));
-              }
-            }),
-            children: typeof children === "function" ? children({ isCurrentTabStop, hasTabStop: currentTabStopId != null }) : children
-          }
-        )
-      }
-    );
-  }
-);
-RovingFocusGroupItem.displayName = ITEM_NAME$1;
-var MAP_KEY_TO_FOCUS_INTENT = {
-  ArrowLeft: "prev",
-  ArrowUp: "prev",
-  ArrowRight: "next",
-  ArrowDown: "next",
-  PageUp: "first",
-  Home: "first",
-  PageDown: "last",
-  End: "last"
-};
-function getDirectionAwareKey(key, dir) {
-  if (dir !== "rtl") return key;
-  return key === "ArrowLeft" ? "ArrowRight" : key === "ArrowRight" ? "ArrowLeft" : key;
-}
-function getFocusIntent(event, orientation, dir) {
-  const key = getDirectionAwareKey(event.key, dir);
-  if (orientation === "vertical" && ["ArrowLeft", "ArrowRight"].includes(key)) return void 0;
-  if (orientation === "horizontal" && ["ArrowUp", "ArrowDown"].includes(key)) return void 0;
-  return MAP_KEY_TO_FOCUS_INTENT[key];
-}
-function focusFirst$1(candidates, preventScroll = false) {
-  const PREVIOUSLY_FOCUSED_ELEMENT = document.activeElement;
-  for (const candidate of candidates) {
-    if (candidate === PREVIOUSLY_FOCUSED_ELEMENT) return;
-    candidate.focus({ preventScroll });
-    if (document.activeElement !== PREVIOUSLY_FOCUSED_ELEMENT) return;
-  }
-}
-function wrapArray$1(array2, startIndex) {
-  return array2.map((_, index2) => array2[(startIndex + index2) % array2.length]);
-}
-var Root$2 = RovingFocusGroup;
-var Item = RovingFocusGroupItem;
-function useStateMachine(initialState2, machine) {
-  return reactExports.useReducer((state, event) => {
-    const nextState = machine[state][event];
-    return nextState ?? state;
-  }, initialState2);
-}
-var Presence = (props2) => {
-  const { present: present2, children } = props2;
-  const presence = usePresence(present2);
-  const child = typeof children === "function" ? children({ present: presence.isPresent }) : reactExports.Children.only(children);
-  const ref = useStableComposedRefs(presence.ref, getElementRef(child));
-  const forceMount = typeof children === "function";
-  return forceMount || presence.isPresent ? reactExports.cloneElement(child, { ref }) : null;
-};
-Presence.displayName = "Presence";
-function usePresence(present2) {
-  const [node, setNode] = reactExports.useState();
-  const stylesRef = reactExports.useRef(null);
-  const prevPresentRef = reactExports.useRef(present2);
-  const prevAnimationNameRef = reactExports.useRef("none");
-  const mountAnimationNameRef = reactExports.useRef(void 0);
-  const initialState2 = present2 ? "mounted" : "unmounted";
-  const [state, send] = useStateMachine(initialState2, {
-    mounted: {
-      UNMOUNT: "unmounted",
-      ANIMATION_OUT: "unmountSuspended"
-    },
-    unmountSuspended: {
-      MOUNT: "mounted",
-      ANIMATION_END: "unmounted"
-    },
-    unmounted: {
-      MOUNT: "mounted"
-    }
-  });
-  reactExports.useEffect(() => {
-    if (state === "mounted") {
-      prevAnimationNameRef.current = mountAnimationNameRef.current ?? getAnimationName(stylesRef.current);
-      mountAnimationNameRef.current = void 0;
-    } else {
-      prevAnimationNameRef.current = "none";
-    }
-  }, [state]);
-  useLayoutEffect2(() => {
-    const styles = stylesRef.current;
-    const wasPresent = prevPresentRef.current;
-    const hasPresentChanged = wasPresent !== present2;
-    if (hasPresentChanged) {
-      const prevAnimationName = prevAnimationNameRef.current;
-      const currentAnimationName = getAnimationName(styles);
-      if (present2) {
-        mountAnimationNameRef.current = currentAnimationName;
-        send("MOUNT");
-      } else if (currentAnimationName === "none" || styles?.display === "none") {
-        send("UNMOUNT");
-      } else {
-        const isAnimating = prevAnimationName !== currentAnimationName;
-        if (wasPresent && isAnimating) {
-          send("ANIMATION_OUT");
-        } else {
-          send("UNMOUNT");
-        }
-      }
-      prevPresentRef.current = present2;
-    }
-  }, [present2, send]);
-  useLayoutEffect2(() => {
-    if (node) {
-      let timeoutId2;
-      const ownerWindow = node.ownerDocument.defaultView ?? window;
-      const handleAnimationEnd = (event) => {
-        const currentAnimationName = getAnimationName(stylesRef.current);
-        const isCurrentAnimation = currentAnimationName.includes(CSS.escape(event.animationName));
-        if (event.target === node && isCurrentAnimation) {
-          send("ANIMATION_END");
-          if (!prevPresentRef.current) {
-            const currentFillMode = node.style.animationFillMode;
-            node.style.animationFillMode = "forwards";
-            timeoutId2 = ownerWindow.setTimeout(() => {
-              if (node.style.animationFillMode === "forwards") {
-                node.style.animationFillMode = currentFillMode;
-              }
-            });
-          }
-        }
-      };
-      const handleAnimationStart = (event) => {
-        if (event.target === node) {
-          prevAnimationNameRef.current = getAnimationName(stylesRef.current);
-        }
-      };
-      node.addEventListener("animationstart", handleAnimationStart);
-      node.addEventListener("animationcancel", handleAnimationEnd);
-      node.addEventListener("animationend", handleAnimationEnd);
-      return () => {
-        ownerWindow.clearTimeout(timeoutId2);
-        node.removeEventListener("animationstart", handleAnimationStart);
-        node.removeEventListener("animationcancel", handleAnimationEnd);
-        node.removeEventListener("animationend", handleAnimationEnd);
-      };
-    } else {
-      send("ANIMATION_END");
-    }
-  }, [node, send]);
-  return {
-    isPresent: ["mounted", "unmountSuspended"].includes(state),
-    ref: reactExports.useCallback((node2) => {
-      if (node2) {
-        const styles = getComputedStyle(node2);
-        stylesRef.current = styles;
-        mountAnimationNameRef.current = getAnimationName(styles);
-      } else {
-        stylesRef.current = null;
-      }
-      setNode(node2);
-    }, [])
-  };
-}
-function setRef(ref, value) {
-  if (typeof ref === "function") {
-    return ref(value);
-  } else if (ref !== null && ref !== void 0) {
-    ref.current = value;
-  }
-}
-function useStableComposedRefs(...refs) {
-  const refsRef = reactExports.useRef(refs);
-  refsRef.current = refs;
-  return reactExports.useCallback((node) => {
-    const currentRefs = refsRef.current;
-    let hasCleanup = false;
-    const cleanups = currentRefs.map((ref) => {
-      const cleanup = setRef(ref, node);
-      if (!hasCleanup && typeof cleanup === "function") {
-        hasCleanup = true;
-      }
-      return cleanup;
-    });
-    if (hasCleanup) {
-      return () => {
-        for (let i = 0; i < cleanups.length; i++) {
-          const cleanup = cleanups[i];
-          if (typeof cleanup === "function") {
-            cleanup();
-          } else {
-            setRef(currentRefs[i], null);
-          }
-        }
-      };
-    }
-  }, []);
-}
-function getAnimationName(styles) {
-  return styles?.animationName || "none";
-}
-function getElementRef(element) {
-  let getter = Object.getOwnPropertyDescriptor(element.props, "ref")?.get;
-  let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
-  if (mayWarn) {
-    return element.ref;
-  }
-  getter = Object.getOwnPropertyDescriptor(element, "ref")?.get;
-  mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
-  if (mayWarn) {
-    return element.props.ref;
-  }
-  return element.props.ref || element.ref;
-}
-var TABS_NAME = "Tabs";
-var [createTabsContext, createTabsScope] = createContextScope(TABS_NAME, [
-  createRovingFocusGroupScope
-]);
-var useRovingFocusGroupScope = createRovingFocusGroupScope();
-var [TabsProvider, useTabsContext] = createTabsContext(TABS_NAME);
-var Tabs$1 = reactExports.forwardRef(
-  (props2, forwardedRef) => {
-    const {
-      __scopeTabs,
-      value: valueProp,
-      onValueChange,
-      defaultValue,
-      orientation = "horizontal",
-      dir,
-      activationMode = "automatic",
-      ...tabsProps
-    } = props2;
-    const direction = useDirection(dir);
-    const [value, setValue] = useControllableState({
-      prop: valueProp,
-      onChange: onValueChange,
-      defaultProp: defaultValue ?? "",
-      caller: TABS_NAME
-    });
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      TabsProvider,
-      {
-        scope: __scopeTabs,
-        baseId: useId$2(),
-        value,
-        onValueChange: setValue,
-        orientation,
-        dir: direction,
-        activationMode,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Primitive.div,
-          {
-            dir: direction,
-            "data-orientation": orientation,
-            ...tabsProps,
-            ref: forwardedRef
-          }
-        )
-      }
-    );
-  }
-);
-Tabs$1.displayName = TABS_NAME;
-var TAB_LIST_NAME = "TabsList";
-var TabsList$1 = reactExports.forwardRef(
-  (props2, forwardedRef) => {
-    const { __scopeTabs, loop = true, ...listProps } = props2;
-    const context = useTabsContext(TAB_LIST_NAME, __scopeTabs);
-    const rovingFocusGroupScope = useRovingFocusGroupScope(__scopeTabs);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Root$2,
-      {
-        asChild: true,
-        ...rovingFocusGroupScope,
-        orientation: context.orientation,
-        dir: context.dir,
-        loop,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Primitive.div,
-          {
-            role: "tablist",
-            "aria-orientation": context.orientation,
-            ...listProps,
-            ref: forwardedRef
-          }
-        )
-      }
-    );
-  }
-);
-TabsList$1.displayName = TAB_LIST_NAME;
-var TRIGGER_NAME$2 = "TabsTrigger";
-var TabsTrigger$1 = reactExports.forwardRef(
-  (props2, forwardedRef) => {
-    const { __scopeTabs, value, disabled = false, ...triggerProps } = props2;
-    const context = useTabsContext(TRIGGER_NAME$2, __scopeTabs);
-    const rovingFocusGroupScope = useRovingFocusGroupScope(__scopeTabs);
-    const triggerId = makeTriggerId(context.baseId, value);
-    const contentId = makeContentId(context.baseId, value);
-    const isSelected = value === context.value;
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Item,
-      {
-        asChild: true,
-        ...rovingFocusGroupScope,
-        focusable: !disabled,
-        active: isSelected,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Primitive.button,
-          {
-            type: "button",
-            role: "tab",
-            "aria-selected": isSelected,
-            "aria-controls": contentId,
-            "data-state": isSelected ? "active" : "inactive",
-            "data-disabled": disabled ? "" : void 0,
-            disabled,
-            id: triggerId,
-            ...triggerProps,
-            ref: forwardedRef,
-            onMouseDown: composeEventHandlers(props2.onMouseDown, (event) => {
-              if (!disabled && event.button === 0 && event.ctrlKey === false) {
-                context.onValueChange(value);
-              } else {
-                event.preventDefault();
-              }
-            }),
-            onKeyDown: composeEventHandlers(props2.onKeyDown, (event) => {
-              if (disabled || event.target !== event.currentTarget) {
-                return;
-              }
-              if ([" ", "Enter"].includes(event.key)) {
-                context.onValueChange(value);
-              }
-            }),
-            onFocus: composeEventHandlers(props2.onFocus, () => {
-              const isAutomaticActivation = context.activationMode !== "manual";
-              if (!isSelected && !disabled && isAutomaticActivation) {
-                context.onValueChange(value);
-              }
-            })
-          }
-        )
-      }
-    );
-  }
-);
-TabsTrigger$1.displayName = TRIGGER_NAME$2;
-var CONTENT_NAME$2 = "TabsContent";
-var TabsContent$1 = reactExports.forwardRef(
-  (props2, forwardedRef) => {
-    const { __scopeTabs, value, forceMount, children, ...contentProps } = props2;
-    const context = useTabsContext(CONTENT_NAME$2, __scopeTabs);
-    const triggerId = makeTriggerId(context.baseId, value);
-    const contentId = makeContentId(context.baseId, value);
-    const isSelected = value === context.value;
-    const isMountAnimationPreventedRef = reactExports.useRef(isSelected);
-    reactExports.useEffect(() => {
-      const rAF = requestAnimationFrame(() => isMountAnimationPreventedRef.current = false);
-      return () => cancelAnimationFrame(rAF);
-    }, []);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || isSelected, children: ({ present: present2 }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Primitive.div,
-      {
-        "data-state": isSelected ? "active" : "inactive",
-        "data-orientation": context.orientation,
-        role: "tabpanel",
-        "aria-labelledby": triggerId,
-        hidden: !present2,
-        id: contentId,
-        tabIndex: 0,
-        ...contentProps,
-        ref: forwardedRef,
-        style: {
-          ...props2.style,
-          animationDuration: isMountAnimationPreventedRef.current ? "0s" : void 0
-        },
-        children: present2 && children
-      }
-    ) });
-  }
-);
-TabsContent$1.displayName = CONTENT_NAME$2;
-function makeTriggerId(baseId, value) {
-  return `${baseId}-trigger-${value}`;
-}
-function makeContentId(baseId, value) {
-  return `${baseId}-content-${value}`;
-}
-var Root2$1 = Tabs$1;
-var List = TabsList$1;
-var Trigger = TabsTrigger$1;
-var Content$1 = TabsContent$1;
-const Tabs = Root2$1;
-const TabsList = reactExports.forwardRef(({ className, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-  List,
-  {
-    ref,
-    className: cn(
-      "inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground",
-      className
-    ),
-    ...props2
-  }
-));
-TabsList.displayName = List.displayName;
-const TabsTrigger = reactExports.forwardRef(({ className, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-  Trigger,
-  {
-    ref,
-    className: cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm",
-      className
-    ),
-    ...props2
-  }
-));
-TabsTrigger.displayName = Trigger.displayName;
-const TabsContent = reactExports.forwardRef(({ className, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-  Content$1,
-  {
-    ref,
-    className: cn(
-      "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-      className
-    ),
-    ...props2
-  }
-));
-TabsContent.displayName = Content$1.displayName;
-function FormRow({ children }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 gap-4 mb-4", children });
-}
-function clamp$1(value, [min2, max2]) {
-  return Math.min(max2, Math.max(min2, value));
 }
 var DISMISSABLE_LAYER_NAME = "DismissableLayer";
 var CONTEXT_UPDATE = "dismissableLayer.update";
@@ -19736,6 +16495,20 @@ var DismissableLayerBranch = reactExports.forwardRef((props2, forwardedRef) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.div, { ...props2, ref: composedRefs });
 });
 DismissableLayerBranch.displayName = BRANCH_NAME;
+function useDismissableLayerSurface() {
+  const context = reactExports.useContext(DismissableLayerContext);
+  const [node, setNode] = reactExports.useState(null);
+  reactExports.useEffect(() => {
+    if (!node) {
+      return;
+    }
+    context.dismissableSurfaces.add(node);
+    return () => {
+      context.dismissableSurfaces.delete(node);
+    };
+  }, [node, context.dismissableSurfaces]);
+  return setNode;
+}
 var IS_TRUE = () => true;
 function usePointerDownOutside(onPointerDownOutside, args) {
   const {
@@ -19891,7 +16664,7 @@ function handleAndDispatchCustomEvent(name, handler, detail, { discrete }) {
     target.dispatchEvent(event);
   }
 }
-var count = 0;
+var count$1 = 0;
 var guards = null;
 function useFocusGuards() {
   reactExports.useEffect(() => {
@@ -19905,14 +16678,14 @@ function useFocusGuards() {
     if (document.body.lastElementChild !== end) {
       document.body.insertAdjacentElement("beforeend", end);
     }
-    count++;
+    count$1++;
     return () => {
-      if (count === 1) {
+      if (count$1 === 1) {
         guards?.start.remove();
         guards?.end.remove();
         guards = null;
       }
-      count = Math.max(0, count - 1);
+      count$1 = Math.max(0, count$1 - 1);
     };
   }, []);
 }
@@ -19928,7 +16701,7 @@ function createFocusGuard() {
 }
 var AUTOFOCUS_ON_MOUNT = "focusScope.autoFocusOnMount";
 var AUTOFOCUS_ON_UNMOUNT = "focusScope.autoFocusOnUnmount";
-var EVENT_OPTIONS = { bubbles: false, cancelable: true };
+var EVENT_OPTIONS$1 = { bubbles: false, cancelable: true };
 var FOCUS_SCOPE_NAME = "FocusScope";
 var FocusScope = reactExports.forwardRef((props2, forwardedRef) => {
   const {
@@ -19993,11 +16766,11 @@ var FocusScope = reactExports.forwardRef((props2, forwardedRef) => {
       const previouslyFocusedElement = document.activeElement;
       const hasFocusedCandidate = container.contains(previouslyFocusedElement);
       if (!hasFocusedCandidate) {
-        const mountEvent = new CustomEvent(AUTOFOCUS_ON_MOUNT, EVENT_OPTIONS);
+        const mountEvent = new CustomEvent(AUTOFOCUS_ON_MOUNT, EVENT_OPTIONS$1);
         container.addEventListener(AUTOFOCUS_ON_MOUNT, onMountAutoFocus);
         container.dispatchEvent(mountEvent);
         if (!mountEvent.defaultPrevented) {
-          focusFirst(removeLinks(getTabbableCandidates(container)), { select: true });
+          focusFirst$2(removeLinks(getTabbableCandidates(container)), { select: true });
           if (document.activeElement === previouslyFocusedElement) {
             focus(container);
           }
@@ -20006,7 +16779,7 @@ var FocusScope = reactExports.forwardRef((props2, forwardedRef) => {
       return () => {
         container.removeEventListener(AUTOFOCUS_ON_MOUNT, onMountAutoFocus);
         setTimeout(() => {
-          const unmountEvent = new CustomEvent(AUTOFOCUS_ON_UNMOUNT, EVENT_OPTIONS);
+          const unmountEvent = new CustomEvent(AUTOFOCUS_ON_UNMOUNT, EVENT_OPTIONS$1);
           container.addEventListener(AUTOFOCUS_ON_UNMOUNT, onUnmountAutoFocus);
           container.dispatchEvent(unmountEvent);
           if (!unmountEvent.defaultPrevented) {
@@ -20046,7 +16819,7 @@ var FocusScope = reactExports.forwardRef((props2, forwardedRef) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.div, { tabIndex: -1, ...scopeProps, ref: composedRefs, onKeyDown: handleKeyDown });
 });
 FocusScope.displayName = FOCUS_SCOPE_NAME;
-function focusFirst(candidates, { select = false } = {}) {
+function focusFirst$2(candidates, { select = false } = {}) {
   const previouslyFocusedElement = document.activeElement;
   for (const candidate of candidates) {
     focus(candidate, { select });
@@ -20129,6 +16902,15 @@ function arrayRemove(array2, item) {
 function removeLinks(items) {
   return items.filter((item) => item.tagName !== "A");
 }
+var useReactId = React$1[" useId ".trim().toString()] || (() => void 0);
+var count = 0;
+function useId$2(deterministicId) {
+  const [id, setId] = reactExports.useState(useReactId());
+  useLayoutEffect2(() => {
+    setId((reactId) => reactId ?? String(count++));
+  }, [deterministicId]);
+  return id ? `radix-${id}` : "";
+}
 const sides = ["top", "right", "bottom", "left"];
 const min$1 = Math.min;
 const max$1 = Math.max;
@@ -20144,7 +16926,7 @@ const oppositeSideMap = {
   bottom: "top",
   top: "bottom"
 };
-function clamp(start, value, end) {
+function clamp$1(start, value, end) {
   return max$1(start, min$1(value, end));
 }
 function evaluate(value, param) {
@@ -20493,7 +17275,7 @@ const arrow$3 = (options) => ({
     const maxPadding = min$1(paddingObject[maxProp], largestPossiblePadding);
     const max2 = clientSize - arrowDimensions[length] - maxPadding;
     const center = clientSize / 2 - arrowDimensions[length] / 2 + centerToReference;
-    const offset2 = clamp(minPadding, center, max2);
+    const offset2 = clamp$1(minPadding, center, max2);
     const shouldAddOffset = !middlewareData.arrow && getAlignment(placement) != null && center !== offset2 && rects.reference[length] / 2 - (center < minPadding ? minPadding : maxPadding) - arrowDimensions[length] / 2 < 0;
     const alignmentOffset = shouldAddOffset ? center < minPadding ? center - minPadding : center - max2 : 0;
     return {
@@ -20787,7 +17569,7 @@ const shift$2 = function(options) {
       const mainAxis = getOppositeAxis(crossAxis);
       let mainAxisCoord = coords[mainAxis];
       let crossAxisCoord = coords[crossAxis];
-      const clampCoord = (axis, coord) => clamp(coord + overflow[axis === "y" ? "top" : "left"], coord, coord - overflow[axis === "y" ? "bottom" : "right"]);
+      const clampCoord = (axis, coord) => clamp$1(coord + overflow[axis === "y" ? "top" : "left"], coord, coord - overflow[axis === "y" ? "bottom" : "right"]);
       if (checkMainAxis) {
         mainAxisCoord = clampCoord(mainAxis, mainAxisCoord);
       }
@@ -20981,7 +17763,7 @@ function isElement(value) {
   }
   return value instanceof Element || value instanceof getWindow(value).Element;
 }
-function isHTMLElement(value) {
+function isHTMLElement$1(value) {
   if (!hasWindow()) {
     return false;
   }
@@ -21028,7 +17810,7 @@ function isContainingBlock(elementOrCss) {
 }
 function getContainingBlock(element) {
   let currentNode = getParentNode(element);
-  while (isHTMLElement(currentNode) && !isLastTraversableNode(currentNode)) {
+  while (isHTMLElement$1(currentNode) && !isLastTraversableNode(currentNode)) {
     if (isContainingBlock(currentNode)) {
       return currentNode;
     } else if (isTopLayer(currentNode)) {
@@ -21080,7 +17862,7 @@ function getNearestOverflowAncestor(node) {
   if (isLastTraversableNode(parentNode)) {
     return (node.ownerDocument || node).body;
   }
-  if (isHTMLElement(parentNode) && isOverflowElement(parentNode)) {
+  if (isHTMLElement$1(parentNode) && isOverflowElement(parentNode)) {
     return parentNode;
   }
   return getNearestOverflowAncestor(parentNode);
@@ -21110,7 +17892,7 @@ function getCssDimensions(element) {
   const css = getComputedStyle$1(element);
   let width = parseFloat(css.width) || 0;
   let height = parseFloat(css.height) || 0;
-  const hasOffset = isHTMLElement(element);
+  const hasOffset = isHTMLElement$1(element);
   const offsetWidth = hasOffset ? element.offsetWidth : width;
   const offsetHeight = hasOffset ? element.offsetHeight : height;
   const shouldFallback = round$2(width) !== offsetWidth || round$2(height) !== offsetHeight;
@@ -21129,7 +17911,7 @@ function unwrapElement(element) {
 }
 function getScale(element) {
   const domElement = unwrapElement(element);
-  if (!isHTMLElement(domElement)) {
+  if (!isHTMLElement$1(domElement)) {
     return createCoords(1);
   }
   const rect = domElement.getBoundingClientRect();
@@ -21255,7 +18037,7 @@ function convertOffsetParentRelativeRectToViewportRelativeRect(_ref2) {
   };
   let scale = createCoords(1);
   const offsets = createCoords(0);
-  const isOffsetParentAnElement = isHTMLElement(offsetParent);
+  const isOffsetParentAnElement = isHTMLElement$1(offsetParent);
   if (isOffsetParentAnElement || !isFixed) {
     if (getNodeName(offsetParent) !== "body" || isOverflowElement(documentElement)) {
       scroll = getNodeScroll(offsetParent);
@@ -21441,7 +18223,7 @@ function getDimensions(element) {
   };
 }
 function getRectRelativeToOffsetParent(element, offsetParent, strategy) {
-  const isOffsetParentAnElement = isHTMLElement(offsetParent);
+  const isOffsetParentAnElement = isHTMLElement$1(offsetParent);
   const documentElement = getDocumentElement(offsetParent);
   const isFixed = strategy === "fixed";
   const rect = getBoundingClientRect(element, true, isFixed, offsetParent);
@@ -21477,7 +18259,7 @@ function isStaticPositioned(element) {
   return getComputedStyle$1(element).position === "static";
 }
 function getTrueOffsetParent(element, polyfill) {
-  if (!isHTMLElement(element) || getComputedStyle$1(element).position === "fixed") {
+  if (!isHTMLElement$1(element) || getComputedStyle$1(element).position === "fixed") {
     return null;
   }
   if (polyfill) {
@@ -21494,7 +18276,7 @@ function getOffsetParent(element, polyfill) {
   if (isTopLayer(element)) {
     return win;
   }
-  if (!isHTMLElement(element)) {
+  if (!isHTMLElement$1(element)) {
     let svgOffsetParent = getParentNode(element);
     while (svgOffsetParent && !isLastTraversableNode(svgOffsetParent)) {
       if (isElement(svgOffsetParent) && !isStaticPositioned(svgOffsetParent)) {
@@ -21717,7 +18499,7 @@ var isClient = typeof document !== "undefined";
 var noop$4 = function noop() {
 };
 var index = isClient ? reactExports.useLayoutEffect : noop$4;
-function deepEqual(a, b) {
+function deepEqual$1(a, b) {
   if (a === b) {
     return true;
   }
@@ -21735,7 +18517,7 @@ function deepEqual(a, b) {
       length = a.length;
       if (length !== b.length) return false;
       for (i = length; i-- !== 0; ) {
-        if (!deepEqual(a[i], b[i])) {
+        if (!deepEqual$1(a[i], b[i])) {
           return false;
         }
       }
@@ -21756,7 +18538,7 @@ function deepEqual(a, b) {
       if (key === "_owner" && a.$$typeof) {
         continue;
       }
-      if (!deepEqual(a[key], b[key])) {
+      if (!deepEqual$1(a[key], b[key])) {
         return false;
       }
     }
@@ -21808,7 +18590,7 @@ function useFloating(options) {
     isPositioned: false
   });
   const [latestMiddleware, setLatestMiddleware] = reactExports.useState(middleware);
-  if (!deepEqual(latestMiddleware, middleware)) {
+  if (!deepEqual$1(latestMiddleware, middleware)) {
     setLatestMiddleware(middleware);
   }
   const [_reference, _setReference] = reactExports.useState(null);
@@ -21855,7 +18637,7 @@ function useFloating(options) {
         // setting it to `true` when `open === false` (must be specified).
         isPositioned: openRef.current !== false
       };
-      if (isMountedRef.current && !deepEqual(dataRef.current, fullData)) {
+      if (isMountedRef.current && !deepEqual$1(dataRef.current, fullData)) {
         dataRef.current = fullData;
         reactDomExports.flushSync(() => {
           setData(fullData);
@@ -22036,7 +18818,7 @@ var Arrow$1 = reactExports.forwardRef((props2, forwardedRef) => {
   );
 });
 Arrow$1.displayName = NAME$2;
-var Root$1 = Arrow$1;
+var Root$2 = Arrow$1;
 function useSize(element) {
   const [size2, setSize] = reactExports.useState(void 0);
   useLayoutEffect2(() => {
@@ -22091,11 +18873,11 @@ var Popper = (props2) => {
   );
 };
 Popper.displayName = POPPER_NAME;
-var ANCHOR_NAME = "PopperAnchor";
+var ANCHOR_NAME$1 = "PopperAnchor";
 var PopperAnchor = reactExports.forwardRef(
   (props2, forwardedRef) => {
     const { __scopePopper, virtualRef, ...anchorProps } = props2;
-    const context = usePopperContext(ANCHOR_NAME, __scopePopper);
+    const context = usePopperContext(ANCHOR_NAME$1, __scopePopper);
     const ref = reactExports.useRef(null);
     const onAnchorChange = context.onAnchorChange;
     const callbackRef = reactExports.useCallback(
@@ -22133,9 +18915,9 @@ var PopperAnchor = reactExports.forwardRef(
     );
   }
 );
-PopperAnchor.displayName = ANCHOR_NAME;
-var CONTENT_NAME$1 = "PopperContent";
-var [PopperContentProvider, useContentContext] = createPopperContext(CONTENT_NAME$1);
+PopperAnchor.displayName = ANCHOR_NAME$1;
+var CONTENT_NAME$6 = "PopperContent";
+var [PopperContentProvider, useContentContext] = createPopperContext(CONTENT_NAME$6);
 var PopperContent = reactExports.forwardRef(
   (props2, forwardedRef) => {
     const {
@@ -22154,7 +18936,7 @@ var PopperContent = reactExports.forwardRef(
       onPlaced,
       ...contentProps
     } = props2;
-    const context = usePopperContext(CONTENT_NAME$1, __scopePopper);
+    const context = usePopperContext(CONTENT_NAME$6, __scopePopper);
     const [content, setContent] = reactExports.useState(null);
     const composedRefs = useComposedRefs(forwardedRef, setContent);
     const [arrow$12, setArrow] = reactExports.useState(null);
@@ -22296,8 +19078,8 @@ var PopperContent = reactExports.forwardRef(
     );
   }
 );
-PopperContent.displayName = CONTENT_NAME$1;
-var ARROW_NAME$1 = "PopperArrow";
+PopperContent.displayName = CONTENT_NAME$6;
+var ARROW_NAME$3 = "PopperArrow";
 var OPPOSITE_SIDE = {
   top: "bottom",
   right: "left",
@@ -22306,7 +19088,7 @@ var OPPOSITE_SIDE = {
 };
 var PopperArrow = reactExports.forwardRef(function PopperArrow2(props2, forwardedRef) {
   const { __scopePopper, ...arrowProps } = props2;
-  const contentContext = useContentContext(ARROW_NAME$1, __scopePopper);
+  const contentContext = useContentContext(ARROW_NAME$3, __scopePopper);
   const baseSide = OPPOSITE_SIDE[contentContext.placedSide];
   return (
     // we have to use an extra wrapper because `ResizeObserver` (used by `useSize`)
@@ -22336,7 +19118,7 @@ var PopperArrow = reactExports.forwardRef(function PopperArrow2(props2, forwarde
           visibility: contentContext.shouldHideArrow ? "hidden" : void 0
         },
         children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Root$1,
+          Root$2,
           {
             ...arrowProps,
             ref: forwardedRef,
@@ -22351,7 +19133,7 @@ var PopperArrow = reactExports.forwardRef(function PopperArrow2(props2, forwarde
     )
   );
 });
-PopperArrow.displayName = ARROW_NAME$1;
+PopperArrow.displayName = ARROW_NAME$3;
 function isNotNull(value) {
   return value !== null;
 }
@@ -22390,56 +19172,429 @@ function getSideAndAlignFromPlacement(placement) {
   const [side, align = "center"] = placement.split("-");
   return [side, align];
 }
-var Root2 = Popper;
+var Root2$3 = Popper;
 var Anchor = PopperAnchor;
-var Content = PopperContent;
+var Content$1 = PopperContent;
 var Arrow = PopperArrow;
-var PORTAL_NAME$1 = "Portal";
-var Portal = reactExports.forwardRef((props2, forwardedRef) => {
+var PORTAL_NAME$5 = "Portal";
+var Portal$1 = reactExports.forwardRef((props2, forwardedRef) => {
   const { container: containerProp, ...portalProps } = props2;
   const [mounted, setMounted] = reactExports.useState(false);
   useLayoutEffect2(() => setMounted(true), []);
   const container = containerProp || mounted && globalThis?.document?.body;
   return container ? reactDomExports.createPortal(/* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.div, { ...portalProps, ref: forwardedRef }), container) : null;
 });
-Portal.displayName = PORTAL_NAME$1;
-function usePrevious(value) {
-  const ref = reactExports.useRef({ value, previous: value });
-  return reactExports.useMemo(() => {
-    if (ref.current.value !== value) {
-      ref.current.previous = ref.current.value;
-      ref.current.value = value;
-    }
-    return ref.current.previous;
-  }, [value]);
+Portal$1.displayName = PORTAL_NAME$5;
+function useStateMachine(initialState2, machine) {
+  return reactExports.useReducer((state, event) => {
+    const nextState = machine[state][event];
+    return nextState ?? state;
+  }, initialState2);
 }
-var VISUALLY_HIDDEN_STYLES = Object.freeze({
-  // See: https://github.com/twbs/bootstrap/blob/main/scss/mixins/_visually-hidden.scss
-  position: "absolute",
-  border: 0,
-  width: 1,
-  height: 1,
-  padding: 0,
-  margin: -1,
-  overflow: "hidden",
-  clip: "rect(0, 0, 0, 0)",
-  whiteSpace: "nowrap",
-  wordWrap: "normal"
-});
-var NAME$1 = "VisuallyHidden";
-var VisuallyHidden = reactExports.forwardRef(
+var Presence = (props2) => {
+  const { present: present2, children } = props2;
+  const presence = usePresence(present2);
+  const child = typeof children === "function" ? children({ present: presence.isPresent }) : reactExports.Children.only(children);
+  const ref = useStableComposedRefs(presence.ref, getElementRef(child));
+  const forceMount = typeof children === "function";
+  return forceMount || presence.isPresent ? reactExports.cloneElement(child, { ref }) : null;
+};
+Presence.displayName = "Presence";
+function usePresence(present2) {
+  const [node, setNode] = reactExports.useState();
+  const stylesRef = reactExports.useRef(null);
+  const prevPresentRef = reactExports.useRef(present2);
+  const prevAnimationNameRef = reactExports.useRef("none");
+  const mountAnimationNameRef = reactExports.useRef(void 0);
+  const initialState2 = present2 ? "mounted" : "unmounted";
+  const [state, send] = useStateMachine(initialState2, {
+    mounted: {
+      UNMOUNT: "unmounted",
+      ANIMATION_OUT: "unmountSuspended"
+    },
+    unmountSuspended: {
+      MOUNT: "mounted",
+      ANIMATION_END: "unmounted"
+    },
+    unmounted: {
+      MOUNT: "mounted"
+    }
+  });
+  reactExports.useEffect(() => {
+    if (state === "mounted") {
+      prevAnimationNameRef.current = mountAnimationNameRef.current ?? getAnimationName(stylesRef.current);
+      mountAnimationNameRef.current = void 0;
+    } else {
+      prevAnimationNameRef.current = "none";
+    }
+  }, [state]);
+  useLayoutEffect2(() => {
+    const styles = stylesRef.current;
+    const wasPresent = prevPresentRef.current;
+    const hasPresentChanged = wasPresent !== present2;
+    if (hasPresentChanged) {
+      const prevAnimationName = prevAnimationNameRef.current;
+      const currentAnimationName = getAnimationName(styles);
+      if (present2) {
+        mountAnimationNameRef.current = currentAnimationName;
+        send("MOUNT");
+      } else if (currentAnimationName === "none" || styles?.display === "none") {
+        send("UNMOUNT");
+      } else {
+        const isAnimating = prevAnimationName !== currentAnimationName;
+        if (wasPresent && isAnimating) {
+          send("ANIMATION_OUT");
+        } else {
+          send("UNMOUNT");
+        }
+      }
+      prevPresentRef.current = present2;
+    }
+  }, [present2, send]);
+  useLayoutEffect2(() => {
+    if (node) {
+      let timeoutId2;
+      const ownerWindow = node.ownerDocument.defaultView ?? window;
+      const handleAnimationEnd = (event) => {
+        const currentAnimationName = getAnimationName(stylesRef.current);
+        const isCurrentAnimation = currentAnimationName.includes(CSS.escape(event.animationName));
+        if (event.target === node && isCurrentAnimation) {
+          send("ANIMATION_END");
+          if (!prevPresentRef.current) {
+            const currentFillMode = node.style.animationFillMode;
+            node.style.animationFillMode = "forwards";
+            timeoutId2 = ownerWindow.setTimeout(() => {
+              if (node.style.animationFillMode === "forwards") {
+                node.style.animationFillMode = currentFillMode;
+              }
+            });
+          }
+        }
+      };
+      const handleAnimationStart = (event) => {
+        if (event.target === node) {
+          prevAnimationNameRef.current = getAnimationName(stylesRef.current);
+        }
+      };
+      node.addEventListener("animationstart", handleAnimationStart);
+      node.addEventListener("animationcancel", handleAnimationEnd);
+      node.addEventListener("animationend", handleAnimationEnd);
+      return () => {
+        ownerWindow.clearTimeout(timeoutId2);
+        node.removeEventListener("animationstart", handleAnimationStart);
+        node.removeEventListener("animationcancel", handleAnimationEnd);
+        node.removeEventListener("animationend", handleAnimationEnd);
+      };
+    } else {
+      send("ANIMATION_END");
+    }
+  }, [node, send]);
+  return {
+    isPresent: ["mounted", "unmountSuspended"].includes(state),
+    ref: reactExports.useCallback((node2) => {
+      if (node2) {
+        const styles = getComputedStyle(node2);
+        stylesRef.current = styles;
+        mountAnimationNameRef.current = getAnimationName(styles);
+      } else {
+        stylesRef.current = null;
+      }
+      setNode(node2);
+    }, [])
+  };
+}
+function setRef(ref, value) {
+  if (typeof ref === "function") {
+    return ref(value);
+  } else if (ref !== null && ref !== void 0) {
+    ref.current = value;
+  }
+}
+function useStableComposedRefs(...refs) {
+  const refsRef = reactExports.useRef(refs);
+  refsRef.current = refs;
+  return reactExports.useCallback((node) => {
+    const currentRefs = refsRef.current;
+    let hasCleanup = false;
+    const cleanups = currentRefs.map((ref) => {
+      const cleanup = setRef(ref, node);
+      if (!hasCleanup && typeof cleanup === "function") {
+        hasCleanup = true;
+      }
+      return cleanup;
+    });
+    if (hasCleanup) {
+      return () => {
+        for (let i = 0; i < cleanups.length; i++) {
+          const cleanup = cleanups[i];
+          if (typeof cleanup === "function") {
+            cleanup();
+          } else {
+            setRef(currentRefs[i], null);
+          }
+        }
+      };
+    }
+  }, []);
+}
+function getAnimationName(styles) {
+  return styles?.animationName || "none";
+}
+function getElementRef(element) {
+  let getter = Object.getOwnPropertyDescriptor(element.props, "ref")?.get;
+  let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+  if (mayWarn) {
+    return element.ref;
+  }
+  getter = Object.getOwnPropertyDescriptor(element, "ref")?.get;
+  mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+  if (mayWarn) {
+    return element.props.ref;
+  }
+  return element.props.ref || element.ref;
+}
+var _isHydrated = false;
+function useIsHydrated() {
+  const [isHydrated, setIsHydrated] = reactExports.useState(_isHydrated);
+  reactExports.useEffect(() => {
+    if (!_isHydrated) {
+      _isHydrated = true;
+      setIsHydrated(true);
+    }
+  }, []);
+  return isHydrated;
+}
+var useReactSyncExternalStore = React$1[" useSyncExternalStore ".trim().toString()];
+function subscribe() {
+  return () => {
+  };
+}
+function useIsHydratedModern() {
+  return useReactSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false
+  );
+}
+var useIsHydrated2 = typeof useReactSyncExternalStore === "function" ? useIsHydratedModern : useIsHydrated;
+var ENTRY_FOCUS = "rovingFocusGroup.onEntryFocus";
+var EVENT_OPTIONS = { bubbles: false, cancelable: true };
+var GROUP_NAME$3 = "RovingFocusGroup";
+var [Collection$2, useCollection$2, createCollectionScope$2] = createCollection(GROUP_NAME$3);
+var [createRovingFocusGroupContext, createRovingFocusGroupScope] = createContextScope(
+  GROUP_NAME$3,
+  [createCollectionScope$2]
+);
+var [RovingFocusProvider, useRovingFocusContext] = createRovingFocusGroupContext(GROUP_NAME$3);
+var RovingFocusGroup = reactExports.forwardRef(
   (props2, forwardedRef) => {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Collection$2.Provider, { scope: props2.__scopeRovingFocusGroup, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collection$2.Slot, { scope: props2.__scopeRovingFocusGroup, children: /* @__PURE__ */ jsxRuntimeExports.jsx(RovingFocusGroupImpl, { ...props2, ref: forwardedRef }) }) });
+  }
+);
+RovingFocusGroup.displayName = GROUP_NAME$3;
+var RovingFocusGroupImpl = reactExports.forwardRef((props2, forwardedRef) => {
+  const {
+    __scopeRovingFocusGroup,
+    orientation,
+    loop = false,
+    dir,
+    currentTabStopId: currentTabStopIdProp,
+    defaultCurrentTabStopId,
+    onCurrentTabStopIdChange,
+    onEntryFocus,
+    preventScrollOnEntryFocus = false,
+    ...groupProps
+  } = props2;
+  const ref = reactExports.useRef(null);
+  const composedRefs = useComposedRefs(forwardedRef, ref);
+  const direction = useDirection(dir);
+  const [currentTabStopId, setCurrentTabStopId] = useControllableState({
+    prop: currentTabStopIdProp,
+    defaultProp: defaultCurrentTabStopId ?? null,
+    onChange: onCurrentTabStopIdChange,
+    caller: GROUP_NAME$3
+  });
+  const [isTabbingBackOut, setIsTabbingBackOut] = reactExports.useState(false);
+  const handleEntryFocus = useCallbackRef$1(onEntryFocus);
+  const getItems = useCollection$2(__scopeRovingFocusGroup);
+  const isClickFocusRef = reactExports.useRef(false);
+  const [focusableItemsCount, setFocusableItemsCount] = reactExports.useState(0);
+  reactExports.useEffect(() => {
+    const node = ref.current;
+    if (node) {
+      node.addEventListener(ENTRY_FOCUS, handleEntryFocus);
+      return () => node.removeEventListener(ENTRY_FOCUS, handleEntryFocus);
+    }
+  }, [handleEntryFocus]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    RovingFocusProvider,
+    {
+      scope: __scopeRovingFocusGroup,
+      orientation,
+      dir: direction,
+      loop,
+      currentTabStopId,
+      onItemFocus: reactExports.useCallback(
+        (tabStopId) => setCurrentTabStopId(tabStopId),
+        [setCurrentTabStopId]
+      ),
+      onItemShiftTab: reactExports.useCallback(() => setIsTabbingBackOut(true), []),
+      onFocusableItemAdd: reactExports.useCallback(
+        () => setFocusableItemsCount((prevCount) => prevCount + 1),
+        []
+      ),
+      onFocusableItemRemove: reactExports.useCallback(
+        () => setFocusableItemsCount((prevCount) => prevCount - 1),
+        []
+      ),
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Primitive.div,
+        {
+          tabIndex: isTabbingBackOut || focusableItemsCount === 0 ? -1 : 0,
+          "data-orientation": orientation,
+          ...groupProps,
+          ref: composedRefs,
+          style: { outline: "none", ...props2.style },
+          onMouseDown: composeEventHandlers(props2.onMouseDown, () => {
+            isClickFocusRef.current = true;
+          }),
+          onFocus: composeEventHandlers(props2.onFocus, (event) => {
+            const isKeyboardFocus = !isClickFocusRef.current;
+            if (event.target === event.currentTarget && isKeyboardFocus && !isTabbingBackOut) {
+              const entryFocusEvent = new CustomEvent(ENTRY_FOCUS, EVENT_OPTIONS);
+              event.currentTarget.dispatchEvent(entryFocusEvent);
+              if (!entryFocusEvent.defaultPrevented) {
+                const items = getItems().filter((item) => item.focusable);
+                const activeItem = items.find((item) => item.active);
+                const currentItem = items.find((item) => item.id === currentTabStopId);
+                const candidateItems = [activeItem, currentItem, ...items].filter(
+                  Boolean
+                );
+                const candidateNodes = candidateItems.map((item) => item.ref.current);
+                focusFirst$1(candidateNodes, preventScrollOnEntryFocus);
+              }
+            }
+            isClickFocusRef.current = false;
+          }),
+          onBlur: composeEventHandlers(props2.onBlur, () => setIsTabbingBackOut(false))
+        }
+      )
+    }
+  );
+});
+var ITEM_NAME$3 = "RovingFocusGroupItem";
+var RovingFocusGroupItem = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const {
+      __scopeRovingFocusGroup,
+      focusable = true,
+      active = false,
+      tabStopId,
+      children,
+      ...itemProps
+    } = props2;
+    const autoId = useId$2();
+    const id = tabStopId || autoId;
+    const context = useRovingFocusContext(ITEM_NAME$3, __scopeRovingFocusGroup);
+    const isCurrentTabStop = context.currentTabStopId === id;
+    const getItems = useCollection$2(__scopeRovingFocusGroup);
+    const { onFocusableItemAdd, onFocusableItemRemove, currentTabStopId } = context;
+    const isHydrated = useIsHydrated2();
+    useLayoutEffect2(() => {
+      if (!isHydrated || !focusable) {
+        return;
+      }
+      onFocusableItemAdd();
+      return () => onFocusableItemRemove();
+    }, [isHydrated, focusable, onFocusableItemAdd, onFocusableItemRemove]);
+    reactExports.useEffect(() => {
+      if (isHydrated || !focusable) {
+        return;
+      }
+      onFocusableItemAdd();
+      return () => onFocusableItemRemove();
+    }, [isHydrated, focusable, onFocusableItemAdd, onFocusableItemRemove]);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Primitive.span,
+      Collection$2.ItemSlot,
       {
-        ...props2,
-        ref: forwardedRef,
-        style: { ...VISUALLY_HIDDEN_STYLES, ...props2.style }
+        scope: __scopeRovingFocusGroup,
+        id,
+        focusable,
+        active,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.span,
+          {
+            tabIndex: isCurrentTabStop ? 0 : -1,
+            "data-orientation": context.orientation,
+            ...itemProps,
+            ref: forwardedRef,
+            onMouseDown: composeEventHandlers(props2.onMouseDown, (event) => {
+              if (!focusable) event.preventDefault();
+              else context.onItemFocus(id);
+            }),
+            onFocus: composeEventHandlers(props2.onFocus, () => context.onItemFocus(id)),
+            onKeyDown: composeEventHandlers(props2.onKeyDown, (event) => {
+              if (event.key === "Tab" && event.shiftKey) {
+                context.onItemShiftTab();
+                return;
+              }
+              if (event.target !== event.currentTarget) return;
+              const focusIntent = getFocusIntent(event, context.orientation, context.dir);
+              if (focusIntent !== void 0) {
+                if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+                event.preventDefault();
+                const items = getItems().filter((item) => item.focusable);
+                let candidateNodes = items.map((item) => item.ref.current);
+                if (focusIntent === "last") candidateNodes.reverse();
+                else if (focusIntent === "prev" || focusIntent === "next") {
+                  if (focusIntent === "prev") candidateNodes.reverse();
+                  const currentIndex = candidateNodes.indexOf(event.currentTarget);
+                  candidateNodes = context.loop ? wrapArray$2(candidateNodes, currentIndex + 1) : candidateNodes.slice(currentIndex + 1);
+                }
+                setTimeout(() => focusFirst$1(candidateNodes));
+              }
+            }),
+            children: typeof children === "function" ? children({ isCurrentTabStop, hasTabStop: currentTabStopId != null }) : children
+          }
+        )
       }
     );
   }
 );
-VisuallyHidden.displayName = NAME$1;
+RovingFocusGroupItem.displayName = ITEM_NAME$3;
+var MAP_KEY_TO_FOCUS_INTENT = {
+  ArrowLeft: "prev",
+  ArrowUp: "prev",
+  ArrowRight: "next",
+  ArrowDown: "next",
+  PageUp: "first",
+  Home: "first",
+  PageDown: "last",
+  End: "last"
+};
+function getDirectionAwareKey(key, dir) {
+  if (dir !== "rtl") return key;
+  return key === "ArrowLeft" ? "ArrowRight" : key === "ArrowRight" ? "ArrowLeft" : key;
+}
+function getFocusIntent(event, orientation, dir) {
+  const key = getDirectionAwareKey(event.key, dir);
+  if (orientation === "vertical" && ["ArrowLeft", "ArrowRight"].includes(key)) return void 0;
+  if (orientation === "horizontal" && ["ArrowUp", "ArrowDown"].includes(key)) return void 0;
+  return MAP_KEY_TO_FOCUS_INTENT[key];
+}
+function focusFirst$1(candidates, preventScroll = false) {
+  const PREVIOUSLY_FOCUSED_ELEMENT = document.activeElement;
+  for (const candidate of candidates) {
+    if (candidate === PREVIOUSLY_FOCUSED_ELEMENT) return;
+    candidate.focus({ preventScroll });
+    if (document.activeElement !== PREVIOUSLY_FOCUSED_ELEMENT) return;
+  }
+}
+function wrapArray$2(array2, startIndex) {
+  return array2.map((_, index2) => array2[(startIndex + index2) % array2.length]);
+}
+var Root$1 = RovingFocusGroup;
+var Item = RovingFocusGroupItem;
 var getDefaultParent = function(originalTarget) {
   if (typeof document === "undefined") {
     return null;
@@ -22630,7 +19785,7 @@ function useCallbackRef(initialValue, callback) {
   ref.callback = callback;
   return ref.facade;
 }
-var useIsomorphicLayoutEffect$2 = typeof window !== "undefined" ? reactExports.useLayoutEffect : reactExports.useEffect;
+var useIsomorphicLayoutEffect$3 = typeof window !== "undefined" ? reactExports.useLayoutEffect : reactExports.useEffect;
 var currentValues = /* @__PURE__ */ new WeakMap();
 function useMergeRefs(refs, defaultValue) {
   var callbackRef = useCallbackRef(null, function(newValue) {
@@ -22638,7 +19793,7 @@ function useMergeRefs(refs, defaultValue) {
       return assignRef(ref, newValue);
     });
   });
-  useIsomorphicLayoutEffect$2(function() {
+  useIsomorphicLayoutEffect$3(function() {
     var oldValue = currentValues.get(callbackRef);
     if (oldValue) {
       var prevRefs_1 = new Set(oldValue);
@@ -23219,6 +20374,4618 @@ var ReactRemoveScroll = reactExports.forwardRef(function(props2, ref) {
   return reactExports.createElement(RemoveScroll, __assign({}, props2, { ref, sideCar: SideCar }));
 });
 ReactRemoveScroll.classNames = RemoveScroll.classNames;
+var SELECTION_KEYS$1 = ["Enter", " "];
+var FIRST_KEYS = ["ArrowDown", "PageUp", "Home"];
+var LAST_KEYS = ["ArrowUp", "PageDown", "End"];
+var FIRST_LAST_KEYS = [...FIRST_KEYS, ...LAST_KEYS];
+var SUB_OPEN_KEYS = {
+  ltr: [...SELECTION_KEYS$1, "ArrowRight"],
+  rtl: [...SELECTION_KEYS$1, "ArrowLeft"]
+};
+var SUB_CLOSE_KEYS = {
+  ltr: ["ArrowLeft"],
+  rtl: ["ArrowRight"]
+};
+var MENU_NAME = "Menu";
+var [Collection$1, useCollection$1, createCollectionScope$1] = createCollection(MENU_NAME);
+var [createMenuContext, createMenuScope] = createContextScope(MENU_NAME, [
+  createCollectionScope$1,
+  createPopperScope,
+  createRovingFocusGroupScope
+]);
+var usePopperScope$1 = createPopperScope();
+var useRovingFocusGroupScope$1 = createRovingFocusGroupScope();
+var [MenuProvider, useMenuContext] = createMenuContext(MENU_NAME);
+var [MenuRootProvider, useMenuRootContext] = createMenuContext(MENU_NAME);
+var Menu = (props2) => {
+  const { __scopeMenu, open = false, children, dir, onOpenChange, modal = true } = props2;
+  const popperScope = usePopperScope$1(__scopeMenu);
+  const [content, setContent] = reactExports.useState(null);
+  const isUsingKeyboardRef = reactExports.useRef(false);
+  const handleOpenChange = useCallbackRef$1(onOpenChange);
+  const direction = useDirection(dir);
+  reactExports.useEffect(() => {
+    const handleKeyDown = () => {
+      isUsingKeyboardRef.current = true;
+      document.addEventListener("pointerdown", handlePointer, { capture: true, once: true });
+      document.addEventListener("pointermove", handlePointer, { capture: true, once: true });
+    };
+    const handlePointer = () => isUsingKeyboardRef.current = false;
+    document.addEventListener("keydown", handleKeyDown, { capture: true });
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown, { capture: true });
+      document.removeEventListener("pointerdown", handlePointer, { capture: true });
+      document.removeEventListener("pointermove", handlePointer, { capture: true });
+    };
+  }, []);
+  reactExports.useEffect(() => {
+    if (!open) {
+      return;
+    }
+    const handleBlur = () => handleOpenChange(false);
+    window.addEventListener("blur", handleBlur);
+    return () => window.removeEventListener("blur", handleBlur);
+  }, [open, handleOpenChange]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Root2$3, { ...popperScope, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+    MenuProvider,
+    {
+      scope: __scopeMenu,
+      open,
+      onOpenChange: handleOpenChange,
+      content,
+      onContentChange: setContent,
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        MenuRootProvider,
+        {
+          scope: __scopeMenu,
+          onClose: reactExports.useCallback(() => handleOpenChange(false), [handleOpenChange]),
+          isUsingKeyboardRef,
+          dir: direction,
+          modal,
+          children
+        }
+      )
+    }
+  ) });
+};
+Menu.displayName = MENU_NAME;
+var ANCHOR_NAME = "MenuAnchor";
+var MenuAnchor = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeMenu, ...anchorProps } = props2;
+    const popperScope = usePopperScope$1(__scopeMenu);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Anchor, { ...popperScope, ...anchorProps, ref: forwardedRef });
+  }
+);
+MenuAnchor.displayName = ANCHOR_NAME;
+var PORTAL_NAME$4 = "MenuPortal";
+var [PortalProvider$2, usePortalContext$2] = createMenuContext(PORTAL_NAME$4, {
+  forceMount: void 0
+});
+var MenuPortal = (props2) => {
+  const { __scopeMenu, forceMount, children, container } = props2;
+  const context = useMenuContext(PORTAL_NAME$4, __scopeMenu);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(PortalProvider$2, { scope: __scopeMenu, forceMount, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$1, { asChild: true, container, children }) }) });
+};
+MenuPortal.displayName = PORTAL_NAME$4;
+var CONTENT_NAME$5 = "MenuContent";
+var [MenuContentProvider, useMenuContentContext] = createMenuContext(CONTENT_NAME$5);
+var MenuContent = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const portalContext = usePortalContext$2(CONTENT_NAME$5, props2.__scopeMenu);
+    const { forceMount = portalContext.forceMount, ...contentProps } = props2;
+    const context = useMenuContext(CONTENT_NAME$5, props2.__scopeMenu);
+    const rootContext = useMenuRootContext(CONTENT_NAME$5, props2.__scopeMenu);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Collection$1.Provider, { scope: props2.__scopeMenu, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collection$1.Slot, { scope: props2.__scopeMenu, children: rootContext.modal ? /* @__PURE__ */ jsxRuntimeExports.jsx(MenuRootContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MenuRootContentNonModal, { ...contentProps, ref: forwardedRef }) }) }) });
+  }
+);
+var MenuRootContentModal = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const context = useMenuContext(CONTENT_NAME$5, props2.__scopeMenu);
+    const ref = reactExports.useRef(null);
+    const composedRefs = useComposedRefs(forwardedRef, ref);
+    reactExports.useEffect(() => {
+      const content = ref.current;
+      if (content) return hideOthers(content);
+    }, []);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      MenuContentImpl,
+      {
+        ...props2,
+        ref: composedRefs,
+        trapFocus: context.open,
+        disableOutsidePointerEvents: context.open,
+        disableOutsideScroll: true,
+        onFocusOutside: composeEventHandlers(
+          props2.onFocusOutside,
+          (event) => event.preventDefault(),
+          { checkForDefaultPrevented: false }
+        ),
+        onDismiss: () => context.onOpenChange(false)
+      }
+    );
+  }
+);
+var MenuRootContentNonModal = reactExports.forwardRef((props2, forwardedRef) => {
+  const context = useMenuContext(CONTENT_NAME$5, props2.__scopeMenu);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    MenuContentImpl,
+    {
+      ...props2,
+      ref: forwardedRef,
+      trapFocus: false,
+      disableOutsidePointerEvents: false,
+      disableOutsideScroll: false,
+      onDismiss: () => context.onOpenChange(false)
+    }
+  );
+});
+var Slot$2 = /* @__PURE__ */ createSlot("MenuContent.ScrollLock");
+var MenuContentImpl = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const {
+      __scopeMenu,
+      loop = false,
+      trapFocus,
+      onOpenAutoFocus,
+      onCloseAutoFocus,
+      disableOutsidePointerEvents,
+      onEntryFocus,
+      onEscapeKeyDown,
+      onPointerDownOutside,
+      onFocusOutside,
+      onInteractOutside,
+      onDismiss,
+      disableOutsideScroll,
+      ...contentProps
+    } = props2;
+    const context = useMenuContext(CONTENT_NAME$5, __scopeMenu);
+    const rootContext = useMenuRootContext(CONTENT_NAME$5, __scopeMenu);
+    const popperScope = usePopperScope$1(__scopeMenu);
+    const rovingFocusGroupScope = useRovingFocusGroupScope$1(__scopeMenu);
+    const getItems = useCollection$1(__scopeMenu);
+    const [currentItemId, setCurrentItemId] = reactExports.useState(null);
+    const contentRef = reactExports.useRef(null);
+    const composedRefs = useComposedRefs(forwardedRef, contentRef, context.onContentChange);
+    const timerRef = reactExports.useRef(0);
+    const searchRef = reactExports.useRef("");
+    const pointerGraceTimerRef = reactExports.useRef(0);
+    const pointerGraceIntentRef = reactExports.useRef(null);
+    const pointerDirRef = reactExports.useRef("right");
+    const lastPointerXRef = reactExports.useRef(0);
+    const ScrollLockWrapper = disableOutsideScroll ? ReactRemoveScroll : reactExports.Fragment;
+    const scrollLockWrapperProps = disableOutsideScroll ? { as: Slot$2, allowPinchZoom: true } : void 0;
+    const handleTypeaheadSearch = (key) => {
+      const search = searchRef.current + key;
+      const items = getItems().filter((item) => !item.disabled);
+      const currentItem = document.activeElement;
+      const currentMatch = items.find((item) => item.ref.current === currentItem)?.textValue;
+      const values = items.map((item) => item.textValue);
+      const nextMatch = getNextMatch(values, search, currentMatch);
+      const newItem = items.find((item) => item.textValue === nextMatch)?.ref.current;
+      (function updateSearch(value) {
+        searchRef.current = value;
+        window.clearTimeout(timerRef.current);
+        if (value !== "") timerRef.current = window.setTimeout(() => updateSearch(""), 1e3);
+      })(search);
+      if (newItem) {
+        setTimeout(() => newItem.focus());
+      }
+    };
+    reactExports.useEffect(() => {
+      return () => window.clearTimeout(timerRef.current);
+    }, []);
+    useFocusGuards();
+    const isPointerMovingToSubmenu = reactExports.useCallback((event) => {
+      const isMovingTowards = pointerDirRef.current === pointerGraceIntentRef.current?.side;
+      return isMovingTowards && isPointerInGraceArea(event, pointerGraceIntentRef.current?.area);
+    }, []);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      MenuContentProvider,
+      {
+        scope: __scopeMenu,
+        searchRef,
+        onItemEnter: reactExports.useCallback(
+          (event) => {
+            if (isPointerMovingToSubmenu(event)) event.preventDefault();
+          },
+          [isPointerMovingToSubmenu]
+        ),
+        onItemLeave: reactExports.useCallback(
+          (event) => {
+            if (isPointerMovingToSubmenu(event)) return;
+            contentRef.current?.focus();
+            setCurrentItemId(null);
+          },
+          [isPointerMovingToSubmenu]
+        ),
+        onTriggerLeave: reactExports.useCallback(
+          (event) => {
+            if (isPointerMovingToSubmenu(event)) event.preventDefault();
+          },
+          [isPointerMovingToSubmenu]
+        ),
+        pointerGraceTimerRef,
+        onPointerGraceIntentChange: reactExports.useCallback((intent) => {
+          pointerGraceIntentRef.current = intent;
+        }, []),
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollLockWrapper, { ...scrollLockWrapperProps, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          FocusScope,
+          {
+            asChild: true,
+            trapped: trapFocus,
+            onMountAutoFocus: composeEventHandlers(onOpenAutoFocus, (event) => {
+              event.preventDefault();
+              contentRef.current?.focus({ preventScroll: true });
+            }),
+            onUnmountAutoFocus: onCloseAutoFocus,
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              DismissableLayer,
+              {
+                asChild: true,
+                disableOutsidePointerEvents,
+                onEscapeKeyDown,
+                onPointerDownOutside,
+                onFocusOutside,
+                onInteractOutside,
+                onDismiss,
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Root$1,
+                  {
+                    asChild: true,
+                    ...rovingFocusGroupScope,
+                    dir: rootContext.dir,
+                    orientation: "vertical",
+                    loop,
+                    currentTabStopId: currentItemId,
+                    onCurrentTabStopIdChange: setCurrentItemId,
+                    onEntryFocus: composeEventHandlers(onEntryFocus, (event) => {
+                      if (!rootContext.isUsingKeyboardRef.current) event.preventDefault();
+                    }),
+                    preventScrollOnEntryFocus: true,
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Content$1,
+                      {
+                        role: "menu",
+                        "aria-orientation": "vertical",
+                        "data-state": getOpenState(context.open),
+                        "data-radix-menu-content": "",
+                        dir: rootContext.dir,
+                        ...popperScope,
+                        ...contentProps,
+                        ref: composedRefs,
+                        style: { outline: "none", ...contentProps.style },
+                        onKeyDown: composeEventHandlers(contentProps.onKeyDown, (event) => {
+                          const target = event.target;
+                          const isKeyDownInside = target.closest("[data-radix-menu-content]") === event.currentTarget;
+                          const isModifierKey = event.ctrlKey || event.altKey || event.metaKey;
+                          const isCharacterKey = event.key.length === 1;
+                          if (isKeyDownInside) {
+                            if (event.key === "Tab") event.preventDefault();
+                            if (!isModifierKey && isCharacterKey) handleTypeaheadSearch(event.key);
+                          }
+                          const content = contentRef.current;
+                          if (event.target !== content) return;
+                          if (!FIRST_LAST_KEYS.includes(event.key)) return;
+                          event.preventDefault();
+                          const items = getItems().filter((item) => !item.disabled);
+                          const candidateNodes = items.map((item) => item.ref.current);
+                          if (LAST_KEYS.includes(event.key)) candidateNodes.reverse();
+                          focusFirst(candidateNodes);
+                        }),
+                        onBlur: composeEventHandlers(props2.onBlur, (event) => {
+                          if (!event.currentTarget.contains(event.target)) {
+                            window.clearTimeout(timerRef.current);
+                            searchRef.current = "";
+                          }
+                        }),
+                        onPointerMove: composeEventHandlers(
+                          props2.onPointerMove,
+                          whenMouse((event) => {
+                            const target = event.target;
+                            const pointerXHasChanged = lastPointerXRef.current !== event.clientX;
+                            if (event.currentTarget.contains(target) && pointerXHasChanged) {
+                              const newDir = event.clientX > lastPointerXRef.current ? "right" : "left";
+                              pointerDirRef.current = newDir;
+                              lastPointerXRef.current = event.clientX;
+                            }
+                          })
+                        )
+                      }
+                    )
+                  }
+                )
+              }
+            )
+          }
+        ) })
+      }
+    );
+  }
+);
+MenuContent.displayName = CONTENT_NAME$5;
+var GROUP_NAME$2 = "MenuGroup";
+var MenuGroup = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeMenu, ...groupProps } = props2;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.div, { role: "group", ...groupProps, ref: forwardedRef });
+  }
+);
+MenuGroup.displayName = GROUP_NAME$2;
+var LABEL_NAME$2 = "MenuLabel";
+var MenuLabel = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeMenu, ...labelProps } = props2;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.div, { ...labelProps, ref: forwardedRef });
+  }
+);
+MenuLabel.displayName = LABEL_NAME$2;
+var ITEM_NAME$2 = "MenuItem";
+var ITEM_SELECT = "menu.itemSelect";
+var MenuItem = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { disabled = false, onSelect, ...itemProps } = props2;
+    const ref = reactExports.useRef(null);
+    const rootContext = useMenuRootContext(ITEM_NAME$2, props2.__scopeMenu);
+    const contentContext = useMenuContentContext(ITEM_NAME$2, props2.__scopeMenu);
+    const composedRefs = useComposedRefs(forwardedRef, ref);
+    const isPointerDownRef = reactExports.useRef(false);
+    const handleSelect = () => {
+      const menuItem = ref.current;
+      if (!disabled && menuItem) {
+        const itemSelectEvent = new CustomEvent(ITEM_SELECT, { bubbles: true, cancelable: true });
+        menuItem.addEventListener(ITEM_SELECT, (event) => onSelect?.(event), { once: true });
+        dispatchDiscreteCustomEvent(menuItem, itemSelectEvent);
+        if (itemSelectEvent.defaultPrevented) {
+          isPointerDownRef.current = false;
+        } else {
+          rootContext.onClose();
+        }
+      }
+    };
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      MenuItemImpl,
+      {
+        ...itemProps,
+        ref: composedRefs,
+        disabled,
+        onClick: composeEventHandlers(props2.onClick, handleSelect),
+        onPointerDown: (event) => {
+          props2.onPointerDown?.(event);
+          isPointerDownRef.current = true;
+        },
+        onPointerUp: composeEventHandlers(props2.onPointerUp, (event) => {
+          if (!isPointerDownRef.current) event.currentTarget?.click();
+        }),
+        onKeyDown: composeEventHandlers(props2.onKeyDown, (event) => {
+          if (disabled || event.target !== event.currentTarget) {
+            return;
+          }
+          const isTypingAhead = contentContext.searchRef.current !== "";
+          if (isTypingAhead && event.key === " ") {
+            return;
+          }
+          if (SELECTION_KEYS$1.includes(event.key)) {
+            event.currentTarget.click();
+            event.preventDefault();
+          }
+        })
+      }
+    );
+  }
+);
+MenuItem.displayName = ITEM_NAME$2;
+var MenuItemImpl = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeMenu, disabled = false, textValue, ...itemProps } = props2;
+    const contentContext = useMenuContentContext(ITEM_NAME$2, __scopeMenu);
+    const rovingFocusGroupScope = useRovingFocusGroupScope$1(__scopeMenu);
+    const ref = reactExports.useRef(null);
+    const composedRefs = useComposedRefs(forwardedRef, ref);
+    const [isFocused, setIsFocused] = reactExports.useState(false);
+    const [textContent, setTextContent] = reactExports.useState("");
+    reactExports.useEffect(() => {
+      const menuItem = ref.current;
+      if (menuItem) {
+        setTextContent((menuItem.textContent ?? "").trim());
+      }
+    }, [itemProps.children]);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Collection$1.ItemSlot,
+      {
+        scope: __scopeMenu,
+        disabled,
+        textValue: textValue ?? textContent,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { asChild: true, ...rovingFocusGroupScope, focusable: !disabled, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.div,
+          {
+            role: "menuitem",
+            "data-highlighted": isFocused ? "" : void 0,
+            "aria-disabled": disabled || void 0,
+            "data-disabled": disabled ? "" : void 0,
+            ...itemProps,
+            ref: composedRefs,
+            onPointerMove: composeEventHandlers(
+              props2.onPointerMove,
+              whenMouse((event) => {
+                if (disabled) {
+                  contentContext.onItemLeave(event);
+                } else {
+                  contentContext.onItemEnter(event);
+                  if (!event.defaultPrevented) {
+                    const item = event.currentTarget;
+                    item.focus({ preventScroll: true });
+                  }
+                }
+              })
+            ),
+            onPointerLeave: composeEventHandlers(
+              props2.onPointerLeave,
+              whenMouse((event) => contentContext.onItemLeave(event))
+            ),
+            onFocus: composeEventHandlers(props2.onFocus, () => setIsFocused(true)),
+            onBlur: composeEventHandlers(props2.onBlur, () => setIsFocused(false))
+          }
+        ) })
+      }
+    );
+  }
+);
+var CHECKBOX_ITEM_NAME$1 = "MenuCheckboxItem";
+var MenuCheckboxItem = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { checked = false, onCheckedChange, ...checkboxItemProps } = props2;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(ItemIndicatorProvider, { scope: props2.__scopeMenu, checked, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      MenuItem,
+      {
+        role: "menuitemcheckbox",
+        "aria-checked": isIndeterminate(checked) ? "mixed" : checked,
+        ...checkboxItemProps,
+        ref: forwardedRef,
+        "data-state": getCheckedState(checked),
+        onSelect: composeEventHandlers(
+          checkboxItemProps.onSelect,
+          () => onCheckedChange?.(isIndeterminate(checked) ? true : !checked),
+          { checkForDefaultPrevented: false }
+        )
+      }
+    ) });
+  }
+);
+MenuCheckboxItem.displayName = CHECKBOX_ITEM_NAME$1;
+var RADIO_GROUP_NAME$1 = "MenuRadioGroup";
+var [RadioGroupProvider, useRadioGroupContext] = createMenuContext(
+  RADIO_GROUP_NAME$1,
+  { value: void 0, onValueChange: () => {
+  } }
+);
+var MenuRadioGroup = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { value, onValueChange, ...groupProps } = props2;
+    const handleValueChange = useCallbackRef$1(onValueChange);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(RadioGroupProvider, { scope: props2.__scopeMenu, value, onValueChange: handleValueChange, children: /* @__PURE__ */ jsxRuntimeExports.jsx(MenuGroup, { ...groupProps, ref: forwardedRef }) });
+  }
+);
+MenuRadioGroup.displayName = RADIO_GROUP_NAME$1;
+var RADIO_ITEM_NAME$1 = "MenuRadioItem";
+var MenuRadioItem = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { value, ...radioItemProps } = props2;
+    const context = useRadioGroupContext(RADIO_ITEM_NAME$1, props2.__scopeMenu);
+    const checked = value === context.value;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(ItemIndicatorProvider, { scope: props2.__scopeMenu, checked, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      MenuItem,
+      {
+        role: "menuitemradio",
+        "aria-checked": checked,
+        ...radioItemProps,
+        ref: forwardedRef,
+        "data-state": getCheckedState(checked),
+        onSelect: composeEventHandlers(
+          radioItemProps.onSelect,
+          () => context.onValueChange?.(value),
+          { checkForDefaultPrevented: false }
+        )
+      }
+    ) });
+  }
+);
+MenuRadioItem.displayName = RADIO_ITEM_NAME$1;
+var ITEM_INDICATOR_NAME$1 = "MenuItemIndicator";
+var [ItemIndicatorProvider, useItemIndicatorContext] = createMenuContext(
+  ITEM_INDICATOR_NAME$1,
+  { checked: false }
+);
+var MenuItemIndicator = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeMenu, forceMount, ...itemIndicatorProps } = props2;
+    const indicatorContext = useItemIndicatorContext(ITEM_INDICATOR_NAME$1, __scopeMenu);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Presence,
+      {
+        present: forceMount || isIndeterminate(indicatorContext.checked) || indicatorContext.checked === true,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.span,
+          {
+            ...itemIndicatorProps,
+            ref: forwardedRef,
+            "data-state": getCheckedState(indicatorContext.checked)
+          }
+        )
+      }
+    );
+  }
+);
+MenuItemIndicator.displayName = ITEM_INDICATOR_NAME$1;
+var SEPARATOR_NAME$2 = "MenuSeparator";
+var MenuSeparator = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeMenu, ...separatorProps } = props2;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Primitive.div,
+      {
+        role: "separator",
+        "aria-orientation": "horizontal",
+        ...separatorProps,
+        ref: forwardedRef
+      }
+    );
+  }
+);
+MenuSeparator.displayName = SEPARATOR_NAME$2;
+var ARROW_NAME$2 = "MenuArrow";
+var MenuArrow = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeMenu, ...arrowProps } = props2;
+    const popperScope = usePopperScope$1(__scopeMenu);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Arrow, { ...popperScope, ...arrowProps, ref: forwardedRef });
+  }
+);
+MenuArrow.displayName = ARROW_NAME$2;
+var SUB_NAME = "MenuSub";
+var [MenuSubProvider, useMenuSubContext] = createMenuContext(SUB_NAME);
+var SUB_TRIGGER_NAME$1 = "MenuSubTrigger";
+var MenuSubTrigger = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const context = useMenuContext(SUB_TRIGGER_NAME$1, props2.__scopeMenu);
+    const rootContext = useMenuRootContext(SUB_TRIGGER_NAME$1, props2.__scopeMenu);
+    const subContext = useMenuSubContext(SUB_TRIGGER_NAME$1, props2.__scopeMenu);
+    const contentContext = useMenuContentContext(SUB_TRIGGER_NAME$1, props2.__scopeMenu);
+    const openTimerRef = reactExports.useRef(null);
+    const { pointerGraceTimerRef, onPointerGraceIntentChange } = contentContext;
+    const scope = { __scopeMenu: props2.__scopeMenu };
+    const clearOpenTimer = reactExports.useCallback(() => {
+      if (openTimerRef.current) window.clearTimeout(openTimerRef.current);
+      openTimerRef.current = null;
+    }, []);
+    reactExports.useEffect(() => clearOpenTimer, [clearOpenTimer]);
+    reactExports.useEffect(() => {
+      const pointerGraceTimer = pointerGraceTimerRef.current;
+      return () => {
+        window.clearTimeout(pointerGraceTimer);
+        onPointerGraceIntentChange(null);
+      };
+    }, [pointerGraceTimerRef, onPointerGraceIntentChange]);
+    const composedRefs = useComposedRefs(forwardedRef, subContext.onTriggerChange);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(MenuAnchor, { asChild: true, ...scope, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      MenuItemImpl,
+      {
+        id: subContext.triggerId,
+        "aria-haspopup": "menu",
+        "aria-expanded": context.open,
+        "aria-controls": context.open ? subContext.contentId : void 0,
+        "data-state": getOpenState(context.open),
+        ...props2,
+        ref: composedRefs,
+        onClick: (event) => {
+          props2.onClick?.(event);
+          if (props2.disabled || event.defaultPrevented) return;
+          event.currentTarget.focus();
+          if (!context.open) context.onOpenChange(true);
+        },
+        onPointerMove: composeEventHandlers(
+          props2.onPointerMove,
+          whenMouse((event) => {
+            contentContext.onItemEnter(event);
+            if (event.defaultPrevented) return;
+            if (!props2.disabled && !context.open && !openTimerRef.current) {
+              contentContext.onPointerGraceIntentChange(null);
+              openTimerRef.current = window.setTimeout(() => {
+                context.onOpenChange(true);
+                clearOpenTimer();
+              }, 100);
+            }
+          })
+        ),
+        onPointerLeave: composeEventHandlers(
+          props2.onPointerLeave,
+          whenMouse((event) => {
+            clearOpenTimer();
+            const contentRect = context.content?.getBoundingClientRect();
+            if (contentRect) {
+              const side = context.content?.dataset.side;
+              const rightSide = side === "right";
+              const bleed = rightSide ? -5 : 5;
+              const contentNearEdge = contentRect[rightSide ? "left" : "right"];
+              const contentFarEdge = contentRect[rightSide ? "right" : "left"];
+              contentContext.onPointerGraceIntentChange({
+                area: [
+                  // Apply a bleed on clientX to ensure that our exit point is
+                  // consistently within polygon bounds
+                  { x: event.clientX + bleed, y: event.clientY },
+                  { x: contentNearEdge, y: contentRect.top },
+                  { x: contentFarEdge, y: contentRect.top },
+                  { x: contentFarEdge, y: contentRect.bottom },
+                  { x: contentNearEdge, y: contentRect.bottom }
+                ],
+                side
+              });
+              window.clearTimeout(pointerGraceTimerRef.current);
+              pointerGraceTimerRef.current = window.setTimeout(
+                () => contentContext.onPointerGraceIntentChange(null),
+                300
+              );
+            } else {
+              contentContext.onTriggerLeave(event);
+              if (event.defaultPrevented) return;
+              contentContext.onPointerGraceIntentChange(null);
+            }
+          })
+        ),
+        onKeyDown: composeEventHandlers(props2.onKeyDown, (event) => {
+          if (props2.disabled || event.target !== event.currentTarget) {
+            return;
+          }
+          const isTypingAhead = contentContext.searchRef.current !== "";
+          if (isTypingAhead && event.key === " ") {
+            return;
+          }
+          if (SUB_OPEN_KEYS[rootContext.dir].includes(event.key)) {
+            context.onOpenChange(true);
+            context.content?.focus();
+            event.preventDefault();
+          }
+        })
+      }
+    ) });
+  }
+);
+MenuSubTrigger.displayName = SUB_TRIGGER_NAME$1;
+var SUB_CONTENT_NAME$1 = "MenuSubContent";
+var MenuSubContent = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const portalContext = usePortalContext$2(CONTENT_NAME$5, props2.__scopeMenu);
+    const { forceMount = portalContext.forceMount, align = "start", ...subContentProps } = props2;
+    const context = useMenuContext(CONTENT_NAME$5, props2.__scopeMenu);
+    const rootContext = useMenuRootContext(CONTENT_NAME$5, props2.__scopeMenu);
+    const subContext = useMenuSubContext(SUB_CONTENT_NAME$1, props2.__scopeMenu);
+    const ref = reactExports.useRef(null);
+    const composedRefs = useComposedRefs(forwardedRef, ref);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Collection$1.Provider, { scope: props2.__scopeMenu, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collection$1.Slot, { scope: props2.__scopeMenu, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      MenuContentImpl,
+      {
+        id: subContext.contentId,
+        "aria-labelledby": subContext.triggerId,
+        ...subContentProps,
+        ref: composedRefs,
+        align,
+        side: rootContext.dir === "rtl" ? "left" : "right",
+        disableOutsidePointerEvents: false,
+        disableOutsideScroll: false,
+        trapFocus: false,
+        onOpenAutoFocus: (event) => {
+          if (rootContext.isUsingKeyboardRef.current) ref.current?.focus();
+          event.preventDefault();
+        },
+        onCloseAutoFocus: (event) => event.preventDefault(),
+        onFocusOutside: composeEventHandlers(props2.onFocusOutside, (event) => {
+          if (event.target !== subContext.trigger) context.onOpenChange(false);
+        }),
+        onEscapeKeyDown: composeEventHandlers(props2.onEscapeKeyDown, (event) => {
+          rootContext.onClose();
+          event.preventDefault();
+        }),
+        onKeyDown: composeEventHandlers(props2.onKeyDown, (event) => {
+          const isKeyDownInside = event.currentTarget.contains(event.target);
+          const isCloseKey = SUB_CLOSE_KEYS[rootContext.dir].includes(event.key);
+          if (isKeyDownInside && isCloseKey) {
+            context.onOpenChange(false);
+            subContext.trigger?.focus();
+            event.preventDefault();
+          }
+        })
+      }
+    ) }) }) });
+  }
+);
+MenuSubContent.displayName = SUB_CONTENT_NAME$1;
+function getOpenState(open) {
+  return open ? "open" : "closed";
+}
+function isIndeterminate(checked) {
+  return checked === "indeterminate";
+}
+function getCheckedState(checked) {
+  return isIndeterminate(checked) ? "indeterminate" : checked ? "checked" : "unchecked";
+}
+function focusFirst(candidates) {
+  const PREVIOUSLY_FOCUSED_ELEMENT = document.activeElement;
+  for (const candidate of candidates) {
+    if (candidate === PREVIOUSLY_FOCUSED_ELEMENT) return;
+    candidate.focus();
+    if (document.activeElement !== PREVIOUSLY_FOCUSED_ELEMENT) return;
+  }
+}
+function wrapArray$1(array2, startIndex) {
+  return array2.map((_, index2) => array2[(startIndex + index2) % array2.length]);
+}
+function getNextMatch(values, search, currentMatch) {
+  const isRepeated = search.length > 1 && Array.from(search).every((char) => char === search[0]);
+  const normalizedSearch = isRepeated ? search[0] : search;
+  const currentMatchIndex = currentMatch ? values.indexOf(currentMatch) : -1;
+  let wrappedValues = wrapArray$1(values, Math.max(currentMatchIndex, 0));
+  const excludeCurrentMatch = normalizedSearch.length === 1;
+  if (excludeCurrentMatch) wrappedValues = wrappedValues.filter((v) => v !== currentMatch);
+  const nextMatch = wrappedValues.find(
+    (value) => value.toLowerCase().startsWith(normalizedSearch.toLowerCase())
+  );
+  return nextMatch !== currentMatch ? nextMatch : void 0;
+}
+function isPointInPolygon(point2, polygon) {
+  const { x: x2, y: y2 } = point2;
+  let inside = false;
+  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+    const ii = polygon[i];
+    const jj = polygon[j];
+    const xi = ii.x;
+    const yi = ii.y;
+    const xj = jj.x;
+    const yj = jj.y;
+    const intersect = yi > y2 !== yj > y2 && x2 < (xj - xi) * (y2 - yi) / (yj - yi) + xi;
+    if (intersect) inside = !inside;
+  }
+  return inside;
+}
+function isPointerInGraceArea(event, area) {
+  if (!area) return false;
+  const cursorPos = { x: event.clientX, y: event.clientY };
+  return isPointInPolygon(cursorPos, area);
+}
+function whenMouse(handler) {
+  return (event) => event.pointerType === "mouse" ? handler(event) : void 0;
+}
+var Root3 = Menu;
+var Anchor2 = MenuAnchor;
+var Portal = MenuPortal;
+var Content2$2 = MenuContent;
+var Group = MenuGroup;
+var Label$3 = MenuLabel;
+var Item2$1 = MenuItem;
+var CheckboxItem = MenuCheckboxItem;
+var RadioGroup = MenuRadioGroup;
+var RadioItem = MenuRadioItem;
+var ItemIndicator = MenuItemIndicator;
+var Separator = MenuSeparator;
+var Arrow2 = MenuArrow;
+var SubTrigger = MenuSubTrigger;
+var SubContent = MenuSubContent;
+var DROPDOWN_MENU_NAME = "DropdownMenu";
+var [createDropdownMenuContext, createDropdownMenuScope] = createContextScope(
+  DROPDOWN_MENU_NAME,
+  [createMenuScope]
+);
+var useMenuScope = createMenuScope();
+var [DropdownMenuProvider, useDropdownMenuContext] = createDropdownMenuContext(DROPDOWN_MENU_NAME);
+var DropdownMenu$1 = (props2) => {
+  const {
+    __scopeDropdownMenu,
+    children,
+    dir,
+    open: openProp,
+    defaultOpen,
+    onOpenChange,
+    modal = true
+  } = props2;
+  const menuScope = useMenuScope(__scopeDropdownMenu);
+  const triggerRef = reactExports.useRef(null);
+  const [open, setOpen] = useControllableState({
+    prop: openProp,
+    defaultProp: defaultOpen ?? false,
+    onChange: onOpenChange,
+    caller: DROPDOWN_MENU_NAME
+  });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    DropdownMenuProvider,
+    {
+      scope: __scopeDropdownMenu,
+      triggerId: useId$2(),
+      triggerRef,
+      contentId: useId$2(),
+      open,
+      onOpenChange: setOpen,
+      onOpenToggle: reactExports.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
+      modal,
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(Root3, { ...menuScope, open, onOpenChange: setOpen, dir, modal, children })
+    }
+  );
+};
+DropdownMenu$1.displayName = DROPDOWN_MENU_NAME;
+var TRIGGER_NAME$5 = "DropdownMenuTrigger";
+var DropdownMenuTrigger$1 = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeDropdownMenu, disabled = false, ...triggerProps } = props2;
+    const context = useDropdownMenuContext(TRIGGER_NAME$5, __scopeDropdownMenu);
+    const menuScope = useMenuScope(__scopeDropdownMenu);
+    const composedRefs = useComposedRefs(forwardedRef, context.triggerRef);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Anchor2, { asChild: true, ...menuScope, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Primitive.button,
+      {
+        type: "button",
+        id: context.triggerId,
+        "aria-haspopup": "menu",
+        "aria-expanded": context.open,
+        "aria-controls": context.open ? context.contentId : void 0,
+        "data-state": context.open ? "open" : "closed",
+        "data-disabled": disabled ? "" : void 0,
+        disabled,
+        ...triggerProps,
+        ref: composedRefs,
+        onPointerDown: composeEventHandlers(props2.onPointerDown, (event) => {
+          if (!disabled && event.button === 0 && event.ctrlKey === false) {
+            context.onOpenToggle();
+            if (!context.open) event.preventDefault();
+          }
+        }),
+        onKeyDown: composeEventHandlers(props2.onKeyDown, (event) => {
+          if (disabled) return;
+          if (["Enter", " "].includes(event.key)) context.onOpenToggle();
+          if (event.key === "ArrowDown") context.onOpenChange(true);
+          if (["Enter", " ", "ArrowDown"].includes(event.key)) event.preventDefault();
+        })
+      }
+    ) });
+  }
+);
+DropdownMenuTrigger$1.displayName = TRIGGER_NAME$5;
+var PORTAL_NAME$3 = "DropdownMenuPortal";
+var DropdownMenuPortal = (props2) => {
+  const { __scopeDropdownMenu, ...portalProps } = props2;
+  const menuScope = useMenuScope(__scopeDropdownMenu);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Portal, { ...menuScope, ...portalProps });
+};
+DropdownMenuPortal.displayName = PORTAL_NAME$3;
+var CONTENT_NAME$4 = "DropdownMenuContent";
+var DropdownMenuContent$1 = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeDropdownMenu, ...contentProps } = props2;
+    const context = useDropdownMenuContext(CONTENT_NAME$4, __scopeDropdownMenu);
+    const menuScope = useMenuScope(__scopeDropdownMenu);
+    const hasInteractedOutsideRef = reactExports.useRef(false);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Content2$2,
+      {
+        id: context.contentId,
+        "aria-labelledby": context.triggerId,
+        ...menuScope,
+        ...contentProps,
+        ref: forwardedRef,
+        onCloseAutoFocus: composeEventHandlers(props2.onCloseAutoFocus, (event) => {
+          if (!hasInteractedOutsideRef.current) context.triggerRef.current?.focus();
+          hasInteractedOutsideRef.current = false;
+          event.preventDefault();
+        }),
+        onInteractOutside: composeEventHandlers(props2.onInteractOutside, (event) => {
+          const originalEvent = event.detail.originalEvent;
+          const ctrlLeftClick = originalEvent.button === 0 && originalEvent.ctrlKey === true;
+          const isRightClick = originalEvent.button === 2 || ctrlLeftClick;
+          if (!context.modal || isRightClick) hasInteractedOutsideRef.current = true;
+        }),
+        style: {
+          ...props2.style,
+          // re-namespace exposed content custom properties
+          ...{
+            "--radix-dropdown-menu-content-transform-origin": "var(--radix-popper-transform-origin)",
+            "--radix-dropdown-menu-content-available-width": "var(--radix-popper-available-width)",
+            "--radix-dropdown-menu-content-available-height": "var(--radix-popper-available-height)",
+            "--radix-dropdown-menu-trigger-width": "var(--radix-popper-anchor-width)",
+            "--radix-dropdown-menu-trigger-height": "var(--radix-popper-anchor-height)"
+          }
+        }
+      }
+    );
+  }
+);
+DropdownMenuContent$1.displayName = CONTENT_NAME$4;
+var GROUP_NAME$1 = "DropdownMenuGroup";
+var DropdownMenuGroup = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeDropdownMenu, ...groupProps } = props2;
+    const menuScope = useMenuScope(__scopeDropdownMenu);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Group, { ...menuScope, ...groupProps, ref: forwardedRef });
+  }
+);
+DropdownMenuGroup.displayName = GROUP_NAME$1;
+var LABEL_NAME$1 = "DropdownMenuLabel";
+var DropdownMenuLabel$1 = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeDropdownMenu, ...labelProps } = props2;
+    const menuScope = useMenuScope(__scopeDropdownMenu);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Label$3, { ...menuScope, ...labelProps, ref: forwardedRef });
+  }
+);
+DropdownMenuLabel$1.displayName = LABEL_NAME$1;
+var ITEM_NAME$1 = "DropdownMenuItem";
+var DropdownMenuItem$1 = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeDropdownMenu, ...itemProps } = props2;
+    const menuScope = useMenuScope(__scopeDropdownMenu);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Item2$1, { ...menuScope, ...itemProps, ref: forwardedRef });
+  }
+);
+DropdownMenuItem$1.displayName = ITEM_NAME$1;
+var CHECKBOX_ITEM_NAME = "DropdownMenuCheckboxItem";
+var DropdownMenuCheckboxItem$1 = reactExports.forwardRef((props2, forwardedRef) => {
+  const { __scopeDropdownMenu, ...checkboxItemProps } = props2;
+  const menuScope = useMenuScope(__scopeDropdownMenu);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(CheckboxItem, { ...menuScope, ...checkboxItemProps, ref: forwardedRef });
+});
+DropdownMenuCheckboxItem$1.displayName = CHECKBOX_ITEM_NAME;
+var RADIO_GROUP_NAME = "DropdownMenuRadioGroup";
+var DropdownMenuRadioGroup = reactExports.forwardRef((props2, forwardedRef) => {
+  const { __scopeDropdownMenu, ...radioGroupProps } = props2;
+  const menuScope = useMenuScope(__scopeDropdownMenu);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(RadioGroup, { ...menuScope, ...radioGroupProps, ref: forwardedRef });
+});
+DropdownMenuRadioGroup.displayName = RADIO_GROUP_NAME;
+var RADIO_ITEM_NAME = "DropdownMenuRadioItem";
+var DropdownMenuRadioItem$1 = reactExports.forwardRef((props2, forwardedRef) => {
+  const { __scopeDropdownMenu, ...radioItemProps } = props2;
+  const menuScope = useMenuScope(__scopeDropdownMenu);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(RadioItem, { ...menuScope, ...radioItemProps, ref: forwardedRef });
+});
+DropdownMenuRadioItem$1.displayName = RADIO_ITEM_NAME;
+var INDICATOR_NAME = "DropdownMenuItemIndicator";
+var DropdownMenuItemIndicator = reactExports.forwardRef((props2, forwardedRef) => {
+  const { __scopeDropdownMenu, ...itemIndicatorProps } = props2;
+  const menuScope = useMenuScope(__scopeDropdownMenu);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(ItemIndicator, { ...menuScope, ...itemIndicatorProps, ref: forwardedRef });
+});
+DropdownMenuItemIndicator.displayName = INDICATOR_NAME;
+var SEPARATOR_NAME$1 = "DropdownMenuSeparator";
+var DropdownMenuSeparator$1 = reactExports.forwardRef((props2, forwardedRef) => {
+  const { __scopeDropdownMenu, ...separatorProps } = props2;
+  const menuScope = useMenuScope(__scopeDropdownMenu);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, { ...menuScope, ...separatorProps, ref: forwardedRef });
+});
+DropdownMenuSeparator$1.displayName = SEPARATOR_NAME$1;
+var ARROW_NAME$1 = "DropdownMenuArrow";
+var DropdownMenuArrow = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeDropdownMenu, ...arrowProps } = props2;
+    const menuScope = useMenuScope(__scopeDropdownMenu);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Arrow2, { ...menuScope, ...arrowProps, ref: forwardedRef });
+  }
+);
+DropdownMenuArrow.displayName = ARROW_NAME$1;
+var SUB_TRIGGER_NAME = "DropdownMenuSubTrigger";
+var DropdownMenuSubTrigger$1 = reactExports.forwardRef((props2, forwardedRef) => {
+  const { __scopeDropdownMenu, ...subTriggerProps } = props2;
+  const menuScope = useMenuScope(__scopeDropdownMenu);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(SubTrigger, { ...menuScope, ...subTriggerProps, ref: forwardedRef });
+});
+DropdownMenuSubTrigger$1.displayName = SUB_TRIGGER_NAME;
+var SUB_CONTENT_NAME = "DropdownMenuSubContent";
+var DropdownMenuSubContent$1 = reactExports.forwardRef((props2, forwardedRef) => {
+  const { __scopeDropdownMenu, ...subContentProps } = props2;
+  const menuScope = useMenuScope(__scopeDropdownMenu);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    SubContent,
+    {
+      ...menuScope,
+      ...subContentProps,
+      ref: forwardedRef,
+      style: {
+        ...props2.style,
+        // re-namespace exposed content custom properties
+        ...{
+          "--radix-dropdown-menu-content-transform-origin": "var(--radix-popper-transform-origin)",
+          "--radix-dropdown-menu-content-available-width": "var(--radix-popper-available-width)",
+          "--radix-dropdown-menu-content-available-height": "var(--radix-popper-available-height)",
+          "--radix-dropdown-menu-trigger-width": "var(--radix-popper-anchor-width)",
+          "--radix-dropdown-menu-trigger-height": "var(--radix-popper-anchor-height)"
+        }
+      }
+    }
+  );
+});
+DropdownMenuSubContent$1.displayName = SUB_CONTENT_NAME;
+var Root2$2 = DropdownMenu$1;
+var Trigger$1 = DropdownMenuTrigger$1;
+var Portal2$1 = DropdownMenuPortal;
+var Content2$1 = DropdownMenuContent$1;
+var Label2 = DropdownMenuLabel$1;
+var Item2 = DropdownMenuItem$1;
+var CheckboxItem2 = DropdownMenuCheckboxItem$1;
+var RadioItem2 = DropdownMenuRadioItem$1;
+var ItemIndicator2 = DropdownMenuItemIndicator;
+var Separator2 = DropdownMenuSeparator$1;
+var SubTrigger2 = DropdownMenuSubTrigger$1;
+var SubContent2 = DropdownMenuSubContent$1;
+const DropdownMenu = Root2$2;
+const DropdownMenuTrigger = Trigger$1;
+const DropdownMenuSubTrigger = reactExports.forwardRef(({ className, inset, children, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+  SubTrigger2,
+  {
+    ref,
+    className: cn(
+      "flex cursor-default gap-2 select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+      inset && "pl-8",
+      className
+    ),
+    ...props2,
+    children: [
+      children,
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "ml-auto" })
+    ]
+  }
+));
+DropdownMenuSubTrigger.displayName = SubTrigger2.displayName;
+const DropdownMenuSubContent = reactExports.forwardRef(({ className, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  SubContent2,
+  {
+    ref,
+    className: cn(
+      "z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+      className
+    ),
+    ...props2
+  }
+));
+DropdownMenuSubContent.displayName = SubContent2.displayName;
+const DropdownMenuContent = reactExports.forwardRef(({ className, sideOffset = 4, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(Portal2$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Content2$1,
+  {
+    ref,
+    sideOffset,
+    className: cn(
+      "z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+      className
+    ),
+    ...props2
+  }
+) }));
+DropdownMenuContent.displayName = Content2$1.displayName;
+const DropdownMenuItem = reactExports.forwardRef(({ className, inset, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Item2,
+  {
+    ref,
+    className: cn(
+      "relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+      inset && "pl-8",
+      className
+    ),
+    ...props2
+  }
+));
+DropdownMenuItem.displayName = Item2.displayName;
+const DropdownMenuCheckboxItem = reactExports.forwardRef(({ className, children, checked, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+  CheckboxItem2,
+  {
+    ref,
+    className: cn(
+      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      className
+    ),
+    checked,
+    ...props2,
+    children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ItemIndicator2, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "h-4 w-4" }) }) }),
+      children
+    ]
+  }
+));
+DropdownMenuCheckboxItem.displayName = CheckboxItem2.displayName;
+const DropdownMenuRadioItem = reactExports.forwardRef(({ className, children, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+  RadioItem2,
+  {
+    ref,
+    className: cn(
+      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      className
+    ),
+    ...props2,
+    children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ItemIndicator2, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Circle, { className: "h-2 w-2 fill-current" }) }) }),
+      children
+    ]
+  }
+));
+DropdownMenuRadioItem.displayName = RadioItem2.displayName;
+const DropdownMenuLabel = reactExports.forwardRef(({ className, inset, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Label2,
+  {
+    ref,
+    className: cn(
+      "px-2 py-1.5 text-sm font-semibold",
+      inset && "pl-8",
+      className
+    ),
+    ...props2
+  }
+));
+DropdownMenuLabel.displayName = Label2.displayName;
+const DropdownMenuSeparator = reactExports.forwardRef(({ className, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Separator2,
+  {
+    ref,
+    className: cn("-mx-1 my-1 h-px bg-muted", className),
+    ...props2
+  }
+));
+DropdownMenuSeparator.displayName = Separator2.displayName;
+var DIALOG_NAME = "Dialog";
+var [createDialogContext, createDialogScope] = createContextScope(DIALOG_NAME);
+var [DialogProvider, useDialogContext] = createDialogContext(DIALOG_NAME);
+var Dialog = (props2) => {
+  const {
+    __scopeDialog,
+    children,
+    open: openProp,
+    defaultOpen,
+    onOpenChange,
+    modal = true
+  } = props2;
+  const triggerRef = reactExports.useRef(null);
+  const contentRef = reactExports.useRef(null);
+  const [open, setOpen] = useControllableState({
+    prop: openProp,
+    defaultProp: defaultOpen ?? false,
+    onChange: onOpenChange,
+    caller: DIALOG_NAME
+  });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    DialogProvider,
+    {
+      scope: __scopeDialog,
+      triggerRef,
+      contentRef,
+      contentId: useId$2(),
+      titleId: useId$2(),
+      descriptionId: useId$2(),
+      open,
+      onOpenChange: setOpen,
+      onOpenToggle: reactExports.useCallback(() => setOpen((prevOpen) => !prevOpen), [setOpen]),
+      modal,
+      children
+    }
+  );
+};
+Dialog.displayName = DIALOG_NAME;
+var TRIGGER_NAME$4 = "DialogTrigger";
+var DialogTrigger = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeDialog, ...triggerProps } = props2;
+    const context = useDialogContext(TRIGGER_NAME$4, __scopeDialog);
+    const composedTriggerRef = useComposedRefs(forwardedRef, context.triggerRef);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Primitive.button,
+      {
+        type: "button",
+        "aria-haspopup": "dialog",
+        "aria-expanded": context.open,
+        "aria-controls": context.open ? context.contentId : void 0,
+        "data-state": getState$1(context.open),
+        ...triggerProps,
+        ref: composedTriggerRef,
+        onClick: composeEventHandlers(props2.onClick, context.onOpenToggle)
+      }
+    );
+  }
+);
+DialogTrigger.displayName = TRIGGER_NAME$4;
+var PORTAL_NAME$2 = "DialogPortal";
+var [PortalProvider$1, usePortalContext$1] = createDialogContext(PORTAL_NAME$2, {
+  forceMount: void 0
+});
+var DialogPortal = (props2) => {
+  const { __scopeDialog, forceMount, children, container } = props2;
+  const context = useDialogContext(PORTAL_NAME$2, __scopeDialog);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(PortalProvider$1, { scope: __scopeDialog, forceMount, children: reactExports.Children.map(children, (child) => /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$1, { asChild: true, container, children: child }) })) });
+};
+DialogPortal.displayName = PORTAL_NAME$2;
+var OVERLAY_NAME$1 = "DialogOverlay";
+var DialogOverlay = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const portalContext = usePortalContext$1(OVERLAY_NAME$1, props2.__scopeDialog);
+    const { forceMount = portalContext.forceMount, ...overlayProps } = props2;
+    const context = useDialogContext(OVERLAY_NAME$1, props2.__scopeDialog);
+    return context.modal ? /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(DialogOverlayImpl, { ...overlayProps, ref: forwardedRef }) }) : null;
+  }
+);
+DialogOverlay.displayName = OVERLAY_NAME$1;
+var Slot$1 = /* @__PURE__ */ createSlot("DialogOverlay.RemoveScroll");
+var DialogOverlayImpl = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeDialog, ...overlayProps } = props2;
+    const context = useDialogContext(OVERLAY_NAME$1, __scopeDialog);
+    const registerDismissableSurface = useDismissableLayerSurface();
+    const composedRefs = useComposedRefs(forwardedRef, registerDismissableSurface);
+    return (
+      // Make sure `Content` is scrollable even when it doesn't live inside `RemoveScroll`
+      // ie. when `Overlay` and `Content` are siblings
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ReactRemoveScroll, { as: Slot$1, allowPinchZoom: true, shards: [context.contentRef], children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Primitive.div,
+        {
+          "data-state": getState$1(context.open),
+          ...overlayProps,
+          ref: composedRefs,
+          style: { pointerEvents: "auto", ...overlayProps.style }
+        }
+      ) })
+    );
+  }
+);
+var CONTENT_NAME$3 = "DialogContent";
+var DialogContent = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const portalContext = usePortalContext$1(CONTENT_NAME$3, props2.__scopeDialog);
+    const { forceMount = portalContext.forceMount, ...contentProps } = props2;
+    const context = useDialogContext(CONTENT_NAME$3, props2.__scopeDialog);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: context.modal ? /* @__PURE__ */ jsxRuntimeExports.jsx(DialogContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsxRuntimeExports.jsx(DialogContentNonModal, { ...contentProps, ref: forwardedRef }) });
+  }
+);
+DialogContent.displayName = CONTENT_NAME$3;
+var DialogContentModal = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const context = useDialogContext(CONTENT_NAME$3, props2.__scopeDialog);
+    const contentRef = reactExports.useRef(null);
+    const composedRefs = useComposedRefs(forwardedRef, context.contentRef, contentRef);
+    reactExports.useEffect(() => {
+      const content = contentRef.current;
+      if (content) return hideOthers(content);
+    }, []);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      DialogContentImpl,
+      {
+        ...props2,
+        ref: composedRefs,
+        trapFocus: context.open,
+        disableOutsidePointerEvents: context.open,
+        onCloseAutoFocus: composeEventHandlers(props2.onCloseAutoFocus, (event) => {
+          event.preventDefault();
+          context.triggerRef.current?.focus();
+        }),
+        onPointerDownOutside: composeEventHandlers(props2.onPointerDownOutside, (event) => {
+          const originalEvent = event.detail.originalEvent;
+          const ctrlLeftClick = originalEvent.button === 0 && originalEvent.ctrlKey === true;
+          const isRightClick = originalEvent.button === 2 || ctrlLeftClick;
+          if (isRightClick) event.preventDefault();
+        }),
+        onFocusOutside: composeEventHandlers(
+          props2.onFocusOutside,
+          (event) => event.preventDefault()
+        )
+      }
+    );
+  }
+);
+var DialogContentNonModal = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const context = useDialogContext(CONTENT_NAME$3, props2.__scopeDialog);
+    const hasInteractedOutsideRef = reactExports.useRef(false);
+    const hasPointerDownOutsideRef = reactExports.useRef(false);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      DialogContentImpl,
+      {
+        ...props2,
+        ref: forwardedRef,
+        trapFocus: false,
+        disableOutsidePointerEvents: false,
+        onCloseAutoFocus: (event) => {
+          props2.onCloseAutoFocus?.(event);
+          if (!event.defaultPrevented) {
+            if (!hasInteractedOutsideRef.current) context.triggerRef.current?.focus();
+            event.preventDefault();
+          }
+          hasInteractedOutsideRef.current = false;
+          hasPointerDownOutsideRef.current = false;
+        },
+        onInteractOutside: (event) => {
+          props2.onInteractOutside?.(event);
+          if (!event.defaultPrevented) {
+            hasInteractedOutsideRef.current = true;
+            if (event.detail.originalEvent.type === "pointerdown") {
+              hasPointerDownOutsideRef.current = true;
+            }
+          }
+          const target = event.target;
+          const targetIsTrigger = context.triggerRef.current?.contains(target);
+          if (targetIsTrigger) event.preventDefault();
+          if (event.detail.originalEvent.type === "focusin" && hasPointerDownOutsideRef.current) {
+            event.preventDefault();
+          }
+        }
+      }
+    );
+  }
+);
+var DialogContentImpl = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeDialog, trapFocus, onOpenAutoFocus, onCloseAutoFocus, ...contentProps } = props2;
+    const context = useDialogContext(CONTENT_NAME$3, __scopeDialog);
+    useFocusGuards();
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      FocusScope,
+      {
+        asChild: true,
+        loop: true,
+        trapped: trapFocus,
+        onMountAutoFocus: onOpenAutoFocus,
+        onUnmountAutoFocus: onCloseAutoFocus,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          DismissableLayer,
+          {
+            role: "dialog",
+            id: context.contentId,
+            "aria-describedby": context.descriptionId,
+            "aria-labelledby": context.titleId,
+            "data-state": getState$1(context.open),
+            ...contentProps,
+            ref: forwardedRef,
+            deferPointerDownOutside: true,
+            onDismiss: () => context.onOpenChange(false)
+          }
+        )
+      }
+    ) });
+  }
+);
+var TITLE_NAME$1 = "DialogTitle";
+var DialogTitle = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeDialog, ...titleProps } = props2;
+    const context = useDialogContext(TITLE_NAME$1, __scopeDialog);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.h2, { id: context.titleId, ...titleProps, ref: forwardedRef });
+  }
+);
+DialogTitle.displayName = TITLE_NAME$1;
+var DESCRIPTION_NAME$1 = "DialogDescription";
+var DialogDescription = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeDialog, ...descriptionProps } = props2;
+    const context = useDialogContext(DESCRIPTION_NAME$1, __scopeDialog);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.p, { id: context.descriptionId, ...descriptionProps, ref: forwardedRef });
+  }
+);
+DialogDescription.displayName = DESCRIPTION_NAME$1;
+var CLOSE_NAME = "DialogClose";
+var DialogClose = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeDialog, ...closeProps } = props2;
+    const context = useDialogContext(CLOSE_NAME, __scopeDialog);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Primitive.button,
+      {
+        type: "button",
+        ...closeProps,
+        ref: forwardedRef,
+        onClick: composeEventHandlers(props2.onClick, () => context.onOpenChange(false))
+      }
+    );
+  }
+);
+DialogClose.displayName = CLOSE_NAME;
+function getState$1(open) {
+  return open ? "open" : "closed";
+}
+var ROOT_NAME = "AlertDialog";
+var [createAlertDialogContext, createAlertDialogScope] = createContextScope(ROOT_NAME, [
+  createDialogScope
+]);
+var useDialogScope = createDialogScope();
+var AlertDialog$1 = (props2) => {
+  const { __scopeAlertDialog, ...alertDialogProps } = props2;
+  const dialogScope = useDialogScope(__scopeAlertDialog);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Dialog, { ...dialogScope, ...alertDialogProps, modal: true });
+};
+AlertDialog$1.displayName = ROOT_NAME;
+var TRIGGER_NAME$3 = "AlertDialogTrigger";
+var AlertDialogTrigger = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeAlertDialog, ...triggerProps } = props2;
+    const dialogScope = useDialogScope(__scopeAlertDialog);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(DialogTrigger, { ...dialogScope, ...triggerProps, ref: forwardedRef });
+  }
+);
+AlertDialogTrigger.displayName = TRIGGER_NAME$3;
+var PORTAL_NAME$1 = "AlertDialogPortal";
+var AlertDialogPortal$1 = (props2) => {
+  const { __scopeAlertDialog, ...portalProps } = props2;
+  const dialogScope = useDialogScope(__scopeAlertDialog);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(DialogPortal, { ...dialogScope, ...portalProps });
+};
+AlertDialogPortal$1.displayName = PORTAL_NAME$1;
+var OVERLAY_NAME = "AlertDialogOverlay";
+var AlertDialogOverlay$1 = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeAlertDialog, ...overlayProps } = props2;
+    const dialogScope = useDialogScope(__scopeAlertDialog);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(DialogOverlay, { ...dialogScope, ...overlayProps, ref: forwardedRef });
+  }
+);
+AlertDialogOverlay$1.displayName = OVERLAY_NAME;
+var CONTENT_NAME$2 = "AlertDialogContent";
+var [AlertDialogContentProvider, useAlertDialogContentContext] = createAlertDialogContext(CONTENT_NAME$2);
+var AlertDialogContent$1 = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeAlertDialog, children, ...contentProps } = props2;
+    const dialogScope = useDialogScope(__scopeAlertDialog);
+    const contentRef = reactExports.useRef(null);
+    const composedRefs = useComposedRefs(forwardedRef, contentRef);
+    const cancelRef = reactExports.useRef(null);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(AlertDialogContentProvider, { scope: __scopeAlertDialog, cancelRef, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      DialogContent,
+      {
+        role: "alertdialog",
+        ...dialogScope,
+        ...contentProps,
+        ref: composedRefs,
+        onOpenAutoFocus: composeEventHandlers(contentProps.onOpenAutoFocus, (event) => {
+          event.preventDefault();
+          cancelRef.current?.focus({ preventScroll: true });
+        }),
+        onPointerDownOutside: (event) => event.preventDefault(),
+        onInteractOutside: (event) => event.preventDefault(),
+        children
+      }
+    ) });
+  }
+);
+AlertDialogContent$1.displayName = CONTENT_NAME$2;
+var TITLE_NAME = "AlertDialogTitle";
+var AlertDialogTitle$1 = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeAlertDialog, ...titleProps } = props2;
+    const dialogScope = useDialogScope(__scopeAlertDialog);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(DialogTitle, { ...dialogScope, ...titleProps, ref: forwardedRef });
+  }
+);
+AlertDialogTitle$1.displayName = TITLE_NAME;
+var DESCRIPTION_NAME = "AlertDialogDescription";
+var AlertDialogDescription$1 = reactExports.forwardRef((props2, forwardedRef) => {
+  const { __scopeAlertDialog, ...descriptionProps } = props2;
+  const dialogScope = useDialogScope(__scopeAlertDialog);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(DialogDescription, { ...dialogScope, ...descriptionProps, ref: forwardedRef });
+});
+AlertDialogDescription$1.displayName = DESCRIPTION_NAME;
+var ACTION_NAME = "AlertDialogAction";
+var AlertDialogAction$1 = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeAlertDialog, ...actionProps } = props2;
+    const dialogScope = useDialogScope(__scopeAlertDialog);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(DialogClose, { ...dialogScope, ...actionProps, ref: forwardedRef });
+  }
+);
+AlertDialogAction$1.displayName = ACTION_NAME;
+var CANCEL_NAME = "AlertDialogCancel";
+var AlertDialogCancel$1 = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeAlertDialog, ...cancelProps } = props2;
+    const { cancelRef } = useAlertDialogContentContext(CANCEL_NAME, __scopeAlertDialog);
+    const dialogScope = useDialogScope(__scopeAlertDialog);
+    const ref = useComposedRefs(forwardedRef, cancelRef);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(DialogClose, { ...dialogScope, ...cancelProps, ref });
+  }
+);
+AlertDialogCancel$1.displayName = CANCEL_NAME;
+var Root2$1 = AlertDialog$1;
+var Portal2 = AlertDialogPortal$1;
+var Overlay2 = AlertDialogOverlay$1;
+var Content2 = AlertDialogContent$1;
+var Action = AlertDialogAction$1;
+var Cancel = AlertDialogCancel$1;
+var Title2 = AlertDialogTitle$1;
+var Description2 = AlertDialogDescription$1;
+const AlertDialog = Root2$1;
+const AlertDialogPortal = Portal2;
+const AlertDialogOverlay = reactExports.forwardRef(({ className, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Overlay2,
+  {
+    className: cn(
+      "fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      className
+    ),
+    ...props2,
+    ref
+  }
+));
+AlertDialogOverlay.displayName = Overlay2.displayName;
+const AlertDialogContent = reactExports.forwardRef(({ className, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogPortal, { children: [
+  /* @__PURE__ */ jsxRuntimeExports.jsx(AlertDialogOverlay, {}),
+  /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Content2,
+    {
+      ref,
+      className: cn(
+        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg",
+        className
+      ),
+      ...props2
+    }
+  )
+] }));
+AlertDialogContent.displayName = Content2.displayName;
+const AlertDialogHeader = ({
+  className,
+  ...props2
+}) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  "div",
+  {
+    className: cn(
+      "flex flex-col space-y-2 text-center sm:text-left",
+      className
+    ),
+    ...props2
+  }
+);
+AlertDialogHeader.displayName = "AlertDialogHeader";
+const AlertDialogFooter = ({
+  className,
+  ...props2
+}) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  "div",
+  {
+    className: cn(
+      "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
+      className
+    ),
+    ...props2
+  }
+);
+AlertDialogFooter.displayName = "AlertDialogFooter";
+const AlertDialogTitle = reactExports.forwardRef(({ className, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Title2,
+  {
+    ref,
+    className: cn("text-lg font-semibold", className),
+    ...props2
+  }
+));
+AlertDialogTitle.displayName = Title2.displayName;
+const AlertDialogDescription = reactExports.forwardRef(({ className, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Description2,
+  {
+    ref,
+    className: cn("text-sm text-muted-foreground", className),
+    ...props2
+  }
+));
+AlertDialogDescription.displayName = Description2.displayName;
+const AlertDialogAction = reactExports.forwardRef(({ className, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Action,
+  {
+    ref,
+    className: cn(buttonVariants(), className),
+    ...props2
+  }
+));
+AlertDialogAction.displayName = Action.displayName;
+const AlertDialogCancel = reactExports.forwardRef(({ className, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Cancel,
+  {
+    ref,
+    className: cn(
+      buttonVariants({ variant: "outline" }),
+      "mt-2 sm:mt-0",
+      className
+    ),
+    ...props2
+  }
+));
+AlertDialogCancel.displayName = Cancel.displayName;
+const KEY = "theme";
+function preferred() {
+  const saved = localStorage.getItem(KEY);
+  if (saved === "light" || saved === "dark") return saved;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+function apply(theme) {
+  document.documentElement.classList.toggle("dark", theme === "dark");
+}
+function initTheme() {
+  apply(preferred());
+}
+function ThemeToggle() {
+  const [theme, setTheme] = reactExports.useState(preferred);
+  reactExports.useEffect(() => {
+    apply(theme);
+    localStorage.setItem(KEY, theme);
+  }, [theme]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Button,
+    {
+      variant: "ghost",
+      size: "icon",
+      "aria-label": "Toggle theme",
+      onClick: () => setTheme((t) => t === "dark" ? "light" : "dark"),
+      children: theme === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(Sun, { className: "size-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Moon, { className: "size-4" })
+    }
+  );
+}
+const Route$3 = createFileRoute("/_ConnectionLayout")({
+  loader: () => window.api.connections.list(),
+  component: ConnectionLayout
+});
+const DOT = {
+  connected: "bg-emerald-500",
+  connecting: "bg-amber-500",
+  reconnecting: "bg-amber-500",
+  disconnected: "bg-muted-foreground/40",
+  error: "bg-destructive"
+};
+function ConnectionLayout() {
+  const connections = Route$3.useLoaderData();
+  const statuses = useStudio((s) => s.statuses);
+  const router2 = useRouter();
+  const selectedId = useParams({ strict: false }).connectionId;
+  const duplicate = async (c) => {
+    const { id: _id, ...rest } = c;
+    const saved = await window.api.connections.save({ ...rest, name: `${c.name} copy` });
+    await router2.invalidate();
+    router2.navigate({ to: "/$connectionId", params: { connectionId: saved.id } });
+  };
+  const remove = async (c) => {
+    await window.api.connections.remove(c.id);
+    await router2.invalidate();
+    if (selectedId === c.id) router2.navigate({ to: "/" });
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-screen flex-col bg-background text-foreground", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "glass z-10 flex items-center gap-2.5 border-b px-5 py-3", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/60 shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Radio, { className: "size-4 text-primary-foreground" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-base font-semibold text-transparent", children: "MQTT Studio" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ThemeToggle, {}) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex min-h-0 flex-1", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("aside", { className: "flex w-[280px] shrink-0 flex-col border-r bg-sidebar", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { asChild: true, className: "w-full justify-start", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/$connectionId", params: { connectionId: "new" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "size-4" }),
+          " New connection"
+        ] }) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "min-h-0 flex-1 space-y-1 overflow-auto px-2 pb-2", children: [
+          connections.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "px-2 py-6 text-center text-sm text-muted-foreground", children: "No connections yet." }),
+          connections.map((c) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            ConnectionRow,
+            {
+              c,
+              status: statuses[c.id] ?? "disconnected",
+              selected: selectedId === c.id,
+              onDuplicate: () => duplicate(c),
+              onDelete: () => remove(c)
+            },
+            c.id
+          ))
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t p-3 text-xs text-muted-foreground", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { variant: "outline", children: [
+          connections.length,
+          " saved"
+        ] }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "min-h-0 flex-1 overflow-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) })
+    ] })
+  ] });
+}
+function ConnectionRow({
+  c,
+  status,
+  selected,
+  onDuplicate,
+  onDelete
+}) {
+  const [confirm, setConfirm] = reactExports.useState(false);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      className: cn(
+        "group relative flex items-center gap-2 rounded-md py-2 pl-3 pr-1 hover:bg-accent/40",
+        selected && "bg-accent"
+      ),
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "span",
+          {
+            className: "absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-full",
+            style: { backgroundColor: resolveColor(c.color) }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: cn("size-2 shrink-0 rounded-full", DOT[status]) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/$connectionId", params: { connectionId: c.id }, className: "min-w-0 flex-1", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "truncate text-sm font-medium", children: c.name }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "truncate text-xs text-muted-foreground", children: [
+            c.host,
+            ":",
+            c.port
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Button,
+          {
+            asChild: true,
+            variant: "ghost",
+            size: "icon",
+            className: "size-7 opacity-0 group-hover:opacity-100",
+            title: "Open explorer",
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/explore/$connectionId", params: { connectionId: c.id }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Compass, { className: "size-4" }) })
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(DropdownMenu, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(DropdownMenuTrigger, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Button,
+            {
+              variant: "ghost",
+              size: "icon",
+              className: "size-7 opacity-0 group-hover:opacity-100 data-[state=open]:opacity-100",
+              title: "More",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(EllipsisVertical, { className: "size-4" })
+            }
+          ) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(DropdownMenuContent, { align: "end", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(DropdownMenuItem, { onSelect: onDuplicate, children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Copy, { className: "size-4" }),
+              " Duplicate"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              DropdownMenuItem,
+              {
+                onSelect: () => setConfirm(true),
+                className: "text-destructive focus:text-destructive",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "size-4" }),
+                  " Delete"
+                ]
+              }
+            )
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(AlertDialog, { open: confirm, onOpenChange: setConfirm, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogContent, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogHeader, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogTitle, { children: [
+              "Delete “",
+              c.name,
+              "”?"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(AlertDialogDescription, { children: "This removes the connection and its stored message history. This can’t be undone." })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogFooter, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(AlertDialogCancel, { children: "Cancel" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              AlertDialogAction,
+              {
+                onClick: onDelete,
+                className: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+                children: "Delete"
+              }
+            )
+          ] })
+        ] }) })
+      ]
+    }
+  );
+}
+const Route$2 = createFileRoute("/_ConnectionLayout/")({
+  component: Welcome
+});
+function Welcome() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-full flex-col items-center justify-center gap-4 p-8 text-center", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex size-16 items-center justify-center rounded-2xl bg-primary/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Radio, { className: "size-8 text-primary" }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-semibold", children: "Welcome to MQTT Studio" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 max-w-sm text-sm text-muted-foreground", children: "Create a connection to a broker, then open the explorer to watch topics and history update live." })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/$connectionId", params: { connectionId: "new" }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "size-4" }),
+      " New connection"
+    ] }) })
+  ] });
+}
+var isCheckBoxInput = (element) => element.type === "checkbox";
+var isDateObject = (value) => value instanceof Date;
+var isNullOrUndefined = (value) => value == null;
+const isObjectType = (value) => typeof value === "object";
+var isObject$2 = (value) => !isNullOrUndefined(value) && !Array.isArray(value) && isObjectType(value) && !isDateObject(value);
+var getEventValue = (event) => isObject$2(event) && event.target ? isCheckBoxInput(event.target) ? event.target.checked : event.target.value : event;
+var isNameInFieldArray = (names, name) => name.split(".").some((part, index2, arr) => !isNaN(Number(part)) && names.has(arr.slice(0, index2).join(".")));
+var isPlainObject$4 = (tempObject) => {
+  const prototypeCopy = tempObject.constructor && tempObject.constructor.prototype;
+  return isObject$2(prototypeCopy) && prototypeCopy.hasOwnProperty("isPrototypeOf");
+};
+var isWeb = typeof window !== "undefined" && typeof window.HTMLElement !== "undefined" && typeof document !== "undefined";
+function cloneObject(data) {
+  if (data instanceof Date) {
+    return new Date(data);
+  }
+  const isFileListInstance = typeof FileList !== "undefined" && data instanceof FileList;
+  if (isWeb && (data instanceof Blob || isFileListInstance)) {
+    return data;
+  }
+  const isArray2 = Array.isArray(data);
+  if (!isArray2 && !(isObject$2(data) && isPlainObject$4(data))) {
+    return data;
+  }
+  const copy2 = isArray2 ? [] : Object.create(Object.getPrototypeOf(data));
+  for (const key in data) {
+    if (Object.prototype.hasOwnProperty.call(data, key)) {
+      copy2[key] = cloneObject(data[key]);
+    }
+  }
+  return copy2;
+}
+const EVENTS = {
+  BLUR: "blur",
+  FOCUS_OUT: "focusout",
+  CHANGE: "change",
+  SUBMIT: "submit",
+  TRIGGER: "trigger",
+  VALID: "valid"
+};
+const VALIDATION_MODE = {
+  onBlur: "onBlur",
+  onChange: "onChange",
+  onSubmit: "onSubmit",
+  onTouched: "onTouched",
+  all: "all"
+};
+const INPUT_VALIDATION_RULES = {
+  max: "max",
+  min: "min",
+  maxLength: "maxLength",
+  minLength: "minLength",
+  pattern: "pattern",
+  required: "required",
+  validate: "validate"
+};
+const ROOT_ERROR_TYPE = "root";
+const PROTOTYPE_KEYWORDS = ["__proto__", "constructor", "prototype"];
+const IS_KEY_RE = /^\w*$/;
+var isKey$1 = (value) => IS_KEY_RE.test(value);
+var isUndefined = (val) => val === void 0;
+const FIELD_PATH_RE = /[.[\]'"]/;
+var stringToPath = (input) => input.split(FIELD_PATH_RE).filter(Boolean);
+var get$2 = (object2, path, defaultValue) => {
+  if (!path || !isObject$2(object2)) {
+    return defaultValue;
+  }
+  const paths = isKey$1(path) ? [path] : stringToPath(path);
+  if (paths.some((key) => PROTOTYPE_KEYWORDS.includes(key))) {
+    return defaultValue;
+  }
+  const result = paths.reduce((result2, key) => {
+    return isNullOrUndefined(result2) ? void 0 : result2[key];
+  }, object2);
+  return isUndefined(result) || result === object2 ? isUndefined(object2[path]) ? defaultValue : object2[path] : result;
+};
+var isBoolean$2 = (value) => typeof value === "boolean";
+var isFunction$3 = (value) => typeof value === "function";
+var set$1 = (object2, path, value) => {
+  let index2 = -1;
+  const tempPath = isKey$1(path) ? [path] : stringToPath(path);
+  const length = tempPath.length;
+  const lastIndex = length - 1;
+  while (++index2 < length) {
+    const key = tempPath[index2];
+    let newValue = value;
+    if (index2 !== lastIndex) {
+      const objValue = object2[key];
+      newValue = isObject$2(objValue) || Array.isArray(objValue) ? objValue : !isNaN(+tempPath[index2 + 1]) ? [] : {};
+    }
+    if (PROTOTYPE_KEYWORDS.includes(key)) {
+      return;
+    }
+    object2[key] = newValue;
+    object2 = object2[key];
+  }
+};
+const HookFormControlContext = React.createContext(null);
+HookFormControlContext.displayName = "HookFormControlContext";
+const useFormControlContext = () => React.useContext(HookFormControlContext);
+var getProxyFormState = (formState, control, localProxyFormState, isRoot = true) => {
+  const result = {};
+  for (const key in formState) {
+    Object.defineProperty(result, key, {
+      get: () => {
+        const _key = key;
+        if (control._proxyFormState[_key] !== VALIDATION_MODE.all) {
+          control._proxyFormState[_key] = !isRoot || VALIDATION_MODE.all;
+        }
+        localProxyFormState && (localProxyFormState[_key] = true);
+        return formState[_key];
+      }
+    });
+  }
+  return result;
+};
+const useIsomorphicLayoutEffect$2 = isWeb ? React.useLayoutEffect : React.useEffect;
+function useFormState(props2) {
+  const formControl = useFormControlContext();
+  const { control = formControl, disabled, name, exact } = props2 || {};
+  const [formState, updateFormState] = React.useState(() => ({
+    ...control._formState,
+    defaultValues: control._defaultValues
+  }));
+  const _localProxyFormState = React.useRef({
+    isDirty: false,
+    isLoading: false,
+    dirtyFields: false,
+    touchedFields: false,
+    validatingFields: false,
+    isValidating: false,
+    isValid: false,
+    errors: false
+  });
+  useIsomorphicLayoutEffect$2(() => control._subscribe({
+    name,
+    formState: _localProxyFormState.current,
+    exact,
+    callback: (formState2) => {
+      !disabled && updateFormState({
+        ...control._formState,
+        ...formState2,
+        defaultValues: control._defaultValues
+      });
+    }
+  }), [name, disabled, exact]);
+  React.useEffect(() => {
+    _localProxyFormState.current.isValid && control._setValid(true);
+  }, [control]);
+  return React.useMemo(() => getProxyFormState(formState, control, _localProxyFormState.current, false), [formState, control]);
+}
+var isString = (value) => typeof value === "string";
+var generateWatchOutput = (names, _names, formValues, isGlobal, defaultValue) => {
+  if (isString(names)) {
+    isGlobal && _names.watch.add(names);
+    return get$2(formValues, names, defaultValue);
+  }
+  if (Array.isArray(names)) {
+    return names.map((fieldName) => (isGlobal && _names.watch.add(fieldName), get$2(formValues, fieldName)));
+  }
+  isGlobal && (_names.watchAll = true);
+  return formValues;
+};
+var isPrimitive$1 = (value) => isNullOrUndefined(value) || !isObjectType(value);
+const isEmptyObjectWithCustomPrototype = (object2, keys) => keys.length === 0 && !Array.isArray(object2) && !isPlainObject$4(object2);
+function deepEqual(object1, object2, visited = /* @__PURE__ */ new WeakMap()) {
+  if (object1 === object2) {
+    return true;
+  }
+  if (isPrimitive$1(object1) || isPrimitive$1(object2)) {
+    return Object.is(object1, object2);
+  }
+  if (isDateObject(object1) && isDateObject(object2)) {
+    return Object.is(object1.getTime(), object2.getTime());
+  }
+  const keys1 = Object.keys(object1);
+  const keys2 = Object.keys(object2);
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+  if (isEmptyObjectWithCustomPrototype(object1, keys1) || isEmptyObjectWithCustomPrototype(object2, keys2)) {
+    return Object.is(object1, object2);
+  }
+  if (!keys1.length && Array.isArray(object1) !== Array.isArray(object2)) {
+    return false;
+  }
+  const visitedPairs = visited.get(object1);
+  if (visitedPairs && visitedPairs.has(object2)) {
+    return true;
+  }
+  if (visitedPairs) {
+    visitedPairs.add(object2);
+  } else {
+    const ws = /* @__PURE__ */ new WeakSet();
+    ws.add(object2);
+    visited.set(object1, ws);
+  }
+  for (const key of keys1) {
+    const val1 = object1[key];
+    if (!(key in object2)) {
+      return false;
+    }
+    if (key !== "ref") {
+      const val2 = object2[key];
+      if (isDateObject(val1) && isDateObject(val2) || (isObject$2(val1) || Array.isArray(val1)) && (isObject$2(val2) || Array.isArray(val2)) ? !deepEqual(val1, val2, visited) : !Object.is(val1, val2)) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+function useWatch(props2) {
+  const formControl = useFormControlContext();
+  const { control = formControl, name, defaultValue, disabled, exact, compute } = props2 || {};
+  const _defaultValue = React.useRef(defaultValue);
+  const _compute = React.useRef(compute);
+  const _computeFormValues = React.useRef(void 0);
+  const _prevControl = React.useRef(control);
+  const _prevName = React.useRef(name);
+  _compute.current = compute;
+  const [value, updateValue] = React.useState(() => {
+    const defaultValue2 = control._getWatch(name, _defaultValue.current);
+    return _compute.current ? _compute.current(defaultValue2) : defaultValue2;
+  });
+  const getCurrentOutput = React.useCallback((values) => {
+    const formValues = generateWatchOutput(name, control._names, values || control._formValues, false, _defaultValue.current);
+    return _compute.current ? _compute.current(formValues) : formValues;
+  }, [control._formValues, control._names, name]);
+  const refreshValue = React.useCallback((values) => {
+    if (!disabled) {
+      const formValues = generateWatchOutput(name, control._names, values || control._formValues, false, _defaultValue.current);
+      if (_compute.current) {
+        const computedFormValues = _compute.current(formValues);
+        if (!deepEqual(computedFormValues, _computeFormValues.current)) {
+          updateValue(computedFormValues);
+          _computeFormValues.current = computedFormValues;
+        }
+      } else {
+        updateValue(formValues);
+      }
+    }
+  }, [control._formValues, control._names, disabled, name]);
+  useIsomorphicLayoutEffect$2(() => {
+    if (_prevControl.current !== control || !deepEqual(_prevName.current, name)) {
+      _prevControl.current = control;
+      _prevName.current = name;
+      refreshValue();
+    }
+    return control._subscribe({
+      name,
+      formState: {
+        values: true
+      },
+      exact,
+      callback: (formState) => {
+        refreshValue(formState.values);
+      }
+    });
+  }, [control, exact, name, refreshValue]);
+  React.useEffect(() => control._removeUnmounted());
+  const controlChanged = _prevControl.current !== control;
+  const prevName = _prevName.current;
+  const computedOutput = React.useMemo(() => {
+    if (disabled) {
+      return null;
+    }
+    const nameChanged = !controlChanged && !deepEqual(prevName, name);
+    const shouldReturnImmediate = controlChanged || nameChanged;
+    return shouldReturnImmediate ? getCurrentOutput() : null;
+  }, [disabled, controlChanged, name, prevName, getCurrentOutput]);
+  return computedOutput !== null ? computedOutput : value;
+}
+function useController(props2) {
+  const formControl = useFormControlContext();
+  const { name, disabled, control = formControl, shouldUnregister, defaultValue, exact = true } = props2;
+  const isArrayField = isNameInFieldArray(control._names.array, name);
+  const defaultValueMemo = React.useMemo(() => get$2(control._formValues, name, get$2(control._defaultValues, name, defaultValue)), [control, name, defaultValue]);
+  const value = useWatch({
+    control,
+    name,
+    defaultValue: defaultValueMemo,
+    exact
+  });
+  const formState = useFormState({
+    control,
+    name,
+    exact
+  });
+  const _props = React.useRef(props2);
+  const _proxyRef = React.useRef(null);
+  const _registerProps = React.useRef(control.register(name, {
+    ...props2.rules,
+    value,
+    ...isBoolean$2(props2.disabled) ? { disabled: props2.disabled } : {}
+  }));
+  _props.current = props2;
+  const fieldState = React.useMemo(() => Object.defineProperties({}, {
+    invalid: {
+      enumerable: true,
+      get: () => !!get$2(formState.errors, name)
+    },
+    isDirty: {
+      enumerable: true,
+      get: () => !!get$2(formState.dirtyFields, name)
+    },
+    isTouched: {
+      enumerable: true,
+      get: () => !!get$2(formState.touchedFields, name)
+    },
+    isValidating: {
+      enumerable: true,
+      get: () => !!get$2(formState.validatingFields, name)
+    },
+    error: {
+      enumerable: true,
+      get: () => get$2(formState.errors, name)
+    }
+  }), [formState, name]);
+  const onChange = React.useCallback((event) => {
+    const value2 = getEventValue(event);
+    if (!get$2(control._fields, name)) {
+      _registerProps.current = control.register(name, {
+        ..._props.current.rules,
+        value: value2
+      });
+    }
+    return _registerProps.current.onChange({
+      target: {
+        value: getEventValue(event),
+        name
+      },
+      type: EVENTS.CHANGE
+    });
+  }, [name, control]);
+  const onBlur = React.useCallback(() => _registerProps.current.onBlur({
+    target: {
+      value: get$2(control._formValues, name),
+      name
+    },
+    type: EVENTS.BLUR
+  }), [name, control._formValues]);
+  const ref = React.useCallback((elm) => {
+    if (elm) {
+      _proxyRef.current = {
+        focus: () => isFunction$3(elm.focus) && elm.focus(),
+        select: () => isFunction$3(elm.select) && elm.select(),
+        setCustomValidity: (message) => isFunction$3(elm.setCustomValidity) && elm.setCustomValidity(message),
+        reportValidity: () => isFunction$3(elm.reportValidity) && elm.reportValidity()
+      };
+    }
+    const field2 = get$2(control._fields, name);
+    if (field2 && field2._f && elm) {
+      field2._f.ref = _proxyRef.current;
+    }
+  }, [control._fields, name]);
+  const field = React.useMemo(() => ({
+    name,
+    value,
+    ...isBoolean$2(disabled) || formState.disabled ? { disabled: formState.disabled || disabled } : {},
+    onChange,
+    onBlur,
+    ref
+  }), [name, disabled, formState.disabled, onChange, onBlur, ref, value]);
+  React.useEffect(() => {
+    const _shouldUnregisterField = control._options.shouldUnregister || shouldUnregister;
+    control.register(name, {
+      ..._props.current.rules,
+      ...isBoolean$2(_props.current.disabled) ? { disabled: _props.current.disabled } : {}
+    });
+    const updateMounted = (name2, value2) => {
+      const field2 = get$2(control._fields, name2);
+      if (field2 && field2._f) {
+        field2._f.mount = value2;
+      }
+    };
+    updateMounted(name, true);
+    if (_shouldUnregisterField) {
+      const value2 = cloneObject(get$2(shouldUnregister ? control._defaultValues : control._options.values || control._defaultValues, name, get$2(control._options.defaultValues, name, _props.current.defaultValue)));
+      set$1(control._defaultValues, name, value2);
+      if (isUndefined(get$2(control._formValues, name))) {
+        set$1(control._formValues, name, value2);
+      }
+    }
+    !isArrayField && control.register(name);
+    if (_proxyRef.current) {
+      const field2 = get$2(control._fields, name);
+      if (field2 && field2._f) {
+        field2._f.ref = _proxyRef.current;
+      }
+    }
+    return () => {
+      (isArrayField ? _shouldUnregisterField && !control._state.action : _shouldUnregisterField) ? control.unregister(name) : updateMounted(name, false);
+    };
+  }, [name, control, isArrayField, shouldUnregister]);
+  React.useEffect(() => {
+    control._setDisabledField({
+      disabled,
+      name
+    });
+  }, [disabled, name, control]);
+  return React.useMemo(() => ({
+    field,
+    formState,
+    fieldState
+  }), [field, formState, fieldState]);
+}
+const Controller = (props2) => props2.render(useController(props2));
+const flatten$1 = (obj) => {
+  const output = {};
+  for (const key of Object.keys(obj)) {
+    if (isObjectType(obj[key]) && obj[key] !== null && !isDateObject(obj[key])) {
+      const nested = flatten$1(obj[key]);
+      for (const nestedKey of Object.keys(nested)) {
+        output[`${key}.${nestedKey}`] = nested[nestedKey];
+      }
+    } else {
+      output[key] = obj[key];
+    }
+  }
+  return output;
+};
+const HookFormContext = React.createContext(null);
+HookFormContext.displayName = "HookFormContext";
+const useFormContext = () => React.useContext(HookFormContext);
+const FormProvider = ({ children, watch, getValues, getFieldState, setError, clearErrors, setValue, setValues, trigger, formState, resetField, reset, handleSubmit, unregister, control, register, setFocus, subscribe: subscribe2 }) => {
+  const memoizedValue = React.useMemo(() => ({
+    watch,
+    getValues,
+    getFieldState,
+    setError,
+    clearErrors,
+    setValue,
+    setValues,
+    trigger,
+    formState,
+    resetField,
+    reset,
+    handleSubmit,
+    unregister,
+    control,
+    register,
+    setFocus,
+    subscribe: subscribe2
+  }), [
+    clearErrors,
+    control,
+    formState,
+    getFieldState,
+    getValues,
+    handleSubmit,
+    register,
+    reset,
+    resetField,
+    setError,
+    setFocus,
+    setValue,
+    setValues,
+    subscribe2,
+    trigger,
+    unregister,
+    watch
+  ]);
+  return React.createElement(
+    HookFormContext.Provider,
+    { value: memoizedValue },
+    React.createElement(HookFormControlContext.Provider, { value: memoizedValue.control }, children)
+  );
+};
+var appendErrors = (name, validateAllFieldCriteria, errors, type, message) => validateAllFieldCriteria ? {
+  ...errors[name],
+  types: {
+    ...errors[name] && errors[name].types ? errors[name].types : {},
+    [type]: message || true
+  }
+} : {};
+var compact = (value) => Array.isArray(value) ? value.filter(Boolean) : [];
+var convertToArrayPayload = (value) => Array.isArray(value) ? value : [value];
+var createSubject = () => {
+  let _observers = [];
+  const next = (value) => {
+    for (const observer of _observers) {
+      observer.next && observer.next(value);
+    }
+  };
+  const subscribe2 = (observer) => {
+    _observers.push(observer);
+    return {
+      unsubscribe: () => {
+        _observers = _observers.filter((o) => o !== observer);
+      }
+    };
+  };
+  const unsubscribe = () => {
+    _observers = [];
+  };
+  return {
+    get observers() {
+      return _observers;
+    },
+    next,
+    subscribe: subscribe2,
+    unsubscribe
+  };
+};
+function extractFormValues(fieldsState, formValues) {
+  const values = {};
+  for (const key in fieldsState) {
+    if (fieldsState.hasOwnProperty(key)) {
+      const fieldState = fieldsState[key];
+      const fieldValue = formValues[key];
+      if (fieldState && isObject$2(fieldState) && fieldValue) {
+        const nestedFieldsState = extractFormValues(fieldState, fieldValue);
+        if (isObject$2(nestedFieldsState)) {
+          values[key] = nestedFieldsState;
+        }
+      } else if (fieldsState[key]) {
+        values[key] = fieldValue;
+      }
+    }
+  }
+  return values;
+}
+var isEmptyObject = (value) => isObject$2(value) && !Object.keys(value).length;
+var isFileInput = (element) => element.type === "file";
+var isHTMLElement = (value) => {
+  if (!isWeb) {
+    return false;
+  }
+  const owner = value ? value.ownerDocument : 0;
+  return value instanceof (owner && owner.defaultView ? owner.defaultView.HTMLElement : HTMLElement);
+};
+var isMultipleSelect = (element) => element.type === `select-multiple`;
+var isRadioInput = (element) => element.type === "radio";
+var isRadioOrCheckbox = (ref) => isRadioInput(ref) || isCheckBoxInput(ref);
+var live = (ref) => isHTMLElement(ref) && ref.isConnected;
+function baseGet(object2, updatePath) {
+  const length = updatePath.slice(0, -1).length;
+  let index2 = 0;
+  while (index2 < length) {
+    if (isNullOrUndefined(object2)) {
+      object2 = void 0;
+      break;
+    }
+    object2 = object2[updatePath[index2]];
+    index2++;
+  }
+  return object2;
+}
+function isEmptyArray(obj) {
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key) && !isUndefined(obj[key])) {
+      return false;
+    }
+  }
+  return true;
+}
+function unset(object2, path) {
+  if (isString(path) && Object.prototype.hasOwnProperty.call(object2, path)) {
+    delete object2[path];
+    return object2;
+  }
+  const paths = Array.isArray(path) ? path : isKey$1(path) ? [path] : stringToPath(path);
+  if (paths.some((segment) => PROTOTYPE_KEYWORDS.includes(String(segment)))) {
+    return object2;
+  }
+  const childObject = paths.length === 1 ? object2 : baseGet(object2, paths);
+  const index2 = paths.length - 1;
+  const key = paths[index2];
+  if (childObject) {
+    delete childObject[key];
+  }
+  if (index2 !== 0 && (isObject$2(childObject) && isEmptyObject(childObject) || Array.isArray(childObject) && isEmptyArray(childObject))) {
+    unset(object2, paths.slice(0, -1));
+  }
+  return object2;
+}
+var objectHasFunction = (data) => {
+  for (const key in data) {
+    if (isFunction$3(data[key])) {
+      return true;
+    }
+  }
+  return false;
+};
+function isTraversable(value) {
+  return Array.isArray(value) || isObject$2(value) && !objectHasFunction(value);
+}
+function markFieldsDirty(data, fields = {}) {
+  for (const key in data) {
+    const value = data[key];
+    if (isTraversable(value)) {
+      fields[key] = Array.isArray(value) ? [] : {};
+      markFieldsDirty(value, fields[key]);
+    } else if (!isUndefined(value)) {
+      fields[key] = true;
+    }
+  }
+  return fields;
+}
+function pruneDirtyFields(value) {
+  if (value === false) {
+    return void 0;
+  }
+  if (value === true) {
+    return true;
+  }
+  if (Array.isArray(value)) {
+    const result = value.map((value2) => pruneDirtyFields(value2));
+    return result.some((value2) => value2 !== void 0) ? result : void 0;
+  }
+  if (isObject$2(value)) {
+    const result = {};
+    for (const key in value) {
+      const pruned = pruneDirtyFields(value[key]);
+      if (!isUndefined(pruned)) {
+        result[key] = pruned;
+      }
+    }
+    return Object.keys(result).length ? result : void 0;
+  }
+  return void 0;
+}
+function getDirtyFields(data, formValues, dirtyFieldsFromValues) {
+  if (!dirtyFieldsFromValues) {
+    dirtyFieldsFromValues = markFieldsDirty(formValues);
+  }
+  for (const key in data) {
+    const value = data[key];
+    if (isTraversable(value)) {
+      if (isUndefined(formValues) || isPrimitive$1(dirtyFieldsFromValues[key])) {
+        dirtyFieldsFromValues[key] = markFieldsDirty(value, Array.isArray(value) ? [] : {});
+      } else {
+        getDirtyFields(value, isNullOrUndefined(formValues) ? {} : formValues[key], dirtyFieldsFromValues[key]);
+      }
+    } else {
+      const formValue = formValues[key];
+      dirtyFieldsFromValues[key] = !deepEqual(value, formValue);
+    }
+  }
+  return pruneDirtyFields(dirtyFieldsFromValues) || {};
+}
+const defaultResult = {
+  value: false,
+  isValid: false
+};
+const validResult = { value: true, isValid: true };
+var getCheckboxValue = (options) => {
+  if (Array.isArray(options)) {
+    if (options.length > 1) {
+      const values = options.filter((option) => option && option.checked && !option.disabled).map((option) => option.value);
+      return { value: values, isValid: !!values.length };
+    }
+    return options[0].checked && !options[0].disabled ? (
+      // @ts-expect-error expected to work in the browser
+      options[0].attributes && !isUndefined(options[0].attributes.value) ? isUndefined(options[0].value) || options[0].value === "" ? validResult : { value: options[0].value, isValid: true } : validResult
+    ) : defaultResult;
+  }
+  return defaultResult;
+};
+var getFieldValueAs = (value, { valueAsNumber, valueAsDate, setValueAs }) => isUndefined(value) ? value : valueAsNumber ? value === "" ? NaN : value ? +value : value : valueAsDate && isString(value) ? new Date(value) : setValueAs ? setValueAs(value) : value;
+const defaultReturn = {
+  isValid: false,
+  value: null
+};
+var getRadioValue = (options) => Array.isArray(options) ? options.reduce((previous, option) => option && option.checked && !option.disabled ? {
+  isValid: true,
+  value: option.value
+} : previous, defaultReturn) : defaultReturn;
+function getFieldValue(_f) {
+  const ref = _f.ref;
+  if (isFileInput(ref)) {
+    return ref.files;
+  }
+  if (isRadioInput(ref)) {
+    return getRadioValue(_f.refs).value;
+  }
+  if (isMultipleSelect(ref)) {
+    return [...ref.selectedOptions].map(({ value }) => value);
+  }
+  if (isCheckBoxInput(ref)) {
+    return getCheckboxValue(_f.refs).value;
+  }
+  return getFieldValueAs(isUndefined(ref.value) ? _f.ref.value : ref.value, _f);
+}
+var getResolverOptions = (fieldsNames, _fields, criteriaMode, shouldUseNativeValidation) => {
+  const fields = {};
+  for (const name of fieldsNames) {
+    const field = get$2(_fields, name);
+    field && set$1(fields, name, field._f);
+  }
+  return {
+    criteriaMode,
+    names: [...fieldsNames],
+    fields,
+    shouldUseNativeValidation
+  };
+};
+var isRegex = (value) => value instanceof RegExp;
+var getRuleValue = (rule) => isUndefined(rule) ? rule : isRegex(rule) ? rule.source : isObject$2(rule) ? isRegex(rule.value) ? rule.value.source : rule.value : rule;
+var getValidationModes = (mode) => ({
+  isOnSubmit: !mode || mode === VALIDATION_MODE.onSubmit,
+  isOnBlur: mode === VALIDATION_MODE.onBlur,
+  isOnChange: mode === VALIDATION_MODE.onChange,
+  isOnAll: mode === VALIDATION_MODE.all,
+  isOnTouch: mode === VALIDATION_MODE.onTouched
+});
+const ASYNC_FUNCTION = "AsyncFunction";
+var hasPromiseValidation = (fieldReference) => {
+  if (!fieldReference || !fieldReference.validate)
+    return false;
+  if (isFunction$3(fieldReference.validate)) {
+    return fieldReference.validate.constructor.name === ASYNC_FUNCTION;
+  }
+  if (isObject$2(fieldReference.validate)) {
+    for (const key in fieldReference.validate) {
+      if (fieldReference.validate[key].constructor.name === ASYNC_FUNCTION) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+var hasValidation = (options) => options.mount && (options.required || options.min || options.max || options.maxLength || options.minLength || options.pattern || options.validate);
+var isWatched = (name, _names, isBlurEvent) => {
+  if (isBlurEvent)
+    return false;
+  if (_names.watchAll || _names.watch.has(name))
+    return true;
+  for (const watchName of _names.watch) {
+    if (name.startsWith(watchName) && name.charAt(watchName.length) === ".")
+      return true;
+  }
+  return false;
+};
+const iterateFieldsByAction = (fields, action, fieldsNames, abortEarly) => {
+  for (const key of fieldsNames || Object.keys(fields)) {
+    const field = get$2(fields, key);
+    if (field) {
+      const { _f, ...currentField } = field;
+      if (_f) {
+        if (_f.refs && _f.refs[0] && action(_f.refs[0], key) && !abortEarly) {
+          return true;
+        } else if (_f.ref && action(_f.ref, _f.name) && !abortEarly) {
+          return true;
+        } else {
+          if (iterateFieldsByAction(currentField, action)) {
+            break;
+          }
+        }
+      } else if (isObject$2(currentField)) {
+        if (iterateFieldsByAction(currentField, action)) {
+          break;
+        }
+      }
+    }
+  }
+  return;
+};
+function schemaErrorLookup(errors, _fields, name) {
+  const error = get$2(errors, name);
+  if (error || isKey$1(name)) {
+    return {
+      error,
+      name
+    };
+  }
+  const names = name.split(".");
+  while (names.length) {
+    const fieldName = names.join(".");
+    const field = get$2(_fields, fieldName);
+    const foundError = get$2(errors, fieldName);
+    if (field && !Array.isArray(field) && name !== fieldName) {
+      return { name };
+    }
+    if (foundError && foundError.type) {
+      return {
+        name: fieldName,
+        error: foundError
+      };
+    }
+    if (foundError && foundError.root && foundError.root.type) {
+      return {
+        name: `${fieldName}.root`,
+        error: foundError.root
+      };
+    }
+    names.pop();
+  }
+  return {
+    name
+  };
+}
+var shouldRenderFormState = (formStateData, _proxyFormState, updateFormState, isRoot) => {
+  updateFormState(formStateData);
+  const { name, ...formState } = formStateData;
+  const keys = Object.keys(formState);
+  return !keys.length || isRoot && keys.length >= Object.keys(_proxyFormState).length || keys.find((key) => _proxyFormState[key] === (!isRoot || VALIDATION_MODE.all));
+};
+var shouldSubscribeByName = (name, signalName, exact) => !name || !signalName || name === signalName || convertToArrayPayload(name).some((currentName) => currentName && (exact ? currentName === signalName || currentName.startsWith(signalName + ".") : currentName.startsWith(signalName) || signalName.startsWith(currentName)));
+var skipValidation = (isBlurEvent, isTouched, isSubmitted, reValidateMode, mode) => {
+  if (mode.isOnAll) {
+    return false;
+  } else if (!isSubmitted && mode.isOnTouch) {
+    return !(isTouched || isBlurEvent);
+  } else if (isSubmitted ? reValidateMode.isOnBlur : mode.isOnBlur) {
+    return !isBlurEvent;
+  } else if (isSubmitted ? reValidateMode.isOnChange : mode.isOnChange) {
+    return isBlurEvent;
+  }
+  return true;
+};
+var unsetEmptyArray = (ref, name) => !compact(get$2(ref, name)).length && unset(ref, name);
+var updateFieldArrayRootError = (errors, error, name) => {
+  const existingErrors = get$2(errors, name);
+  const fieldArrayErrors = Array.isArray(existingErrors) ? existingErrors : [];
+  set$1(fieldArrayErrors, ROOT_ERROR_TYPE, error[name]);
+  set$1(errors, name, fieldArrayErrors);
+  return errors;
+};
+function getValidateError(result, ref, type = "validate") {
+  if (isString(result) || Array.isArray(result) && result.every(isString) || isBoolean$2(result) && !result) {
+    return {
+      type,
+      message: isString(result) ? result : "",
+      ref
+    };
+  }
+}
+var getValueAndMessage = (validationData) => isObject$2(validationData) && !isRegex(validationData) ? validationData : {
+  value: validationData,
+  message: ""
+};
+var validateField = async (field, disabledFieldNames, formValues, validateAllFieldCriteria, shouldUseNativeValidation, isFieldArray) => {
+  const { ref, refs, required: required2, maxLength, minLength, min: min2, max: max2, pattern, validate, name, valueAsNumber, mount } = field._f;
+  const inputValue = get$2(formValues, name);
+  if (!mount || disabledFieldNames.has(name)) {
+    return {};
+  }
+  const inputRef = refs ? refs[0] : ref;
+  const setCustomValidity = (message) => {
+    if (shouldUseNativeValidation && inputRef.reportValidity) {
+      const validityMessage = isBoolean$2(message) ? "" : message || "";
+      if (refs) {
+        refs.forEach((ref2) => ref2.setCustomValidity(validityMessage));
+      } else {
+        inputRef.setCustomValidity(validityMessage);
+      }
+      inputRef.reportValidity();
+    }
+  };
+  const error = {};
+  const isRadio = isRadioInput(ref);
+  const isCheckBox = isCheckBoxInput(ref);
+  const isRadioOrCheckbox2 = isRadio || isCheckBox;
+  const isEmpty = (valueAsNumber || isFileInput(ref)) && isUndefined(ref.value) && isUndefined(inputValue) || isHTMLElement(ref) && ref.value === "" || inputValue === "" || Array.isArray(inputValue) && !inputValue.length;
+  const appendErrorsCurry = appendErrors.bind(null, name, validateAllFieldCriteria, error);
+  const getMinMaxMessage = (exceedMax, maxLengthMessage, minLengthMessage, maxType = INPUT_VALIDATION_RULES.maxLength, minType = INPUT_VALIDATION_RULES.minLength) => {
+    const message = exceedMax ? maxLengthMessage : minLengthMessage;
+    error[name] = {
+      type: exceedMax ? maxType : minType,
+      message,
+      ref,
+      ...appendErrorsCurry(exceedMax ? maxType : minType, message)
+    };
+  };
+  if (isFieldArray ? !Array.isArray(inputValue) || !inputValue.length : required2 && (!isRadioOrCheckbox2 && (isEmpty || isNullOrUndefined(inputValue)) || isBoolean$2(inputValue) && !inputValue || isCheckBox && !getCheckboxValue(refs).isValid || isRadio && !getRadioValue(refs).isValid)) {
+    const { value, message } = isString(required2) ? { value: !!required2, message: required2 } : getValueAndMessage(required2);
+    if (value) {
+      error[name] = {
+        type: INPUT_VALIDATION_RULES.required,
+        message,
+        ref: inputRef,
+        ...appendErrorsCurry(INPUT_VALIDATION_RULES.required, message)
+      };
+      if (!validateAllFieldCriteria) {
+        setCustomValidity(message);
+        return error;
+      }
+    }
+  }
+  if (!isEmpty && (!isNullOrUndefined(min2) || !isNullOrUndefined(max2))) {
+    let exceedMax;
+    let exceedMin;
+    const maxOutput = getValueAndMessage(max2);
+    const minOutput = getValueAndMessage(min2);
+    if (!isNullOrUndefined(inputValue) && !isNaN(inputValue)) {
+      const valueNumber = ref.valueAsNumber || (inputValue ? +inputValue : inputValue);
+      if (!isNullOrUndefined(maxOutput.value)) {
+        exceedMax = valueNumber > maxOutput.value;
+      }
+      if (!isNullOrUndefined(minOutput.value)) {
+        exceedMin = valueNumber < minOutput.value;
+      }
+    } else {
+      const valueDate = ref.valueAsDate || new Date(inputValue);
+      const convertTimeToDate = (time2) => /* @__PURE__ */ new Date((/* @__PURE__ */ new Date()).toDateString() + " " + time2);
+      const isTime = ref.type == "time";
+      const isWeek = ref.type == "week";
+      if (isString(maxOutput.value) && inputValue) {
+        exceedMax = isTime ? convertTimeToDate(inputValue) > convertTimeToDate(maxOutput.value) : isWeek ? inputValue > maxOutput.value : valueDate > new Date(maxOutput.value);
+      }
+      if (isString(minOutput.value) && inputValue) {
+        exceedMin = isTime ? convertTimeToDate(inputValue) < convertTimeToDate(minOutput.value) : isWeek ? inputValue < minOutput.value : valueDate < new Date(minOutput.value);
+      }
+    }
+    if (exceedMax || exceedMin) {
+      getMinMaxMessage(!!exceedMax, maxOutput.message, minOutput.message, INPUT_VALIDATION_RULES.max, INPUT_VALIDATION_RULES.min);
+      if (!validateAllFieldCriteria) {
+        setCustomValidity(error[name].message);
+        return error;
+      }
+    }
+  }
+  if ((maxLength || minLength) && !isEmpty && (isString(inputValue) || isFieldArray && Array.isArray(inputValue))) {
+    const maxLengthOutput = getValueAndMessage(maxLength);
+    const minLengthOutput = getValueAndMessage(minLength);
+    const exceedMax = !isNullOrUndefined(maxLengthOutput.value) && inputValue.length > +maxLengthOutput.value;
+    const exceedMin = !isNullOrUndefined(minLengthOutput.value) && inputValue.length < +minLengthOutput.value;
+    if (exceedMax || exceedMin) {
+      getMinMaxMessage(exceedMax, maxLengthOutput.message, minLengthOutput.message);
+      if (!validateAllFieldCriteria) {
+        setCustomValidity(error[name].message);
+        return error;
+      }
+    }
+  }
+  if (pattern && !isEmpty && isString(inputValue)) {
+    const { value: patternValue, message } = getValueAndMessage(pattern);
+    if (isRegex(patternValue) && !inputValue.match(patternValue)) {
+      error[name] = {
+        type: INPUT_VALIDATION_RULES.pattern,
+        message,
+        ref,
+        ...appendErrorsCurry(INPUT_VALIDATION_RULES.pattern, message)
+      };
+      if (!validateAllFieldCriteria) {
+        setCustomValidity(message);
+        return error;
+      }
+    }
+  }
+  if (validate) {
+    if (isFunction$3(validate)) {
+      const result = await validate(inputValue, formValues);
+      const validateError = getValidateError(result, inputRef);
+      if (validateError) {
+        error[name] = {
+          ...validateError,
+          ...appendErrorsCurry(INPUT_VALIDATION_RULES.validate, validateError.message)
+        };
+        if (!validateAllFieldCriteria) {
+          setCustomValidity(validateError.message);
+          return error;
+        }
+      }
+    } else if (isObject$2(validate)) {
+      let validationResult = {};
+      for (const key in validate) {
+        if (!isEmptyObject(validationResult) && !validateAllFieldCriteria) {
+          break;
+        }
+        const validateError = getValidateError(await validate[key](inputValue, formValues), inputRef, key);
+        if (validateError) {
+          validationResult = {
+            ...validateError,
+            ...appendErrorsCurry(key, validateError.message)
+          };
+          setCustomValidity(validateError.message);
+          if (validateAllFieldCriteria) {
+            error[name] = validationResult;
+          }
+        }
+      }
+      if (!isEmptyObject(validationResult)) {
+        error[name] = {
+          ref: inputRef,
+          ...validationResult
+        };
+        if (!validateAllFieldCriteria) {
+          return error;
+        }
+      }
+    }
+  }
+  setCustomValidity(true);
+  return error;
+};
+const defaultOptions = {
+  mode: VALIDATION_MODE.onSubmit,
+  reValidateMode: VALIDATION_MODE.onChange,
+  shouldFocusError: true
+};
+const FORM_ERROR_TYPE = "form";
+const DEFAULT_FORM_STATE = {
+  submitCount: 0,
+  isDirty: false,
+  isReady: false,
+  isValidating: false,
+  isSubmitted: false,
+  isSubmitting: false,
+  isSubmitSuccessful: false,
+  isValid: false,
+  touchedFields: {},
+  dirtyFields: {},
+  validatingFields: {}
+};
+function createFormControl(props2 = {}) {
+  let _options = {
+    ...defaultOptions,
+    ...props2
+  };
+  let _formState = {
+    ...cloneObject(DEFAULT_FORM_STATE),
+    isLoading: isFunction$3(_options.defaultValues),
+    errors: _options.errors || {},
+    disabled: _options.disabled || false
+  };
+  let _fields = {};
+  let _defaultValues = isObject$2(_options.defaultValues) || isObject$2(_options.values) ? cloneObject(_options.defaultValues || _options.values) || {} : {};
+  let _formValues = _options.shouldUnregister ? {} : cloneObject(_defaultValues);
+  let _state = {
+    action: false,
+    mount: false,
+    watch: false,
+    keepIsValid: false
+  };
+  let _names = {
+    mount: /* @__PURE__ */ new Set(),
+    disabled: /* @__PURE__ */ new Set(),
+    unMount: /* @__PURE__ */ new Set(),
+    array: /* @__PURE__ */ new Set(),
+    watch: /* @__PURE__ */ new Set(),
+    registerName: /* @__PURE__ */ new Set()
+  };
+  let delayErrorCallback;
+  let timer = 0;
+  let _valuesSubscriberCount = 0;
+  let _validationModeBeforeSubmit = getValidationModes(_options.mode);
+  let _validationModeAfterSubmit = getValidationModes(_options.reValidateMode);
+  const defaultProxyFormState = {
+    isDirty: false,
+    dirtyFields: false,
+    validatingFields: false,
+    touchedFields: false,
+    isValidating: false,
+    isValid: false,
+    errors: false
+  };
+  const _proxyFormState = {
+    ...defaultProxyFormState
+  };
+  let _proxySubscribeFormState = {
+    ..._proxyFormState
+  };
+  const _subjects = {
+    array: createSubject(),
+    state: createSubject()
+  };
+  const shouldDisplayAllAssociatedErrors = _options.criteriaMode === VALIDATION_MODE.all;
+  const debounce2 = (callback) => (wait) => {
+    clearTimeout(timer);
+    timer = setTimeout(callback, wait);
+  };
+  const _setValid = async (shouldUpdateValid) => {
+    if (_state.keepIsValid) {
+      return;
+    }
+    if (!_options.disabled && (_proxyFormState.isValid || _proxySubscribeFormState.isValid || shouldUpdateValid)) {
+      let isValid;
+      if (_options.resolver) {
+        isValid = isEmptyObject((await _runSchema()).errors);
+        _updateIsValidating();
+      } else {
+        isValid = await executeBuiltInValidation({
+          fields: _fields,
+          onlyCheckValid: true,
+          eventType: EVENTS.VALID
+        });
+      }
+      if (isValid !== _formState.isValid) {
+        _subjects.state.next({
+          isValid
+        });
+      }
+    }
+  };
+  const _updateIsValidating = (names, isValidating) => {
+    if (!_options.disabled && (_proxyFormState.isValidating || _proxyFormState.validatingFields || _proxySubscribeFormState.isValidating || _proxySubscribeFormState.validatingFields)) {
+      (names || Array.from(_names.mount)).forEach((name) => {
+        if (name) {
+          isValidating ? set$1(_formState.validatingFields, name, isValidating) : unset(_formState.validatingFields, name);
+        }
+      });
+      _subjects.state.next({
+        validatingFields: _formState.validatingFields,
+        isValidating: !isEmptyObject(_formState.validatingFields)
+      });
+    }
+  };
+  const _updateDirtyFields = () => {
+    _formState.dirtyFields = getDirtyFields(_defaultValues, _formValues);
+  };
+  const _setFieldArray = (name, values = [], method, args, shouldSetValues = true, shouldUpdateFieldsAndState = true) => {
+    if (args && method && !_options.disabled) {
+      _state.action = true;
+      if (shouldUpdateFieldsAndState && Array.isArray(get$2(_fields, name))) {
+        const fieldValues = method(get$2(_fields, name), args.argA, args.argB);
+        shouldSetValues && set$1(_fields, name, fieldValues);
+      }
+      if (shouldUpdateFieldsAndState && Array.isArray(get$2(_formState.errors, name))) {
+        const errors = method(get$2(_formState.errors, name), args.argA, args.argB);
+        shouldSetValues && set$1(_formState.errors, name, errors);
+        unsetEmptyArray(_formState.errors, name);
+      }
+      if ((_proxyFormState.touchedFields || _proxySubscribeFormState.touchedFields) && shouldUpdateFieldsAndState && Array.isArray(get$2(_formState.touchedFields, name))) {
+        const touchedFields = method(get$2(_formState.touchedFields, name), args.argA, args.argB);
+        shouldSetValues && set$1(_formState.touchedFields, name, touchedFields);
+      }
+      if (_proxyFormState.dirtyFields || _proxySubscribeFormState.dirtyFields) {
+        _updateDirtyFields();
+      }
+      _subjects.state.next({
+        name,
+        isDirty: _getDirty(name, values),
+        dirtyFields: _formState.dirtyFields,
+        errors: _formState.errors,
+        isValid: _formState.isValid
+      });
+    } else {
+      set$1(_formValues, name, values);
+    }
+  };
+  const updateErrors = (name, error) => {
+    set$1(_formState.errors, name, error);
+    _formState.errors = { ..._formState.errors };
+    _subjects.state.next({
+      errors: _formState.errors
+    });
+  };
+  const _setErrors = (errors) => {
+    _formState.errors = errors;
+    _subjects.state.next({
+      errors: _formState.errors,
+      isValid: false
+    });
+  };
+  const hasExplicitNullIntermediate = (name) => {
+    const segments = isKey$1(name) ? [name] : stringToPath(name);
+    let formValues = _formValues;
+    let defaultValues = _defaultValues;
+    for (let i = 0; i < segments.length - 1; i++) {
+      const key = segments[i];
+      formValues = isNullOrUndefined(formValues) ? formValues : formValues[key];
+      defaultValues = isNullOrUndefined(defaultValues) ? defaultValues : defaultValues[key];
+      if (formValues === null && defaultValues !== null) {
+        return true;
+      }
+    }
+    return false;
+  };
+  const updateValidAndValue = (name, shouldSkipSetValueAs, value, ref) => {
+    const field = get$2(_fields, name);
+    if (field) {
+      if (hasExplicitNullIntermediate(name)) {
+        return;
+      }
+      const wasUnsetInFormValues = isUndefined(get$2(_formValues, name));
+      const defaultValue = get$2(_formValues, name, isUndefined(value) ? get$2(_defaultValues, name) : value);
+      isUndefined(defaultValue) || ref && ref.defaultChecked || shouldSkipSetValueAs ? set$1(_formValues, name, shouldSkipSetValueAs ? defaultValue : getFieldValue(field._f)) : setFieldValue(name, defaultValue);
+      if (_state.mount && !_state.action) {
+        _setValid();
+        if (wasUnsetInFormValues && _formState.isDirty && (_proxyFormState.isDirty || _proxySubscribeFormState.isDirty)) {
+          const isDirty = _getDirty();
+          if (!isDirty) {
+            _formState.isDirty = false;
+            _subjects.state.next({ ..._formState });
+          }
+        }
+        if (props2.shouldUnregister && wasUnsetInFormValues && !isUndefined(get$2(_formValues, name)) && isWatched(name, _names)) {
+          _state.watch = true;
+        }
+      }
+    }
+  };
+  const updateTouchAndDirty = (name, fieldValue, isBlurEvent, shouldDirty, shouldRender) => {
+    let shouldUpdateField = false;
+    let isPreviousDirty = false;
+    const output = {
+      name
+    };
+    if (!_options.disabled) {
+      if (!isBlurEvent || shouldDirty) {
+        const isCurrentFieldPristine = deepEqual(get$2(_defaultValues, name), fieldValue);
+        if (_proxyFormState.isDirty || _proxySubscribeFormState.isDirty) {
+          isPreviousDirty = _formState.isDirty;
+          _formState.isDirty = output.isDirty = !isCurrentFieldPristine || _getDirty();
+          shouldUpdateField = isPreviousDirty !== output.isDirty;
+        }
+        isPreviousDirty = !!get$2(_formState.dirtyFields, name);
+        if (isCurrentFieldPristine !== _formState.isDirty) {
+          _formState.dirtyFields = getDirtyFields(_defaultValues, _formValues);
+        } else {
+          isCurrentFieldPristine ? unset(_formState.dirtyFields, name) : set$1(_formState.dirtyFields, name, true);
+        }
+        output.dirtyFields = _formState.dirtyFields;
+        shouldUpdateField = shouldUpdateField || (_proxyFormState.dirtyFields || _proxySubscribeFormState.dirtyFields) && isPreviousDirty !== !isCurrentFieldPristine;
+      }
+      if (isBlurEvent) {
+        const isPreviousFieldTouched = get$2(_formState.touchedFields, name);
+        if (!isPreviousFieldTouched) {
+          set$1(_formState.touchedFields, name, isBlurEvent);
+          output.touchedFields = _formState.touchedFields;
+          shouldUpdateField = shouldUpdateField || (_proxyFormState.touchedFields || _proxySubscribeFormState.touchedFields) && isPreviousFieldTouched !== isBlurEvent;
+        }
+      }
+      shouldUpdateField && shouldRender && _subjects.state.next(output);
+    }
+    return shouldUpdateField ? output : {};
+  };
+  const shouldRenderByError = (name, isValid, error, fieldState) => {
+    const previousFieldError = get$2(_formState.errors, name);
+    const shouldUpdateValid = (_proxyFormState.isValid || _proxySubscribeFormState.isValid) && isBoolean$2(isValid) && _formState.isValid !== isValid;
+    if (_options.delayError && error) {
+      delayErrorCallback = debounce2(() => updateErrors(name, error));
+      delayErrorCallback(_options.delayError);
+    } else {
+      clearTimeout(timer);
+      delayErrorCallback = null;
+      error ? set$1(_formState.errors, name, error) : unset(_formState.errors, name);
+      _formState.errors = { ..._formState.errors };
+    }
+    if ((error ? !deepEqual(previousFieldError, error) : previousFieldError) || !isEmptyObject(fieldState) || shouldUpdateValid) {
+      const updatedFormState = {
+        ...fieldState,
+        ...shouldUpdateValid && isBoolean$2(isValid) ? { isValid } : {},
+        errors: _formState.errors,
+        name
+      };
+      _formState = {
+        ..._formState,
+        ...updatedFormState
+      };
+      _subjects.state.next(updatedFormState);
+    }
+  };
+  const _runSchema = async (name) => {
+    _updateIsValidating(name, true);
+    return await _options.resolver(_formValues, _options.context, getResolverOptions(name || _names.mount, _fields, _options.criteriaMode, _options.shouldUseNativeValidation));
+  };
+  const executeSchemaAndUpdateState = async (names) => {
+    const { errors } = await _runSchema(names);
+    _updateIsValidating(names);
+    if (names) {
+      for (const name of names) {
+        const error = get$2(errors, name);
+        error ? _names.array.has(name) && isObject$2(error) && !Object.keys(error).some((key) => !Number.isNaN(Number(key))) ? updateFieldArrayRootError(_formState.errors, { [name]: error }, name) : set$1(_formState.errors, name, error) : unset(_formState.errors, name);
+      }
+      _formState.errors = { ..._formState.errors };
+    } else {
+      _formState.errors = errors;
+    }
+    return errors;
+  };
+  const validateForm = async ({ name, eventType }) => {
+    if (props2.validate) {
+      const result = await props2.validate({
+        formValues: _formValues,
+        formState: _formState,
+        name,
+        eventType
+      });
+      if (isObject$2(result)) {
+        for (const key in result) {
+          const error = result[key];
+          if (error) {
+            setError(`${FORM_ERROR_TYPE}.${key}`, {
+              message: isString(error.message) ? error.message : "",
+              type: error.type || INPUT_VALIDATION_RULES.validate
+            });
+          }
+        }
+      } else if (isString(result) || !result) {
+        setError(FORM_ERROR_TYPE, {
+          message: result || "",
+          type: INPUT_VALIDATION_RULES.validate
+        });
+      } else {
+        clearErrors(FORM_ERROR_TYPE);
+      }
+      return result;
+    }
+    return true;
+  };
+  const executeBuiltInValidation = async ({ fields, onlyCheckValid, name, eventType, context = {
+    valid: true,
+    runRootValidation: false
+  } }) => {
+    if (props2.validate) {
+      context.runRootValidation = true;
+      const result = await validateForm({
+        name,
+        eventType
+      });
+      if (!result) {
+        context.valid = false;
+        if (onlyCheckValid) {
+          return context.valid;
+        }
+      }
+    }
+    for (const name2 in fields) {
+      const field = fields[name2];
+      if (field) {
+        const { _f, ...fieldValue } = field;
+        if (_f) {
+          const isFieldArrayRoot = _names.array.has(_f.name);
+          const isPromiseFunction = field._f && hasPromiseValidation(field._f);
+          const shouldTrackIsValidatingState = _proxyFormState.validatingFields || _proxyFormState.isValidating || _proxySubscribeFormState.validatingFields || _proxySubscribeFormState.isValidating;
+          if (isPromiseFunction && shouldTrackIsValidatingState) {
+            _updateIsValidating([_f.name], true);
+          }
+          const fieldError = await validateField(field, _names.disabled, _formValues, shouldDisplayAllAssociatedErrors, _options.shouldUseNativeValidation && !onlyCheckValid, isFieldArrayRoot);
+          if (isPromiseFunction && shouldTrackIsValidatingState) {
+            _updateIsValidating([_f.name]);
+          }
+          if (fieldError[_f.name]) {
+            context.valid = false;
+            if (onlyCheckValid) {
+              break;
+            }
+          }
+          !onlyCheckValid && (get$2(fieldError, _f.name) ? isFieldArrayRoot ? updateFieldArrayRootError(_formState.errors, fieldError, _f.name) : set$1(_formState.errors, _f.name, fieldError[_f.name]) : unset(_formState.errors, _f.name));
+          if (props2.shouldUseNativeValidation && fieldError[_f.name]) {
+            break;
+          }
+        }
+        !isEmptyObject(fieldValue) && await executeBuiltInValidation({
+          context,
+          onlyCheckValid,
+          fields: fieldValue,
+          name: name2,
+          eventType
+        });
+      }
+    }
+    return context.valid;
+  };
+  const _removeUnmounted = () => {
+    for (const name of _names.unMount) {
+      const field = get$2(_fields, name);
+      field && (field._f.refs ? field._f.refs.every((ref) => !live(ref)) : !live(field._f.ref)) && unregister(name);
+    }
+    _names.unMount = /* @__PURE__ */ new Set();
+  };
+  const _getDirty = (name, data) => !_options.disabled && (name && data && set$1(_formValues, name, data), !deepEqual(_state.mount ? _formValues : _defaultValues, _defaultValues));
+  const _getWatch = (names, defaultValue, isGlobal) => generateWatchOutput(names, _names, {
+    ..._state.mount ? _formValues : isUndefined(defaultValue) ? _defaultValues : isString(names) ? { [names]: defaultValue } : defaultValue
+  }, isGlobal, defaultValue);
+  const _getFieldArray = (name) => compact(get$2(_state.mount ? _formValues : _defaultValues, name, _options.shouldUnregister ? get$2(_defaultValues, name, []) : []));
+  const setFieldValue = (name, value, options = {}, skipClone = false, skipRender = false) => {
+    const field = get$2(_fields, name);
+    let fieldValue = value;
+    if (field) {
+      const fieldReference = field._f;
+      if (fieldReference) {
+        !fieldReference.disabled && set$1(_formValues, name, getFieldValueAs(value, fieldReference));
+        fieldValue = isHTMLElement(fieldReference.ref) && isNullOrUndefined(value) ? "" : value;
+        if (isMultipleSelect(fieldReference.ref)) {
+          [...fieldReference.ref.options].forEach((optionRef) => optionRef.selected = fieldValue.includes(optionRef.value));
+        } else if (fieldReference.refs) {
+          if (isCheckBoxInput(fieldReference.ref)) {
+            fieldReference.refs.forEach((checkboxRef) => {
+              if (!checkboxRef.defaultChecked || !checkboxRef.disabled) {
+                if (Array.isArray(fieldValue)) {
+                  checkboxRef.checked = !!fieldValue.find((data) => data === checkboxRef.value);
+                } else {
+                  checkboxRef.checked = fieldValue === checkboxRef.value || !!fieldValue;
+                }
+              }
+            });
+          } else {
+            fieldReference.refs.forEach((radioRef) => radioRef.checked = radioRef.value === fieldValue);
+          }
+        } else if (isFileInput(fieldReference.ref)) {
+          fieldReference.ref.value = "";
+        } else {
+          fieldReference.ref.value = fieldValue;
+          if (!fieldReference.ref.type && !skipRender) {
+            _subjects.state.next({
+              name,
+              values: skipClone ? _formValues : cloneObject(_formValues)
+            });
+          }
+        }
+      }
+    }
+    (options.shouldDirty || options.shouldTouch) && updateTouchAndDirty(name, fieldValue, options.shouldTouch, options.shouldDirty, !skipRender);
+    options.shouldValidate && trigger(name);
+  };
+  const setFieldValues = (name, value, options, skipClone = false, skipRender = false) => {
+    for (const fieldKey in value) {
+      if (!value.hasOwnProperty(fieldKey)) {
+        return;
+      }
+      const fieldValue = value[fieldKey];
+      const fieldName = name + "." + fieldKey;
+      const field = get$2(_fields, fieldName);
+      (_names.array.has(name) || isObject$2(fieldValue) || field && !field._f) && !isDateObject(fieldValue) ? setFieldValues(fieldName, fieldValue, options, skipClone, skipRender) : setFieldValue(fieldName, fieldValue, options, skipClone, skipRender);
+    }
+  };
+  const _setValue = (name, value, options, skipClone, skipStateEmit = false) => {
+    const field = get$2(_fields, name);
+    const isFieldArray = _names.array.has(name);
+    const cloneValue = skipClone ? value : cloneObject(value);
+    const previousValue = get$2(_formValues, name);
+    const isValueUnchanged = deepEqual(previousValue, cloneValue);
+    if (!isValueUnchanged) {
+      set$1(_formValues, name, cloneValue);
+    }
+    if (isFieldArray) {
+      _subjects.array.next({
+        name,
+        values: skipClone ? _formValues : cloneObject(_formValues)
+      });
+      if ((_proxyFormState.isDirty || _proxyFormState.dirtyFields || _proxySubscribeFormState.isDirty || _proxySubscribeFormState.dirtyFields) && options.shouldDirty) {
+        _updateDirtyFields();
+        if (!skipStateEmit) {
+          _subjects.state.next({
+            name,
+            dirtyFields: _formState.dirtyFields,
+            isDirty: _getDirty(name, cloneValue)
+          });
+        }
+      }
+    } else {
+      const isEmpty = Array.isArray(cloneValue) && !cloneValue.length || isEmptyObject(cloneValue);
+      if (!field || field._f || isNullOrUndefined(cloneValue) || isEmpty) {
+        setFieldValue(name, cloneValue, options, skipClone, skipStateEmit);
+      } else {
+        setFieldValues(name, cloneValue, options, skipClone, skipStateEmit);
+      }
+    }
+    if (!isValueUnchanged && !skipStateEmit) {
+      const watched = isWatched(name, _names);
+      const values = skipClone ? _formValues : cloneObject(_formValues);
+      _subjects.state.next({
+        ...watched && _formState,
+        name: _state.mount || watched ? name : void 0,
+        values
+      });
+    }
+  };
+  const setValue = (name, value, options = {}) => _setValue(name, value, options, false);
+  const setValues = (formValues, options = {}) => {
+    const updatedFormValues = isFunction$3(formValues) ? formValues(_formValues) : formValues;
+    if (!deepEqual(_formValues, updatedFormValues)) {
+      _formValues = {
+        ..._formValues,
+        ...updatedFormValues
+      };
+      const flattenedUpdates = flatten$1(updatedFormValues);
+      for (const fieldName of _names.mount) {
+        if (fieldName in flattenedUpdates) {
+          _setValue(fieldName, flattenedUpdates[fieldName], options, true, true);
+        }
+      }
+      _subjects.state.next({
+        ..._formState,
+        name: void 0,
+        type: void 0,
+        ..._valuesSubscriberCount ? { values: _formValues } : {}
+      });
+      if (options.shouldValidate) {
+        _setValid();
+      }
+    }
+  };
+  const onChange = async (event) => {
+    _state.mount = true;
+    const target = event.target;
+    let name = target.name;
+    let isFieldValueUpdated = true;
+    const field = get$2(_fields, name);
+    const _updateIsFieldValueUpdated = (fieldValue) => {
+      isFieldValueUpdated = Number.isNaN(fieldValue) || isDateObject(fieldValue) && isNaN(fieldValue.getTime()) || deepEqual(fieldValue, get$2(_formValues, name, fieldValue));
+    };
+    if (field) {
+      let error;
+      let isValid;
+      const fieldValue = target.type ? getFieldValue(field._f) : getEventValue(event);
+      const isBlurEvent = event.type === EVENTS.BLUR || event.type === EVENTS.FOCUS_OUT;
+      const hasNoValidationEffect = !hasValidation(field._f) && !props2.validate && !_options.resolver && !get$2(_formState.errors, name) && !field._f.deps;
+      const shouldSkipValidation = hasNoValidationEffect || skipValidation(isBlurEvent, get$2(_formState.touchedFields, name), _formState.isSubmitted, _validationModeAfterSubmit, _validationModeBeforeSubmit);
+      const watched = isWatched(name, _names, isBlurEvent);
+      set$1(_formValues, name, fieldValue);
+      if (isBlurEvent) {
+        if (!target || !target.readOnly) {
+          field._f.onBlur && field._f.onBlur(event);
+          delayErrorCallback && delayErrorCallback(0);
+        }
+      } else if (field._f.onChange) {
+        field._f.onChange(event);
+      }
+      const fieldState = updateTouchAndDirty(name, fieldValue, isBlurEvent);
+      const shouldRender = !isEmptyObject(fieldState) || watched;
+      !isBlurEvent && _subjects.state.next({
+        name,
+        type: event.type,
+        ..._valuesSubscriberCount ? { values: cloneObject(_formValues) } : {}
+      });
+      if (shouldSkipValidation) {
+        if ((!hasNoValidationEffect || !_formState.isValid) && (_proxyFormState.isValid || _proxySubscribeFormState.isValid)) {
+          if (_options.mode === "onBlur") {
+            if (isBlurEvent) {
+              _setValid();
+            }
+          } else if (!isBlurEvent) {
+            _setValid();
+          }
+        }
+        return shouldRender && _subjects.state.next({ name, ...watched ? {} : fieldState });
+      }
+      if (!_options.resolver && props2.validate) {
+        await validateForm({
+          name,
+          eventType: event.type
+        });
+      }
+      !isBlurEvent && watched && _subjects.state.next({ ..._formState });
+      if (_options.resolver) {
+        const { errors } = await _runSchema([name]);
+        _updateIsValidating([name]);
+        _updateIsFieldValueUpdated(fieldValue);
+        if (!isFieldValueUpdated) {
+          !isEmptyObject(fieldState) && _subjects.state.next(fieldState);
+          return;
+        }
+        const previousErrorLookupResult = schemaErrorLookup(_formState.errors, _fields, name);
+        const errorLookupResult = schemaErrorLookup(errors, _fields, previousErrorLookupResult.name || name);
+        error = errorLookupResult.error;
+        name = errorLookupResult.name;
+        isValid = isEmptyObject(errors);
+      } else {
+        _updateIsValidating([name], true);
+        error = (await validateField(field, _names.disabled, _formValues, shouldDisplayAllAssociatedErrors, _options.shouldUseNativeValidation))[name];
+        _updateIsValidating([name]);
+        _updateIsFieldValueUpdated(fieldValue);
+        if (isFieldValueUpdated) {
+          if (error) {
+            isValid = false;
+          } else if (_proxyFormState.isValid || _proxySubscribeFormState.isValid) {
+            isValid = await executeBuiltInValidation({
+              fields: _fields,
+              onlyCheckValid: true,
+              name,
+              eventType: event.type
+            });
+          }
+        }
+      }
+      if (isFieldValueUpdated) {
+        field._f.deps && (!Array.isArray(field._f.deps) || field._f.deps.length > 0) && trigger(field._f.deps);
+        shouldRenderByError(name, isValid, error, fieldState);
+      }
+    }
+  };
+  const _focusInput = (ref, key) => {
+    if (get$2(_formState.errors, key) && ref.focus) {
+      ref.focus();
+      return 1;
+    }
+    return;
+  };
+  const trigger = async (name, options = {}) => {
+    let isValid;
+    let validationResult;
+    const fieldNames = convertToArrayPayload(name);
+    if (_options.resolver) {
+      const errors = await executeSchemaAndUpdateState(isUndefined(name) ? name : fieldNames);
+      isValid = isEmptyObject(errors);
+      validationResult = name ? !fieldNames.some((name2) => get$2(errors, name2)) : isValid;
+    } else if (name) {
+      validationResult = (await Promise.all(fieldNames.map(async (fieldName) => {
+        const field = get$2(_fields, fieldName);
+        return await executeBuiltInValidation({
+          fields: field && field._f ? { [fieldName]: field } : field,
+          eventType: EVENTS.TRIGGER
+        });
+      }))).every(Boolean);
+      !(!validationResult && !_formState.isValid) && _setValid();
+    } else {
+      validationResult = isValid = await executeBuiltInValidation({
+        fields: _fields,
+        name,
+        eventType: EVENTS.TRIGGER
+      });
+    }
+    _subjects.state.next({
+      ...!isString(name) || (_proxyFormState.isValid || _proxySubscribeFormState.isValid) && isValid !== _formState.isValid ? {} : { name },
+      ..._options.resolver || !name ? { isValid } : {},
+      errors: _formState.errors
+    });
+    options.shouldFocus && !validationResult && iterateFieldsByAction(_fields, _focusInput, name ? fieldNames : _names.mount);
+    return validationResult;
+  };
+  const getValues = (fieldNames, config2) => {
+    let values = {
+      ..._state.mount ? _formValues : _defaultValues
+    };
+    if (config2) {
+      values = extractFormValues(config2.dirtyFields ? _formState.dirtyFields : _formState.touchedFields, values);
+    }
+    return isUndefined(fieldNames) ? values : isString(fieldNames) ? get$2(values, fieldNames) : fieldNames.map((name) => get$2(values, name));
+  };
+  const getFieldState = (name, formState) => ({
+    invalid: !!get$2((formState || _formState).errors, name),
+    isDirty: !!get$2((formState || _formState).dirtyFields, name),
+    error: get$2((formState || _formState).errors, name),
+    isValidating: !!get$2(_formState.validatingFields, name),
+    isTouched: !!get$2((formState || _formState).touchedFields, name)
+  });
+  const clearErrors = (name) => {
+    const names = name ? convertToArrayPayload(name) : void 0;
+    names === null || names === void 0 ? void 0 : names.forEach((inputName) => unset(_formState.errors, inputName));
+    if (names) {
+      names.forEach((inputName) => {
+        _subjects.state.next({
+          name: inputName,
+          errors: _formState.errors
+        });
+      });
+    } else {
+      _subjects.state.next({
+        errors: {}
+      });
+    }
+  };
+  const setError = (name, error, options) => {
+    const ref = (get$2(_fields, name, { _f: {} })._f || {}).ref;
+    const currentError = get$2(_formState.errors, name) || {};
+    const { ref: currentRef, message, type, ...restOfErrorTree } = currentError;
+    set$1(_formState.errors, name, {
+      ...restOfErrorTree,
+      ...error,
+      ref
+    });
+    _subjects.state.next({
+      name,
+      errors: _formState.errors,
+      isValid: false
+    });
+    options && options.shouldFocus && ref && ref.focus && ref.focus();
+  };
+  const watch = (name, defaultValue) => {
+    if (isFunction$3(name)) {
+      _valuesSubscriberCount++;
+      const { unsubscribe } = _subjects.state.subscribe({
+        next: (payload) => "values" in payload && name(payload.values || _getWatch(void 0, defaultValue), payload)
+      });
+      let called = false;
+      return {
+        unsubscribe: () => {
+          if (called) {
+            return;
+          }
+          called = true;
+          _valuesSubscriberCount--;
+          unsubscribe();
+        }
+      };
+    }
+    return _getWatch(name, defaultValue, true);
+  };
+  const _subscribe = (props3) => {
+    var _a2;
+    const needsValues = !!((_a2 = props3.formState) === null || _a2 === void 0 ? void 0 : _a2.values);
+    if (needsValues) {
+      _valuesSubscriberCount++;
+    }
+    const { unsubscribe } = _subjects.state.subscribe({
+      next: (formState) => {
+        if (shouldSubscribeByName(props3.name, formState.name, props3.exact) && shouldRenderFormState(formState, props3.formState || _proxyFormState, _setFormState, props3.reRenderRoot)) {
+          const snapshot = { ..._formValues };
+          props3.callback({
+            values: snapshot,
+            ..._formState,
+            ...formState,
+            defaultValues: _defaultValues
+          });
+        }
+      }
+    });
+    if (!needsValues) {
+      return unsubscribe;
+    }
+    let called = false;
+    return () => {
+      if (called) {
+        return;
+      }
+      called = true;
+      _valuesSubscriberCount--;
+      unsubscribe();
+    };
+  };
+  const subscribe2 = (props3) => {
+    _state.mount = true;
+    _proxySubscribeFormState = {
+      ..._proxySubscribeFormState,
+      ...props3.formState
+    };
+    return _subscribe({
+      ...props3,
+      formState: {
+        ...defaultProxyFormState,
+        ...props3.formState
+      }
+    });
+  };
+  const unregister = (name, options = {}) => {
+    for (const fieldName of name ? convertToArrayPayload(name) : _names.mount) {
+      _names.mount.delete(fieldName);
+      _names.array.delete(fieldName);
+      if (!options.keepValue) {
+        unset(_fields, fieldName);
+        unset(_formValues, fieldName);
+      }
+      !options.keepError && unset(_formState.errors, fieldName);
+      !options.keepDirty && unset(_formState.dirtyFields, fieldName);
+      !options.keepTouched && unset(_formState.touchedFields, fieldName);
+      !options.keepIsValidating && unset(_formState.validatingFields, fieldName);
+      !_options.shouldUnregister && !options.keepDefaultValue && unset(_defaultValues, fieldName);
+    }
+    _subjects.state.next({
+      values: cloneObject(_formValues)
+    });
+    _subjects.state.next({
+      ..._formState,
+      ...!options.keepDirty ? {} : { isDirty: _getDirty() }
+    });
+    !options.keepIsValid && _setValid();
+  };
+  const _setDisabledField = ({ disabled, name }) => {
+    if (isBoolean$2(disabled) && _state.mount || !!disabled || _names.disabled.has(name)) {
+      const wasDisabled = _names.disabled.has(name);
+      const isDisabled = !!disabled;
+      const disabledStateChanged = wasDisabled !== isDisabled;
+      disabled ? _names.disabled.add(name) : _names.disabled.delete(name);
+      disabledStateChanged && _state.mount && !_state.action && _setValid();
+    }
+  };
+  const register = (name, options = {}) => {
+    let field = get$2(_fields, name);
+    const disabledIsDefined = isBoolean$2(options.disabled) || isBoolean$2(_options.disabled);
+    const shouldRevalidateRemount = !_names.registerName.has(name) && field && field._f && !field._f.mount;
+    set$1(_fields, name, {
+      ...field || {},
+      _f: {
+        ...field && field._f ? field._f : { ref: { name } },
+        name,
+        mount: true,
+        ...options
+      }
+    });
+    _names.mount.add(name);
+    if (field && !shouldRevalidateRemount) {
+      _setDisabledField({
+        disabled: isBoolean$2(options.disabled) ? options.disabled : _options.disabled,
+        name
+      });
+    } else {
+      updateValidAndValue(name, true, options.value);
+    }
+    return {
+      ...disabledIsDefined ? { disabled: options.disabled || _options.disabled } : {},
+      ..._options.progressive ? {
+        required: !!options.required,
+        min: getRuleValue(options.min),
+        max: getRuleValue(options.max),
+        minLength: getRuleValue(options.minLength),
+        maxLength: getRuleValue(options.maxLength),
+        pattern: getRuleValue(options.pattern)
+      } : {},
+      name,
+      onChange,
+      onBlur: onChange,
+      ref: (ref) => {
+        if (ref) {
+          _names.registerName.add(name);
+          register(name, options);
+          _names.registerName.delete(name);
+          field = get$2(_fields, name);
+          const fieldRef = isUndefined(ref.value) ? ref.querySelectorAll ? ref.querySelectorAll("input,select,textarea")[0] || ref : ref : ref;
+          const radioOrCheckbox = isRadioOrCheckbox(fieldRef);
+          const refs = field._f.refs || [];
+          if (radioOrCheckbox ? refs.find((option) => option === fieldRef) : fieldRef === field._f.ref) {
+            return;
+          }
+          set$1(_fields, name, {
+            _f: {
+              ...field._f,
+              ...radioOrCheckbox ? {
+                refs: [
+                  ...refs.filter(live),
+                  fieldRef,
+                  ...Array.isArray(get$2(_defaultValues, name)) ? [{}] : []
+                ],
+                ref: { type: fieldRef.type, name }
+              } : { ref: fieldRef }
+            }
+          });
+          updateValidAndValue(name, false, void 0, fieldRef);
+        } else {
+          field = get$2(_fields, name, {});
+          if (field._f) {
+            field._f.mount = false;
+          }
+          (_options.shouldUnregister || options.shouldUnregister) && !(isNameInFieldArray(_names.array, name) && _state.action) && _names.unMount.add(name);
+        }
+      }
+    };
+  };
+  const _focusError = () => _options.shouldFocusError && !_options.shouldUseNativeValidation && iterateFieldsByAction(_fields, _focusInput, _names.mount);
+  const _disableForm = (disabled) => {
+    if (isBoolean$2(disabled)) {
+      _subjects.state.next({ disabled });
+      iterateFieldsByAction(_fields, (ref, name) => {
+        const currentField = get$2(_fields, name);
+        if (currentField) {
+          ref.disabled = currentField._f.disabled || disabled;
+          if (Array.isArray(currentField._f.refs)) {
+            currentField._f.refs.forEach((inputRef) => {
+              inputRef.disabled = currentField._f.disabled || disabled;
+            });
+          }
+        }
+      }, 0, false);
+    }
+  };
+  const handleSubmit = (onValid, onInvalid) => async (e) => {
+    let onValidError = void 0;
+    if (e) {
+      e.preventDefault && e.preventDefault();
+      e.persist && e.persist();
+    }
+    let fieldValues = cloneObject(_formValues);
+    _subjects.state.next({
+      isSubmitting: true
+    });
+    if (_options.resolver) {
+      const { errors, values } = await _runSchema();
+      _updateIsValidating();
+      _formState.errors = errors;
+      fieldValues = cloneObject(values);
+    } else {
+      await executeBuiltInValidation({
+        fields: _fields,
+        eventType: EVENTS.SUBMIT
+      });
+    }
+    if (_names.disabled.size) {
+      for (const name of _names.disabled) {
+        unset(fieldValues, name);
+      }
+    }
+    unset(_formState.errors, ROOT_ERROR_TYPE);
+    if (isEmptyObject(_formState.errors)) {
+      _subjects.state.next({
+        errors: {}
+      });
+      try {
+        await onValid(fieldValues, e);
+      } catch (error) {
+        onValidError = error;
+      }
+    } else {
+      if (onInvalid) {
+        await onInvalid({ ..._formState.errors }, e);
+      }
+      _focusError();
+      setTimeout(_focusError);
+    }
+    _subjects.state.next({
+      isSubmitted: true,
+      isSubmitting: false,
+      isSubmitSuccessful: isEmptyObject(_formState.errors) && !onValidError,
+      submitCount: _formState.submitCount + 1,
+      errors: _formState.errors
+    });
+    if (onValidError) {
+      throw onValidError;
+    }
+  };
+  const resetField = (name, options = {}) => {
+    if (get$2(_fields, name)) {
+      if (isUndefined(options.defaultValue)) {
+        setValue(name, cloneObject(get$2(_defaultValues, name)));
+      } else {
+        setValue(name, options.defaultValue);
+        set$1(_defaultValues, name, cloneObject(options.defaultValue));
+      }
+      if (!options.keepTouched) {
+        unset(_formState.touchedFields, name);
+      }
+      if (!options.keepDirty) {
+        unset(_formState.dirtyFields, name);
+        _formState.isDirty = options.defaultValue ? _getDirty(name, cloneObject(get$2(_defaultValues, name))) : _getDirty();
+      }
+      if (!options.keepError) {
+        unset(_formState.errors, name);
+        _proxyFormState.isValid && _setValid();
+      }
+      _subjects.state.next({ ..._formState });
+    }
+  };
+  const _reset = (formValues, keepStateOptions = {}) => {
+    const updatedValues = formValues ? cloneObject(formValues) : _defaultValues;
+    const cloneUpdatedValues = cloneObject(updatedValues);
+    const isEmptyResetValues = isEmptyObject(formValues);
+    const values = cloneUpdatedValues;
+    if (!keepStateOptions.keepDefaultValues) {
+      _defaultValues = updatedValues;
+    }
+    if (!keepStateOptions.keepValues) {
+      if (keepStateOptions.keepDirtyValues) {
+        const fieldsToCheck = /* @__PURE__ */ new Set([
+          ..._names.mount,
+          ...Object.keys(getDirtyFields(_defaultValues, _formValues))
+        ]);
+        for (const fieldName of Array.from(fieldsToCheck)) {
+          const isDirty = get$2(_formState.dirtyFields, fieldName);
+          const existingValue = get$2(_formValues, fieldName);
+          const newValue = get$2(values, fieldName);
+          if (isDirty && !isUndefined(existingValue)) {
+            set$1(values, fieldName, existingValue);
+          } else if (!isDirty && !isUndefined(newValue)) {
+            setValue(fieldName, newValue);
+          }
+        }
+      } else {
+        if (isWeb && isUndefined(formValues)) {
+          for (const name of _names.mount) {
+            const field = get$2(_fields, name);
+            if (field && field._f) {
+              const fieldReference = Array.isArray(field._f.refs) ? field._f.refs[0] : field._f.ref;
+              if (isHTMLElement(fieldReference)) {
+                const form = fieldReference.closest("form");
+                if (form) {
+                  form.reset();
+                  break;
+                }
+              }
+            }
+          }
+        }
+        if (keepStateOptions.keepFieldsRef) {
+          for (const fieldName of _names.mount) {
+            setValue(fieldName, get$2(values, fieldName));
+          }
+        } else {
+          _fields = {};
+        }
+      }
+      if (_options.shouldUnregister) {
+        _formValues = keepStateOptions.keepDefaultValues ? cloneObject(_defaultValues) : {};
+        if (keepStateOptions.keepFieldsRef) {
+          for (const fieldName of _names.mount) {
+            set$1(_formValues, fieldName, get$2(values, fieldName));
+          }
+        }
+      } else {
+        _formValues = cloneObject(values);
+      }
+      _subjects.array.next({
+        values: { ...values }
+      });
+      _subjects.state.next({
+        name: void 0,
+        type: void 0,
+        values: { ...values }
+      });
+    }
+    _names = {
+      mount: keepStateOptions.keepDirtyValues ? _names.mount : /* @__PURE__ */ new Set(),
+      unMount: /* @__PURE__ */ new Set(),
+      array: /* @__PURE__ */ new Set(),
+      registerName: /* @__PURE__ */ new Set(),
+      disabled: /* @__PURE__ */ new Set(),
+      watch: /* @__PURE__ */ new Set(),
+      watchAll: false,
+      focus: ""
+    };
+    _state.mount = !_proxyFormState.isValid || !!keepStateOptions.keepIsValid || !!keepStateOptions.keepDirtyValues || !_options.shouldUnregister && !isEmptyObject(values);
+    _state.watch = !!_options.shouldUnregister;
+    _state.keepIsValid = !!keepStateOptions.keepIsValid;
+    _state.action = false;
+    if (!keepStateOptions.keepErrors) {
+      _formState.errors = {};
+    }
+    _subjects.state.next({
+      submitCount: keepStateOptions.keepSubmitCount ? _formState.submitCount : 0,
+      isDirty: isEmptyResetValues ? false : keepStateOptions.keepDirty ? _formState.isDirty : keepStateOptions.keepValues ? _getDirty() : !!(keepStateOptions.keepDefaultValues && !deepEqual(formValues, _defaultValues)),
+      isSubmitted: keepStateOptions.keepIsSubmitted ? _formState.isSubmitted : false,
+      dirtyFields: isEmptyResetValues ? {} : keepStateOptions.keepDirtyValues ? keepStateOptions.keepDefaultValues && _formValues ? getDirtyFields(_defaultValues, _formValues) : _formState.dirtyFields : keepStateOptions.keepDefaultValues && formValues ? getDirtyFields(_defaultValues, formValues) : keepStateOptions.keepDirty ? _formState.dirtyFields : {},
+      touchedFields: keepStateOptions.keepTouched ? _formState.touchedFields : {},
+      errors: keepStateOptions.keepErrors ? _formState.errors : {},
+      isSubmitSuccessful: keepStateOptions.keepIsSubmitSuccessful ? _formState.isSubmitSuccessful : false,
+      isSubmitting: false,
+      defaultValues: _defaultValues
+    });
+  };
+  const reset = (formValues, keepStateOptions) => _reset(isFunction$3(formValues) ? formValues(_formValues) : formValues, { ..._options.resetOptions, ...keepStateOptions });
+  const setFocus = (name, options = {}) => {
+    const field = get$2(_fields, name);
+    const fieldReference = field && field._f;
+    if (fieldReference) {
+      const fieldRef = fieldReference.refs ? fieldReference.refs[0] : fieldReference.ref;
+      if (fieldRef.focus) {
+        setTimeout(() => {
+          fieldRef.focus();
+          options.shouldSelect && isFunction$3(fieldRef.select) && fieldRef.select();
+        });
+      }
+    }
+  };
+  const _setFormState = (updatedFormState) => {
+    const { name, type, values, ...formState } = updatedFormState;
+    _formState = {
+      ..._formState,
+      ...formState
+    };
+  };
+  const _resetDefaultValues = () => isFunction$3(_options.defaultValues) && _options.defaultValues().then((values) => {
+    reset(values, _options.resetOptions);
+    _subjects.state.next({
+      isLoading: false
+    });
+  });
+  const resetDefaultValues = (values, options = {}) => {
+    _defaultValues = cloneObject(values);
+    if (!options.keepDirty) {
+      const newDirtyFields = getDirtyFields(_defaultValues, _formValues);
+      _formState.dirtyFields = newDirtyFields;
+      _formState.isDirty = !isEmptyObject(newDirtyFields);
+    }
+    if (!options.keepIsValid) {
+      _setValid();
+    }
+    _subjects.state.next({
+      ..._formState,
+      defaultValues: _defaultValues
+    });
+  };
+  const methods = {
+    control: {
+      register,
+      unregister,
+      getFieldState,
+      handleSubmit,
+      setError,
+      _subscribe,
+      _runSchema,
+      _updateIsValidating,
+      _focusError,
+      _getWatch,
+      _getDirty,
+      _setValid,
+      _setFieldArray,
+      _setDisabledField,
+      _setErrors,
+      _getFieldArray,
+      _reset,
+      _resetDefaultValues,
+      _removeUnmounted,
+      _disableForm,
+      _subjects,
+      _proxyFormState,
+      get _fields() {
+        return _fields;
+      },
+      get _formValues() {
+        return _formValues;
+      },
+      get _state() {
+        return _state;
+      },
+      set _state(value) {
+        _state = value;
+      },
+      get _defaultValues() {
+        return _defaultValues;
+      },
+      get _names() {
+        return _names;
+      },
+      set _names(value) {
+        _names = value;
+      },
+      get _formState() {
+        return _formState;
+      },
+      get _options() {
+        return _options;
+      },
+      set _options(value) {
+        _options = {
+          ..._options,
+          ...value
+        };
+        _validationModeBeforeSubmit = getValidationModes(_options.mode);
+        _validationModeAfterSubmit = getValidationModes(_options.reValidateMode);
+      }
+    },
+    subscribe: subscribe2,
+    trigger,
+    register,
+    handleSubmit,
+    watch,
+    setValue,
+    setValues,
+    getValues,
+    reset,
+    resetField,
+    resetDefaultValues,
+    clearErrors,
+    unregister,
+    setError,
+    setFocus,
+    getFieldState
+  };
+  return {
+    ...methods,
+    formControl: methods
+  };
+}
+var generateId$1 = () => {
+  if (typeof crypto !== "undefined" && crypto.randomUUID) {
+    return crypto.randomUUID();
+  }
+  const d = typeof performance === "undefined" ? Date.now() : performance.now() * 1e3;
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+    const r2 = (Math.random() * 16 + d) % 16 | 0;
+    return (c == "x" ? r2 : r2 & 3 | 8).toString(16);
+  });
+};
+var getFocusFieldName = (name, index2, options = {}) => options.shouldFocus || isUndefined(options.shouldFocus) ? options.focusName || `${name}.${isUndefined(options.focusIndex) ? index2 : options.focusIndex}.` : "";
+var appendAt = (data, value) => [
+  ...data,
+  ...convertToArrayPayload(value)
+];
+var fillEmptyArray = (value) => Array.isArray(value) ? value.map(() => void 0) : void 0;
+function insert(data, index2, value) {
+  return [
+    ...data.slice(0, index2),
+    ...convertToArrayPayload(value),
+    ...data.slice(index2)
+  ];
+}
+var moveArrayAt = (data, from2, to2) => {
+  if (!Array.isArray(data)) {
+    return [];
+  }
+  if (isUndefined(data[to2])) {
+    data[to2] = void 0;
+  }
+  data.splice(to2, 0, data.splice(from2, 1)[0]);
+  return data;
+};
+var prependAt = (data, value) => [
+  ...convertToArrayPayload(value),
+  ...convertToArrayPayload(data)
+];
+function removeAtIndexes(data, indexes) {
+  let i = 0;
+  const temp = [...data];
+  for (const index2 of indexes) {
+    temp.splice(index2 - i, 1);
+    i++;
+  }
+  return compact(temp).length ? temp : [];
+}
+var removeArrayAt = (data, index2) => isUndefined(index2) ? [] : removeAtIndexes(data, convertToArrayPayload(index2).sort((a, b) => a - b));
+var swapArrayAt = (data, indexA, indexB) => {
+  [data[indexA], data[indexB]] = [data[indexB], data[indexA]];
+};
+var updateAt = (fieldValues, index2, value) => {
+  fieldValues[index2] = value;
+  return fieldValues;
+};
+function useFieldArray(props2) {
+  const formControl = useFormControlContext();
+  const { control = formControl, name, keyName = "id", disabled, shouldUnregister, rules } = props2;
+  const [fields, setFields] = React.useState(control._getFieldArray(name));
+  const ids = React.useRef(control._getFieldArray(name).map(generateId$1));
+  const _actioned = React.useRef(false);
+  if (!disabled) {
+    control._names.array.add(name);
+  }
+  React.useMemo(() => !disabled && rules && fields.length >= 0 && control.register(name, rules), [control, name, fields.length, rules, disabled]);
+  useIsomorphicLayoutEffect$2(() => {
+    if (disabled) {
+      return;
+    }
+    return control._subjects.array.subscribe({
+      next: ({ values, name: fieldArrayName }) => {
+        if (fieldArrayName === name || !fieldArrayName) {
+          const fieldValues = get$2(values, name);
+          if (Array.isArray(fieldValues)) {
+            setFields(fieldValues);
+            ids.current = fieldValues.map(generateId$1);
+          } else if (!fieldArrayName) {
+            setFields([]);
+            ids.current = [];
+          }
+        }
+      }
+    }).unsubscribe;
+  }, [control, name, disabled]);
+  const updateValues = React.useCallback((updatedFieldArrayValues) => {
+    _actioned.current = true;
+    control._setFieldArray(name, updatedFieldArrayValues);
+  }, [control, name]);
+  const append2 = (value, options) => {
+    if (disabled) {
+      return;
+    }
+    const appendValue = convertToArrayPayload(cloneObject(value));
+    const updatedFieldArrayValues = appendAt(control._getFieldArray(name), appendValue);
+    control._names.focus = getFocusFieldName(name, updatedFieldArrayValues.length - 1, options);
+    ids.current = appendAt(ids.current, appendValue.map(generateId$1));
+    updateValues(updatedFieldArrayValues);
+    setFields(updatedFieldArrayValues);
+    control._setFieldArray(name, updatedFieldArrayValues, appendAt, {
+      argA: fillEmptyArray(value)
+    });
+  };
+  const prepend = (value, options) => {
+    if (disabled) {
+      return;
+    }
+    const prependValue = convertToArrayPayload(cloneObject(value));
+    const updatedFieldArrayValues = prependAt(control._getFieldArray(name), prependValue);
+    control._names.focus = getFocusFieldName(name, 0, options);
+    ids.current = prependAt(ids.current, prependValue.map(generateId$1));
+    updateValues(updatedFieldArrayValues);
+    setFields(updatedFieldArrayValues);
+    control._setFieldArray(name, updatedFieldArrayValues, prependAt, {
+      argA: fillEmptyArray(value)
+    });
+  };
+  const remove = (index2) => {
+    if (disabled) {
+      return;
+    }
+    const updatedFieldArrayValues = removeArrayAt(control._getFieldArray(name), index2);
+    ids.current = removeArrayAt(ids.current, index2);
+    updateValues(updatedFieldArrayValues);
+    setFields(updatedFieldArrayValues);
+    !Array.isArray(get$2(control._fields, name)) && set$1(control._fields, name, void 0);
+    control._setFieldArray(name, updatedFieldArrayValues, removeArrayAt, {
+      argA: index2
+    });
+  };
+  const insert$1 = (index2, value, options) => {
+    if (disabled) {
+      return;
+    }
+    const insertValue = convertToArrayPayload(cloneObject(value));
+    const updatedFieldArrayValues = insert(control._getFieldArray(name), index2, insertValue);
+    control._names.focus = getFocusFieldName(name, index2, options);
+    ids.current = insert(ids.current, index2, insertValue.map(generateId$1));
+    updateValues(updatedFieldArrayValues);
+    setFields(updatedFieldArrayValues);
+    control._setFieldArray(name, updatedFieldArrayValues, insert, {
+      argA: index2,
+      argB: fillEmptyArray(value)
+    });
+  };
+  const swap2 = (indexA, indexB) => {
+    if (disabled) {
+      return;
+    }
+    const updatedFieldArrayValues = control._getFieldArray(name);
+    swapArrayAt(updatedFieldArrayValues, indexA, indexB);
+    swapArrayAt(ids.current, indexA, indexB);
+    updateValues(updatedFieldArrayValues);
+    setFields(updatedFieldArrayValues);
+    control._setFieldArray(name, updatedFieldArrayValues, swapArrayAt, {
+      argA: indexA,
+      argB: indexB
+    }, false);
+  };
+  const move = (from2, to2) => {
+    if (disabled) {
+      return;
+    }
+    const updatedFieldArrayValues = control._getFieldArray(name);
+    moveArrayAt(updatedFieldArrayValues, from2, to2);
+    moveArrayAt(ids.current, from2, to2);
+    updateValues(updatedFieldArrayValues);
+    setFields(updatedFieldArrayValues);
+    control._setFieldArray(name, updatedFieldArrayValues, moveArrayAt, {
+      argA: from2,
+      argB: to2
+    }, false);
+  };
+  const update = (index2, value) => {
+    if (disabled) {
+      return;
+    }
+    const updateValue = cloneObject(value);
+    const updatedFieldArrayValues = updateAt(control._getFieldArray(name), index2, updateValue);
+    ids.current = [...updatedFieldArrayValues].map((item, i) => !item || i === index2 ? generateId$1() : ids.current[i]);
+    updateValues(updatedFieldArrayValues);
+    setFields([...updatedFieldArrayValues]);
+    control._setFieldArray(name, updatedFieldArrayValues, updateAt, {
+      argA: index2,
+      argB: updateValue
+    }, true, false);
+  };
+  const replace = (value) => {
+    if (disabled) {
+      return;
+    }
+    const updatedFieldArrayValues = convertToArrayPayload(cloneObject(value));
+    ids.current = updatedFieldArrayValues.map(generateId$1);
+    updateValues([...updatedFieldArrayValues]);
+    setFields([...updatedFieldArrayValues]);
+    control._setFieldArray(name, [...updatedFieldArrayValues], (data) => data, {}, true, false);
+  };
+  React.useEffect(() => {
+    if (disabled) {
+      return;
+    }
+    control._state.action = false;
+    isWatched(name, control._names) && control._subjects.state.next({
+      ...control._formState
+    });
+    const validationModes = getValidationModes(control._options.mode);
+    if (_actioned.current && (!validationModes.isOnSubmit || control._formState.isSubmitted) && !getValidationModes(control._options.reValidateMode).isOnSubmit && !validationModes.isOnBlur) {
+      if (control._options.resolver) {
+        control._runSchema([name]).then((result) => {
+          var _a2, _b;
+          control._updateIsValidating([name]);
+          const error = get$2(result.errors, name);
+          const existingError = get$2(control._formState.errors, name);
+          const existingErrorType = existingError && (existingError.type || ((_a2 = existingError.root) === null || _a2 === void 0 ? void 0 : _a2.type));
+          const existingErrorMessage = existingError && (existingError.message || ((_b = existingError.root) === null || _b === void 0 ? void 0 : _b.message));
+          if (existingError ? !error && existingErrorType || error && (existingErrorType !== error.type || existingErrorMessage !== error.message) : error && error.type) {
+            if (error) {
+              isObject$2(error) && !Object.keys(error).some((key) => !Number.isNaN(+key)) ? updateFieldArrayRootError(control._formState.errors, { [name]: error }, name) : set$1(control._formState.errors, name, error);
+            } else {
+              unset(control._formState.errors, name);
+            }
+            control._subjects.state.next({
+              errors: control._formState.errors
+            });
+          }
+        });
+      } else {
+        const field = get$2(control._fields, name);
+        if (field && field._f && !(getValidationModes(control._options.reValidateMode).isOnSubmit && getValidationModes(control._options.mode).isOnSubmit)) {
+          validateField(field, control._names.disabled, control._formValues, control._options.criteriaMode === VALIDATION_MODE.all, control._options.shouldUseNativeValidation, true).then((error) => !isEmptyObject(error) && control._subjects.state.next({
+            errors: updateFieldArrayRootError(control._formState.errors, error, name)
+          }));
+        }
+      }
+    }
+    _actioned.current && control._subjects.state.next({
+      name,
+      values: cloneObject(control._formValues)
+    });
+    control._names.focus && iterateFieldsByAction(control._fields, (ref, key) => {
+      if (control._names.focus && key.startsWith(control._names.focus) && ref.focus) {
+        ref.focus();
+        return 1;
+      }
+      return;
+    });
+    control._names.focus = "";
+    control._setValid();
+    _actioned.current = false;
+  }, [fields, name, control, disabled]);
+  React.useEffect(() => {
+    if (!disabled) {
+      !get$2(control._formValues, name) && control._setFieldArray(name);
+    }
+    return () => {
+      if (disabled) {
+        return;
+      }
+      const shouldKeepFieldArrayValues = !(control._options.shouldUnregister || shouldUnregister);
+      const updateMounted = (name2, value) => {
+        const field = get$2(control._fields, name2);
+        if (field && field._f) {
+          field._f.mount = value;
+        }
+      };
+      if (_actioned.current && shouldKeepFieldArrayValues) {
+        control._subjects.state.next({
+          name,
+          values: cloneObject(control._formValues)
+        });
+      }
+      shouldKeepFieldArrayValues ? updateMounted(name, false) : control.unregister(name);
+    };
+  }, [name, control, keyName, shouldUnregister, disabled]);
+  return {
+    swap: React.useCallback(swap2, [updateValues, name, control, disabled]),
+    move: React.useCallback(move, [updateValues, name, control, disabled]),
+    prepend: React.useCallback(prepend, [
+      updateValues,
+      name,
+      control,
+      disabled
+    ]),
+    append: React.useCallback(append2, [updateValues, name, control, disabled]),
+    remove: React.useCallback(remove, [updateValues, name, control, disabled]),
+    insert: React.useCallback(insert$1, [updateValues, name, control, disabled]),
+    update: React.useCallback(update, [updateValues, name, control, disabled]),
+    replace: React.useCallback(replace, [
+      updateValues,
+      name,
+      control,
+      disabled
+    ]),
+    fields: React.useMemo(() => fields.map((field, index2) => ({
+      ...field,
+      ...isBoolean$2(disabled) ? { disabled } : {},
+      [keyName]: ids.current[index2] || generateId$1()
+    })), [fields, keyName, disabled])
+  };
+}
+function useForm(props2 = {}) {
+  const _formControl = React.useRef(void 0);
+  const _values = React.useRef(void 0);
+  const _formControlProp = React.useRef(props2.formControl);
+  const [formState, updateFormState] = React.useState(() => ({
+    ...cloneObject(DEFAULT_FORM_STATE),
+    isLoading: isFunction$3(props2.defaultValues),
+    errors: props2.errors || {},
+    disabled: props2.disabled || false,
+    defaultValues: isFunction$3(props2.defaultValues) ? void 0 : props2.defaultValues
+  }));
+  if (!_formControl.current || props2.formControl && _formControlProp.current !== props2.formControl) {
+    _formControlProp.current = props2.formControl;
+    if (props2.formControl) {
+      _formControl.current = {
+        ...props2.formControl,
+        formState
+      };
+      if (props2.defaultValues && !isFunction$3(props2.defaultValues)) {
+        props2.formControl.reset(props2.defaultValues, props2.resetOptions);
+      }
+    } else {
+      const { formControl, ...rest } = createFormControl(props2);
+      _formControl.current = {
+        ...rest,
+        formState
+      };
+    }
+  }
+  const control = _formControl.current.control;
+  control._options = props2;
+  useIsomorphicLayoutEffect$2(() => {
+    const sub = control._subscribe({
+      formState: control._proxyFormState,
+      callback: () => updateFormState({
+        ...control._formState,
+        defaultValues: control._defaultValues
+      }),
+      reRenderRoot: true
+    });
+    updateFormState((data) => ({
+      ...data,
+      isReady: true
+    }));
+    control._formState.isReady = true;
+    return sub;
+  }, [control]);
+  React.useEffect(() => control._disableForm(props2.disabled), [control, props2.disabled]);
+  React.useEffect(() => {
+    if (props2.mode) {
+      control._options.mode = props2.mode;
+    }
+    if (props2.reValidateMode) {
+      control._options.reValidateMode = props2.reValidateMode;
+    }
+  }, [control, props2.mode, props2.reValidateMode]);
+  React.useEffect(() => {
+    if (props2.errors) {
+      control._setErrors(props2.errors);
+      control._focusError();
+    }
+  }, [control, props2.errors]);
+  React.useEffect(() => {
+    props2.shouldUnregister && control._subjects.state.next({
+      values: control._getWatch()
+    });
+  }, [control, props2.shouldUnregister]);
+  React.useEffect(() => {
+    if (control._proxyFormState.isDirty) {
+      const isDirty = control._getDirty();
+      if (isDirty !== formState.isDirty) {
+        control._subjects.state.next({
+          isDirty
+        });
+      }
+    }
+  }, [control, formState.isDirty]);
+  React.useEffect(() => {
+    var _a2;
+    if (props2.values && !deepEqual(props2.values, _values.current)) {
+      control._reset(props2.values, {
+        keepFieldsRef: true,
+        ...control._options.resetOptions
+      });
+      if (!((_a2 = control._options.resetOptions) === null || _a2 === void 0 ? void 0 : _a2.keepIsValid)) {
+        control._setValid();
+      }
+      _values.current = props2.values;
+      updateFormState((state) => ({ ...state }));
+    } else {
+      control._resetDefaultValues();
+    }
+  }, [control, props2.values]);
+  React.useEffect(() => {
+    if (!control._state.mount) {
+      control._setValid();
+      control._state.mount = true;
+    }
+    if (control._state.watch) {
+      control._state.watch = false;
+      control._subjects.state.next({ ...control._formState });
+    }
+    control._removeUnmounted();
+  });
+  _formControl.current.formState = React.useMemo(() => getProxyFormState(formState, control), [control, formState]);
+  return _formControl.current;
+}
+var TABS_NAME = "Tabs";
+var [createTabsContext, createTabsScope] = createContextScope(TABS_NAME, [
+  createRovingFocusGroupScope
+]);
+var useRovingFocusGroupScope = createRovingFocusGroupScope();
+var [TabsProvider, useTabsContext] = createTabsContext(TABS_NAME);
+var Tabs$1 = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const {
+      __scopeTabs,
+      value: valueProp,
+      onValueChange,
+      defaultValue,
+      orientation = "horizontal",
+      dir,
+      activationMode = "automatic",
+      ...tabsProps
+    } = props2;
+    const direction = useDirection(dir);
+    const [value, setValue] = useControllableState({
+      prop: valueProp,
+      onChange: onValueChange,
+      defaultProp: defaultValue ?? "",
+      caller: TABS_NAME
+    });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      TabsProvider,
+      {
+        scope: __scopeTabs,
+        baseId: useId$2(),
+        value,
+        onValueChange: setValue,
+        orientation,
+        dir: direction,
+        activationMode,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.div,
+          {
+            dir: direction,
+            "data-orientation": orientation,
+            ...tabsProps,
+            ref: forwardedRef
+          }
+        )
+      }
+    );
+  }
+);
+Tabs$1.displayName = TABS_NAME;
+var TAB_LIST_NAME = "TabsList";
+var TabsList$1 = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeTabs, loop = true, ...listProps } = props2;
+    const context = useTabsContext(TAB_LIST_NAME, __scopeTabs);
+    const rovingFocusGroupScope = useRovingFocusGroupScope(__scopeTabs);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Root$1,
+      {
+        asChild: true,
+        ...rovingFocusGroupScope,
+        orientation: context.orientation,
+        dir: context.dir,
+        loop,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.div,
+          {
+            role: "tablist",
+            "aria-orientation": context.orientation,
+            ...listProps,
+            ref: forwardedRef
+          }
+        )
+      }
+    );
+  }
+);
+TabsList$1.displayName = TAB_LIST_NAME;
+var TRIGGER_NAME$2 = "TabsTrigger";
+var TabsTrigger$1 = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeTabs, value, disabled = false, ...triggerProps } = props2;
+    const context = useTabsContext(TRIGGER_NAME$2, __scopeTabs);
+    const rovingFocusGroupScope = useRovingFocusGroupScope(__scopeTabs);
+    const triggerId = makeTriggerId(context.baseId, value);
+    const contentId = makeContentId(context.baseId, value);
+    const isSelected = value === context.value;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Item,
+      {
+        asChild: true,
+        ...rovingFocusGroupScope,
+        focusable: !disabled,
+        active: isSelected,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.button,
+          {
+            type: "button",
+            role: "tab",
+            "aria-selected": isSelected,
+            "aria-controls": contentId,
+            "data-state": isSelected ? "active" : "inactive",
+            "data-disabled": disabled ? "" : void 0,
+            disabled,
+            id: triggerId,
+            ...triggerProps,
+            ref: forwardedRef,
+            onMouseDown: composeEventHandlers(props2.onMouseDown, (event) => {
+              if (!disabled && event.button === 0 && event.ctrlKey === false) {
+                context.onValueChange(value);
+              } else {
+                event.preventDefault();
+              }
+            }),
+            onKeyDown: composeEventHandlers(props2.onKeyDown, (event) => {
+              if (disabled || event.target !== event.currentTarget) {
+                return;
+              }
+              if ([" ", "Enter"].includes(event.key)) {
+                context.onValueChange(value);
+              }
+            }),
+            onFocus: composeEventHandlers(props2.onFocus, () => {
+              const isAutomaticActivation = context.activationMode !== "manual";
+              if (!isSelected && !disabled && isAutomaticActivation) {
+                context.onValueChange(value);
+              }
+            })
+          }
+        )
+      }
+    );
+  }
+);
+TabsTrigger$1.displayName = TRIGGER_NAME$2;
+var CONTENT_NAME$1 = "TabsContent";
+var TabsContent$1 = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    const { __scopeTabs, value, forceMount, children, ...contentProps } = props2;
+    const context = useTabsContext(CONTENT_NAME$1, __scopeTabs);
+    const triggerId = makeTriggerId(context.baseId, value);
+    const contentId = makeContentId(context.baseId, value);
+    const isSelected = value === context.value;
+    const isMountAnimationPreventedRef = reactExports.useRef(isSelected);
+    reactExports.useEffect(() => {
+      const rAF = requestAnimationFrame(() => isMountAnimationPreventedRef.current = false);
+      return () => cancelAnimationFrame(rAF);
+    }, []);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || isSelected, children: ({ present: present2 }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Primitive.div,
+      {
+        "data-state": isSelected ? "active" : "inactive",
+        "data-orientation": context.orientation,
+        role: "tabpanel",
+        "aria-labelledby": triggerId,
+        hidden: !present2,
+        id: contentId,
+        tabIndex: 0,
+        ...contentProps,
+        ref: forwardedRef,
+        style: {
+          ...props2.style,
+          animationDuration: isMountAnimationPreventedRef.current ? "0s" : void 0
+        },
+        children: present2 && children
+      }
+    ) });
+  }
+);
+TabsContent$1.displayName = CONTENT_NAME$1;
+function makeTriggerId(baseId, value) {
+  return `${baseId}-trigger-${value}`;
+}
+function makeContentId(baseId, value) {
+  return `${baseId}-content-${value}`;
+}
+var Root2 = Tabs$1;
+var List = TabsList$1;
+var Trigger = TabsTrigger$1;
+var Content = TabsContent$1;
+const Tabs = Root2;
+const TabsList = reactExports.forwardRef(({ className, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  List,
+  {
+    ref,
+    className: cn(
+      "inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground",
+      className
+    ),
+    ...props2
+  }
+));
+TabsList.displayName = List.displayName;
+const TabsTrigger = reactExports.forwardRef(({ className, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Trigger,
+  {
+    ref,
+    className: cn(
+      "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm",
+      className
+    ),
+    ...props2
+  }
+));
+TabsTrigger.displayName = Trigger.displayName;
+const TabsContent = reactExports.forwardRef(({ className, ...props2 }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Content,
+  {
+    ref,
+    className: cn(
+      "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+      className
+    ),
+    ...props2
+  }
+));
+TabsContent.displayName = Content.displayName;
+function FormRow({ children }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 gap-4 mb-4", children });
+}
+function clamp(value, [min2, max2]) {
+  return Math.min(max2, Math.max(min2, value));
+}
+function usePrevious(value) {
+  const ref = reactExports.useRef({ value, previous: value });
+  return reactExports.useMemo(() => {
+    if (ref.current.value !== value) {
+      ref.current.previous = ref.current.value;
+      ref.current.value = value;
+    }
+    return ref.current.previous;
+  }, [value]);
+}
+var VISUALLY_HIDDEN_STYLES = Object.freeze({
+  // See: https://github.com/twbs/bootstrap/blob/main/scss/mixins/_visually-hidden.scss
+  position: "absolute",
+  border: 0,
+  width: 1,
+  height: 1,
+  padding: 0,
+  margin: -1,
+  overflow: "hidden",
+  clip: "rect(0, 0, 0, 0)",
+  whiteSpace: "nowrap",
+  wordWrap: "normal"
+});
+var NAME$1 = "VisuallyHidden";
+var VisuallyHidden = reactExports.forwardRef(
+  (props2, forwardedRef) => {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Primitive.span,
+      {
+        ...props2,
+        ref: forwardedRef,
+        style: { ...VISUALLY_HIDDEN_STYLES, ...props2.style }
+      }
+    );
+  }
+);
+VisuallyHidden.displayName = NAME$1;
 var OPEN_KEYS = [" ", "Enter", "ArrowUp", "ArrowDown"];
 var SELECTION_KEYS = [" ", "Enter"];
 var SELECT_NAME = "Select";
@@ -23314,7 +25081,7 @@ function SelectProvider(props2) {
     nativeSelectKey,
     isFormControl
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Root2, { ...popperScope, children: /* @__PURE__ */ jsxRuntimeExports.jsx(SelectProviderImpl, { scope: __scopeSelect, ...context, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collection.Provider, { scope: __scopeSelect, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Root2$3, { ...popperScope, children: /* @__PURE__ */ jsxRuntimeExports.jsx(SelectProviderImpl, { scope: __scopeSelect, ...context, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collection.Provider, { scope: __scopeSelect, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
     SelectNativeOptionsProvider,
     {
       scope: __scopeSelect,
@@ -23462,7 +25229,7 @@ var [PortalProvider, usePortalContext] = createSelectContext(PORTAL_NAME, {
 });
 var SelectPortal = (props2) => {
   const { __scopeSelect, forceMount, ...portalProps } = props2;
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(PortalProvider, { scope: props2.__scopeSelect, forceMount, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Portal, { asChild: true, ...portalProps }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(PortalProvider, { scope: props2.__scopeSelect, forceMount, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$1, { asChild: true, ...portalProps }) });
 };
 SelectPortal.displayName = PORTAL_NAME;
 var CONTENT_NAME = "SelectContent";
@@ -23750,7 +25517,7 @@ var SelectItemAlignedPosition = reactExports.forwardRef((props2, forwardedRef) =
         const minContentWidth = triggerRect.width + leftDelta;
         const contentWidth = Math.max(minContentWidth, contentRect.width);
         const rightEdge = window.innerWidth - CONTENT_MARGIN;
-        const clampedLeft = clamp$1(left, [
+        const clampedLeft = clamp(left, [
           CONTENT_MARGIN,
           // Prevents the content from going off the starting edge of the
           // viewport. It may still go off the ending edge, but this can be
@@ -23768,7 +25535,7 @@ var SelectItemAlignedPosition = reactExports.forwardRef((props2, forwardedRef) =
         const minContentWidth = triggerRect.width + rightDelta;
         const contentWidth = Math.max(minContentWidth, contentRect.width);
         const leftEdge = window.innerWidth - CONTENT_MARGIN;
-        const clampedRight = clamp$1(right, [
+        const clampedRight = clamp(right, [
           CONTENT_MARGIN,
           Math.max(CONTENT_MARGIN, leftEdge - contentWidth)
         ]);
@@ -23899,7 +25666,7 @@ var SelectPopperPosition = reactExports.forwardRef((props2, forwardedRef) => {
   } = props2;
   const popperScope = usePopperScope(__scopeSelect);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    Content,
+    Content$1,
     {
       ...popperScope,
       ...popperProps,
@@ -24615,32 +26382,28 @@ function ClientIdField({
     ] })
   ] });
 }
-const LABEL_OPTIONS = [
-  { label: "Red", value: "red", color: "bg-red-500" },
-  { label: "Green", value: "green", color: "bg-emerald-500" },
-  { label: "Blue", value: "blue", color: "bg-sky-500" },
-  { label: "Purple", value: "purple", color: "bg-violet-500" }
-];
 function LabelDotField({ name = "color" }) {
   const { control } = useFormContext();
   const { field } = useController({ name, control });
+  const current2 = resolveColor(field.value);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "block text-sm font-medium mb-1", children: "Label" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-2", children: LABEL_OPTIONS.map((option) => {
-      const selected = field.value === option.value;
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-wrap items-center gap-2", children: PALETTE.map((hex2) => {
+      const selected = current2.toLowerCase() === hex2.toLowerCase();
       return /* @__PURE__ */ jsxRuntimeExports.jsx(
         "button",
         {
           type: "button",
-          onClick: () => field.onChange(option.value),
+          onClick: () => field.onChange(hex2),
+          style: { backgroundColor: hex2 },
           className: cn(
-            "flex h-10 w-10 items-center justify-center rounded-full border transition focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-            selected ? "border-primary ring-2 ring-primary/30" : "border-input hover:border-foreground"
+            "grid size-7 place-items-center rounded-full transition hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background",
+            selected && "ring-2 ring-ring ring-offset-2 ring-offset-background"
           ),
-          "aria-label": option.label,
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `block h-4 w-4 rounded-full ${option.color}` })
+          "aria-label": `Label colour ${hex2}`,
+          children: selected && /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "size-4 text-white drop-shadow" })
         },
-        option.value
+        hex2
       );
     }) })
   ] });
@@ -56395,7 +58158,12 @@ const STATUS_STYLE = {
 };
 function Explorer({ connectionId }) {
   const [connection2, setConnection] = reactExports.useState(null);
-  const [selected, setSelected] = reactExports.useState();
+  const [selectedByConn, setSelectedByConn] = reactExports.useState({});
+  const selected = selectedByConn[connectionId];
+  const setSelected = reactExports.useCallback(
+    (topic) => setSelectedByConn((prev) => ({ ...prev, [connectionId]: topic })),
+    [connectionId]
+  );
   const topics = useStudio((s) => s.topics[connectionId]);
   const status = useStudio((s) => s.statuses[connectionId] ?? "disconnected");
   const error = useStudio((s) => s.errors[connectionId]);

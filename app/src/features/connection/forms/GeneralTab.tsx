@@ -1,42 +1,37 @@
 import { useController, useFormContext } from "react-hook-form";
+import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { PALETTE, resolveColor } from "@/lib/colors";
 import FormRow from "@/components/form-ui/form-row";
 import ProtocolSelect from "@/components/form-ui/protocol-select";
 import PasswordField from "@/components/form-ui/password-field";
 import ClientIdField from "@/components/form-ui/client-id-field";
 import { Input } from "@/components/ui/input";
 
-const LABEL_OPTIONS = [
-  { label: "Red", value: "red", color: "bg-red-500" },
-  { label: "Green", value: "green", color: "bg-emerald-500" },
-  { label: "Blue", value: "blue", color: "bg-sky-500" },
-  { label: "Purple", value: "purple", color: "bg-violet-500" },
-];
-
 function LabelDotField({ name = "color" }: { name?: string }) {
   const { control } = useFormContext();
   const { field } = useController({ name, control });
+  const current = resolveColor(field.value);
 
   return (
     <div>
       <label className="block text-sm font-medium mb-1">Label</label>
-      <div className="flex items-center gap-2">
-        {LABEL_OPTIONS.map((option) => {
-          const selected = field.value === option.value;
+      <div className="flex flex-wrap items-center gap-2">
+        {PALETTE.map((hex) => {
+          const selected = current.toLowerCase() === hex.toLowerCase();
           return (
             <button
-              key={option.value}
+              key={hex}
               type="button"
-              onClick={() => field.onChange(option.value)}
+              onClick={() => field.onChange(hex)}
+              style={{ backgroundColor: hex }}
               className={cn(
-                "flex h-10 w-10 items-center justify-center rounded-full border transition focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-                selected
-                  ? "border-primary ring-2 ring-primary/30"
-                  : "border-input hover:border-foreground"
+                "grid size-7 place-items-center rounded-full transition hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background",
+                selected && "ring-2 ring-ring ring-offset-2 ring-offset-background",
               )}
-              aria-label={option.label}
+              aria-label={`Label colour ${hex}`}
             >
-              <span className={`block h-4 w-4 rounded-full ${option.color}`} />
+              {selected && <Check className="size-4 text-white drop-shadow" />}
             </button>
           );
         })}
