@@ -1,5 +1,6 @@
 import { createFileRoute, useRouter } from '@tanstack/react-router';
 import ConnectionForm from '@/features/connection/forms';
+import { useStudio } from '@/features/explorer/store';
 import type { ConnectionDraft } from '@shared/schema';
 
 export const Route = createFileRoute('/_ConnectionLayout/$connectionId')({
@@ -12,6 +13,7 @@ function ConnectionFormPage() {
   const connection = Route.useLoaderData();
   const { connectionId } = Route.useParams();
   const router = useRouter();
+  const status = useStudio((s) => s.statuses[connectionId]);
 
   const save = async (data: ConnectionDraft) => {
     const saved = await window.api.connections.save(
@@ -40,8 +42,11 @@ function ConnectionFormPage() {
     <ConnectionForm
       key={connectionId}
       defaultValues={connection}
+      status={connectionId === 'new' ? undefined : status}
       onSave={onSave}
       onConnect={onConnect}
+      onOpen={() => router.navigate({ to: '/explore/$connectionId', params: { connectionId } })}
+      onDisconnect={() => window.api.mqtt.disconnect(connectionId)}
       onCancel={() => router.navigate({ to: '/' })}
     />
   );

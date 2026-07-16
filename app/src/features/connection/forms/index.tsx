@@ -1,8 +1,9 @@
 import { FormProvider, useForm } from 'react-hook-form';
-import { Settings2, ListTree, Sliders, Skull, PlugZap } from 'lucide-react';
+import { Settings2, ListTree, Sliders, Skull, PlugZap, Compass, Plug } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
-import type { Connection, ConnectionDraft } from '@shared/schema';
+import { cn } from '@/lib/utils';
+import type { Connection, ConnectionDraft, ConnStatus } from '@shared/schema';
 import GeneralTab from './GeneralTab';
 import SubscriptionsTab from './SubscriptionsTab';
 import AdvancedTab from './AdvancedTab';
@@ -42,19 +43,38 @@ type Props = {
   onSave: (data: ConnectionDraft) => void;
   /** Persist, open the connection, and jump to the live explorer. */
   onConnect: (data: ConnectionDraft) => void;
+  /** Jump to the live explorer for an already-running connection. */
+  onOpen?: () => void;
+  /** Drop an already-running connection. */
+  onDisconnect?: () => void;
   onCancel?: () => void;
   submitting?: boolean;
+  /** Live status of this connection (undefined for a brand-new one). */
+  status?: ConnStatus;
+};
+
+const STATUS_DOT: Record<ConnStatus, string> = {
+  connected: 'bg-emerald-500 shadow-[0_0_8px] shadow-emerald-500/60',
+  connecting: 'bg-amber-500 animate-pulse',
+  reconnecting: 'bg-amber-500 animate-pulse',
+  disconnected: 'bg-muted-foreground/50',
+  error: 'bg-destructive',
 };
 
 export default function ConnectionForm({
   defaultValues,
   onSave,
   onConnect,
+  onOpen,
+  onDisconnect,
   onCancel,
   submitting,
+  status,
 }: Props) {
   const methods = useForm({ defaultValues: { ...DEFAULTS, ...(defaultValues ?? {}) } });
   const editing = !!defaultValues?.id;
+  // "Live" = already talking to the broker, so offer Open/Disconnect over Connect.
+  const live = status === 'connected' || status === 'connecting' || status === 'reconnecting';
 
   return (
     <FormProvider {...methods}>
@@ -71,13 +91,32 @@ export default function ConnectionForm({
               Configure how MQTT Studio reaches your broker.
             </p>
           </div>
-          <Button
-            type="button"
-            disabled={submitting}
-            onClick={methods.handleSubmit((d) => onConnect(d as ConnectionDraft))}
-          >
-            <PlugZap className="size-4" /> Connect
-          </Button>
+          {live ? (
+            <div className="flex items-center gap-2">
+              <span className="flex items-center gap-1.5 text-sm capitalize text-muted-foreground">
+                <span className={cn('size-2 rounded-full', STATUS_DOT[status!])} />
+                {status}
+              </span>
+              {onDisconnect && (
+                <Button type="button" variant="outline" onClick={onDisconnect}>
+                  <Plug className="size-4" /> Disconnect
+                </Button>
+              )}
+              {onOpen && (
+                <Button type="button" onClick={onOpen}>
+                  <Compass className="size-4" /> Open explorer
+                </Button>
+              )}
+            </div>
+          ) : (
+            <Button
+              type="button"
+              disabled={submitting}
+              onClick={methods.handleSubmit((d) => onConnect(d as ConnectionDraft))}
+            >
+              <PlugZap className="size-4" /> Connect
+            </Button>
+          )}
         </div>
 
         <Tabs defaultValue="general" className="flex min-h-0 flex-1 flex-col">

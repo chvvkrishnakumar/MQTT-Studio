@@ -22026,6 +22026,7 @@ const DOT = {
 function ConnectionLayout() {
   const connections = Route$3.useLoaderData();
   const statuses = useStudio((s) => s.statuses);
+  const openTabs = useTabs((s) => s.tabs);
   const router2 = useRouter();
   const selectedId = useParams({ strict: false }).connectionId;
   const duplicate = async (c) => {
@@ -22070,7 +22071,10 @@ function ConnectionLayout() {
           " saved"
         ] }) })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "min-h-0 flex-1 overflow-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "flex min-h-0 flex-1 flex-col overflow-hidden", children: [
+        openTabs.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(TabStrip, {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-h-0 flex-1 overflow-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) })
+      ] })
     ] })
   ] });
 }
@@ -22086,8 +22090,8 @@ function ConnectionRow({
     "div",
     {
       className: cn(
-        "group relative flex items-center gap-2 rounded-md py-2 pl-3 pr-1 hover:bg-accent/40",
-        selected && "bg-accent"
+        "group relative flex items-center gap-2 rounded-md py-2 pl-3 pr-1 transition-colors hover:bg-foreground/5",
+        selected && "bg-foreground/10"
       ),
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -29982,15 +29986,26 @@ const TABS = [
   { value: "advanced", label: "Advanced", icon: SlidersVertical },
   { value: "lastwill", label: "Last Will", icon: Skull }
 ];
+const STATUS_DOT = {
+  connected: "bg-emerald-500 shadow-[0_0_8px] shadow-emerald-500/60",
+  connecting: "bg-amber-500 animate-pulse",
+  reconnecting: "bg-amber-500 animate-pulse",
+  disconnected: "bg-muted-foreground/50",
+  error: "bg-destructive"
+};
 function ConnectionForm({
   defaultValues,
   onSave,
   onConnect,
+  onOpen,
+  onDisconnect,
   onCancel,
-  submitting
+  submitting,
+  status
 }) {
   const methods = useForm({ defaultValues: { ...DEFAULTS, ...defaultValues ?? {} } });
   const editing = !!defaultValues?.id;
+  const live2 = status === "connected" || status === "connecting" || status === "reconnecting";
   return /* @__PURE__ */ jsxRuntimeExports.jsx(FormProvider, { ...methods, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "form",
     {
@@ -30002,7 +30017,20 @@ function ConnectionForm({
             /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-lg font-semibold", children: editing ? "Edit connection" : "New connection" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Configure how MQTT Studio reaches your broker." })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          live2 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1.5 text-sm capitalize text-muted-foreground", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: cn("size-2 rounded-full", STATUS_DOT[status]) }),
+              status
+            ] }),
+            onDisconnect && /* @__PURE__ */ jsxRuntimeExports.jsxs(Button, { type: "button", variant: "outline", onClick: onDisconnect, children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Plug, { className: "size-4" }),
+              " Disconnect"
+            ] }),
+            onOpen && /* @__PURE__ */ jsxRuntimeExports.jsxs(Button, { type: "button", onClick: onOpen, children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Compass, { className: "size-4" }),
+              " Open explorer"
+            ] })
+          ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
             Button,
             {
               type: "button",
@@ -30043,6 +30071,7 @@ function ConnectionFormPage() {
   const connection2 = Route$1.useLoaderData();
   const { connectionId } = Route$1.useParams();
   const router2 = useRouter();
+  const status = useStudio((s) => s.statuses[connectionId]);
   const save = async (data) => {
     const saved = await window.api.connections.save(
       connectionId === "new" ? data : { ...data, id: connectionId }
@@ -30065,8 +30094,11 @@ function ConnectionFormPage() {
     ConnectionForm,
     {
       defaultValues: connection2,
+      status: connectionId === "new" ? void 0 : status,
       onSave,
       onConnect,
+      onOpen: () => router2.navigate({ to: "/explore/$connectionId", params: { connectionId } }),
+      onDisconnect: () => window.api.mqtt.disconnect(connectionId),
       onCancel: () => router2.navigate({ to: "/" })
     },
     connectionId

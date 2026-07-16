@@ -23,6 +23,8 @@ import { ThemeToggle } from '@/components/theme-toggle';
 import { cn } from '@/lib/utils';
 import { resolveColor } from '@/lib/colors';
 import { useStudio } from '@/features/explorer/store';
+import { useTabs } from '@/features/explorer/tabs-store';
+import TabStrip from '@/features/explorer/tab-strip';
 import type { Connection, ConnStatus } from '@shared/schema';
 
 export const Route = createFileRoute('/_ConnectionLayout')({
@@ -41,6 +43,7 @@ const DOT: Record<ConnStatus, string> = {
 function ConnectionLayout() {
   const connections = Route.useLoaderData();
   const statuses = useStudio((s) => s.statuses);
+  const openTabs = useTabs((s) => s.tabs);
   const router = useRouter();
   const selectedId = useParams({ strict: false }).connectionId;
 
@@ -104,8 +107,11 @@ function ConnectionLayout() {
           </div>
         </aside>
 
-        <main className="min-h-0 flex-1 overflow-auto">
-          <Outlet />
+        <main className="flex min-h-0 flex-1 flex-col overflow-hidden">
+          {openTabs.length > 0 && <TabStrip />}
+          <div className="min-h-0 flex-1 overflow-auto">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>
@@ -130,8 +136,8 @@ function ConnectionRow({
   return (
     <div
       className={cn(
-        'group relative flex items-center gap-2 rounded-md py-2 pl-3 pr-1 hover:bg-accent/40',
-        selected && 'bg-accent',
+        'group relative flex items-center gap-2 rounded-md py-2 pl-3 pr-1 transition-colors hover:bg-foreground/5',
+        selected && 'bg-foreground/10',
       )}
     >
       <span

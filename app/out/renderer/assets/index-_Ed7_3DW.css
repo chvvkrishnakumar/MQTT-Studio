@@ -1527,6 +1527,10 @@
     background-color: var(--color-emerald-500);
   }
 
+  .bg-foreground\/10 {
+    background-color: color-mix(in oklab, var(--foreground) 10%, transparent);
+  }
+
   .bg-muted {
     background-color: var(--muted);
   }
@@ -2137,6 +2141,11 @@
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
 
+  .shadow-\[0_0_8px\] {
+    --tw-shadow: 0 0 8px var(--tw-shadow-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+
   .shadow-\[0_0_10px_2px\] {
     --tw-shadow: 0 0 10px 2px var(--tw-shadow-color, currentcolor);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -2193,6 +2202,10 @@
 
   .shadow-emerald-500\/50 {
     --tw-shadow-color: color-mix(in oklab, var(--color-emerald-500) 50%, transparent);
+  }
+
+  .shadow-emerald-500\/60 {
+    --tw-shadow-color: color-mix(in oklab, var(--color-emerald-500) 60%, transparent);
   }
 
   .ring-primary\/30 {
