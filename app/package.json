@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "Local-first desktop MQTT client with a live topic explorer.",
+  "author": "Krishna <zruits199@gmail.com>",
+  "homepage": "https://github.com/chvvkrishnakumar/MQTT-Studio",
   "main": "out/main/index.js",
   "scripts": {
     "dev": "electron-vite dev",

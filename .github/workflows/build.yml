@@ -55,10 +55,11 @@ jobs:
         run: npm run ${{ matrix.script }}
 
       - name: Upload installers
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: installers-${{ matrix.os }}
-          if-no-files-found: error
+          if-no-files-found: warn
           path: |
             app/release/*.dmg
             app/release/*.exe
