@@ -3,10 +3,17 @@ import { connections as connectionsRepo, messages as messagesRepo } from './db';
 import { manager } from './mqtt/manager';
 import type { ConnectionDraft, PublishInput } from '@shared/schema';
 
-/** Wire the renderer <-> main bridge. One window, so we emit to its webContents. */
-export function registerIpc(win: BrowserWindow) {
+/**
+ * Wire the renderer <-> main bridge. `ipcMain.handle` registers process-wide
+ * handlers, so this must run exactly ONCE for the app's lifetime — not per
+ * window. On macOS the app outlives its window, and re-running this would throw
+ * "Attempted to register a second handler". `getWin` is read lazily so emits
+ * always target the current (possibly recreated) window.
+ */
+export function registerIpc(getWin: () => BrowserWindow | null) {
   manager.init((channel, payload) => {
-    if (!win.isDestroyed()) win.webContents.send(channel, payload);
+    const win = getWin();
+    if (win && !win.isDestroyed()) win.webContents.send(channel, payload);
   });
 
   ipcMain.handle('connections:list', () => connectionsRepo.list());

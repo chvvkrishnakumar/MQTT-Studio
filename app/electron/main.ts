@@ -30,7 +30,6 @@ function createWindow() {
   });
 
   win.once('ready-to-show', () => win?.show());
-  registerIpc(win);
 
   // Open external links in the OS browser, never in-app.
   win.webContents.setWindowOpenHandler(({ url }) => {
@@ -51,6 +50,10 @@ app.whenReady().then(() => {
     app.dock.setIcon(iconPath);
   }
   initDb();
+  // Register IPC handlers once for the app's lifetime; emits target the current
+  // window via the lazy getter. createWindow() may run again on macOS (activate),
+  // so registration must NOT live inside it.
+  registerIpc(() => win);
   createWindow();
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
