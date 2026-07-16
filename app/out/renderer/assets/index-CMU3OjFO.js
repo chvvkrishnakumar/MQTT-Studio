@@ -11706,7 +11706,7 @@ var Link = reactExports.forwardRef((props2, ref) => {
 function isCtrlEvent(e) {
   return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
 }
-var Route$6 = class Route extends BaseRoute {
+var Route$5 = class Route extends BaseRoute {
   /**
   * @deprecated Use the `createRoute` function instead.
   */
@@ -11764,7 +11764,7 @@ var Route$6 = class Route extends BaseRoute {
   }
 };
 function createRoute(options) {
-  return new Route$6(options);
+  return new Route$5(options);
 }
 var RootRoute = class extends BaseRootRoute {
   /**
@@ -12218,6 +12218,10 @@ function RouterProvider({ router: router2, ...rest }) {
     ...rest,
     children: /* @__PURE__ */ jsxRuntimeExports.jsx(Matches, {})
   });
+}
+function useLocation(opts) {
+  const router2 = useRouter();
+  return useStore$1(router2.stores.location, useStructuralSharing(opts, router2));
 }
 function setRef$1(ref, value) {
   if (typeof ref === "function") {
@@ -15505,7 +15509,7 @@ function Root$3() {
   useMqttBridge();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {});
 }
-const Route$5 = createRootRoute({
+const Route$4 = createRootRoute({
   component: Root$3,
   notFoundComponent: NotFound,
   errorComponent: ErrorState
@@ -15597,58 +15601,47 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$o = [
-  ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
-  ["path", { d: "M19 12H5", key: "x3x0zl" }]
-];
-const ArrowLeft = createLucideIcon("ArrowLeft", __iconNode$o);
+const __iconNode$p = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("Check", __iconNode$p);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$n = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("Check", __iconNode$n);
+const __iconNode$o = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("ChevronDown", __iconNode$o);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$m = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown = createLucideIcon("ChevronDown", __iconNode$m);
+const __iconNode$n = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("ChevronRight", __iconNode$n);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$l = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("ChevronRight", __iconNode$l);
+const __iconNode$m = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("ChevronUp", __iconNode$m);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$k = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
-const ChevronUp = createLucideIcon("ChevronUp", __iconNode$k);
+const __iconNode$l = [["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }]];
+const Circle = createLucideIcon("Circle", __iconNode$l);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$j = [["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }]];
-const Circle = createLucideIcon("Circle", __iconNode$j);
-/**
- * @license lucide-react v0.477.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$i = [
+const __iconNode$k = [
   [
     "path",
     {
@@ -15658,7 +15651,30 @@ const __iconNode$i = [
   ],
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }]
 ];
-const Compass = createLucideIcon("Compass", __iconNode$i);
+const Compass = createLucideIcon("Compass", __iconNode$k);
+/**
+ * @license lucide-react v0.477.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$j = [
+  ["rect", { width: "14", height: "14", x: "8", y: "8", rx: "2", ry: "2", key: "17jyea" }],
+  ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
+];
+const Copy = createLucideIcon("Copy", __iconNode$j);
+/**
+ * @license lucide-react v0.477.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$i = [
+  ["circle", { cx: "12", cy: "12", r: "1", key: "41hilf" }],
+  ["circle", { cx: "12", cy: "5", r: "1", key: "gxeob9" }],
+  ["circle", { cx: "12", cy: "19", r: "1", key: "lyex9k" }]
+];
+const EllipsisVertical = createLucideIcon("EllipsisVertical", __iconNode$i);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
@@ -15666,29 +15682,6 @@ const Compass = createLucideIcon("Compass", __iconNode$i);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$h = [
-  ["rect", { width: "14", height: "14", x: "8", y: "8", rx: "2", ry: "2", key: "17jyea" }],
-  ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
-];
-const Copy = createLucideIcon("Copy", __iconNode$h);
-/**
- * @license lucide-react v0.477.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$g = [
-  ["circle", { cx: "12", cy: "12", r: "1", key: "41hilf" }],
-  ["circle", { cx: "12", cy: "5", r: "1", key: "gxeob9" }],
-  ["circle", { cx: "12", cy: "19", r: "1", key: "lyex9k" }]
-];
-const EllipsisVertical = createLucideIcon("EllipsisVertical", __iconNode$g);
-/**
- * @license lucide-react v0.477.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$f = [
   ["circle", { cx: "9", cy: "12", r: "1", key: "1vctgf" }],
   ["circle", { cx: "9", cy: "5", r: "1", key: "hp0tcf" }],
   ["circle", { cx: "9", cy: "19", r: "1", key: "fkjjf6" }],
@@ -15696,7 +15689,31 @@ const __iconNode$f = [
   ["circle", { cx: "15", cy: "5", r: "1", key: "19l28e" }],
   ["circle", { cx: "15", cy: "19", r: "1", key: "f4zoj3" }]
 ];
-const GripVertical = createLucideIcon("GripVertical", __iconNode$f);
+const GripVertical = createLucideIcon("GripVertical", __iconNode$h);
+/**
+ * @license lucide-react v0.477.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$g = [
+  ["path", { d: "M21 12h-8", key: "1bmf0i" }],
+  ["path", { d: "M21 6H8", key: "1pqkrb" }],
+  ["path", { d: "M21 18h-8", key: "1tm79t" }],
+  ["path", { d: "M3 6v4c0 1.1.9 2 2 2h3", key: "1ywdgy" }],
+  ["path", { d: "M3 10v6c0 1.1.9 2 2 2h3", key: "2wc746" }]
+];
+const ListTree = createLucideIcon("ListTree", __iconNode$g);
+/**
+ * @license lucide-react v0.477.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$f = [
+  ["path", { d: "M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z", key: "a7tn18" }]
+];
+const Moon = createLucideIcon("Moon", __iconNode$f);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
@@ -15704,13 +15721,11 @@ const GripVertical = createLucideIcon("GripVertical", __iconNode$f);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$e = [
-  ["path", { d: "M21 12h-8", key: "1bmf0i" }],
-  ["path", { d: "M21 6H8", key: "1pqkrb" }],
-  ["path", { d: "M21 18h-8", key: "1tm79t" }],
-  ["path", { d: "M3 6v4c0 1.1.9 2 2 2h3", key: "1ywdgy" }],
-  ["path", { d: "M3 10v6c0 1.1.9 2 2 2h3", key: "2wc746" }]
+  ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" }],
+  ["path", { d: "M9 3v18", key: "fh3hqa" }],
+  ["path", { d: "m16 15-3-3 3-3", key: "14y99z" }]
 ];
-const ListTree = createLucideIcon("ListTree", __iconNode$e);
+const PanelLeftClose = createLucideIcon("PanelLeftClose", __iconNode$e);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
@@ -15718,9 +15733,10 @@ const ListTree = createLucideIcon("ListTree", __iconNode$e);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$d = [
-  ["path", { d: "M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z", key: "a7tn18" }]
+  ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" }],
+  ["path", { d: "M9 3v18", key: "fh3hqa" }]
 ];
-const Moon = createLucideIcon("Moon", __iconNode$d);
+const PanelLeft = createLucideIcon("PanelLeft", __iconNode$d);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
@@ -15905,168 +15921,6 @@ const __iconNode = [
   ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ];
 const X = createLucideIcon("X", __iconNode);
-const PALETTE = [
-  "#ef4444",
-  // red
-  "#f97316",
-  // orange
-  "#f59e0b",
-  // amber
-  "#eab308",
-  // yellow
-  "#84cc16",
-  // lime
-  "#22c55e",
-  // green
-  "#10b981",
-  // emerald
-  "#14b8a6",
-  // teal
-  "#06b6d4",
-  // cyan
-  "#0ea5e9",
-  // sky
-  "#3b82f6",
-  // blue
-  "#6366f1",
-  // indigo
-  "#8b5cf6",
-  // violet
-  "#a855f7",
-  // purple
-  "#ec4899",
-  // pink
-  "#f43f5e"
-  // rose
-];
-const NAMED = {
-  red: "#ef4444",
-  green: "#22c55e",
-  blue: "#3b82f6",
-  purple: "#a855f7",
-  sky: "#0ea5e9"
-};
-function resolveColor(color2) {
-  if (!color2) return NAMED.sky;
-  if (color2.startsWith("#")) return color2;
-  return NAMED[color2] ?? NAMED.sky;
-}
-const KEY$1 = "mqtt-studio.open-tabs";
-function load$1() {
-  try {
-    const raw = localStorage.getItem(KEY$1);
-    const parsed = raw ? JSON.parse(raw) : [];
-    return Array.isArray(parsed) ? parsed.filter((x2) => typeof x2 === "string") : [];
-  } catch {
-    return [];
-  }
-}
-function persist(tabs) {
-  try {
-    localStorage.setItem(KEY$1, JSON.stringify(tabs));
-  } catch {
-  }
-}
-const useTabs = create((set2, get2) => ({
-  tabs: load$1(),
-  open: (id) => set2((s) => {
-    if (s.tabs.includes(id)) return s;
-    const tabs = [...s.tabs, id];
-    persist(tabs);
-    return { tabs };
-  }),
-  close: (id) => {
-    const { tabs } = get2();
-    const idx = tabs.indexOf(id);
-    const next = tabs[idx + 1] ?? tabs[idx - 1];
-    const remaining = tabs.filter((t) => t !== id);
-    persist(remaining);
-    set2({ tabs: remaining });
-    return next;
-  }
-}));
-const DOT$1 = {
-  connected: "bg-emerald-500",
-  connecting: "bg-amber-500 animate-pulse",
-  reconnecting: "bg-amber-500 animate-pulse",
-  disconnected: "bg-muted-foreground/50",
-  error: "bg-destructive"
-};
-function TabStrip({ activeId }) {
-  const navigate = useNavigate();
-  const tabs = useTabs((s) => s.tabs);
-  const close = useTabs((s) => s.close);
-  const statuses = useStudio((s) => s.statuses);
-  const [names, setNames] = reactExports.useState({});
-  reactExports.useEffect(() => {
-    window.api.connections.list().then((list) => {
-      setNames(Object.fromEntries(list.map((c) => [c.id, c])));
-    });
-  }, [tabs.length]);
-  const onClose = (e, id) => {
-    e.stopPropagation();
-    const next = close(id);
-    window.api.mqtt.disconnect(id);
-    if (id === activeId) {
-      if (next) navigate({ to: "/explore/$connectionId", params: { connectionId: next } });
-      else navigate({ to: "/" });
-    }
-  };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass flex items-stretch gap-1 overflow-x-auto border-b px-2 pt-1.5", children: [
-    tabs.map((id) => {
-      const active = id === activeId;
-      const status = statuses[id] ?? "disconnected";
-      const name = names[id]?.name ?? "Connection";
-      return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        "button",
-        {
-          type: "button",
-          onClick: () => navigate({ to: "/explore/$connectionId", params: { connectionId: id } }),
-          style: { borderTopColor: active ? resolveColor(names[id]?.color) : void 0 },
-          className: cn(
-            "group flex max-w-[200px] min-w-[120px] shrink-0 items-center gap-2 rounded-t-lg border border-b-0 px-3 py-2 text-sm transition-colors",
-            active ? "border-t-2 bg-background font-medium text-foreground" : "border-transparent text-muted-foreground hover:bg-foreground/5"
-          ),
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: cn("size-2 shrink-0 rounded-full", DOT$1[status]) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "truncate", children: name }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "span",
-              {
-                onClick: (e) => onClose(e, id),
-                className: "ml-auto grid size-5 shrink-0 place-items-center rounded opacity-0 transition group-hover:opacity-100 hover:bg-foreground/10",
-                "aria-label": `Close ${name}`,
-                children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "size-3.5" })
-              }
-            )
-          ]
-        },
-        id
-      );
-    }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "button",
-      {
-        type: "button",
-        onClick: () => navigate({ to: "/" }),
-        title: "New connection",
-        className: "my-1 grid size-8 shrink-0 place-items-center self-center rounded-md text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground",
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "size-4" })
-      }
-    )
-  ] });
-}
-const Route$4 = createFileRoute("/_ExplorerLayout")({
-  component: ExplorerLayout
-});
-function ExplorerLayout() {
-  const { connectionId } = useParams({ strict: false });
-  reactExports.useEffect(() => () => void window.api.mqtt.setActive(null), []);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-screen flex-col bg-gradient-to-b from-background to-muted/20", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(TabStrip, { activeId: connectionId }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-h-0 flex-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) })
-  ] });
-}
 const badgeVariants = cva(
   "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
@@ -21983,9 +21837,9 @@ const AlertDialogCancel = reactExports.forwardRef(({ className, ...props2 }, ref
   }
 ));
 AlertDialogCancel.displayName = Cancel.displayName;
-const KEY = "theme";
+const KEY$1 = "theme";
 function preferred() {
-  const saved = localStorage.getItem(KEY);
+  const saved = localStorage.getItem(KEY$1);
   if (saved === "light" || saved === "dark") return saved;
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
@@ -21999,7 +21853,7 @@ function ThemeToggle() {
   const [theme, setTheme] = reactExports.useState(preferred);
   reactExports.useEffect(() => {
     apply(theme);
-    localStorage.setItem(KEY, theme);
+    localStorage.setItem(KEY$1, theme);
   }, [theme]);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     Button,
@@ -22011,6 +21865,157 @@ function ThemeToggle() {
       children: theme === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(Sun, { className: "size-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Moon, { className: "size-4" })
     }
   );
+}
+const PALETTE = [
+  "#ef4444",
+  // red
+  "#f97316",
+  // orange
+  "#f59e0b",
+  // amber
+  "#eab308",
+  // yellow
+  "#84cc16",
+  // lime
+  "#22c55e",
+  // green
+  "#10b981",
+  // emerald
+  "#14b8a6",
+  // teal
+  "#06b6d4",
+  // cyan
+  "#0ea5e9",
+  // sky
+  "#3b82f6",
+  // blue
+  "#6366f1",
+  // indigo
+  "#8b5cf6",
+  // violet
+  "#a855f7",
+  // purple
+  "#ec4899",
+  // pink
+  "#f43f5e"
+  // rose
+];
+const NAMED = {
+  red: "#ef4444",
+  green: "#22c55e",
+  blue: "#3b82f6",
+  purple: "#a855f7",
+  sky: "#0ea5e9"
+};
+function resolveColor(color2) {
+  if (!color2) return NAMED.sky;
+  if (color2.startsWith("#")) return color2;
+  return NAMED[color2] ?? NAMED.sky;
+}
+const KEY = "mqtt-studio.open-tabs";
+function load$1() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed.filter((x2) => typeof x2 === "string") : [];
+  } catch {
+    return [];
+  }
+}
+function persist(tabs) {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(tabs));
+  } catch {
+  }
+}
+const useTabs = create((set2, get2) => ({
+  tabs: load$1(),
+  open: (id) => set2((s) => {
+    if (s.tabs.includes(id)) return s;
+    const tabs = [...s.tabs, id];
+    persist(tabs);
+    return { tabs };
+  }),
+  close: (id) => {
+    const { tabs } = get2();
+    const idx = tabs.indexOf(id);
+    const next = tabs[idx + 1] ?? tabs[idx - 1];
+    const remaining = tabs.filter((t) => t !== id);
+    persist(remaining);
+    set2({ tabs: remaining });
+    return next;
+  }
+}));
+const DOT$1 = {
+  connected: "bg-emerald-500",
+  connecting: "bg-amber-500 animate-pulse",
+  reconnecting: "bg-amber-500 animate-pulse",
+  disconnected: "bg-muted-foreground/50",
+  error: "bg-destructive"
+};
+function TabStrip({ activeId }) {
+  const navigate = useNavigate();
+  const tabs = useTabs((s) => s.tabs);
+  const close = useTabs((s) => s.close);
+  const statuses = useStudio((s) => s.statuses);
+  const [names, setNames] = reactExports.useState({});
+  reactExports.useEffect(() => {
+    window.api.connections.list().then((list) => {
+      setNames(Object.fromEntries(list.map((c) => [c.id, c])));
+    });
+  }, [tabs.length]);
+  const onClose = (e, id) => {
+    e.stopPropagation();
+    const next = close(id);
+    window.api.mqtt.disconnect(id);
+    if (id === activeId) {
+      if (next) navigate({ to: "/explore/$connectionId", params: { connectionId: next } });
+      else navigate({ to: "/" });
+    }
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass flex items-stretch gap-1 overflow-x-auto border-b px-2 pt-1.5", children: [
+    tabs.map((id) => {
+      const active = id === activeId;
+      const status = statuses[id] ?? "disconnected";
+      const name = names[id]?.name ?? "Connection";
+      return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "button",
+        {
+          type: "button",
+          onClick: () => navigate({ to: "/explore/$connectionId", params: { connectionId: id } }),
+          style: { borderTopColor: active ? resolveColor(names[id]?.color) : void 0 },
+          className: cn(
+            "group flex max-w-[200px] min-w-[120px] shrink-0 items-center gap-2 rounded-t-lg border border-b-0 px-3 py-2 text-sm transition-colors",
+            active ? "border-t-2 bg-background font-medium text-foreground" : "border-transparent text-muted-foreground hover:bg-foreground/5"
+          ),
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: cn("size-2 shrink-0 rounded-full", DOT$1[status]) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "truncate", children: name }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "span",
+              {
+                onClick: (e) => onClose(e, id),
+                className: "ml-auto grid size-5 shrink-0 place-items-center rounded opacity-0 transition group-hover:opacity-100 hover:bg-foreground/10",
+                "aria-label": `Close ${name}`,
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "size-3.5" })
+              }
+            )
+          ]
+        },
+        id
+      );
+    }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "button",
+      {
+        type: "button",
+        onClick: () => navigate({ to: "/" }),
+        title: "New connection",
+        className: "my-1 grid size-8 shrink-0 place-items-center self-center rounded-md text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "size-4" })
+      }
+    )
+  ] });
 }
 const Route$3 = createFileRoute("/_ConnectionLayout")({
   loader: () => window.api.connections.list(),
@@ -22029,6 +22034,8 @@ function ConnectionLayout() {
   const openTabs = useTabs((s) => s.tabs);
   const router2 = useRouter();
   const selectedId = useParams({ strict: false }).connectionId;
+  const inExplorer = useLocation({ select: (l) => l.pathname.startsWith("/explore") });
+  const [collapsed, setCollapsed] = reactExports.useState(false);
   const duplicate = async (c) => {
     const { id: _id, ...rest } = c;
     const saved = await window.api.connections.save({ ...rest, name: `${c.name} copy` });
@@ -22041,38 +22048,57 @@ function ConnectionLayout() {
     if (selectedId === c.id) router2.navigate({ to: "/" });
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-screen flex-col bg-background text-foreground", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "glass z-10 flex items-center gap-2.5 border-b px-5 py-3", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "glass z-10 flex items-center gap-2.5 border-b px-4 py-3", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Button,
+        {
+          variant: "ghost",
+          size: "icon",
+          onClick: () => setCollapsed((v) => !v),
+          title: collapsed ? "Show connections" : "Hide connections",
+          children: collapsed ? /* @__PURE__ */ jsxRuntimeExports.jsx(PanelLeft, { className: "size-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(PanelLeftClose, { className: "size-4" })
+        }
+      ),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/60 shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Radio, { className: "size-4 text-primary-foreground" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-base font-semibold text-transparent", children: "MQTT Studio" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ThemeToggle, {}) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex min-h-0 flex-1", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("aside", { className: "flex w-[280px] shrink-0 flex-col border-r bg-sidebar", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { asChild: true, className: "w-full justify-start", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/$connectionId", params: { connectionId: "new" }, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "size-4" }),
-          " New connection"
-        ] }) }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "min-h-0 flex-1 space-y-1 overflow-auto px-2 pb-2", children: [
-          connections.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "px-2 py-6 text-center text-sm text-muted-foreground", children: "No connections yet." }),
-          connections.map((c) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-            ConnectionRow,
-            {
-              c,
-              status: statuses[c.id] ?? "disconnected",
-              selected: selectedId === c.id,
-              onDuplicate: () => duplicate(c),
-              onDelete: () => remove(c)
-            },
-            c.id
-          ))
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t p-3 text-xs text-muted-foreground", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { variant: "outline", children: [
-          connections.length,
-          " saved"
-        ] }) })
-      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "aside",
+        {
+          className: cn(
+            "flex shrink-0 flex-col border-r bg-sidebar transition-[width] duration-200",
+            collapsed ? "w-0 overflow-hidden border-r-0" : "w-[280px]"
+          ),
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { asChild: true, className: "w-full justify-start", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/$connectionId", params: { connectionId: "new" }, children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "size-4" }),
+              " New connection"
+            ] }) }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "min-h-0 flex-1 space-y-1 overflow-auto px-2 pb-2", children: [
+              connections.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "px-2 py-6 text-center text-sm text-muted-foreground", children: "No connections yet." }),
+              connections.map((c) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                ConnectionRow,
+                {
+                  c,
+                  status: statuses[c.id] ?? "disconnected",
+                  selected: selectedId === c.id,
+                  onDuplicate: () => duplicate(c),
+                  onDelete: () => remove(c)
+                },
+                c.id
+              ))
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t p-3 text-xs text-muted-foreground", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { variant: "outline", children: [
+              connections.length,
+              " saved"
+            ] }) })
+          ]
+        }
+      ),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "flex min-h-0 flex-1 flex-col overflow-hidden", children: [
-        openTabs.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(TabStrip, {}),
+        openTabs.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(TabStrip, { activeId: inExplorer ? selectedId : void 0 }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-h-0 flex-1 overflow-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) })
       ] })
     ] })
@@ -58209,6 +58235,7 @@ function Explorer({ connectionId }) {
   reactExports.useEffect(() => {
     openTab(connectionId);
     window.api.mqtt.setActive(connectionId);
+    return () => void window.api.mqtt.setActive(null);
   }, [connectionId, openTab]);
   const connected = status === "connected";
   const live2 = selected ? topics?.[selected] : void 0;
@@ -58224,7 +58251,6 @@ function Explorer({ connectionId }) {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-full flex-col text-foreground", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "glass z-10 flex items-center gap-3 border-b px-4 py-2.5", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { asChild: true, variant: "ghost", size: "icon", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowLeft, { className: "size-4" }) }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: cn("size-2.5 rounded-full", STATUS_STYLE[status]) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-w-0", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "truncate text-sm font-semibold", children: connection2?.name ?? "Connection" }),
@@ -58244,8 +58270,7 @@ function Explorer({ connectionId }) {
           paused ? /* @__PURE__ */ jsxRuntimeExports.jsx(Play, { className: "size-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Pause, { className: "size-4" }),
           paused ? "Resume" : "Pause"
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "ghost", size: "icon", onClick: clear, title: "Clear topics", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "size-4" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ThemeToggle, {})
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "ghost", size: "icon", onClick: clear, title: "Clear topics", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "size-4" }) })
       ] })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(ResizablePanelGroup, { direction: "horizontal", className: "min-h-0 flex-1", children: [
@@ -58264,20 +58289,16 @@ function Explorer({ connectionId }) {
     ] })
   ] });
 }
-const Route2 = createFileRoute("/_ExplorerLayout/explore/$connectionId")({
+const Route2 = createFileRoute("/_ConnectionLayout/explore/$connectionId")({
   component: RouteComponent
 });
 function RouteComponent() {
   const { connectionId } = Route2.useParams();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Explorer, { connectionId });
 }
-const ExplorerLayoutRoute = Route$4.update({
-  id: "/_ExplorerLayout",
-  getParentRoute: () => Route$5
-});
 const ConnectionLayoutRoute = Route$3.update({
   id: "/_ConnectionLayout",
-  getParentRoute: () => Route$5
+  getParentRoute: () => Route$4
 });
 const ConnectionLayoutIndexRoute = Route$2.update({
   id: "/",
@@ -58289,27 +58310,21 @@ const ConnectionLayoutConnectionIdRoute = Route$1.update({
   path: "/$connectionId",
   getParentRoute: () => ConnectionLayoutRoute
 });
-const ExplorerLayoutExploreConnectionIdRoute = Route2.update({
+const ConnectionLayoutExploreConnectionIdRoute = Route2.update({
   id: "/explore/$connectionId",
   path: "/explore/$connectionId",
-  getParentRoute: () => ExplorerLayoutRoute
+  getParentRoute: () => ConnectionLayoutRoute
 });
 const ConnectionLayoutRouteChildren = {
   ConnectionLayoutConnectionIdRoute,
-  ConnectionLayoutIndexRoute
+  ConnectionLayoutIndexRoute,
+  ConnectionLayoutExploreConnectionIdRoute
 };
 const ConnectionLayoutRouteWithChildren = ConnectionLayoutRoute._addFileChildren(ConnectionLayoutRouteChildren);
-const ExplorerLayoutRouteChildren = {
-  ExplorerLayoutExploreConnectionIdRoute
-};
-const ExplorerLayoutRouteWithChildren = ExplorerLayoutRoute._addFileChildren(
-  ExplorerLayoutRouteChildren
-);
 const rootRouteChildren = {
-  ConnectionLayoutRoute: ConnectionLayoutRouteWithChildren,
-  ExplorerLayoutRoute: ExplorerLayoutRouteWithChildren
+  ConnectionLayoutRoute: ConnectionLayoutRouteWithChildren
 };
-const routeTree = Route$5._addFileChildren(rootRouteChildren)._addFileTypes();
+const routeTree = Route$4._addFileChildren(rootRouteChildren)._addFileTypes();
 initTheme();
 const router = createRouter({ routeTree });
 ReactDOM.createRoot(document.getElementById("root")).render(

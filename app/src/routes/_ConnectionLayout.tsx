@@ -1,6 +1,22 @@
 import { useState } from 'react';
-import { createFileRoute, Link, Outlet, useParams, useRouter } from '@tanstack/react-router';
-import { Compass, Copy, MoreVertical, Plus, Radio, Trash2 } from 'lucide-react';
+import {
+  createFileRoute,
+  Link,
+  Outlet,
+  useLocation,
+  useParams,
+  useRouter,
+} from '@tanstack/react-router';
+import {
+  Compass,
+  Copy,
+  MoreVertical,
+  PanelLeft,
+  PanelLeftClose,
+  Plus,
+  Radio,
+  Trash2,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -46,6 +62,8 @@ function ConnectionLayout() {
   const openTabs = useTabs((s) => s.tabs);
   const router = useRouter();
   const selectedId = useParams({ strict: false }).connectionId;
+  const inExplorer = useLocation({ select: (l) => l.pathname.startsWith('/explore') });
+  const [collapsed, setCollapsed] = useState(false);
 
   const duplicate = async (c: Connection) => {
     const { id: _id, ...rest } = c;
@@ -62,7 +80,15 @@ function ConnectionLayout() {
 
   return (
     <div className="flex h-screen flex-col bg-background text-foreground">
-      <header className="glass z-10 flex items-center gap-2.5 border-b px-5 py-3">
+      <header className="glass z-10 flex items-center gap-2.5 border-b px-4 py-3">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setCollapsed((v) => !v)}
+          title={collapsed ? 'Show connections' : 'Hide connections'}
+        >
+          {collapsed ? <PanelLeft className="size-4" /> : <PanelLeftClose className="size-4" />}
+        </Button>
         <div className="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/60 shadow-sm">
           <Radio className="size-4 text-primary-foreground" />
         </div>
@@ -75,7 +101,12 @@ function ConnectionLayout() {
       </header>
 
       <div className="flex min-h-0 flex-1">
-        <aside className="flex w-[280px] shrink-0 flex-col border-r bg-sidebar">
+        <aside
+          className={cn(
+            'flex shrink-0 flex-col border-r bg-sidebar transition-[width] duration-200',
+            collapsed ? 'w-0 overflow-hidden border-r-0' : 'w-[280px]',
+          )}
+        >
           <div className="p-3">
             <Button asChild className="w-full justify-start">
               <Link to="/$connectionId" params={{ connectionId: 'new' }}>
@@ -108,7 +139,7 @@ function ConnectionLayout() {
         </aside>
 
         <main className="flex min-h-0 flex-1 flex-col overflow-hidden">
-          {openTabs.length > 0 && <TabStrip />}
+          {openTabs.length > 0 && <TabStrip activeId={inExplorer ? selectedId : undefined} />}
           <div className="min-h-0 flex-1 overflow-auto">
             <Outlet />
           </div>

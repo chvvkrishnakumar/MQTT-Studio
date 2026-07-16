@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import Explorer from '@/features/explorer/explorer';
 
-export const Route = createFileRoute('/_ExplorerLayout/explore/$connectionId')({
+export const Route = createFileRoute('/_ConnectionLayout/explore/$connectionId')({
   component: RouteComponent,
 });
 

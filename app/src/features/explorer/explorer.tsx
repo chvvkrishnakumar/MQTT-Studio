@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Link } from '@tanstack/react-router';
-import { ArrowLeft, Pause, Play, Plug, PlugZap, Trash2 } from 'lucide-react';
+import { Pause, Play, Plug, PlugZap, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -8,7 +7,6 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from '@/components/ui/resizable';
-import { ThemeToggle } from '@/components/theme-toggle';
 import { cn } from '@/lib/utils';
 import type { Connection, ConnStatus } from '@shared/schema';
 import { useStudio } from './store';
@@ -50,10 +48,12 @@ export default function Explorer({ connectionId }: { connectionId: string }) {
   }, [connectionId]);
 
   // This is the visible connection: register its tab and stream it live. The
-  // previously-active connection keeps ingesting silently in the background.
+  // previously-active connection keeps ingesting silently in the background;
+  // leaving the explorer (cleanup) silences everything.
   useEffect(() => {
     openTab(connectionId);
     window.api.mqtt.setActive(connectionId);
+    return () => void window.api.mqtt.setActive(null);
   }, [connectionId, openTab]);
 
   const connected = status === 'connected';
@@ -74,11 +74,6 @@ export default function Explorer({ connectionId }: { connectionId: string }) {
   return (
     <div className="flex h-full flex-col text-foreground">
       <header className="glass z-10 flex items-center gap-3 border-b px-4 py-2.5">
-        <Button asChild variant="ghost" size="icon">
-          <Link to="/">
-            <ArrowLeft className="size-4" />
-          </Link>
-        </Button>
         <span className={cn('size-2.5 rounded-full', STATUS_STYLE[status])} />
         <div className="min-w-0">
           <div className="truncate text-sm font-semibold">
@@ -114,7 +109,6 @@ export default function Explorer({ connectionId }: { connectionId: string }) {
           <Button variant="ghost" size="icon" onClick={clear} title="Clear topics">
             <Trash2 className="size-4" />
           </Button>
-          <ThemeToggle />
         </div>
       </header>
 

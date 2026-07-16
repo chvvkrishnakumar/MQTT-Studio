@@ -846,6 +846,10 @@
     min-height: 100svh;
   }
 
+  .w-0 {
+    width: calc(var(--spacing) * 0);
+  }
+
   .w-1 {
     width: calc(var(--spacing) * 1);
   }
@@ -1440,6 +1444,11 @@
     border-right-width: 1px;
   }
 
+  .border-r-0 {
+    border-right-style: var(--tw-border-style);
+    border-right-width: 0;
+  }
+
   .border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
@@ -1489,10 +1498,6 @@
 
   .border-l-transparent {
     border-left-color: #0000;
-  }
-
-  .bg-accent {
-    background-color: var(--accent);
   }
 
   .bg-amber-500 {
