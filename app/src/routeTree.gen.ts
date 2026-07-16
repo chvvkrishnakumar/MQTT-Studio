@@ -9,93 +9,144 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as MainLayoutRouteImport } from './routes/_MainLayout'
-import { Route as MainLayoutIndexRouteImport } from './routes/_MainLayout/index'
-import { Route as AuthLayoutLoginRouteImport } from './routes/_AuthLayout/login'
+import { Route as ExplorerLayoutRouteImport } from './routes/_ExplorerLayout'
+import { Route as ConnectionLayoutRouteImport } from './routes/_ConnectionLayout'
+import { Route as ConnectionLayoutIndexRouteImport } from './routes/_ConnectionLayout/index'
+import { Route as ConnectionLayoutConnectionIdRouteImport } from './routes/_ConnectionLayout/$connectionId'
+import { Route as ExplorerLayoutExploreConnectionIdRouteImport } from './routes/_ExplorerLayout/explore.$connectionId'
 
-const MainLayoutRoute = MainLayoutRouteImport.update({
-  id: '/_MainLayout',
+const ExplorerLayoutRoute = ExplorerLayoutRouteImport.update({
+  id: '/_ExplorerLayout',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MainLayoutIndexRoute = MainLayoutIndexRouteImport.update({
+const ConnectionLayoutRoute = ConnectionLayoutRouteImport.update({
+  id: '/_ConnectionLayout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnectionLayoutIndexRoute = ConnectionLayoutIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => MainLayoutRoute,
+  getParentRoute: () => ConnectionLayoutRoute,
 } as any)
-const AuthLayoutLoginRoute = AuthLayoutLoginRouteImport.update({
-  id: '/_AuthLayout/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const ConnectionLayoutConnectionIdRoute =
+  ConnectionLayoutConnectionIdRouteImport.update({
+    id: '/$connectionId',
+    path: '/$connectionId',
+    getParentRoute: () => ConnectionLayoutRoute,
+  } as any)
+const ExplorerLayoutExploreConnectionIdRoute =
+  ExplorerLayoutExploreConnectionIdRouteImport.update({
+    id: '/explore/$connectionId',
+    path: '/explore/$connectionId',
+    getParentRoute: () => ExplorerLayoutRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof MainLayoutIndexRoute
-  '/login': typeof AuthLayoutLoginRoute
+  '/': typeof ConnectionLayoutIndexRoute
+  '/$connectionId': typeof ConnectionLayoutConnectionIdRoute
+  '/explore/$connectionId': typeof ExplorerLayoutExploreConnectionIdRoute
 }
 export interface FileRoutesByTo {
-  '/login': typeof AuthLayoutLoginRoute
-  '/': typeof MainLayoutIndexRoute
+  '/': typeof ConnectionLayoutIndexRoute
+  '/$connectionId': typeof ConnectionLayoutConnectionIdRoute
+  '/explore/$connectionId': typeof ExplorerLayoutExploreConnectionIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/_MainLayout': typeof MainLayoutRouteWithChildren
-  '/_AuthLayout/login': typeof AuthLayoutLoginRoute
-  '/_MainLayout/': typeof MainLayoutIndexRoute
+  '/_ConnectionLayout': typeof ConnectionLayoutRouteWithChildren
+  '/_ExplorerLayout': typeof ExplorerLayoutRouteWithChildren
+  '/_ConnectionLayout/$connectionId': typeof ConnectionLayoutConnectionIdRoute
+  '/_ConnectionLayout/': typeof ConnectionLayoutIndexRoute
+  '/_ExplorerLayout/explore/$connectionId': typeof ExplorerLayoutExploreConnectionIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login'
+  fullPaths: '/' | '/$connectionId' | '/explore/$connectionId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/login' | '/'
-  id: '__root__' | '/_MainLayout' | '/_AuthLayout/login' | '/_MainLayout/'
+  to: '/' | '/$connectionId' | '/explore/$connectionId'
+  id:
+    | '__root__'
+    | '/_ConnectionLayout'
+    | '/_ExplorerLayout'
+    | '/_ConnectionLayout/$connectionId'
+    | '/_ConnectionLayout/'
+    | '/_ExplorerLayout/explore/$connectionId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  MainLayoutRoute: typeof MainLayoutRouteWithChildren
-  AuthLayoutLoginRoute: typeof AuthLayoutLoginRoute
+  ConnectionLayoutRoute: typeof ConnectionLayoutRouteWithChildren
+  ExplorerLayoutRoute: typeof ExplorerLayoutRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_MainLayout': {
-      id: '/_MainLayout'
+    '/_ExplorerLayout': {
+      id: '/_ExplorerLayout'
       path: ''
       fullPath: '/'
-      preLoaderRoute: typeof MainLayoutRouteImport
+      preLoaderRoute: typeof ExplorerLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_MainLayout/': {
-      id: '/_MainLayout/'
+    '/_ConnectionLayout': {
+      id: '/_ConnectionLayout'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof ConnectionLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_ConnectionLayout/': {
+      id: '/_ConnectionLayout/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof MainLayoutIndexRouteImport
-      parentRoute: typeof MainLayoutRoute
+      preLoaderRoute: typeof ConnectionLayoutIndexRouteImport
+      parentRoute: typeof ConnectionLayoutRoute
     }
-    '/_AuthLayout/login': {
-      id: '/_AuthLayout/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof AuthLayoutLoginRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_ConnectionLayout/$connectionId': {
+      id: '/_ConnectionLayout/$connectionId'
+      path: '/$connectionId'
+      fullPath: '/$connectionId'
+      preLoaderRoute: typeof ConnectionLayoutConnectionIdRouteImport
+      parentRoute: typeof ConnectionLayoutRoute
+    }
+    '/_ExplorerLayout/explore/$connectionId': {
+      id: '/_ExplorerLayout/explore/$connectionId'
+      path: '/explore/$connectionId'
+      fullPath: '/explore/$connectionId'
+      preLoaderRoute: typeof ExplorerLayoutExploreConnectionIdRouteImport
+      parentRoute: typeof ExplorerLayoutRoute
     }
   }
 }
 
-interface MainLayoutRouteChildren {
-  MainLayoutIndexRoute: typeof MainLayoutIndexRoute
+interface ConnectionLayoutRouteChildren {
+  ConnectionLayoutConnectionIdRoute: typeof ConnectionLayoutConnectionIdRoute
+  ConnectionLayoutIndexRoute: typeof ConnectionLayoutIndexRoute
 }
 
-const MainLayoutRouteChildren: MainLayoutRouteChildren = {
-  MainLayoutIndexRoute: MainLayoutIndexRoute,
+const ConnectionLayoutRouteChildren: ConnectionLayoutRouteChildren = {
+  ConnectionLayoutConnectionIdRoute: ConnectionLayoutConnectionIdRoute,
+  ConnectionLayoutIndexRoute: ConnectionLayoutIndexRoute,
 }
 
-const MainLayoutRouteWithChildren = MainLayoutRoute._addFileChildren(
-  MainLayoutRouteChildren,
+const ConnectionLayoutRouteWithChildren =
+  ConnectionLayoutRoute._addFileChildren(ConnectionLayoutRouteChildren)
+
+interface ExplorerLayoutRouteChildren {
+  ExplorerLayoutExploreConnectionIdRoute: typeof ExplorerLayoutExploreConnectionIdRoute
+}
+
+const ExplorerLayoutRouteChildren: ExplorerLayoutRouteChildren = {
+  ExplorerLayoutExploreConnectionIdRoute:
+    ExplorerLayoutExploreConnectionIdRoute,
+}
+
+const ExplorerLayoutRouteWithChildren = ExplorerLayoutRoute._addFileChildren(
+  ExplorerLayoutRouteChildren,
 )
 
 const rootRouteChildren: RootRouteChildren = {
-  MainLayoutRoute: MainLayoutRouteWithChildren,
-  AuthLayoutLoginRoute: AuthLayoutLoginRoute,
+  ConnectionLayoutRoute: ConnectionLayoutRouteWithChildren,
+  ExplorerLayoutRoute: ExplorerLayoutRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
