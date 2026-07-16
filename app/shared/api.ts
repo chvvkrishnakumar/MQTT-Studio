@@ -3,6 +3,7 @@ import type {
   ConnectionDelta,
   ConnectionDraft,
   ConnStatus,
+  ExportStatus,
   MqttMessage,
   PublishInput,
   StatusUpdate,
@@ -30,5 +31,16 @@ export interface StudioApi {
     onDelta(cb: (delta: ConnectionDelta) => void): () => void;
     /** Connection status changes. Returns an unsubscribe fn. */
     onStatus(cb: (status: StatusUpdate) => void): () => void;
+  };
+  /** Live export: stream a topic's incoming messages to a file (json/csv).
+   *  Runs in the main process, so it continues across tab switches. */
+  export: {
+    /** Prompt for a destination and begin; resolves null if cancelled. */
+    start(connectionId: string, topic: string): Promise<ExportStatus | null>;
+    stop(connectionId: string, topic: string): Promise<void>;
+    status(connectionId: string, topic: string): Promise<ExportStatus | null>;
+    list(): Promise<ExportStatus[]>;
+    /** Progress + start/stop events for any topic. Returns an unsubscribe fn. */
+    onProgress(cb: (status: ExportStatus) => void): () => void;
   };
 }

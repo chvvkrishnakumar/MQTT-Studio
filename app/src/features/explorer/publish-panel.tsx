@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AlertCircle, Send, Wand2 } from 'lucide-react';
+import { AlertCircle, ChevronRight, Send, Wand2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -12,6 +12,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '@/components/ui/collapsible';
 import { cn } from '@/lib/utils';
 import {
   PAYLOAD_FORMATS,
@@ -34,6 +39,7 @@ export default function PublishPanel({ connectionId, topic, disabled }: Props) {
   const [format, setFormat] = useState<PayloadFormat>('RAW');
   const [qos, setQos] = useState<QoS>(0);
   const [retain, setRetain] = useState(false);
+  const [open, setOpen] = useState(true);
 
   useEffect(() => {
     if (topic) setTarget(topic);
@@ -47,7 +53,12 @@ export default function PublishPanel({ connectionId, topic, disabled }: Props) {
   };
 
   return (
-    <div className="glass space-y-3 border-t p-4">
+    <Collapsible open={open} onOpenChange={setOpen} className="glass border-t">
+      <CollapsibleTrigger className="group flex w-full items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:text-foreground">
+        <ChevronRight className="size-3.5 transition-transform group-data-[state=open]:rotate-90" />
+        Publish
+      </CollapsibleTrigger>
+      <CollapsibleContent className="space-y-3 px-4 pb-4">
       <div className="flex items-center gap-2">
         <Input
           value={target}
@@ -118,6 +129,7 @@ export default function PublishPanel({ connectionId, topic, disabled }: Props) {
           <Send className="size-4" /> Publish
         </Button>
       </div>
-    </div>
+      </CollapsibleContent>
+    </Collapsible>
   );
 }

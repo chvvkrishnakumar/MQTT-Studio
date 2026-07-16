@@ -4,6 +4,7 @@ import { existsSync } from 'node:fs';
 import { initDb } from './db';
 import { registerIpc } from './ipc';
 import { manager } from './mqtt/manager';
+import { exporter } from './export/exporter';
 
 let win: BrowserWindow | null = null;
 
@@ -60,7 +61,10 @@ app.whenReady().then(() => {
   });
 });
 
-app.on('before-quit', () => manager.shutdown());
+app.on('before-quit', () => {
+  exporter.shutdown();
+  manager.shutdown();
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();

@@ -113,3 +113,19 @@ export interface PublishInput {
   qos?: QoS;
   retain?: boolean;
 }
+
+/** Live export: incoming messages for one topic are streamed to disk.
+ *  `text` is a raw log (verbatim payloads) for non-JSON data like XML/YAML. */
+export type ExportFormat = 'json' | 'csv' | 'text';
+
+export interface ExportStatus {
+  connectionId: string;
+  topic: string;
+  /** absolute file path being written to */
+  path: string;
+  format: ExportFormat;
+  /** rows written this session */
+  count: number;
+  /** false in the final event emitted on stop */
+  active: boolean;
+}

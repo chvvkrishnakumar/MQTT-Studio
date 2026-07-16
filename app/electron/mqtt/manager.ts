@@ -31,10 +31,18 @@ class MqttManager {
    *  live deltas to the renderer; the rest keep ingesting + persisting silently. */
   private activeId: string | null = null;
   private emit: Emit = () => {};
+  /** Side-channel taps on every ingested message (e.g. live file export). */
+  private messageListeners = new Set<(connectionId: string, msg: MqttMessage) => void>();
 
   init(emit: Emit) {
     this.emit = emit;
     setInterval(() => this.flush(), FLUSH_MS).unref();
+  }
+
+  /** Observe every ingested message. Returns an unsubscribe fn. */
+  onMessage(fn: (connectionId: string, msg: MqttMessage) => void) {
+    this.messageListeners.add(fn);
+    return () => this.messageListeners.delete(fn);
   }
 
   connect(id: string) {
@@ -81,6 +89,7 @@ class MqttManager {
       entry.latest.set(topic, { ...msg, count: (prev?.count ?? 0) + 1 });
       entry.dirty.add(topic);
       entry.pending.push(msg);
+      for (const fn of this.messageListeners) fn(id, msg);
     });
   }
 

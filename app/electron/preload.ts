@@ -25,7 +25,13 @@ const api: StudioApi = {
     clear: (id) => ipcRenderer.invoke('mqtt:clear', id),
     onDelta: (cb) => subscribe('mqtt:delta', cb as (p: never) => void),
     onStatus: (cb) => subscribe('mqtt:status', cb as (p: never) => void),
-
+  },
+  export: {
+    start: (connectionId, topic) => ipcRenderer.invoke('export:start', { connectionId, topic }),
+    stop: (connectionId, topic) => ipcRenderer.invoke('export:stop', { connectionId, topic }),
+    status: (connectionId, topic) => ipcRenderer.invoke('export:status', { connectionId, topic }),
+    list: () => ipcRenderer.invoke('export:list'),
+    onProgress: (cb) => subscribe('export:progress', cb as (p: never) => void),
   },
 };
 
