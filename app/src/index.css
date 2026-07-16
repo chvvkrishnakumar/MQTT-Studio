@@ -125,7 +125,7 @@
     --destructive: #ffb4ab;
     --destructive-foreground: #690005;
     --border: rgba(255, 255, 255, 0.1);
-    --input: #110c15;
+    --input: rgba(255, 255, 255, 0.18);
     --ring: #ddb7ff;
     --chart-1: #ddb7ff;
     --chart-2: #4edea3;
@@ -165,24 +165,20 @@ body,
 @keyframes shimmer {
   from {
     background-position: 220% 0;
-    opacity: 0.9;
   }
   to {
     background-position: -220% 0;
-    opacity: 0;
   }
 }
 .live-shimmer {
   background-image: linear-gradient(
     100deg,
-    transparent 20%,
-    color-mix(in oklab, var(--primary) 32%, transparent) 42%,
-    color-mix(in oklab, var(--foreground) 18%, transparent) 50%,
-    color-mix(in oklab, var(--primary) 32%, transparent) 58%,
-    transparent 80%
+    transparent 30%,
+    color-mix(in oklab, var(--primary) 12%, transparent) 50%,
+    transparent 70%
   );
   background-size: 220% 100%;
-  animation: shimmer 0.55s ease-out forwards;
+  animation: shimmer 1.1s ease-in-out forwards;
   border-radius: 0.5rem;
 }
 

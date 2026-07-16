@@ -13,11 +13,26 @@ function ConnectionFormPage() {
   const { connectionId } = Route.useParams();
   const router = useRouter();
 
-  const onSubmit = async (data: ConnectionDraft) => {
+  const save = async (data: ConnectionDraft) => {
     const saved = await window.api.connections.save(
       connectionId === 'new' ? data : { ...data, id: connectionId },
     );
     await router.invalidate();
+    return saved;
+  };
+
+  // Persist and stay put (create routes land on the new connection's editor).
+  const onSave = async (data: ConnectionDraft) => {
+    const saved = await save(data);
+    if (connectionId === 'new') {
+      router.navigate({ to: '/$connectionId', params: { connectionId: saved.id } });
+    }
+  };
+
+  // Persist, open the broker connection, and jump to the live explorer.
+  const onConnect = async (data: ConnectionDraft) => {
+    const saved = await save(data);
+    await window.api.mqtt.connect(saved.id);
     router.navigate({ to: '/explore/$connectionId', params: { connectionId: saved.id } });
   };
 
@@ -25,7 +40,8 @@ function ConnectionFormPage() {
     <ConnectionForm
       key={connectionId}
       defaultValues={connection}
-      onSubmit={onSubmit}
+      onSave={onSave}
+      onConnect={onConnect}
       onCancel={() => router.navigate({ to: '/' })}
     />
   );

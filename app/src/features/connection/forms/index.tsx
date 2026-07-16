@@ -1,5 +1,5 @@
 import { FormProvider, useForm } from 'react-hook-form';
-import { Settings2, ListTree, Sliders, Skull } from 'lucide-react';
+import { Settings2, ListTree, Sliders, Skull, PlugZap } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import type { Connection, ConnectionDraft } from '@shared/schema';
@@ -38,19 +38,28 @@ const TABS = [
 
 type Props = {
   defaultValues?: Partial<Connection> | null;
-  onSubmit: (data: ConnectionDraft) => void;
+  /** Persist the connection and stay on the form. */
+  onSave: (data: ConnectionDraft) => void;
+  /** Persist, open the connection, and jump to the live explorer. */
+  onConnect: (data: ConnectionDraft) => void;
   onCancel?: () => void;
   submitting?: boolean;
 };
 
-export default function ConnectionForm({ defaultValues, onSubmit, onCancel, submitting }: Props) {
+export default function ConnectionForm({
+  defaultValues,
+  onSave,
+  onConnect,
+  onCancel,
+  submitting,
+}: Props) {
   const methods = useForm({ defaultValues: { ...DEFAULTS, ...(defaultValues ?? {}) } });
   const editing = !!defaultValues?.id;
 
   return (
     <FormProvider {...methods}>
       <form
-        onSubmit={methods.handleSubmit((d) => onSubmit(d as ConnectionDraft))}
+        onSubmit={methods.handleSubmit((d) => onSave(d as ConnectionDraft))}
         className="flex h-full flex-col"
       >
         <div className="flex items-center justify-between border-b px-6 py-4">
@@ -68,8 +77,15 @@ export default function ConnectionForm({ defaultValues, onSubmit, onCancel, subm
                 Cancel
               </Button>
             )}
-            <Button type="submit" disabled={submitting}>
-              {editing ? 'Save changes' : 'Create'}
+            <Button type="submit" variant="outline" disabled={submitting}>
+              {editing ? 'Save changes' : 'Save'}
+            </Button>
+            <Button
+              type="button"
+              disabled={submitting}
+              onClick={methods.handleSubmit((d) => onConnect(d as ConnectionDraft))}
+            >
+              <PlugZap className="size-4" /> Connect
             </Button>
           </div>
         </div>
