@@ -106,7 +106,7 @@ function rowToConnection(r: ConnRow): Connection {
     reconnectPeriod: options.reconnectPeriod ?? 1_000,
     clean: options.clean ?? true,
     subscriptions: JSON.parse(r.subscriptions_json),
-    will: JSON.parse(r.will_json),
+    will: { payloadFormat: 'RAW', ...JSON.parse(r.will_json) },
   };
 }
 

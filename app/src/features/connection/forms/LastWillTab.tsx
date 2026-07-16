@@ -1,111 +1,21 @@
 import { useMemo } from "react";
 import { useFormContext, useWatch, Controller } from "react-hook-form";
-import { dump, load } from "js-yaml";
 import QosSelect from "@/components/form-ui/qos-select";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
-
-const PAYLOAD_FORMATS = ["RAW", "JSON", "XML", "YAML"] as const;
-
-const formatPlaceholder: Record<string, string> = {
-  RAW: "Hello world",
-  JSON: `{
-  \"message\": \"Hello world\"
-}`,
-  XML: `<message>Hello world</message>`,
-  YAML: `message: Hello world`,
-};
-
-function tryFormatJson(payload: string) {
-  try {
-    return JSON.stringify(JSON.parse(payload), null, 2);
-  } catch {
-    return null;
-  }
-}
-
-function tryFormatXml(payload: string) {
-  try {
-    const parser = new DOMParser();
-    const xml = parser.parseFromString(payload, "application/xml");
-    if (xml.querySelector("parsererror")) return null;
-
-    const formatNode = (node: Node, level = 0): string => {
-      const indent = "  ".repeat(level);
-
-      if (node.nodeType === Node.TEXT_NODE) {
-        const text = node.nodeValue?.trim();
-        return text ? `${indent}${text}\n` : "";
-      }
-
-      if (node.nodeType === Node.COMMENT_NODE) {
-        return `${indent}<!--${(node as Comment).nodeValue}-->\n`;
-      }
-
-      if (node.nodeType !== Node.ELEMENT_NODE) {
-        return "";
-      }
-
-      const el = node as Element;
-      const attrs = Array.from(el.attributes)
-        .map((attr) => `${attr.name}=${JSON.stringify(attr.value)}`)
-        .join(" ");
-      const openTag = attrs ? `<${el.tagName} ${attrs}>` : `<${el.tagName}>`;
-      const children = Array.from(el.childNodes)
-        .map((child) => formatNode(child, level + 1))
-        .join("");
-
-      if (!children.trim()) {
-        return `${indent}${openTag}</${el.tagName}>\n`;
-      }
-
-      return `${indent}${openTag}\n${children}${indent}</${el.tagName}>\n`;
-    };
-
-    if (!xml.documentElement) return null;
-    return formatNode(xml.documentElement).trim();
-  } catch {
-    return null;
-  }
-}
-
-function tryFormatYaml(payload: string) {
-  try {
-    const parsed = load(payload);
-    return dump(parsed as unknown, { indent: 2, noRefs: true }).trim();
-  } catch {
-    const json = tryFormatJson(payload);
-    if (!json) return null;
-    try {
-      const parsed = JSON.parse(json);
-      return dump(parsed, { indent: 2, noRefs: true }).trim();
-    } catch {
-      return null;
-    }
-  }
-}
-
-function formatPayload(payload: string, format: string) {
-  if (!payload.trim()) return payload;
-
-  switch (format) {
-    case "JSON":
-      return tryFormatJson(payload) ?? payload;
-    case "XML":
-      return tryFormatXml(payload) ?? payload;
-    case "YAML":
-      return tryFormatYaml(payload) ?? payload;
-    default:
-      return payload;
-  }
-}
+import {
+  PAYLOAD_FORMATS,
+  formatPayload,
+  formatPlaceholder,
+  type PayloadFormat,
+} from "@/lib/payload-format";
 
 export default function LastWillTab() {
   const { register, control, setValue } = useFormContext();
-  const payloadFormat =
+  const payloadFormat: PayloadFormat =
     useWatch({ control, name: "will.payloadFormat" }) || "RAW";
   const enabled = useWatch({ control, name: "will.enabled" });
   const payload = useWatch({ control, name: "will.payload" }) || "";

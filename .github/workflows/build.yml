@@ -1,0 +1,76 @@
+name: Build installers
+
+# Build clean installers for macOS, Windows and Linux — each on its own native
+# runner (required because the native better-sqlite3 module can't be reliably
+# cross-compiled).
+#
+# Triggers:
+#   • push to main/master  -> builds + uploads installers as run artifacts
+#   • push a v* tag        -> also publishes a GitHub Release with the installers
+#   • manual (Actions tab) -> "Run workflow"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            script: dist:mac
+          - os: windows-latest
+            script: dist:win
+          - os: ubuntu-latest
+            script: dist:linux
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Rebuild native deps for Electron
+        run: npm run rebuild-deps
+
+      - name: Build installers
+        run: npm run ${{ matrix.script }}
+
+      - name: Upload installers
+        uses: actions/upload-artifact@v4
+        with:
+          name: installers-${{ matrix.os }}
+          if-no-files-found: error
+          path: |
+            app/release/*.dmg
+            app/release/*.exe
+            app/release/*.AppImage
+            app/release/*.deb
+
+      - name: Attach to GitHub Release (tags only)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            app/release/*.dmg
+            app/release/*.exe
+            app/release/*.AppImage
+            app/release/*.deb

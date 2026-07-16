@@ -8,11 +8,20 @@
     "dev": "electron-vite dev",
     "build": "electron-vite build",
     "preview": "electron-vite preview",
-    "dist": "electron-vite build && electron-builder"
+    "rebuild-deps": "electron-builder install-app-deps",
+    "clean:release": "node scripts/clean-release.js",
+    "dist": "electron-vite build && electron-builder && npm run clean:release",
+    "dist:mac": "electron-vite build && electron-builder --mac && npm run clean:release",
+    "dist:win": "electron-vite build && electron-builder --win && npm run clean:release",
+    "dist:linux": "electron-vite build && electron-builder --linux && npm run clean:release"
   },
   "build": {
     "appId": "com.mqttstudio.app",
     "productName": "MQTT Studio",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
     "files": [
       "out/**"
     ],
@@ -20,7 +29,35 @@
       "**/node_modules/better-sqlite3/**"
     ],
     "mac": {
-      "category": "public.app-category.developer-tools"
+      "category": "public.app-category.developer-tools",
+      "icon": "build/icon.icns",
+      "target": [
+        { "target": "dmg", "arch": ["arm64", "x64"] }
+      ]
+    },
+    "dmg": {
+      "writeUpdateInfo": false
+    },
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "differentialPackage": false
+    },
+    "linux": {
+      "icon": "build/icon.png",
+      "category": "Development",
+      "maintainer": "Krishna <zruits199@gmail.com>",
+      "target": [
+        { "target": "AppImage", "arch": ["x64"] },
+        { "target": "deb", "arch": ["x64"] }
+      ]
     }
   },
   "dependencies": {

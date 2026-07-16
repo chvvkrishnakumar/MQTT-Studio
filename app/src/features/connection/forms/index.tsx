@@ -27,7 +27,7 @@ const DEFAULTS = {
     { topic: '#', qos: 0 },
     { topic: '$SYS/#', qos: 0 },
   ],
-  will: { enabled: false, topic: '', payload: '', qos: 0, retain: false },
+  will: { enabled: false, topic: '', payload: '', payloadFormat: 'RAW', qos: 0, retain: false },
 };
 
 const TABS = [

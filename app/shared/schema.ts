@@ -18,10 +18,14 @@ export const subscription = z.object({
 });
 export type Subscription = z.infer<typeof subscription>;
 
+export const payloadFormat = z.enum(['RAW', 'JSON', 'XML', 'YAML']);
+export type PayloadFormat = z.infer<typeof payloadFormat>;
+
 export const lastWill = z.object({
   enabled: z.boolean().default(false),
   topic: z.string().default(''),
   payload: z.string().default(''),
+  payloadFormat: payloadFormat.default('RAW'),
   qos: qos.default(0),
   retain: z.boolean().default(false),
 });
@@ -51,7 +55,14 @@ export const connection = z.object({
 
   // collections
   subscriptions: z.array(subscription).default([]),
-  will: lastWill.default({ enabled: false, topic: '', payload: '', qos: 0, retain: false }),
+  will: lastWill.default({
+    enabled: false,
+    topic: '',
+    payload: '',
+    payloadFormat: 'RAW',
+    qos: 0,
+    retain: false,
+  }),
 });
 export type Connection = z.infer<typeof connection>;
 
