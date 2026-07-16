@@ -19,6 +19,7 @@ const api: StudioApi = {
     disconnect: (id) => ipcRenderer.invoke('mqtt:disconnect', id),
     publish: (input) => ipcRenderer.invoke('mqtt:publish', input),
     pause: (paused) => ipcRenderer.invoke('mqtt:pause', paused),
+    setActive: (id) => ipcRenderer.invoke('mqtt:setActive', id),
     history: (connectionId, topic) => ipcRenderer.invoke('mqtt:history', { connectionId, topic }),
     statuses: () => ipcRenderer.invoke('mqtt:statuses'),
     clear: (id) => ipcRenderer.invoke('mqtt:clear', id),

@@ -71,23 +71,13 @@ export default function ConnectionForm({
               Configure how MQTT Studio reaches your broker.
             </p>
           </div>
-          <div className="flex gap-2">
-            {onCancel && (
-              <Button type="button" variant="ghost" onClick={onCancel}>
-                Cancel
-              </Button>
-            )}
-            <Button type="submit" variant="outline" disabled={submitting}>
-              {editing ? 'Save changes' : 'Save'}
-            </Button>
-            <Button
-              type="button"
-              disabled={submitting}
-              onClick={methods.handleSubmit((d) => onConnect(d as ConnectionDraft))}
-            >
-              <PlugZap className="size-4" /> Connect
-            </Button>
-          </div>
+          <Button
+            type="button"
+            disabled={submitting}
+            onClick={methods.handleSubmit((d) => onConnect(d as ConnectionDraft))}
+          >
+            <PlugZap className="size-4" /> Connect
+          </Button>
         </div>
 
         <Tabs defaultValue="general" className="flex min-h-0 flex-1 flex-col">
@@ -119,6 +109,17 @@ export default function ConnectionForm({
             </div>
           </div>
         </Tabs>
+
+        <div className="flex items-center justify-end gap-2 border-t px-6 py-3">
+          {onCancel && (
+            <Button type="button" variant="ghost" onClick={onCancel}>
+              Cancel
+            </Button>
+          )}
+          <Button type="submit" variant="outline" disabled={submitting}>
+            {editing ? 'Save changes' : 'Save'}
+          </Button>
+        </div>
       </form>
     </FormProvider>
   );

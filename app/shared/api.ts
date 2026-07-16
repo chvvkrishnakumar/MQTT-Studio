@@ -21,6 +21,8 @@ export interface StudioApi {
     disconnect(id: string): Promise<void>;
     publish(input: PublishInput): Promise<void>;
     pause(paused: boolean): Promise<void>;
+    /** Mark which connection's tab is visible; null silences all. */
+    setActive(id: string | null): Promise<void>;
     history(connectionId: string, topic: string): Promise<MqttMessage[]>;
     statuses(): Promise<Record<string, ConnStatus>>;
     clear(id: string): Promise<void>;

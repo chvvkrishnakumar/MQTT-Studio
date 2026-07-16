@@ -228,6 +228,9 @@ class MqttManager {
   live = /* @__PURE__ */ new Map();
   status = /* @__PURE__ */ new Map();
   paused = false;
+  /** The connection whose tab is currently visible. Only this one streams
+   *  live deltas to the renderer; the rest keep ingesting + persisting silently. */
+  activeId = null;
   emit = () => {
   };
   init(emit) {
@@ -293,12 +296,23 @@ class MqttManager {
   }
   setPaused(paused) {
     this.paused = paused;
-    if (!paused) {
-      for (const [id, entry] of this.live) {
-        entry.dirty.clear();
-        const updates = [...entry.latest.values()];
-        if (updates.length) this.emit("mqtt:delta", { connectionId: id, updates });
-      }
+    if (!paused && this.activeId) this.snapshot(this.activeId);
+  }
+  /** Mark which connection's tab is visible. Switching replays a full snapshot
+   *  so the newly-shown tab catches up on everything it missed while silent.
+   *  Pass null when no explorer is open to silence every connection. */
+  setActive(id) {
+    this.activeId = id;
+    if (id && !this.paused) this.snapshot(id);
+  }
+  /** Emit the entire current live state for one connection as a single delta. */
+  snapshot(id) {
+    const entry = this.live.get(id);
+    if (!entry) return;
+    entry.dirty.clear();
+    const updates = [...entry.latest.values()];
+    if (updates.length) {
+      this.emit("mqtt:delta", { connectionId: id, updates });
     }
   }
   statuses() {
@@ -314,7 +328,7 @@ class MqttManager {
   flush() {
     for (const [id, entry] of this.live) {
       this.persist(id, entry);
-      if (this.paused || entry.dirty.size === 0) continue;
+      if (this.paused || id !== this.activeId || entry.dirty.size === 0) continue;
       const updates = [];
       for (const topic of entry.dirty) {
         const u = entry.latest.get(topic);
@@ -368,6 +382,7 @@ function registerIpc(win2) {
   ipcMain.handle("mqtt:disconnect", (_e, id) => manager.disconnect(id));
   ipcMain.handle("mqtt:publish", (_e, input) => manager.publish(input));
   ipcMain.handle("mqtt:pause", (_e, paused) => manager.setPaused(paused));
+  ipcMain.handle("mqtt:setActive", (_e, id) => manager.setActive(id));
   ipcMain.handle("mqtt:statuses", () => manager.statuses());
   ipcMain.handle(
     "mqtt:history",

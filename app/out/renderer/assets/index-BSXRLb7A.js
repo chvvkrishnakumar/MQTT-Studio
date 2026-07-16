@@ -159,7 +159,7 @@ function requireReact_production_min() {
     throw a._result;
   }
   var U = { current: null }, V = { transition: null }, W = { ReactCurrentDispatcher: U, ReactCurrentBatchConfig: V, ReactCurrentOwner: K };
-  function X() {
+  function X2() {
     throw Error("act(...) is not supported in production builds of React.");
   }
   react_production_min.Children = { map: S, forEach: function(a, b, e) {
@@ -187,7 +187,7 @@ function requireReact_production_min() {
   react_production_min.StrictMode = q;
   react_production_min.Suspense = w;
   react_production_min.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = W;
-  react_production_min.act = X;
+  react_production_min.act = X2;
   react_production_min.cloneElement = function(a, b, e) {
     if (null === a || void 0 === a) throw Error("React.cloneElement(...): The argument must be a React element, but you passed " + a + ".");
     var d = C({}, a.props), c = a.key, k = a.ref, h = a._owner;
@@ -239,7 +239,7 @@ function requireReact_production_min() {
       V.transition = b;
     }
   };
-  react_production_min.unstable_act = X;
+  react_production_min.unstable_act = X2;
   react_production_min.useCallback = function(a, b) {
     return U.current.useCallback(a, b);
   };
@@ -5076,7 +5076,7 @@ function requireReactDom_production_min() {
     if (5 === d || 6 === d) a = a.stateNode, b ? c.insertBefore(a, b) : c.appendChild(a);
     else if (4 !== d && (a = a.child, null !== a)) for (Wj(a, b, c), a = a.sibling; null !== a; ) Wj(a, b, c), a = a.sibling;
   }
-  var X = null, Xj = false;
+  var X2 = null, Xj = false;
   function Yj(a, b, c) {
     for (c = c.child; null !== c; ) Zj(a, b, c), c = c.sibling;
   }
@@ -5089,23 +5089,23 @@ function requireReactDom_production_min() {
       case 5:
         U || Lj(c, b);
       case 6:
-        var d = X, e = Xj;
-        X = null;
+        var d = X2, e = Xj;
+        X2 = null;
         Yj(a, b, c);
-        X = d;
+        X2 = d;
         Xj = e;
-        null !== X && (Xj ? (a = X, c = c.stateNode, 8 === a.nodeType ? a.parentNode.removeChild(c) : a.removeChild(c)) : X.removeChild(c.stateNode));
+        null !== X2 && (Xj ? (a = X2, c = c.stateNode, 8 === a.nodeType ? a.parentNode.removeChild(c) : a.removeChild(c)) : X2.removeChild(c.stateNode));
         break;
       case 18:
-        null !== X && (Xj ? (a = X, c = c.stateNode, 8 === a.nodeType ? Kf(a.parentNode, c) : 1 === a.nodeType && Kf(a, c), bd(a)) : Kf(X, c.stateNode));
+        null !== X2 && (Xj ? (a = X2, c = c.stateNode, 8 === a.nodeType ? Kf(a.parentNode, c) : 1 === a.nodeType && Kf(a, c), bd(a)) : Kf(X2, c.stateNode));
         break;
       case 4:
-        d = X;
+        d = X2;
         e = Xj;
-        X = c.stateNode.containerInfo;
+        X2 = c.stateNode.containerInfo;
         Xj = true;
         Yj(a, b, c);
-        X = d;
+        X2 = d;
         Xj = e;
         break;
       case 0:
@@ -5162,23 +5162,23 @@ function requireReactDom_production_min() {
         a: for (; null !== h; ) {
           switch (h.tag) {
             case 5:
-              X = h.stateNode;
+              X2 = h.stateNode;
               Xj = false;
               break a;
             case 3:
-              X = h.stateNode.containerInfo;
+              X2 = h.stateNode.containerInfo;
               Xj = true;
               break a;
             case 4:
-              X = h.stateNode.containerInfo;
+              X2 = h.stateNode.containerInfo;
               Xj = true;
               break a;
           }
           h = h.return;
         }
-        if (null === X) throw Error(p(160));
+        if (null === X2) throw Error(p(160));
         Zj(f, g, e);
-        X = null;
+        X2 = null;
         Xj = false;
         var k = e.alternate;
         null !== k && (k.return = null);
@@ -15472,6 +15472,7 @@ const createImpl = (createState) => {
 const create = ((createState) => createState ? createImpl(createState) : createImpl);
 const useStudio = create((set2) => ({
   statuses: {},
+  errors: {},
   topics: {},
   paused: false,
   applyDelta: (delta) => set2((state) => {
@@ -15480,7 +15481,10 @@ const useStudio = create((set2) => ({
     for (const u of delta.updates) next[u.topic] = { ...u, updatedAt: now };
     return { topics: { ...state.topics, [delta.connectionId]: next } };
   }),
-  setStatus: ({ connectionId, status }) => set2((state) => ({ statuses: { ...state.statuses, [connectionId]: status } })),
+  setStatus: ({ connectionId, status, error }) => set2((state) => ({
+    statuses: { ...state.statuses, [connectionId]: status },
+    errors: { ...state.errors, [connectionId]: error }
+  })),
   setStatuses: (statuses) => set2({ statuses }),
   setPaused: (paused) => set2({ paused }),
   clearTopics: (connectionId) => set2((state) => ({ topics: { ...state.topics, [connectionId]: {} } }))
@@ -15505,9 +15509,6 @@ const Route$5 = createRootRoute({
   component: Root$3,
   notFoundComponent: NotFound,
   errorComponent: ErrorState
-});
-const Route$4 = createFileRoute("/_ExplorerLayout")({
-  component: () => /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {})
 });
 /**
  * @license lucide-react v0.477.0 - ISC
@@ -15596,50 +15597,50 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$l = [
+const __iconNode$m = [
   ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
   ["path", { d: "M19 12H5", key: "x3x0zl" }]
 ];
-const ArrowLeft = createLucideIcon("ArrowLeft", __iconNode$l);
+const ArrowLeft = createLucideIcon("ArrowLeft", __iconNode$m);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$k = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("Check", __iconNode$k);
+const __iconNode$l = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("Check", __iconNode$l);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$j = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown = createLucideIcon("ChevronDown", __iconNode$j);
+const __iconNode$k = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("ChevronDown", __iconNode$k);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$i = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("ChevronRight", __iconNode$i);
+const __iconNode$j = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("ChevronRight", __iconNode$j);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$h = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
-const ChevronUp = createLucideIcon("ChevronUp", __iconNode$h);
+const __iconNode$i = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("ChevronUp", __iconNode$i);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$g = [
+const __iconNode$h = [
   [
     "path",
     {
@@ -15649,7 +15650,18 @@ const __iconNode$g = [
   ],
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }]
 ];
-const Compass = createLucideIcon("Compass", __iconNode$g);
+const Compass = createLucideIcon("Compass", __iconNode$h);
+/**
+ * @license lucide-react v0.477.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$g = [
+  ["rect", { width: "14", height: "14", x: "8", y: "8", rx: "2", ry: "2", key: "17jyea" }],
+  ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
+];
+const Copy = createLucideIcon("Copy", __iconNode$g);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
@@ -15657,17 +15669,6 @@ const Compass = createLucideIcon("Compass", __iconNode$g);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$f = [
-  ["rect", { width: "14", height: "14", x: "8", y: "8", rx: "2", ry: "2", key: "17jyea" }],
-  ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
-];
-const Copy = createLucideIcon("Copy", __iconNode$f);
-/**
- * @license lucide-react v0.477.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$e = [
   ["circle", { cx: "9", cy: "12", r: "1", key: "1vctgf" }],
   ["circle", { cx: "9", cy: "5", r: "1", key: "hp0tcf" }],
   ["circle", { cx: "9", cy: "19", r: "1", key: "fkjjf6" }],
@@ -15675,7 +15676,21 @@ const __iconNode$e = [
   ["circle", { cx: "15", cy: "5", r: "1", key: "19l28e" }],
   ["circle", { cx: "15", cy: "19", r: "1", key: "f4zoj3" }]
 ];
-const GripVertical = createLucideIcon("GripVertical", __iconNode$e);
+const GripVertical = createLucideIcon("GripVertical", __iconNode$f);
+/**
+ * @license lucide-react v0.477.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$e = [
+  ["path", { d: "M21 12h-8", key: "1bmf0i" }],
+  ["path", { d: "M21 6H8", key: "1pqkrb" }],
+  ["path", { d: "M21 18h-8", key: "1tm79t" }],
+  ["path", { d: "M3 6v4c0 1.1.9 2 2 2h3", key: "1ywdgy" }],
+  ["path", { d: "M3 10v6c0 1.1.9 2 2 2h3", key: "2wc746" }]
+];
+const ListTree = createLucideIcon("ListTree", __iconNode$e);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
@@ -15683,13 +15698,9 @@ const GripVertical = createLucideIcon("GripVertical", __iconNode$e);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$d = [
-  ["path", { d: "M21 12h-8", key: "1bmf0i" }],
-  ["path", { d: "M21 6H8", key: "1pqkrb" }],
-  ["path", { d: "M21 18h-8", key: "1tm79t" }],
-  ["path", { d: "M3 6v4c0 1.1.9 2 2 2h3", key: "1ywdgy" }],
-  ["path", { d: "M3 10v6c0 1.1.9 2 2 2h3", key: "2wc746" }]
+  ["path", { d: "M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z", key: "a7tn18" }]
 ];
-const ListTree = createLucideIcon("ListTree", __iconNode$d);
+const Moon = createLucideIcon("Moon", __iconNode$d);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
@@ -15697,35 +15708,25 @@ const ListTree = createLucideIcon("ListTree", __iconNode$d);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$c = [
-  ["path", { d: "M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z", key: "a7tn18" }]
-];
-const Moon = createLucideIcon("Moon", __iconNode$c);
-/**
- * @license lucide-react v0.477.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$b = [
   ["rect", { x: "14", y: "4", width: "4", height: "16", rx: "1", key: "zuxfzm" }],
   ["rect", { x: "6", y: "4", width: "4", height: "16", rx: "1", key: "1okwgv" }]
 ];
-const Pause = createLucideIcon("Pause", __iconNode$b);
+const Pause = createLucideIcon("Pause", __iconNode$c);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$a = [["polygon", { points: "6 3 20 12 6 21 6 3", key: "1oa8hb" }]];
-const Play = createLucideIcon("Play", __iconNode$a);
+const __iconNode$b = [["polygon", { points: "6 3 20 12 6 21 6 3", key: "1oa8hb" }]];
+const Play = createLucideIcon("Play", __iconNode$b);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$9 = [
+const __iconNode$a = [
   [
     "path",
     { d: "M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z", key: "goz73y" }
@@ -15735,7 +15736,18 @@ const __iconNode$9 = [
   ["path", { d: "M10.5 16.5 13 14", key: "10btkg" }],
   ["path", { d: "m18 3-4 4h6l-4 4", key: "16psg9" }]
 ];
-const PlugZap = createLucideIcon("PlugZap", __iconNode$9);
+const PlugZap = createLucideIcon("PlugZap", __iconNode$a);
+/**
+ * @license lucide-react v0.477.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$9 = [
+  ["path", { d: "M5 12h14", key: "1ays0h" }],
+  ["path", { d: "M12 5v14", key: "s699le" }]
+];
+const Plus = createLucideIcon("Plus", __iconNode$9);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
@@ -15743,10 +15755,12 @@ const PlugZap = createLucideIcon("PlugZap", __iconNode$9);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$8 = [
-  ["path", { d: "M5 12h14", key: "1ays0h" }],
-  ["path", { d: "M12 5v14", key: "s699le" }]
+  ["path", { d: "M12 22v-5", key: "1ega77" }],
+  ["path", { d: "M9 8V2", key: "14iosj" }],
+  ["path", { d: "M15 8V2", key: "18g5xt" }],
+  ["path", { d: "M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z", key: "osxo6l" }]
 ];
-const Plus = createLucideIcon("Plus", __iconNode$8);
+const Plug = createLucideIcon("Plug", __iconNode$8);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
@@ -15754,12 +15768,13 @@ const Plus = createLucideIcon("Plus", __iconNode$8);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$7 = [
-  ["path", { d: "M12 22v-5", key: "1ega77" }],
-  ["path", { d: "M9 8V2", key: "14iosj" }],
-  ["path", { d: "M15 8V2", key: "18g5xt" }],
-  ["path", { d: "M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z", key: "osxo6l" }]
+  ["path", { d: "M4.9 19.1C1 15.2 1 8.8 4.9 4.9", key: "1vaf9d" }],
+  ["path", { d: "M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5", key: "u1ii0m" }],
+  ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }],
+  ["path", { d: "M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5", key: "1j5fej" }],
+  ["path", { d: "M19.1 4.9C23 8.8 23 15.1 19.1 19", key: "10b0cb" }]
 ];
-const Plug = createLucideIcon("Plug", __iconNode$7);
+const Radio = createLucideIcon("Radio", __iconNode$7);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
@@ -15767,20 +15782,6 @@ const Plug = createLucideIcon("Plug", __iconNode$7);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$6 = [
-  ["path", { d: "M4.9 19.1C1 15.2 1 8.8 4.9 4.9", key: "1vaf9d" }],
-  ["path", { d: "M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5", key: "u1ii0m" }],
-  ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }],
-  ["path", { d: "M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5", key: "1j5fej" }],
-  ["path", { d: "M19.1 4.9C23 8.8 23 15.1 19.1 19", key: "10b0cb" }]
-];
-const Radio = createLucideIcon("Radio", __iconNode$6);
-/**
- * @license lucide-react v0.477.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$5 = [
   [
     "path",
     {
@@ -15790,7 +15791,20 @@ const __iconNode$5 = [
   ],
   ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
 ];
-const Send = createLucideIcon("Send", __iconNode$5);
+const Send = createLucideIcon("Send", __iconNode$6);
+/**
+ * @license lucide-react v0.477.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$5 = [
+  ["path", { d: "M20 7h-9", key: "3s1dr2" }],
+  ["path", { d: "M14 17H5", key: "gfn3mx" }],
+  ["circle", { cx: "17", cy: "17", r: "3", key: "18b49y" }],
+  ["circle", { cx: "7", cy: "7", r: "3", key: "dfmy0x" }]
+];
+const Settings2 = createLucideIcon("Settings2", __iconNode$5);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
@@ -15798,19 +15812,6 @@ const Send = createLucideIcon("Send", __iconNode$5);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$4 = [
-  ["path", { d: "M20 7h-9", key: "3s1dr2" }],
-  ["path", { d: "M14 17H5", key: "gfn3mx" }],
-  ["circle", { cx: "17", cy: "17", r: "3", key: "18b49y" }],
-  ["circle", { cx: "7", cy: "7", r: "3", key: "dfmy0x" }]
-];
-const Settings2 = createLucideIcon("Settings2", __iconNode$4);
-/**
- * @license lucide-react v0.477.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$3 = [
   ["path", { d: "m12.5 17-.5-1-.5 1h1z", key: "3me087" }],
   [
     "path",
@@ -15822,14 +15823,14 @@ const __iconNode$3 = [
   ["circle", { cx: "15", cy: "12", r: "1", key: "1tmaij" }],
   ["circle", { cx: "9", cy: "12", r: "1", key: "1vctgf" }]
 ];
-const Skull = createLucideIcon("Skull", __iconNode$3);
+const Skull = createLucideIcon("Skull", __iconNode$4);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$2 = [
+const __iconNode$3 = [
   ["line", { x1: "4", x2: "4", y1: "21", y2: "14", key: "1p332r" }],
   ["line", { x1: "4", x2: "4", y1: "10", y2: "3", key: "gb41h5" }],
   ["line", { x1: "12", x2: "12", y1: "21", y2: "12", key: "hf2csr" }],
@@ -15840,14 +15841,14 @@ const __iconNode$2 = [
   ["line", { x1: "10", x2: "14", y1: "8", y2: "8", key: "1yglbp" }],
   ["line", { x1: "18", x2: "22", y1: "16", y2: "16", key: "1jxqpz" }]
 ];
-const SlidersVertical = createLucideIcon("SlidersVertical", __iconNode$2);
+const SlidersVertical = createLucideIcon("SlidersVertical", __iconNode$3);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$1 = [
+const __iconNode$2 = [
   ["circle", { cx: "12", cy: "12", r: "4", key: "4exip2" }],
   ["path", { d: "M12 2v2", key: "tus03m" }],
   ["path", { d: "M12 20v2", key: "1lh1kg" }],
@@ -15858,7 +15859,21 @@ const __iconNode$1 = [
   ["path", { d: "m6.34 17.66-1.41 1.41", key: "1m8zz5" }],
   ["path", { d: "m19.07 4.93-1.41 1.41", key: "1shlcs" }]
 ];
-const Sun = createLucideIcon("Sun", __iconNode$1);
+const Sun = createLucideIcon("Sun", __iconNode$2);
+/**
+ * @license lucide-react v0.477.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$1 = [
+  ["path", { d: "M3 6h18", key: "d0wm0j" }],
+  ["path", { d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6", key: "4alrt4" }],
+  ["path", { d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2", key: "v07s0e" }],
+  ["line", { x1: "10", x2: "10", y1: "11", y2: "17", key: "1uufr5" }],
+  ["line", { x1: "14", x2: "14", y1: "11", y2: "17", key: "xtxkd" }]
+];
+const Trash2 = createLucideIcon("Trash2", __iconNode$1);
 /**
  * @license lucide-react v0.477.0 - ISC
  *
@@ -15866,13 +15881,125 @@ const Sun = createLucideIcon("Sun", __iconNode$1);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode = [
-  ["path", { d: "M3 6h18", key: "d0wm0j" }],
-  ["path", { d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6", key: "4alrt4" }],
-  ["path", { d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2", key: "v07s0e" }],
-  ["line", { x1: "10", x2: "10", y1: "11", y2: "17", key: "1uufr5" }],
-  ["line", { x1: "14", x2: "14", y1: "11", y2: "17", key: "xtxkd" }]
+  ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
+  ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ];
-const Trash2 = createLucideIcon("Trash2", __iconNode);
+const X = createLucideIcon("X", __iconNode);
+const KEY$1 = "mqtt-studio.open-tabs";
+function load$1() {
+  try {
+    const raw = localStorage.getItem(KEY$1);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed.filter((x2) => typeof x2 === "string") : [];
+  } catch {
+    return [];
+  }
+}
+function persist(tabs) {
+  try {
+    localStorage.setItem(KEY$1, JSON.stringify(tabs));
+  } catch {
+  }
+}
+const useTabs = create((set2, get2) => ({
+  tabs: load$1(),
+  open: (id) => set2((s) => {
+    if (s.tabs.includes(id)) return s;
+    const tabs = [...s.tabs, id];
+    persist(tabs);
+    return { tabs };
+  }),
+  close: (id) => {
+    const { tabs } = get2();
+    const idx = tabs.indexOf(id);
+    const next = tabs[idx + 1] ?? tabs[idx - 1];
+    const remaining = tabs.filter((t) => t !== id);
+    persist(remaining);
+    set2({ tabs: remaining });
+    return next;
+  }
+}));
+const DOT$1 = {
+  connected: "bg-emerald-500",
+  connecting: "bg-amber-500 animate-pulse",
+  reconnecting: "bg-amber-500 animate-pulse",
+  disconnected: "bg-muted-foreground/50",
+  error: "bg-destructive"
+};
+function TabStrip({ activeId }) {
+  const navigate = useNavigate();
+  const tabs = useTabs((s) => s.tabs);
+  const close = useTabs((s) => s.close);
+  const statuses = useStudio((s) => s.statuses);
+  const [names, setNames] = reactExports.useState({});
+  reactExports.useEffect(() => {
+    window.api.connections.list().then((list) => {
+      setNames(Object.fromEntries(list.map((c) => [c.id, c])));
+    });
+  }, [tabs.length]);
+  const onClose = (e, id) => {
+    e.stopPropagation();
+    const next = close(id);
+    window.api.mqtt.disconnect(id);
+    if (id === activeId) {
+      if (next) navigate({ to: "/explore/$connectionId", params: { connectionId: next } });
+      else navigate({ to: "/" });
+    }
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass flex items-stretch gap-1 border-b px-2 pt-1.5", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-w-0 flex-1 items-stretch gap-1 overflow-x-auto", children: tabs.map((id) => {
+      const active = id === activeId;
+      const status = statuses[id] ?? "disconnected";
+      const name = names[id]?.name ?? "Connection";
+      return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "button",
+        {
+          type: "button",
+          onClick: () => navigate({ to: "/explore/$connectionId", params: { connectionId: id } }),
+          className: cn(
+            "group flex max-w-[200px] min-w-[120px] items-center gap-2 rounded-t-lg border border-b-0 px-3 py-2 text-sm transition-colors",
+            active ? "bg-background font-medium text-foreground" : "border-transparent text-muted-foreground hover:bg-foreground/5"
+          ),
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: cn("size-2 shrink-0 rounded-full", DOT$1[status]) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "truncate", children: name }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "span",
+              {
+                onClick: (e) => onClose(e, id),
+                className: "ml-auto grid size-5 shrink-0 place-items-center rounded opacity-0 transition group-hover:opacity-100 hover:bg-foreground/10",
+                "aria-label": `Close ${name}`,
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "size-3.5" })
+              }
+            )
+          ]
+        },
+        id
+      );
+    }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "button",
+      {
+        type: "button",
+        onClick: () => navigate({ to: "/" }),
+        title: "New connection",
+        className: "my-1 grid size-8 place-items-center self-center rounded-md text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "size-4" })
+      }
+    )
+  ] });
+}
+const Route$4 = createFileRoute("/_ExplorerLayout")({
+  component: ExplorerLayout
+});
+function ExplorerLayout() {
+  const { connectionId } = useParams({ strict: false });
+  reactExports.useEffect(() => () => void window.api.mqtt.setActive(null), []);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-screen flex-col bg-gradient-to-b from-background to-muted/20", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(TabStrip, { activeId: connectionId }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-h-0 flex-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) })
+  ] });
+}
 const badgeVariants = cva(
   "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
@@ -15937,9 +16064,9 @@ function ConnectionLayout() {
   const statuses = useStudio((s) => s.statuses);
   const selectedId = useParams({ strict: false }).connectionId;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-screen flex-col bg-background text-foreground", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "flex items-center gap-2 border-b bg-card px-5 py-3", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Radio, { className: "size-5 text-primary" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-base font-semibold", children: "MQTT Studio" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "glass z-10 flex items-center gap-2.5 border-b px-5 py-3", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/60 shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Radio, { className: "size-4 text-primary-foreground" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-base font-semibold text-transparent", children: "MQTT Studio" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ThemeToggle, {}) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex min-h-0 flex-1", children: [
@@ -24268,7 +24395,7 @@ const SelectTrigger = reactExports.forwardRef(({ className, children, ...props2 
   {
     ref,
     className: cn(
-      "flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+      "flex h-10 w-full items-center justify-between rounded-md border border-input bg-muted/40 px-3 py-2 text-sm text-foreground ring-offset-background transition-colors placeholder:text-muted-foreground hover:border-foreground/30 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
       className
     ),
     ...props2,
@@ -24430,7 +24557,7 @@ const Input = reactExports.forwardRef(
       {
         type,
         className: cn(
-          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+          "flex h-10 w-full rounded-md border border-input bg-muted/40 px-3 py-2 text-base text-foreground ring-offset-background transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground hover:border-foreground/30 focus-visible:border-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
           className
         ),
         ref,
@@ -27612,7 +27739,7 @@ const Textarea = reactExports.forwardRef(({ className, ...props2 }, ref) => {
     "textarea",
     {
       className: cn(
-        "flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+        "flex min-h-[80px] w-full rounded-md border border-input bg-muted/40 px-3 py-2 text-base text-foreground ring-offset-background transition-colors placeholder:text-muted-foreground hover:border-foreground/30 focus-visible:border-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
         className
       ),
       ref,
@@ -28092,13 +28219,19 @@ const TABS = [
   { value: "advanced", label: "Advanced", icon: SlidersVertical },
   { value: "lastwill", label: "Last Will", icon: Skull }
 ];
-function ConnectionForm({ defaultValues, onSubmit, onCancel, submitting }) {
+function ConnectionForm({
+  defaultValues,
+  onSave,
+  onConnect,
+  onCancel,
+  submitting
+}) {
   const methods = useForm({ defaultValues: { ...DEFAULTS, ...defaultValues ?? {} } });
   const editing = !!defaultValues?.id;
   return /* @__PURE__ */ jsxRuntimeExports.jsx(FormProvider, { ...methods, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "form",
     {
-      onSubmit: methods.handleSubmit((d) => onSubmit(d)),
+      onSubmit: methods.handleSubmit((d) => onSave(d)),
       className: "flex h-full flex-col",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between border-b px-6 py-4", children: [
@@ -28106,10 +28239,18 @@ function ConnectionForm({ defaultValues, onSubmit, onCancel, submitting }) {
             /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-lg font-semibold", children: editing ? "Edit connection" : "New connection" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Configure how MQTT Studio reaches your broker." })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
-            onCancel && /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { type: "button", variant: "ghost", onClick: onCancel, children: "Cancel" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { type: "submit", disabled: submitting, children: editing ? "Save changes" : "Create" })
-          ] })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            Button,
+            {
+              type: "button",
+              disabled: submitting,
+              onClick: methods.handleSubmit((d) => onConnect(d)),
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(PlugZap, { className: "size-4" }),
+                " Connect"
+              ]
+            }
+          )
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs(Tabs, { defaultValue: "general", className: "flex min-h-0 flex-1 flex-col", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-b px-6 pt-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx(TabsList, { className: "bg-transparent p-0", children: TABS.map(({ value, label, icon: Icon2 }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(TabsTrigger, { value, className: "gap-1.5", children: [
@@ -28122,6 +28263,10 @@ function ConnectionForm({ defaultValues, onSubmit, onCancel, submitting }) {
             /* @__PURE__ */ jsxRuntimeExports.jsx(TabsContent, { value: "advanced", className: "mt-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AdvancedTab, {}) }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(TabsContent, { value: "lastwill", className: "mt-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(LastWillTab, {}) })
           ] }) })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-end gap-2 border-t px-6 py-3", children: [
+          onCancel && /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { type: "button", variant: "ghost", onClick: onCancel, children: "Cancel" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { type: "submit", variant: "outline", disabled: submitting, children: editing ? "Save changes" : "Save" })
         ] })
       ]
     }
@@ -28135,18 +28280,30 @@ function ConnectionFormPage() {
   const connection2 = Route$1.useLoaderData();
   const { connectionId } = Route$1.useParams();
   const router2 = useRouter();
-  const onSubmit = async (data) => {
+  const save = async (data) => {
     const saved = await window.api.connections.save(
       connectionId === "new" ? data : { ...data, id: connectionId }
     );
     await router2.invalidate();
+    return saved;
+  };
+  const onSave = async (data) => {
+    const saved = await save(data);
+    if (connectionId === "new") {
+      router2.navigate({ to: "/$connectionId", params: { connectionId: saved.id } });
+    }
+  };
+  const onConnect = async (data) => {
+    const saved = await save(data);
+    await window.api.mqtt.connect(saved.id);
     router2.navigate({ to: "/explore/$connectionId", params: { connectionId: saved.id } });
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     ConnectionForm,
     {
       defaultValues: connection2,
-      onSubmit,
+      onSave,
+      onConnect,
       onCancel: () => router2.navigate({ to: "/" })
     },
     connectionId
@@ -30277,7 +30434,7 @@ const ResizableHandle = ({
   }
 );
 function buildTree(topics) {
-  const root = { seg: "", path: "", children: /* @__PURE__ */ new Map() };
+  const root = { seg: "", path: "", children: /* @__PURE__ */ new Map(), descendants: 0, subtreeUpdatedAt: 0 };
   for (const t of Object.values(topics)) {
     let cur = root;
     let path = "";
@@ -30285,9 +30442,11 @@ function buildTree(topics) {
       path = path ? `${path}/${seg}` : seg;
       let child = cur.children.get(seg);
       if (!child) {
-        child = { seg, path, children: /* @__PURE__ */ new Map() };
+        child = { seg, path, children: /* @__PURE__ */ new Map(), descendants: 0, subtreeUpdatedAt: 0 };
         cur.children.set(seg, child);
       }
+      cur.descendants++;
+      child.subtreeUpdatedAt = Math.max(child.subtreeUpdatedAt, t.updatedAt);
       cur = child;
     }
     cur.state = t;
@@ -30296,48 +30455,48 @@ function buildTree(topics) {
 }
 function preview(payload) {
   const flat = payload.replace(/\s+/g, " ").trim();
-  return flat.length > 48 ? `${flat.slice(0, 48)}…` : flat;
+  return flat.length > 60 ? `${flat.slice(0, 60)}…` : flat;
 }
-function Row({ node, depth, selected, collapsed, onToggle, onSelect }) {
+function Row({ node, depth, selected, expanded, onToggle, onSelect }) {
   const children = [...node.children.values()].sort((a, b) => a.seg.localeCompare(b.seg));
   const hasChildren = children.length > 0;
-  const isOpen = !collapsed.has(node.path);
+  const isOpen = expanded.has(node.path);
   const isSelected = node.state && selected === node.path;
+  const shimmerAt = hasChildren && isOpen ? node.state?.updatedAt : node.subtreeUpdatedAt || void 0;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "div",
       {
         className: cn(
-          "group flex cursor-pointer items-center gap-1 rounded px-1 py-1 text-sm hover:bg-accent/40",
-          isSelected && "bg-accent text-accent-foreground"
+          "relative flex cursor-pointer items-center gap-1.5 rounded-lg px-1.5 py-1.5 text-sm transition-colors",
+          isSelected ? "bg-primary/15 text-foreground ring-1 ring-primary/30" : "hover:bg-accent/40"
         ),
-        style: { paddingLeft: depth * 12 + 4 },
-        onClick: () => node.state ? onSelect(node.path) : hasChildren && onToggle(node.path),
+        style: { paddingLeft: depth * 14 + 6 },
+        onClick: () => {
+          if (hasChildren) onToggle(node.path);
+          if (node.state) onSelect(node.path);
+        },
         children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "button",
+          shimmerAt && /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "span",
             {
-              type: "button",
-              className: "shrink-0 text-muted-foreground",
-              onClick: (e) => {
-                e.stopPropagation();
-                if (hasChildren) onToggle(node.path);
-              },
-              children: hasChildren ? isOpen ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "size-3.5" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "size-3.5" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-block size-3.5" })
+              className: "live-shimmer pointer-events-none absolute inset-0"
+            },
+            shimmerAt
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            ChevronRight,
+            {
+              className: cn(
+                "size-3.5 shrink-0 text-muted-foreground transition-transform",
+                hasChildren ? "opacity-100" : "opacity-0",
+                isOpen && "rotate-90"
+              )
             }
           ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "truncate font-medium", children: node.seg }),
-          node.state && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "span",
-              {
-                className: "flash-once ml-2 min-w-0 flex-1 truncate rounded px-1 font-mono text-xs text-muted-foreground",
-                children: preview(node.state.payload)
-              },
-              node.state.updatedAt
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-auto shrink-0 rounded bg-muted px-1.5 text-[10px] tabular-nums text-muted-foreground", children: node.state.count })
-          ] })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: cn("truncate font-medium", node.state && "text-primary"), children: node.seg }),
+          node.state ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-2 min-w-0 flex-1 truncate font-mono text-xs text-muted-foreground", children: preview(node.state.payload) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-2 flex-1" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-auto shrink-0 rounded-full bg-muted/70 px-1.5 py-0.5 text-[10px] tabular-nums text-muted-foreground", children: node.state ? node.state.count : node.descendants })
         ]
       }
     ),
@@ -30347,7 +30506,7 @@ function Row({ node, depth, selected, collapsed, onToggle, onSelect }) {
         node: c,
         depth: depth + 1,
         selected,
-        collapsed,
+        expanded,
         onToggle,
         onSelect
       },
@@ -30356,24 +30515,24 @@ function Row({ node, depth, selected, collapsed, onToggle, onSelect }) {
   ] });
 }
 function TopicTree({ topics, selected, onSelect }) {
-  const [collapsed, setCollapsed] = reactExports.useState(/* @__PURE__ */ new Set());
+  const [expanded, setExpanded] = reactExports.useState(/* @__PURE__ */ new Set());
   const root = reactExports.useMemo(() => buildTree(topics), [topics]);
   const roots = [...root.children.values()].sort((a, b) => a.seg.localeCompare(b.seg));
-  const toggle = (path) => setCollapsed((prev) => {
+  const toggle = (path) => setExpanded((prev) => {
     const next = new Set(prev);
     next.has(path) ? next.delete(path) : next.add(path);
     return next;
   });
   if (roots.length === 0) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-4 text-sm text-muted-foreground", children: "No topics yet. Connect and subscribe to start receiving messages." });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-6 text-sm text-muted-foreground", children: "No topics yet. Connect and subscribe to start receiving messages." });
   }
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-1", children: roots.map((n) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-0.5 p-2", children: roots.map((n) => /* @__PURE__ */ jsxRuntimeExports.jsx(
     Row,
     {
       node: n,
       depth: 0,
       selected,
-      collapsed,
+      expanded,
       onToggle: toggle,
       onSelect
     },
@@ -42242,7 +42401,7 @@ function calendar(ticks2, tickInterval, year, month, week, day, hour, minute, se
   };
   return scale;
 }
-function time$3() {
+function time$2() {
   return initRange.apply(calendar(timeTicks, timeTickInterval, timeYear, timeMonth, timeSunday, timeDay, timeHour, timeMinute, second, timeFormat).domain([new Date(2e3, 0, 1), new Date(2e3, 0, 2)]), arguments);
 }
 function utcTime() {
@@ -42426,7 +42585,7 @@ const d3Scales = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProp
   scaleSqrt: sqrt,
   scaleSymlog: symlog,
   scaleThreshold: threshold,
-  scaleTime: time$3,
+  scaleTime: time$2,
   scaleUtc: utcTime,
   tickFormat
 }, Symbol.toStringTag, { value: "Module" }));
@@ -52223,7 +52382,7 @@ function timeSource(args) {
   const regex = typeof args.precision === "number" ? args.precision === -1 ? `${hhmm}` : args.precision === 0 ? `${hhmm}:[0-5]\\d` : `${hhmm}:[0-5]\\d\\.\\d{${args.precision}}` : `${hhmm}(?::[0-5]\\d(?:\\.\\d+)?)?`;
   return regex;
 }
-function time$2(args) {
+function time$1(args) {
   return new RegExp(`^${timeSource(args)}$`);
 }
 function datetime$1(args) {
@@ -52936,7 +53095,7 @@ const $ZodISODate = /* @__PURE__ */ $constructor("$ZodISODate", (inst, def) => {
   $ZodStringFormat.init(inst, def);
 });
 const $ZodISOTime = /* @__PURE__ */ $constructor("$ZodISOTime", (inst, def) => {
-  def.pattern ?? (def.pattern = time$2(def));
+  def.pattern ?? (def.pattern = time$1(def));
   $ZodStringFormat.init(inst, def);
 });
 const $ZodISODuration = /* @__PURE__ */ $constructor("$ZodISODuration", (inst, def) => {
@@ -55149,7 +55308,7 @@ const ZodISOTime = /* @__PURE__ */ $constructor("ZodISOTime", (inst, def) => {
   $ZodISOTime.init(inst, def);
   ZodStringFormat.init(inst, def);
 });
-function time$1(params) {
+function time(params) {
   return /* @__PURE__ */ _isoTime(ZodISOTime, params);
 }
 const ZodISODuration = /* @__PURE__ */ $constructor("ZodISODuration", (inst, def) => {
@@ -55458,7 +55617,7 @@ const ZodString = /* @__PURE__ */ $constructor("ZodString", (inst, def) => {
   inst.e164 = (params) => inst.check(/* @__PURE__ */ _e164(ZodE164, params));
   inst.datetime = (params) => inst.check(datetime(params));
   inst.date = (params) => inst.check(date(params));
-  inst.time = (params) => inst.check(time$1(params));
+  inst.time = (params) => inst.check(time(params));
   inst.duration = (params) => inst.check(duration(params));
 });
 function string(params) {
@@ -56022,9 +56181,32 @@ const connection = object({
 connection.omit({ id: true }).extend({
   id: string().optional()
 });
-const time = (ts) => new Date(ts).toLocaleTimeString([], { hour12: false }) + "." + String(ts % 1e3).padStart(3, "0");
+const clock = (ts) => new Date(ts).toLocaleTimeString([], { hour12: false }) + "." + String(ts % 1e3).padStart(3, "0");
+function pretty(payload) {
+  const t = payload.trim();
+  if (t.startsWith("{") || t.startsWith("[")) {
+    try {
+      return JSON.stringify(JSON.parse(t), null, 2);
+    } catch {
+    }
+  }
+  return payload;
+}
+function useCopy() {
+  const [copied, setCopied] = reactExports.useState(false);
+  return {
+    copied,
+    copy: (text) => {
+      navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1200);
+    }
+  };
+}
 function TopicDetail({ connectionId, topic, live: live2 }) {
   const [history2, setHistory] = reactExports.useState([]);
+  const path = useCopy();
+  const value = useCopy();
   reactExports.useEffect(() => {
     if (!topic) return setHistory([]);
     let active = true;
@@ -56051,62 +56233,102 @@ function TopicDetail({ connectionId, topic, live: live2 }) {
     const pts = [...history2].reverse().map((m) => ({ ts: m.ts, value: Number(m.payload) })).filter((p) => Number.isFinite(p.value));
     return pts.length >= 2 ? pts : null;
   }, [history2]);
-  const copyPath = () => topic && navigator.clipboard.writeText(topic);
   if (!topic) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex h-full items-center justify-center text-sm text-muted-foreground", children: "Select a topic to inspect its history." });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex h-full items-center justify-center p-8 text-center text-sm text-muted-foreground", children: "Select a topic from the tree to inspect its live value and history." });
   }
+  const current2 = history2[0];
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-full flex-col", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 border-b px-4 py-3", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("code", { className: "min-w-0 flex-1 truncate rounded bg-muted px-2 py-1 font-mono text-sm", children: topic }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Button, { variant: "outline", size: "sm", onClick: copyPath, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Copy, { className: "size-4" }),
-        " Copy"
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass flex items-center gap-2 border-b px-4 py-3", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("code", { className: "min-w-0 flex-1 truncate rounded-md bg-muted/60 px-2.5 py-1.5 font-mono text-sm", children: topic }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Button, { variant: "outline", size: "sm", onClick: () => path.copy(topic), children: [
+        path.copied ? /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "size-4 text-emerald-500" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Copy, { className: "size-4" }),
+        path.copied ? "Copied" : "Copy"
       ] })
     ] }),
-    numeric && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-b p-3", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-1 text-xs font-medium text-muted-foreground", children: "Value over time" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ResponsiveContainer, { width: "100%", height: 140, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(LineChart, { data: numeric, margin: { top: 4, right: 8, bottom: 0, left: -16 }, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(XAxis, { dataKey: "ts", tickFormatter: time, fontSize: 10, minTickGap: 40 }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(YAxis, { fontSize: 10, width: 44, domain: ["auto", "auto"] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Tooltip,
-          {
-            labelFormatter: (v) => time(Number(v)),
-            contentStyle: { fontSize: 12 }
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Line,
-          {
-            type: "monotone",
-            dataKey: "value",
-            stroke: "var(--primary)",
-            strokeWidth: 2,
-            dot: false,
-            isAnimationActive: false
-          }
-        )
-      ] }) })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-0 flex-1 overflow-auto p-3", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-1 text-xs font-medium text-muted-foreground", children: [
-        "History (last ",
-        HISTORY_LIMIT,
-        ")"
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-1 font-mono text-xs", children: [
-        history2.map((m, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rounded bg-muted/50 p-2", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 text-[10px] text-muted-foreground", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: time(m.ts) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-0 flex-1 space-y-4 overflow-auto p-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "overflow-hidden rounded-xl border bg-card/60 shadow-sm", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 border-b bg-muted/30 px-3 py-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-semibold uppercase tracking-wide text-muted-foreground", children: "Latest value" }),
+          current2 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { variant: "secondary", className: "text-[10px]", children: [
               "QoS ",
-              m.qos
+              current2.qos
             ] }),
-            m.retain && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-primary", children: "retained" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("pre", { className: "mt-1 whitespace-pre-wrap break-all", children: m.payload })
-        ] }, `${m.ts}-${i}`)),
-        history2.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-muted-foreground", children: "No messages recorded yet." })
+            current2.retain && /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "outline", className: "text-[10px] text-primary", children: "retained" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-auto font-mono text-[11px] text-muted-foreground", children: clock(current2.ts) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Button,
+              {
+                variant: "ghost",
+                size: "icon",
+                className: "size-6",
+                onClick: () => value.copy(current2.payload),
+                children: value.copied ? /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "size-3.5 text-emerald-500" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Copy, { className: "size-3.5" })
+              }
+            )
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("pre", { className: "max-h-72 overflow-auto p-3 font-mono text-xs leading-relaxed", children: current2 ? pretty(current2.payload) : "Waiting for a message…" })
+      ] }),
+      numeric && /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "rounded-xl border bg-card/60 p-3 shadow-sm", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground", children: "Value over time" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ResponsiveContainer, { width: "100%", height: 150, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(LineChart, { data: numeric, margin: { top: 4, right: 8, bottom: 0, left: -16 }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(XAxis, { dataKey: "ts", tickFormatter: clock, fontSize: 10, minTickGap: 44 }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(YAxis, { fontSize: 10, width: 44, domain: ["auto", "auto"] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Tooltip,
+            {
+              labelFormatter: (v) => clock(Number(v)),
+              contentStyle: {
+                fontSize: 12,
+                borderRadius: 8,
+                border: "1px solid var(--border)",
+                background: "var(--popover)"
+              }
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Line,
+            {
+              type: "monotone",
+              dataKey: "value",
+              stroke: "var(--primary)",
+              strokeWidth: 2,
+              dot: false,
+              isAnimationActive: false
+            }
+          )
+        ] }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground", children: [
+          "History",
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { variant: "secondary", className: "text-[10px]", children: [
+            "last ",
+            HISTORY_LIMIT
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-1.5", children: [
+          history2.map((m, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "div",
+            {
+              className: "rounded-lg border bg-muted/30 p-2.5 transition-colors hover:bg-muted/50",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 text-[10px] text-muted-foreground", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono", children: clock(m.ts) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+                    "QoS ",
+                    m.qos
+                  ] }),
+                  m.retain && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-primary", children: "retained" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("pre", { className: "mt-1 whitespace-pre-wrap break-all font-mono text-xs", children: m.payload })
+              ]
+            },
+            `${m.ts}-${i}`
+          )),
+          history2.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-muted-foreground", children: "No messages recorded yet." })
+        ] })
       ] })
     ] })
   ] });
@@ -56123,7 +56345,7 @@ function PublishPanel({ connectionId, topic, disabled }) {
     if (!target.trim()) return;
     window.api.mqtt.publish({ connectionId, topic: target, payload, qos: qos2, retain });
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3 border-t bg-card p-4", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass space-y-3 border-t p-4", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         Input,
@@ -56165,23 +56387,29 @@ function PublishPanel({ connectionId, topic, disabled }) {
   ] });
 }
 const STATUS_STYLE = {
-  connected: "bg-emerald-500",
+  connected: "bg-emerald-500 shadow-[0_0_10px_2px] shadow-emerald-500/50",
   connecting: "bg-amber-500 animate-pulse",
   reconnecting: "bg-amber-500 animate-pulse",
-  disconnected: "bg-muted-foreground",
-  error: "bg-destructive"
+  disconnected: "bg-muted-foreground/60",
+  error: "bg-destructive shadow-[0_0_10px_2px] shadow-destructive/50"
 };
 function Explorer({ connectionId }) {
   const [connection2, setConnection] = reactExports.useState(null);
   const [selected, setSelected] = reactExports.useState();
   const topics = useStudio((s) => s.topics[connectionId]);
   const status = useStudio((s) => s.statuses[connectionId] ?? "disconnected");
+  const error = useStudio((s) => s.errors[connectionId]);
   const paused = useStudio((s) => s.paused);
   const setPaused = useStudio((s) => s.setPaused);
   const clearTopics = useStudio((s) => s.clearTopics);
+  const openTab = useTabs((s) => s.open);
   reactExports.useEffect(() => {
     window.api.connections.get(connectionId).then((c) => setConnection(c ?? null));
   }, [connectionId]);
+  reactExports.useEffect(() => {
+    openTab(connectionId);
+    window.api.mqtt.setActive(connectionId);
+  }, [connectionId, openTab]);
   const connected = status === "connected";
   const live2 = selected ? topics?.[selected] : void 0;
   const togglePause = () => {
@@ -56194,8 +56422,8 @@ function Explorer({ connectionId }) {
     window.api.mqtt.clear(connectionId);
     setSelected(void 0);
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-screen flex-col bg-background text-foreground", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "flex items-center gap-3 border-b bg-card px-4 py-2.5", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-full flex-col text-foreground", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "glass z-10 flex items-center gap-3 border-b px-4 py-2.5", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { asChild: true, variant: "ghost", size: "icon", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowLeft, { className: "size-4" }) }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: cn("size-2.5 rounded-full", STATUS_STYLE[status]) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-w-0", children: [
@@ -56203,6 +56431,7 @@ function Explorer({ connectionId }) {
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "truncate text-xs text-muted-foreground", children: connection2 && `${connection2.protocol}://${connection2.host}:${connection2.port}` })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "outline", className: "ml-1 capitalize", children: status }),
+      status === "error" && error && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "max-w-[280px] truncate text-xs text-destructive", title: error, children: error }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "ml-auto flex items-center gap-2", children: [
         connected ? /* @__PURE__ */ jsxRuntimeExports.jsxs(Button, { variant: "outline", size: "sm", onClick: () => window.api.mqtt.disconnect(connectionId), children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Plug, { className: "size-4" }),
@@ -56220,7 +56449,13 @@ function Explorer({ connectionId }) {
       ] })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(ResizablePanelGroup, { direction: "horizontal", className: "min-h-0 flex-1", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ResizablePanel, { defaultSize: 40, minSize: 20, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-full overflow-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx(TopicTree, { topics: topics ?? {}, selected, onSelect: setSelected }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ResizablePanel, { defaultSize: 40, minSize: 20, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-full flex-col", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between border-b px-4 py-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-semibold uppercase tracking-wide text-muted-foreground", children: "Topics" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "secondary", className: "text-[10px] tabular-nums", children: Object.keys(topics ?? {}).length })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-h-0 flex-1 overflow-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx(TopicTree, { topics: topics ?? {}, selected, onSelect: setSelected }) })
+      ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(ResizableHandle, { withHandle: true }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(ResizablePanel, { defaultSize: 60, minSize: 30, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-full flex-col", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-h-0 flex-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx(TopicDetail, { connectionId, topic: selected, live: live2 }) }),

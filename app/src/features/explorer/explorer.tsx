@@ -12,6 +12,7 @@ import { ThemeToggle } from '@/components/theme-toggle';
 import { cn } from '@/lib/utils';
 import type { Connection, ConnStatus } from '@shared/schema';
 import { useStudio } from './store';
+import { useTabs } from './tabs-store';
 import TopicTree from './topic-tree';
 import TopicDetail from './topic-detail';
 import PublishPanel from './publish-panel';
@@ -34,10 +35,18 @@ export default function Explorer({ connectionId }: { connectionId: string }) {
   const paused = useStudio((s) => s.paused);
   const setPaused = useStudio((s) => s.setPaused);
   const clearTopics = useStudio((s) => s.clearTopics);
+  const openTab = useTabs((s) => s.open);
 
   useEffect(() => {
     window.api.connections.get(connectionId).then((c) => setConnection(c ?? null));
   }, [connectionId]);
+
+  // This is the visible connection: register its tab and stream it live. The
+  // previously-active connection keeps ingesting silently in the background.
+  useEffect(() => {
+    openTab(connectionId);
+    window.api.mqtt.setActive(connectionId);
+  }, [connectionId, openTab]);
 
   const connected = status === 'connected';
   const live = selected ? topics?.[selected] : undefined;
@@ -55,7 +64,7 @@ export default function Explorer({ connectionId }: { connectionId: string }) {
   };
 
   return (
-    <div className="flex h-screen flex-col bg-gradient-to-b from-background to-muted/20 text-foreground">
+    <div className="flex h-full flex-col text-foreground">
       <header className="glass z-10 flex items-center gap-3 border-b px-4 py-2.5">
         <Button asChild variant="ghost" size="icon">
           <Link to="/">

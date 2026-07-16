@@ -27,6 +27,9 @@ class MqttManager {
   private live = new Map<string, Live>();
   private status = new Map<string, ConnStatus>();
   private paused = false;
+  /** The connection whose tab is currently visible. Only this one streams
+   *  live deltas to the renderer; the rest keep ingesting + persisting silently. */
+  private activeId: string | null = null;
   private emit: Emit = () => {};
 
   init(emit: Emit) {
@@ -98,13 +101,26 @@ class MqttManager {
 
   setPaused(paused: boolean) {
     this.paused = paused;
-    if (!paused) {
-      // Resume: replay full live state so the UI catches up in one shot.
-      for (const [id, entry] of this.live) {
-        entry.dirty.clear();
-        const updates = [...entry.latest.values()];
-        if (updates.length) this.emit('mqtt:delta', { connectionId: id, updates } as ConnectionDelta);
-      }
+    // Resume: replay the visible tab so its UI catches up in one shot.
+    if (!paused && this.activeId) this.snapshot(this.activeId);
+  }
+
+  /** Mark which connection's tab is visible. Switching replays a full snapshot
+   *  so the newly-shown tab catches up on everything it missed while silent.
+   *  Pass null when no explorer is open to silence every connection. */
+  setActive(id: string | null) {
+    this.activeId = id;
+    if (id && !this.paused) this.snapshot(id);
+  }
+
+  /** Emit the entire current live state for one connection as a single delta. */
+  private snapshot(id: string) {
+    const entry = this.live.get(id);
+    if (!entry) return;
+    entry.dirty.clear();
+    const updates = [...entry.latest.values()];
+    if (updates.length) {
+      this.emit('mqtt:delta', { connectionId: id, updates } as ConnectionDelta);
     }
   }
 
@@ -122,8 +138,9 @@ class MqttManager {
 
   private flush() {
     for (const [id, entry] of this.live) {
-      this.persist(id, entry); // persist even while paused
-      if (this.paused || entry.dirty.size === 0) continue;
+      this.persist(id, entry); // persist even while inactive or paused
+      // Only the visible tab streams live; background tabs stay silent.
+      if (this.paused || id !== this.activeId || entry.dirty.size === 0) continue;
 
       const updates: TopicUpdate[] = [];
       for (const topic of entry.dirty) {

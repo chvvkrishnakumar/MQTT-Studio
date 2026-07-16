@@ -21,6 +21,7 @@ export function registerIpc(win: BrowserWindow) {
   ipcMain.handle('mqtt:disconnect', (_e, id: string) => manager.disconnect(id));
   ipcMain.handle('mqtt:publish', (_e, input: PublishInput) => manager.publish(input));
   ipcMain.handle('mqtt:pause', (_e, paused: boolean) => manager.setPaused(paused));
+  ipcMain.handle('mqtt:setActive', (_e, id: string | null) => manager.setActive(id));
   ipcMain.handle('mqtt:statuses', () => manager.statuses());
   ipcMain.handle('mqtt:history', (_e, { connectionId, topic }: { connectionId: string; topic: string }) =>
     messagesRepo.recent(connectionId, topic),
