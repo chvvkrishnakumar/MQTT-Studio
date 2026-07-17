@@ -32,6 +32,7 @@
     "asarUnpack": [
       "**/node_modules/better-sqlite3/**"
     ],
+    "afterPack": "scripts/adhoc-sign.js",
     "mac": {
       "category": "public.app-category.developer-tools",
       "icon": "build/icon.icns",
