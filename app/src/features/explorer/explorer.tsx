@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Pause, Play, Plug, PlugZap, Trash2 } from 'lucide-react';
+import { useShallow } from 'zustand/react/shallow';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -11,6 +12,8 @@ import { cn } from '@/lib/utils';
 import type { Connection, ConnStatus } from '@shared/schema';
 import { useStudio } from './store';
 import { useTabs } from './tabs-store';
+import { useSelection } from './selection-store';
+import { useExports } from './exports-store';
 import TopicTree from './topic-tree';
 import TopicDetail from './topic-detail';
 import PublishPanel from './publish-panel';
@@ -25,15 +28,23 @@ const STATUS_STYLE: Record<ConnStatus, string> = {
 
 export default function Explorer({ connectionId }: { connectionId: string }) {
   const [connection, setConnection] = useState<Connection | null>(null);
-  // Selection is kept per connection: this component is reused across tabs
-  // (only the `connectionId` prop changes), so a single `selected` would leak
-  // one tab's topic into another and show the wrong/empty detail.
-  const [selectedByConn, setSelectedByConn] = useState<Record<string, string | undefined>>({});
-  const selected = selectedByConn[connectionId];
-  const setSelected = useCallback(
-    (topic?: string) => setSelectedByConn((prev) => ({ ...prev, [connectionId]: topic })),
-    [connectionId],
+  // Selection is kept per connection in a store that outlives this component:
+  // switching tabs remounts the Explorer, and a local state would forget the
+  // topic (and drop back to the empty "select a topic" pane) on return.
+  const selected = useSelection((s) => s.selected[connectionId]);
+  const select = useSelection((s) => s.select);
+  const setSelected = (topic?: string) => select(connectionId, topic);
+
+  // Topics with a live export running (any topic in this connection), so the
+  // tree can flag what's recording even when it isn't the selected topic.
+  const exportingTopics = useExports(
+    useShallow((s) =>
+      Object.values(s.byKey)
+        .filter((e) => e.connectionId === connectionId)
+        .map((e) => e.topic),
+    ),
   );
+  const exporting = useMemo(() => new Set(exportingTopics), [exportingTopics]);
 
   const topics = useStudio((s) => s.topics[connectionId]);
   const status = useStudio((s) => s.statuses[connectionId] ?? 'disconnected');
@@ -124,7 +135,12 @@ export default function Explorer({ connectionId }: { connectionId: string }) {
               </Badge>
             </div>
             <div className="min-h-0 flex-1 overflow-auto">
-              <TopicTree topics={topics ?? {}} selected={selected} onSelect={setSelected} />
+              <TopicTree
+                topics={topics ?? {}}
+                selected={selected}
+                exporting={exporting}
+                onSelect={setSelected}
+              />
             </div>
           </div>
         </ResizablePanel>

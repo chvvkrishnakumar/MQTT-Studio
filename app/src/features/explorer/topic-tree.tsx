@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Download } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { TopicState } from './store';
 
@@ -43,16 +43,18 @@ interface RowProps {
   node: Node;
   depth: number;
   selected?: string;
+  exporting: Set<string>;
   expanded: Set<string>;
   onToggle: (path: string) => void;
   onSelect: (topic: string) => void;
 }
 
-function Row({ node, depth, selected, expanded, onToggle, onSelect }: RowProps) {
+function Row({ node, depth, selected, exporting, expanded, onToggle, onSelect }: RowProps) {
   const children = [...node.children.values()].sort((a, b) => a.seg.localeCompare(b.seg));
   const hasChildren = children.length > 0;
   const isOpen = expanded.has(node.path);
   const isSelected = node.state && selected === node.path;
+  const isExporting = node.state && exporting.has(node.path);
 
   // Shimmer the deepest *visible* node on a path: an expanded folder defers to
   // its (visible) children and only reacts to its own message; a collapsed
@@ -102,7 +104,19 @@ function Row({ node, depth, selected, expanded, onToggle, onSelect }: RowProps) 
           <span className="ml-2 flex-1" />
         )}
 
-        <span className="ml-auto shrink-0 rounded-full bg-muted/70 px-1.5 py-0.5 text-[10px] tabular-nums text-muted-foreground">
+        {isExporting && (
+          <Download
+            className="ml-auto size-3.5 shrink-0 animate-pulse text-emerald-500"
+            aria-label="Live export in progress"
+          />
+        )}
+
+        <span
+          className={cn(
+            'shrink-0 rounded-full bg-muted/70 px-1.5 py-0.5 text-[10px] tabular-nums text-muted-foreground',
+            !isExporting && 'ml-auto',
+          )}
+        >
           {node.state ? node.state.count : node.descendants}
         </span>
       </div>
@@ -115,6 +129,7 @@ function Row({ node, depth, selected, expanded, onToggle, onSelect }: RowProps) 
               node={c}
               depth={depth + 1}
               selected={selected}
+              exporting={exporting}
               expanded={expanded}
               onToggle={onToggle}
               onSelect={onSelect}
@@ -129,10 +144,14 @@ function Row({ node, depth, selected, expanded, onToggle, onSelect }: RowProps) 
 interface Props {
   topics: Record<string, TopicState>;
   selected?: string;
+  /** Topics with a live export running, flagged in the tree. */
+  exporting?: Set<string>;
   onSelect: (topic: string) => void;
 }
 
-export default function TopicTree({ topics, selected, onSelect }: Props) {
+const NO_EXPORTS: Set<string> = new Set();
+
+export default function TopicTree({ topics, selected, exporting = NO_EXPORTS, onSelect }: Props) {
   // Collapsed by default — expanding is manual.
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const root = useMemo(() => buildTree(topics), [topics]);
@@ -161,6 +180,7 @@ export default function TopicTree({ topics, selected, onSelect }: Props) {
           node={n}
           depth={0}
           selected={selected}
+          exporting={exporting}
           expanded={expanded}
           onToggle={toggle}
           onSelect={onSelect}

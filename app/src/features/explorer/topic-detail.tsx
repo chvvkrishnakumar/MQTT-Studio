@@ -9,8 +9,9 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
 import { cn } from '@/lib/utils';
-import { HISTORY_LIMIT, type ExportStatus, type MqttMessage } from '@shared/schema';
+import { HISTORY_LIMIT, type MqttMessage } from '@shared/schema';
 import type { TopicState } from './store';
+import { exportKey, useExports } from './exports-store';
 
 interface Props {
   connectionId: string;
@@ -68,33 +69,18 @@ function CopyButton({ text, label }: { text: string; label?: string }) {
 /** Start/stop a main-process live export for the current topic. The export
  *  keeps running across tab switches; this button only reflects + toggles it. */
 function LiveExportButton({ connectionId, topic }: { connectionId: string; topic: string }) {
-  const [status, setStatus] = useState<ExportStatus | null>(null);
+  // The exports store (fed by the main process) is the single source of truth,
+  // so this button stays in sync with the tree and with exports still running
+  // after the user switched topics or tabs.
+  const status = useExports((s) => s.byKey[exportKey(connectionId, topic)] ?? null);
   const [busy, setBusy] = useState(false);
-
-  useEffect(() => {
-    let active = true;
-    window.api.export.status(connectionId, topic).then((s) => active && setStatus(s));
-    const off = window.api.export.onProgress((s) => {
-      if (s.connectionId === connectionId && s.topic === topic) {
-        setStatus(s.active ? s : null);
-      }
-    });
-    return () => {
-      active = false;
-      off();
-    };
-  }, [connectionId, topic]);
 
   const toggle = async () => {
     setBusy(true);
     try {
-      if (status) {
-        await window.api.export.stop(connectionId, topic);
-        setStatus(null);
-      } else {
-        const s = await window.api.export.start(connectionId, topic);
-        if (s) setStatus(s);
-      }
+      // The resulting status flows back through the export progress stream.
+      if (status) await window.api.export.stop(connectionId, topic);
+      else await window.api.export.start(connectionId, topic);
     } finally {
       setBusy(false);
     }
