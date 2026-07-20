@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Local-first desktop MQTT client with a live topic explorer.",
   "author": "Krishna <zruits199@gmail.com>",
+  "license": "MIT",
   "homepage": "https://github.com/chvvkrishnakumar/MQTT-Studio",
   "main": "out/main/index.js",
   "scripts": {
