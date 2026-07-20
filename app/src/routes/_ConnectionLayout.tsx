@@ -14,9 +14,9 @@ import {
   PanelLeft,
   PanelLeftClose,
   Plus,
-  Radio,
   Trash2,
 } from 'lucide-react';
+import appIcon from '@/assets/icon.png';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -89,9 +89,7 @@ function ConnectionLayout() {
         >
           {collapsed ? <PanelLeft className="size-4" /> : <PanelLeftClose className="size-4" />}
         </Button>
-        <div className="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/60 shadow-sm">
-          <Radio className="size-4 text-primary-foreground" />
-        </div>
+        <img src={appIcon} alt="MQTT Studio" className="size-8 shrink-0 rounded-lg shadow-sm" />
         <h1 className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-base font-semibold text-transparent">
           MQTT Studio
         </h1>
