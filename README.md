@@ -28,13 +28,26 @@ a local database on your machine.
 
 ## Install
 
-Grab the installer for your platform from the
-[Releases](https://github.com/chvvkrishnakumar/MQTT-Studio/releases) page, or
-build from source below.
+### Latest Build Artifacts
 
-> macOS builds are ad-hoc signed (not notarized). On first launch you may need
-> to right-click the app → **Open**, or allow it under
-> System Settings → Privacy & Security.
+Download the latest development build for your platform:
+
+- **🍎 macOS (.dmg)**  
+  https://github.com/chvvkrishnakumar/MQTT-Studio/actions/runs/29718449710/artifacts/8451453250
+
+- **🪟 Windows (.exe / NSIS)**  
+  https://github.com/chvvkrishnakumar/MQTT-Studio/actions/runs/29718449710/artifacts/8451470203
+
+- **🐧 Linux (.AppImage / .deb)**  
+  https://github.com/chvvkrishnakumar/MQTT-Studio/actions/runs/29718449710/artifacts/8451482427
+
+> **Note**
+>
+> These are GitHub Actions artifacts. You'll need to be signed in to GitHub to download them, and they expire after a period of time. Once stable releases are available, installers will be published on the **Releases** page.
+
+> **macOS**
+>
+> Builds are ad-hoc signed (not notarized). On first launch you may need to right-click the app → **Open**, or allow it under **System Settings → Privacy & Security**.
 
 ## Build from source
 
