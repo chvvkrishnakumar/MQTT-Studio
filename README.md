@@ -35,7 +35,7 @@ Download the latest development build for your platform:
 - **🍎 macOS (.dmg)**  
   https://github.com/chvvkrishnakumar/MQTT-Studio/actions/runs/29718449710/artifacts/8451453250
 
-- **🪟 Windows (.exe / NSIS)**
+- **🪟 Windows (.exe / NSIS)**  
   https://github.com/chvvkrishnakumar/MQTT-Studio/actions/runs/29718449710/artifacts/8451482427
   
 - **🐧 Linux (.AppImage / .deb)**  
