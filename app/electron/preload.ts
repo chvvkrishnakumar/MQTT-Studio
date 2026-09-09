@@ -33,6 +33,10 @@ const api: StudioApi = {
     list: () => ipcRenderer.invoke('export:list'),
     onProgress: (cb) => subscribe('export:progress', cb as (p: never) => void),
   },
+  app: {
+    getVersion: () => ipcRenderer.invoke('app:getVersion'),
+    checkForUpdates: () => ipcRenderer.invoke('app:checkForUpdates'),
+  },
 };
 
 contextBridge.exposeInMainWorld('api', api);

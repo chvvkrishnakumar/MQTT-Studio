@@ -1,8 +1,12 @@
-import { dialog, ipcMain, type BrowserWindow } from "electron";
+import { app, dialog, ipcMain, type BrowserWindow } from "electron";
 import { connections as connectionsRepo, messages as messagesRepo } from "./db";
 import { manager } from "./mqtt/manager";
 import { exporter } from "./export/exporter";
 import type { ConnectionDraft, PublishInput } from "@shared/schema";
+import log from "electron-log";
+import * as updater from "electron-updater";
+const autoUpdater = (updater as unknown as { autoUpdater: typeof import('electron-updater').autoUpdater }).autoUpdater
+  ?? (updater as unknown as { default: { autoUpdater: typeof import('electron-updater').autoUpdater } }).default?.autoUpdater;
 
 /**
  * Wire the renderer <-> main bridge. `ipcMain.handle` registers process-wide
@@ -85,4 +89,14 @@ export function registerIpc(getWin: () => BrowserWindow | null) {
       exporter.get(connectionId, topic)
   );
   ipcMain.handle("export:list", () => exporter.list());
+
+  ipcMain.handle("app:getVersion", () => app.getVersion());
+  ipcMain.handle("app:checkForUpdates", () => {
+    if (!app.isPackaged && process.env.FORCE_UPDATER !== '1') {
+      log.info("checkForUpdates skipped — not packaged (set FORCE_UPDATER=1 to force in dev)");
+      return;
+    }
+    log.info("checkForUpdates triggered", { isPackaged: app.isPackaged, force: process.env.FORCE_UPDATER });
+    autoUpdater.checkForUpdatesAndNotify();
+  });
 }

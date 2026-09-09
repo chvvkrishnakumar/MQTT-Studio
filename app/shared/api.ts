@@ -43,4 +43,8 @@ export interface StudioApi {
     /** Progress + start/stop events for any topic. Returns an unsubscribe fn. */
     onProgress(cb: (status: ExportStatus) => void): () => void;
   };
+  app: {
+    getVersion(): Promise<string>;
+    checkForUpdates(): Promise<void>;
+  };
 }

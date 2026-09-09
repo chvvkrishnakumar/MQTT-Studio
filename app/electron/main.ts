@@ -1,10 +1,14 @@
-import { app, BrowserWindow, shell } from 'electron';
+import { app, BrowserWindow, dialog, shell } from 'electron';
 import path from 'node:path';
 import { existsSync } from 'node:fs';
 import { initDb } from './db';
 import { registerIpc } from './ipc';
 import { manager } from './mqtt/manager';
 import { exporter } from './export/exporter';
+import log from 'electron-log';
+import * as updater from 'electron-updater';
+const autoUpdater = (updater as unknown as { autoUpdater: typeof import('electron-updater').autoUpdater }).autoUpdater
+  ?? (updater as unknown as { default: { autoUpdater: typeof import('electron-updater').autoUpdater } }).default?.autoUpdater;
 
 let win: BrowserWindow | null = null;
 
@@ -59,7 +63,42 @@ app.whenReady().then(() => {
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
+
+  // Auto-update — packaged only; set FORCE_UPDATER=1 to test in dev against GitHub
+  const canUpdate = app.isPackaged || process.env.FORCE_UPDATER === '1';
+  if (canUpdate) {
+    log.transports.file.level = 'info';
+    autoUpdater.logger = log;
+    autoUpdater.autoDownload = true;
+    autoUpdater.autoInstallOnAppQuit = true;
+    if (process.env.FORCE_UPDATER === '1') autoUpdater.forceDevUpdateConfig = true;
+
+    autoUpdater.on('update-available', () => {
+      log.info('update available');
+    });
+    autoUpdater.on('update-downloaded', () => {
+      const res = dialog.showMessageBoxSync(win!, {
+        type: 'info',
+        buttons: ['Restart now', 'Later'],
+        defaultId: 0,
+        title: 'Update ready',
+        message: 'A new version of MQTT Studio has been downloaded. Restart to apply?',
+      });
+      if (res === 0) autoUpdater.quitAndInstall();
+    });
+    autoUpdater.on('error', (err) => log.error('autoUpdater error', err));
+
+    // Initial check + poll every 6h
+    autoUpdater.checkForUpdatesAndNotify();
+    setInterval(() => autoUpdater.checkForUpdatesAndNotify(), 6 * 60 * 60 * 1000).unref();
+  }
 });
+
+/** Manual check — exposed via IPC for a Help → Check for updates menu */
+export function checkForUpdates() {
+  if (!app.isPackaged && process.env.FORCE_UPDATER !== '1') return;
+  autoUpdater.checkForUpdatesAndNotify();
+}
 
 app.on('before-quit', () => {
   exporter.shutdown();

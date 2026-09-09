@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   createFileRoute,
   Link,
@@ -10,6 +10,7 @@ import {
 import {
   Compass,
   Copy,
+  Download,
   MoreVertical,
   Plus,
   Trash2,
@@ -62,6 +63,18 @@ function ConnectionLayout() {
   const router = useRouter();
   const selectedId = useParams({ strict: false }).connectionId;
   const inExplorer = useLocation({ select: (l) => l.pathname.startsWith('/explore') });
+  const [appVersion, setAppVersion] = useState<string>('');
+  const [checking, setChecking] = useState(false);
+  useEffect(() => {
+    window.api.app?.getVersion?.().then(setAppVersion).catch(() => {});
+  }, []);
+  const checkUpdates = async () => {
+    if (!window.api.app?.checkForUpdates) return;
+    setChecking(true);
+    await window.api.app.checkForUpdates().catch(() => {});
+    setTimeout(() => setChecking(false), 2000);
+  };
+  const hasUpdater = !!window.api.app?.getVersion;
 
   const duplicate = async (c: Connection) => {
     const { id: _id, ...rest } = c;
@@ -83,7 +96,19 @@ function ConnectionLayout() {
         <h1 className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-sm font-semibold text-transparent">
           MQTT Studio
         </h1>
-        <div className="ml-auto shrink-0">
+        <div className="ml-auto flex items-center gap-1 shrink-0">
+          {hasUpdater && (
+            <Button
+              variant="ghost"
+              size="icon"
+              className="size-7"
+              onClick={checkUpdates}
+              disabled={checking}
+              title={checking ? 'Checking…' : `Check for updates (v${appVersion || '0.1.0'})`}
+            >
+              <Download className={`size-4 ${checking ? 'animate-pulse' : ''}`} />
+            </Button>
+          )}
           <ThemeToggle />
         </div>
       </header>
@@ -121,8 +146,9 @@ function ConnectionLayout() {
             ))}
           </nav>
 
-          <div className="border-t p-3 text-xs text-muted-foreground">
+          <div className="border-t p-3 flex items-center justify-between text-xs text-muted-foreground">
             <Badge variant="outline">{connections.length} saved</Badge>
+            <span className="tabular-nums">v{appVersion || '0.1.0'}</span>
           </div>
         </aside>
 
