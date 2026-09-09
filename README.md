@@ -1,11 +1,11 @@
-# MQTT Studio — v0.1.0
+# MQTT Studio — v0.1.1
 
 A local-first desktop MQTT client with a live topic explorer — connect to
 brokers, watch topics update in real time, chart numeric values, and publish,
 all from a native app that keeps your connection configs and message history in
 a local database on your machine.
 
-> **v0.1.0 — First stable release.** Stable error banner (no flicker on auto-reconnect), one-click **Stop retrying**, `mqtt`/`mqtts`-only transport, dynamic per-protocol MQTT versions, and host-aware error hints. See [Release Notes](#release-notes) below.
+> **v0.1.1 — Auto-update test.** `v0.1.0` was first updater-enabled build; this is OTA test (tiny UI tweak). See [Release Notes](#release-notes) below.
 
 > **Local-first.** There is no backend and no account. Everything —
 > connections, passwords, and recent message history — lives in a local SQLite
@@ -42,17 +42,17 @@ a local database on your machine.
 
 ## Install
 
-### Stable Release — v0.1.0
+### Stable Release — v0.1.1
 
-Download from the **[Releases](https://github.com/chvvkrishnakumar/MQTT-Studio/releases/tag/v0.1.0)** page (recommended):
+Download from the **[Releases](https://github.com/chvvkrishnakumar/MQTT-Studio/releases/tag/v0.1.1)** page (recommended):
 
-- **🍎 macOS (.dmg, arm64 + x64)** — `MQTT-Studio-0.1.0-arm64.dmg` / `*-x64.dmg`
-- **🪟 Windows (.exe / NSIS, x64)** — `MQTT-Studio-0.1.0-x64.exe`
-- **🐧 Linux (.AppImage / .deb, x64)** — `MQTT-Studio-0.1.0-x64.AppImage` / `*.deb`
+- **🍎 macOS (.dmg, arm64 + x64)** — `MQTT-Studio-0.1.1-arm64.dmg` / `*-x64.dmg`
+- **🪟 Windows (.exe / NSIS, x64)** — `MQTT-Studio-0.1.1-x64.exe`
+- **🐧 Linux (.AppImage / .deb, x64)** — `MQTT-Studio-0.1.1-x64.AppImage` / `*.deb`
 
 Tag and publish via workflow:
 ```bash
-git tag v0.1.0 && git push origin v0.1.0
+git tag v0.1.1 && git push origin v0.1.1
 # .github/workflows/build.yml builds on v* tags and attaches to GitHub Release
 ```
 
@@ -121,6 +121,10 @@ renderer is pure UI.**
 message shapes, shared by the form, DB, IPC, and store.
 
 ## Release Notes
+
+### v0.1.1 — 2026-09-09
+
+OTA test — header shows `v0.1.1`, `Download` button triggers `autoUpdater` (`main.ts:88`).
 
 ### v0.1.0 — 2026-09-09
 
