@@ -1,5 +1,5 @@
 import { useController, useFormContext } from "react-hook-form";
-import { Check } from "lucide-react";
+import { Check, Link2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PALETTE, resolveColor } from "@/lib/colors";
 import FormRow from "@/components/form-ui/form-row";
@@ -7,6 +7,40 @@ import ProtocolSelect from "@/components/form-ui/protocol-select";
 import PasswordField from "@/components/form-ui/password-field";
 import ClientIdField from "@/components/form-ui/client-id-field";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
+
+function ConnectionPreview() {
+  const { watch } = useFormContext();
+  const protocol = watch("protocol");
+  const host = watch("host");
+  const port = watch("port");
+  const [copied, setCopied] = useState(false);
+  const url = `${protocol}://${host || "broker"}:${port || 1883}`;
+
+  const copy = () => {
+    if (!host) return;
+    navigator.clipboard.writeText(url);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1200);
+  };
+
+  return (
+    <div className="mb-4 flex items-center gap-2 rounded-lg border bg-muted/30 px-3 py-2">
+      <Link2 className="size-3.5 shrink-0 text-muted-foreground" />
+      <code className="min-w-0 flex-1 truncate font-mono text-xs text-muted-foreground">
+        {url}
+      </code>
+      <button
+        type="button"
+        onClick={copy}
+        disabled={!host}
+        className="shrink-0 text-xs text-muted-foreground transition-colors hover:text-foreground disabled:opacity-40"
+      >
+        {copied ? "Copied!" : "Copy"}
+      </button>
+    </div>
+  );
+}
 
 function LabelDotField({ name = "color" }: { name?: string }) {
   const { control } = useFormContext();
@@ -45,6 +79,8 @@ export default function GeneralTab() {
 
   return (
     <>
+      <ConnectionPreview />
+
       <FormRow>
         <div>
           <label className="block text-sm font-medium mb-1">

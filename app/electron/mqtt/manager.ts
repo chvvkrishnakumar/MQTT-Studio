@@ -26,6 +26,8 @@ interface Live {
 class MqttManager {
   private live = new Map<string, Live>();
   private status = new Map<string, ConnStatus>();
+  /** Last error per connection — kept across reconnect cycles so the banner stays stable. */
+  private lastError = new Map<string, string>();
   private paused = false;
   /** The connection whose tab is currently visible. Only this one streams
    *  live deltas to the renderer; the rest keep ingesting + persisting silently. */
@@ -50,6 +52,7 @@ class MqttManager {
     const c = connectionsRepo.get(id);
     if (!c) throw new Error(`Unknown connection ${id}`);
 
+    this.lastError.delete(id);
     this.setStatus(id, 'connecting');
     const url = `${c.protocol}://${c.host}:${c.port}`;
     const options = buildOptions(c);
@@ -65,17 +68,30 @@ class MqttManager {
 
     client.on('connect', () => {
       console.log('[mqtt] connected', id);
+      this.lastError.delete(id);
       this.setStatus(id, 'connected');
       for (const s of c.subscriptions) client.subscribe(s.topic, { qos: s.qos });
     });
-    client.on('reconnect', () => this.setStatus(id, 'reconnecting'));
+    client.on('reconnect', () => {
+      // While in error state, stay in 'error' to keep banner/dot fully static.
+      // Emitting 'reconnecting' with same error still causes React re-render
+      // and badge mount/unmount flicker every reconnectPeriod (1s).
+      if (this.lastError.has(id)) return;
+      this.setStatus(id, 'reconnecting');
+    });
     client.on('close', () => {
       console.log('[mqtt] close', id);
-      this.setStatus(id, 'disconnected');
+      // Keep error visible if we have a stored error — covers both 'error'
+      // and 'reconnecting-with-error' states. Prevents banner flicker from
+      // close events that fire between retries.
+      if (this.lastError.has(id)) return;
+      if (this.status.get(id) !== 'error') this.setStatus(id, 'disconnected');
     });
     client.on('error', (err) => {
-      console.error('[mqtt] error', id, err.message);
-      this.setStatus(id, 'error', err.message);
+      const msg = err.message || String(err);
+      console.error('[mqtt] error', id, msg);
+      this.lastError.set(id, msg);
+      this.setStatus(id, 'error', msg);
     });
     client.on('message', (topic, payload, packet) => {
       const prev = entry.latest.get(topic);
@@ -99,6 +115,7 @@ class MqttManager {
     this.persist(id, entry);
     entry.client.end(true);
     this.live.delete(id);
+    this.lastError.delete(id);
     this.setStatus(id, 'disconnected');
   }
 
@@ -169,9 +186,19 @@ class MqttManager {
 
   private setStatus(id: string, status: ConnStatus, error?: string) {
     this.status.set(id, status);
-    this.emit('mqtt:status', { connectionId: id, status, error } as StatusUpdate);
+    if (error !== undefined) {
+      this.lastError.set(id, error);
+    } else if (status === 'connected' || status === 'disconnected' || status === 'connecting') {
+      // Manual reconnect or success clears the sticky error; reconnect keeps it.
+      this.lastError.delete(id);
+    }
+    // For reconnecting, if caller didn't pass error but we have a sticky one, keep it.
+    const effectiveError = error ?? (status === 'reconnecting' ? this.lastError.get(id) : undefined);
+    this.emit('mqtt:status', { connectionId: id, status, error: effectiveError } as StatusUpdate);
   }
 }
+
+const MQTT_VERSION_MAP: Record<string, 3 | 4 | 5> = { "3.1": 3, "3.1.1": 4, "5.0": 5 };
 
 function buildOptions(c: Connection): mqtt.IClientOptions {
   return {
@@ -182,7 +209,7 @@ function buildOptions(c: Connection): mqtt.IClientOptions {
     connectTimeout: c.connectTimeout,
     reconnectPeriod: c.reconnectPeriod,
     clean: c.clean,
-    protocolVersion: c.protocolVersion === '5.0' ? 5 : 4,
+    protocolVersion: MQTT_VERSION_MAP[c.protocolVersion] ?? 4,
     will: c.will.enabled
       ? {
           topic: c.will.topic,

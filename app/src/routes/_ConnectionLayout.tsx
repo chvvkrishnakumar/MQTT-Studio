@@ -11,8 +11,6 @@ import {
   Compass,
   Copy,
   MoreVertical,
-  PanelLeft,
-  PanelLeftClose,
   Plus,
   Trash2,
 } from 'lucide-react';
@@ -59,11 +57,11 @@ const DOT: Record<ConnStatus, string> = {
 function ConnectionLayout() {
   const connections = Route.useLoaderData();
   const statuses = useStudio((s) => s.statuses);
+  const collapsed = useStudio((s) => s.sidebarCollapsed);
   const openTabs = useTabs((s) => s.tabs);
   const router = useRouter();
   const selectedId = useParams({ strict: false }).connectionId;
   const inExplorer = useLocation({ select: (l) => l.pathname.startsWith('/explore') });
-  const [collapsed, setCollapsed] = useState(false);
 
   const duplicate = async (c: Connection) => {
     const { id: _id, ...rest } = c;
@@ -80,20 +78,12 @@ function ConnectionLayout() {
 
   return (
     <div className="flex h-screen flex-col bg-background text-foreground">
-      <header className="glass z-10 flex items-center gap-2.5 border-b px-4 py-3">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setCollapsed((v) => !v)}
-          title={collapsed ? 'Show connections' : 'Hide connections'}
-        >
-          {collapsed ? <PanelLeft className="size-4" /> : <PanelLeftClose className="size-4" />}
-        </Button>
-        <img src={appIcon} alt="MQTT Studio" className="size-8 shrink-0 rounded-lg shadow-sm" />
-        <h1 className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-base font-semibold text-transparent">
+      <header className="glass z-10 flex items-center gap-2 border-b px-3 py-1.5">
+        <img src={appIcon} alt="MQTT Studio" className="size-5 shrink-0 rounded" />
+        <h1 className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-sm font-semibold text-transparent">
           MQTT Studio
         </h1>
-        <div className="ml-auto">
+        <div className="ml-auto shrink-0">
           <ThemeToggle />
         </div>
       </header>
@@ -137,7 +127,11 @@ function ConnectionLayout() {
         </aside>
 
         <main className="flex min-h-0 flex-1 flex-col overflow-hidden">
-          {openTabs.length > 0 && <TabStrip activeId={inExplorer ? selectedId : undefined} />}
+          {openTabs.length > 0 && (
+            <div className="flex items-center gap-1 border-b px-2 py-1">
+              <TabStrip activeId={inExplorer ? selectedId : undefined} />
+            </div>
+          )}
           <div className="min-h-0 flex-1 overflow-auto">
             <Outlet />
           </div>

@@ -95,6 +95,46 @@ export function formatPayload(payload: string, format: PayloadFormat): string {
   return tryFormatPayload(payload, format) ?? payload;
 }
 
+/** Detect the best format for a payload by trying to parse it. */
+export function detectFormat(payload: string): PayloadFormat {
+  const t = payload.trim();
+  if (!t) return 'RAW';
+  if (t.startsWith('{') || t.startsWith('[')) {
+    try {
+      JSON.parse(t);
+      return 'JSON';
+    } catch {
+      /* not json */
+    }
+  }
+  if (t.startsWith('<')) {
+    try {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(t, 'application/xml');
+      if (!xml.querySelector('parsererror')) return 'XML';
+    } catch {
+      /* not xml */
+    }
+  }
+  // YAML: key: value pattern
+  if (/^[^\s].*:\s/.test(t) && !t.includes('<')) {
+    try {
+      const parsed = load(t);
+      if (parsed !== undefined) return 'YAML';
+    } catch {
+      /* not yaml */
+    }
+  }
+  return 'RAW';
+}
+
+/** Auto-detect format and pretty-print, regardless of the selected format. */
+export function autoFormat(payload: string): { formatted: string; format: PayloadFormat } {
+  const detected = detectFormat(payload);
+  const formatted = formatPayload(payload, detected);
+  return { formatted, format: detected };
+}
+
 /** True when `payload` is valid for `format` (RAW is always valid; empty is neutral). */
 export function isValidPayload(payload: string, format: PayloadFormat): boolean {
   if (format === 'RAW' || !payload.trim()) return true;

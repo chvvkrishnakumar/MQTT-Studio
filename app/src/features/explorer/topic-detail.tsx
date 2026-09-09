@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
-import { Check, ChevronRight, Copy, Download, Square, X } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Binary, Check, ChevronRight, Copy, Download, Square, X } from 'lucide-react';
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -9,9 +9,11 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
 import { cn } from '@/lib/utils';
+import { detectFormat } from '@/lib/payload-format';
 import { HISTORY_LIMIT, type MqttMessage } from '@shared/schema';
 import type { TopicState } from './store';
 import { exportKey, useExports } from './exports-store';
+import { charDiff } from './payload-diff';
 
 interface Props {
   connectionId: string;
@@ -40,6 +42,72 @@ function pretty(payload: string) {
 /** Collapse a payload to a single line for the compact history row. */
 const inline = (payload: string) => payload.replace(/\s+/g, ' ').trim();
 
+/** Format a payload as a hex dump (offset + hex bytes + ASCII). */
+function hexDump(payload: string): string {
+  const bytes = new TextEncoder().encode(payload);
+  const lines: string[] = [];
+  for (let i = 0; i < bytes.length; i += 16) {
+    const chunk = bytes.slice(i, i + 16);
+    const offset = i.toString(16).padStart(8, '0');
+    const hex = Array.from(chunk, (b) => b.toString(16).padStart(2, '0')).join(' ').padEnd(48, ' ');
+    const ascii = Array.from(chunk, (b) => (b >= 32 && b < 127 ? String.fromCharCode(b) : '.')).join('');
+    lines.push(`${offset}  ${hex}  ${ascii}`);
+  }
+  return lines.join('\n') || '(empty)';
+}
+
+type DiffSegment = { text: string; type: 'same' | 'added' };
+
+/** Deep inline diff: align lines with LCS, then char-level diff within each
+ *  changed line. Returns null when there's nothing to diff. Only shows the
+ *  current text — removed characters are omitted, added characters are
+ *  highlighted. E.g. `"timestamp": 2` → `3` highlights just `3`. */
+function inlineDiff(current: string, previous: string | undefined): DiffSegment[][] | null {
+  const normCurr = pretty(current);
+  if (!previous) return null;
+  const normPrev = pretty(previous);
+  if (normPrev === normCurr) return null;
+
+  const currLines = normCurr.split('\n');
+  const prevLines = normPrev.split('\n');
+  const n = currLines.length;
+  const m = prevLines.length;
+
+  // LCS DP table for line alignment
+  const dp: number[][] = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0));
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= m; j++) {
+      dp[i][j] = currLines[i - 1] === prevLines[j - 1]
+        ? dp[i - 1][j - 1] + 1
+        : Math.max(dp[i - 1][j], dp[i][j - 1]);
+    }
+  }
+
+  // Backtrack: align each current line with its best-matching previous line
+  const aligned: Array<{ curr: string; prev: string | null }> = [];
+  let i = n, j = m;
+  while (i > 0 || j > 0) {
+    if (i > 0 && j > 0 && currLines[i - 1] === prevLines[j - 1]) {
+      aligned.unshift({ curr: currLines[i - 1], prev: prevLines[j - 1] });
+      i--; j--;
+    } else if (i > 0 && (j === 0 || dp[i - 1][j] >= dp[i][j - 1])) {
+      aligned.unshift({ curr: currLines[i - 1], prev: null });
+      i--;
+    } else {
+      j--;
+    }
+  }
+
+  // Char-level diff within each line; show only same + added (skip removed)
+  return aligned.map(({ curr, prev }) => {
+    if (prev === null) return [{ text: curr, type: 'added' as const }];
+    if (curr === prev) return [{ text: curr, type: 'same' as const }];
+    return charDiff(prev, curr)
+      .filter((s) => s.type !== 'removed')
+      .map((s) => ({ text: s.text, type: s.type as 'same' | 'added' }));
+  });
+}
+
 /** Small self-contained copy button that flashes a check on success. */
 function CopyButton({ text, label }: { text: string; label?: string }) {
   const [copied, setCopied] = useState(false);
@@ -66,19 +134,14 @@ function CopyButton({ text, label }: { text: string; label?: string }) {
   );
 }
 
-/** Start/stop a main-process live export for the current topic. The export
- *  keeps running across tab switches; this button only reflects + toggles it. */
+/** Start/stop a main-process live export for the current topic. */
 function LiveExportButton({ connectionId, topic }: { connectionId: string; topic: string }) {
-  // The exports store (fed by the main process) is the single source of truth,
-  // so this button stays in sync with the tree and with exports still running
-  // after the user switched topics or tabs.
   const status = useExports((s) => s.byKey[exportKey(connectionId, topic)] ?? null);
   const [busy, setBusy] = useState(false);
 
   const toggle = async () => {
     setBusy(true);
     try {
-      // The resulting status flows back through the export progress stream.
       if (status) await window.api.export.stop(connectionId, topic);
       else await window.api.export.start(connectionId, topic);
     } finally {
@@ -186,12 +249,14 @@ function RecordDetail({ msg, onClose }: { msg: MqttMessage; onClose: () => void 
 
 export default function TopicDetail({ connectionId, topic, live }: Props) {
   const [history, setHistory] = useState<MqttMessage[]>([]);
+  const [showHex, setShowHex] = useState(false);
+  const [diffMode, setDiffMode] = useState(true);
   const [showLatest, setShowLatest] = useState(true);
   const [showChart, setShowChart] = useState(true);
   const [showHistory, setShowHistory] = useState(true);
-  // The opened history record is kept as a stable snapshot (not an index), so
-  // incoming messages that reorder/trim the list never collapse the detail.
   const [selected, setSelected] = useState<MqttMessage | null>(null);
+  const [flash, setFlash] = useState(false);
+  const flashTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
     setSelected(null);
@@ -214,9 +279,26 @@ export default function TopicDetail({ connectionId, topic, live }: Props) {
         retain: live.retain,
         ts: live.ts,
       };
+      // Trigger a sticky flash that stays on for 1.5s after the last update.
+      setFlash(true);
+      clearTimeout(flashTimer.current);
+      flashTimer.current = setTimeout(() => setFlash(false), 1500);
       return [msg, ...prev].slice(0, HISTORY_LIMIT);
     });
   }, [live, topic]);
+
+  // Clear the flash timer on unmount.
+  useEffect(() => {
+    return () => clearTimeout(flashTimer.current);
+  }, []);
+
+  useEffect(() => {
+    if (showLatest) setShowHistory(false);
+  },[showLatest]);
+
+  useEffect(() => {
+    if (showHistory) setShowLatest(false);
+  },[showHistory]);
 
   const numeric = useMemo(() => {
     const pts = [...history]
@@ -226,6 +308,15 @@ export default function TopicDetail({ connectionId, topic, live }: Props) {
     return pts.length >= 2 ? pts : null;
   }, [history]);
 
+  // Compute these before the early return so hook order stays stable.
+  const current = history[0];
+  const previous = history[1];
+
+  const diffLines = useMemo(
+    () => (current && !showHex && diffMode ? inlineDiff(current.payload, previous?.payload) : null),
+    [current, previous, showHex, diffMode],
+  );
+
   if (!topic) {
     return (
       <div className="flex h-full items-center justify-center p-8 text-center text-sm text-muted-foreground">
@@ -234,11 +325,15 @@ export default function TopicDetail({ connectionId, topic, live }: Props) {
     );
   }
 
-  const current = history[0];
+  const payloadType = current ? detectFormat(current.payload) : 'RAW';
+  const payloadSize = current ? new Blob([current.payload]).size : 0;
+  const isNumeric = current ? Number.isFinite(Number(current.payload)) : false;
+  const justUpdated = flash;
+  const hasDiff = !!(current && previous && current.payload !== previous.payload);
 
   return (
-    <div className="flex h-full flex-col">
-      {/* Topic path */}
+   <div className="flex h-full flex-col">
+      {/* Topic path — unchanged */}
       <div className="glass flex items-center gap-2 border-b px-4 py-3">
         <code className="min-w-0 flex-1 truncate rounded-md bg-muted/60 px-2.5 py-1.5 font-mono text-sm">
           {topic}
@@ -247,47 +342,127 @@ export default function TopicDetail({ connectionId, topic, live }: Props) {
         <LiveExportButton connectionId={connectionId} topic={topic} />
       </div>
 
-      <div className="flex min-h-0 flex-1 flex-col gap-3 p-3">
-        {/* Current value block */}
+      <div className="flex min-h-0 flex-1 flex-col gap-2 p-2.5">
+        {/* Latest — now expands + scrolls like History */}
         <Collapsible
           open={showLatest}
           onOpenChange={setShowLatest}
-          className="shrink-0 overflow-hidden rounded-xl border bg-card/60 shadow-sm"
+          className={cn(
+            'flex min-h-0 flex-col overflow-hidden rounded-xl border bg-card/60 shadow-sm',
+            showLatest ? 'flex-1' : 'shrink-0',
+          )}
         >
-          <div className="flex items-center gap-2 border-b bg-muted/30 px-3 py-2">
-            <SectionTrigger title="Latest value" />
-            {current && (
-              <>
-                <Badge variant="secondary" className="text-[10px]">
-                  QoS {current.qos}
-                </Badge>
-                {current.retain && (
-                  <Badge variant="outline" className="text-[10px] text-primary">
-                    retained
-                  </Badge>
-                )}
-                <span className="ml-auto font-mono text-[11px] text-muted-foreground">
-                  {clock(current.ts)}
-                </span>
-                <CopyButton text={pretty(current.payload)} />
-              </>
+          <div className="flex flex-wrap items-center gap-1.5 border-b bg-muted/30 px-3 py-1.5">
+            <SectionTrigger title="Latest" />
+            {justUpdated && (
+              <Badge className="text-[10px] bg-emerald-500 text-white">
+                NEW
+              </Badge>
             )}
+            <Badge variant="secondary" className="text-[10px]">
+              {current ? (payloadType === 'RAW' ? (isNumeric ? 'number' : 'text') : payloadType) : '—'}
+            </Badge>
+            <Badge variant="secondary" className="text-[10px]">
+              QoS {current ? current.qos : '—'}
+            </Badge>
+            {current?.retain && (
+              <Badge variant="outline" className="text-[10px] text-primary">
+                retained
+              </Badge>
+            )}
+            <span className="shrink-0 text-[10px] text-muted-foreground">
+              {current ? `${payloadSize} B` : '— B'}
+            </span>
+            {hasDiff && (
+              <div className="flex items-center gap-0.5 rounded-md border bg-muted/40 p-0.5">
+                <button
+                  type="button"
+                  className={cn(
+                    'rounded px-1.5 py-0.5 text-[10px] font-medium transition-colors',
+                    !diffMode
+                      ? 'bg-background shadow-sm text-foreground'
+                      : 'text-muted-foreground hover:text-foreground',
+                  )}
+                  onClick={() => setDiffMode(false)}
+                >
+                  Normal
+                </button>
+                <button
+                  type="button"
+                  className={cn(
+                    'rounded px-1.5 py-0.5 text-[10px] font-medium transition-colors',
+                    diffMode
+                      ? 'bg-background shadow-sm text-foreground'
+                      : 'text-muted-foreground hover:text-foreground',
+                  )}
+                  onClick={() => setDiffMode(true)}
+                >
+                  Diff
+                </button>
+              </div>
+            )}
+            <span className="ml-auto shrink-0 font-mono text-[11px] text-muted-foreground">
+              {current ? clock(current.ts) : '—'}
+            </span>
+            <Button
+              variant="ghost"
+              size="icon"
+              className={cn('size-6', showHex && 'text-primary')}
+              onClick={() => setShowHex((v) => !v)}
+              title={showHex ? 'Show text view' : 'Show hex dump'}
+              disabled={!current}
+            >
+              <Binary className="size-3.5" />
+            </Button>
+            <CopyButton
+              text={current ? (showHex ? hexDump(current.payload) : pretty(current.payload)) : ''}
+            />
           </div>
-          <CollapsibleContent>
-            <pre className="max-h-72 overflow-auto whitespace-pre-wrap break-all p-3 font-mono text-xs leading-relaxed">
-              {current ? pretty(current.payload) : 'Waiting for a message…'}
+          <CollapsibleContent className="flex min-h-0 flex-1 flex-col overflow-hidden">
+            <pre
+              className={cn(
+                'min-h-0 flex-1 overflow-auto whitespace-pre-wrap break-all p-3 font-mono text-xs leading-relaxed',
+              )}
+            >
+              {current ? (
+                showHex ? (
+                  hexDump(current.payload)
+                ) : diffLines ? (
+                  diffLines.map((line, li) => (
+                    <div key={li}>
+                      {line.length === 0
+                        ? ' '
+                        : line.map((seg, si) => (
+                            <span
+                              key={si}
+                              className={cn(
+                                seg.type === 'added' &&
+                                  'rounded bg-emerald-500/25 px-0.5 text-emerald-700 dark:text-emerald-300',
+                              )}
+                            >
+                              {seg.text}
+                            </span>
+                          ))}
+                    </div>
+                  ))
+                ) : (
+                  pretty(current.payload)
+                )
+              ) : (
+                'Waiting for a message…'
+              )}
             </pre>
           </CollapsibleContent>
         </Collapsible>
 
-        {/* Numeric chart */}
+        {/* Numeric chart — accordion */}
         {numeric && (
           <Collapsible
             open={showChart}
             onOpenChange={setShowChart}
             className="shrink-0 overflow-hidden rounded-xl border bg-card/60 shadow-sm"
           >
-            <div className="flex items-center gap-2 border-b bg-muted/30 px-3 py-2">
+            <div className="flex items-center gap-2 border-b bg-muted/30 px-3 py-1.5">
               <SectionTrigger title="Value over time" />
             </div>
             <CollapsibleContent>
@@ -329,7 +504,7 @@ export default function TopicDetail({ connectionId, topic, live }: Props) {
             showHistory ? 'flex-1' : 'shrink-0',
           )}
         >
-          <div className="flex items-center gap-2 border-b bg-muted/30 px-3 py-2">
+          <div className="flex items-center gap-2 border-b bg-muted/30 px-3 py-1.5">
             <SectionTrigger title="History" />
             <Badge variant="secondary" className="text-[10px]">
               last {HISTORY_LIMIT}
