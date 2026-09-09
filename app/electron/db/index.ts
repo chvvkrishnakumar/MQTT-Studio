@@ -4,6 +4,7 @@ import { randomUUID } from 'node:crypto';
 import path from 'node:path';
 import {
   connectionDraft,
+  DEFAULT_PROTOCOL_VERSION,
   HISTORY_LIMIT,
   type Connection,
   type ConnectionDraft,
@@ -100,7 +101,7 @@ function rowToConnection(r: ConnRow): Connection {
     clientId: r.client_id,
     username: r.username ?? undefined,
     password: decrypt(r.password),
-    protocolVersion: options.protocolVersion ?? '5.0',
+    protocolVersion: options.protocolVersion ?? DEFAULT_PROTOCOL_VERSION,
     keepalive: options.keepalive ?? 60,
     connectTimeout: options.connectTimeout ?? 30_000,
     reconnectPeriod: options.reconnectPeriod ?? 1_000,

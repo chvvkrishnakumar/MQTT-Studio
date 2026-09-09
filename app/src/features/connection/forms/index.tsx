@@ -3,6 +3,7 @@ import { Settings2, ListTree, Sliders, Skull, PlugZap, Compass, Plug } from 'luc
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { DEFAULT_PROTOCOL_VERSION } from '@shared/schema';
 import type { Connection, ConnectionDraft, ConnStatus } from '@shared/schema';
 import GeneralTab from './GeneralTab';
 import SubscriptionsTab from './SubscriptionsTab';
@@ -13,7 +14,7 @@ const DEFAULTS = {
   name: '',
   color: 'sky',
   protocol: 'mqtt',
-  protocolVersion: '5.0',
+  protocolVersion: DEFAULT_PROTOCOL_VERSION,
   host: '',
   port: 1883,
   clientId: '',

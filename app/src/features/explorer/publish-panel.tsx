@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AlertCircle, ChevronRight, Send, Wand2 } from 'lucide-react';
+import { AlertCircle, Check, ChevronRight, Send, Terminal, Wand2, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -20,9 +20,11 @@ import {
 import { cn } from '@/lib/utils';
 import {
   PAYLOAD_FORMATS,
-  formatPayload,
+  autoFormat,
+  detectFormat,
   formatPlaceholder,
   isValidPayload,
+  tryFormatPayload,
   type PayloadFormat,
 } from '@/lib/payload-format';
 import type { QoS } from '@shared/schema';
@@ -40,16 +42,54 @@ export default function PublishPanel({ connectionId, topic, disabled }: Props) {
   const [qos, setQos] = useState<QoS>(0);
   const [retain, setRetain] = useState(false);
   const [open, setOpen] = useState(true);
+  const [autoFormatOnSend, setAutoFormatOnSend] = useState(true);
 
   useEffect(() => {
     if (topic) setTarget(topic);
   }, [topic]);
 
+  // Auto-detect format when the payload changes (only if the user hasn't
+  // manually picked one, i.e. format is RAW).
+  useEffect(() => {
+    if (format !== 'RAW' || !payload.trim()) return;
+    const detected = detectFormat(payload);
+    if (detected !== 'RAW') setFormat(detected);
+  }, [payload, format]);
+
   const valid = isValidPayload(payload, format);
+
+  const doAutoFormat = () => {
+    if (!payload.trim()) return;
+    const { formatted, format: detected } = autoFormat(payload);
+    if (detected !== 'RAW') {
+      setFormat(detected);
+      setPayload(formatted);
+    } else {
+      // Even for RAW, try formatting with the current selection.
+      const result = tryFormatPayload(payload, format);
+      if (result && result !== payload) setPayload(result);
+    }
+  };
 
   const publish = () => {
     if (!target.trim()) return;
-    window.api.mqtt.publish({ connectionId, topic: target, payload, qos, retain });
+    let finalPayload = payload;
+    if (autoFormatOnSend && payload.trim()) {
+      const { formatted, format: detected } = autoFormat(payload);
+      if (detected !== 'RAW') finalPayload = formatted;
+    }
+    window.api.mqtt.publish({ connectionId, topic: target, payload: finalPayload, qos, retain });
+  };
+
+  const [cliCopied, setCliCopied] = useState(false);
+  const copyCli = () => {
+    if (!target.trim()) return;
+    const flags = [`-t ${JSON.stringify(target)}`, `-m ${JSON.stringify(payload)}`, `-q ${qos}`];
+    if (retain) flags.push('-r');
+    const cmd = `mosquitto_pub ${flags.join(' ')}`;
+    navigator.clipboard.writeText(cmd);
+    setCliCopied(true);
+    setTimeout(() => setCliCopied(false), 1200);
   };
 
   return (
@@ -105,17 +145,22 @@ export default function PublishPanel({ connectionId, topic, disabled }: Props) {
             <AlertCircle className="size-3.5" /> Invalid {format}
           </span>
         )}
-        <Button
-          type="button"
-          variant="ghost"
-          size="sm"
-          className="ml-auto"
-          disabled={format === 'RAW' || !payload.trim()}
-          onClick={() => setPayload(formatPayload(payload, format))}
-          title="Prettify payload"
-        >
-          <Wand2 className="size-4" /> Format
-        </Button>
+        <div className="ml-auto flex items-center gap-1.5">
+          <label className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            <Switch checked={autoFormatOnSend} onCheckedChange={setAutoFormatOnSend} />
+            Auto-format on send
+          </label>
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            disabled={!payload.trim()}
+            onClick={doAutoFormat}
+            title="Auto-detect format and prettify"
+          >
+            <Wand2 className="size-4" /> Format
+          </Button>
+        </div>
       </div>
 
       <div className="flex items-end gap-2">
@@ -125,10 +170,34 @@ export default function PublishPanel({ connectionId, topic, disabled }: Props) {
           placeholder={formatPlaceholder[format]}
           className={cn('min-h-[64px] font-mono text-sm', !valid && 'border-destructive')}
         />
-        <Button onClick={publish} disabled={disabled || !target.trim()} className="shrink-0">
-          <Send className="size-4" /> Publish
-        </Button>
+        <div className="flex shrink-0 flex-col gap-1.5">
+          <Button onClick={publish} disabled={disabled || !target.trim()}>
+            <Send className="size-4" /> Publish
+          </Button>
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={copyCli}
+            disabled={!target.trim() || !payload.trim()}
+            title="Copy as mosquitto_pub CLI command"
+          >
+            {cliCopied ? (
+              <Check className="size-3.5 text-emerald-500" />
+            ) : (
+              <Terminal className="size-3.5" />
+            )}
+            CLI
+          </Button>
+        </div>
       </div>
+
+      {autoFormatOnSend && payload.trim() && format !== 'RAW' && (
+        <p className="flex items-center gap-1 text-[11px] text-muted-foreground">
+          <Zap className="size-3" />
+          Will be auto-formatted as {format} before publishing
+        </p>
+      )}
       </CollapsibleContent>
     </Collapsible>
   );

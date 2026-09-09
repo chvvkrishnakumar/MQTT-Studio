@@ -9,8 +9,11 @@ export type QoS = z.infer<typeof qos>;
 export const protocol = z.enum(['mqtt', 'mqtts', 'ws', 'wss']);
 export type Protocol = z.infer<typeof protocol>;
 
-export const protocolVersion = z.enum(['3.1.1', '5.0']);
+export const protocolVersion = z.enum(['3.1', '3.1.1', '5.0']);
 export type ProtocolVersion = z.infer<typeof protocolVersion>;
+/** Single source for available MQTT versions — used by DB, forms, protocols and error hints. */
+export const PROTOCOL_VERSIONS = protocolVersion.options as readonly ProtocolVersion[];
+export const DEFAULT_PROTOCOL_VERSION: ProtocolVersion = '3.1.1';
 
 export const subscription = z.object({
   topic: z.string().min(1),
@@ -47,7 +50,7 @@ export const connection = z.object({
   password: z.string().optional(),
 
   // advanced
-  protocolVersion: protocolVersion.default('5.0'),
+  protocolVersion: protocolVersion.default(DEFAULT_PROTOCOL_VERSION),
   keepalive: z.number().int().nonnegative().default(60),
   connectTimeout: z.number().int().positive().default(30_000),
   reconnectPeriod: z.number().int().nonnegative().default(1_000),

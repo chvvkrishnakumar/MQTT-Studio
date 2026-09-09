@@ -18,6 +18,9 @@ interface StudioState {
   /** connectionId -> topic -> latest value */
   topics: Record<string, Record<string, TopicState>>;
   paused: boolean;
+  /** sidebar collapsed state shared between nav bar and explorer header */
+  sidebarCollapsed: boolean;
+  toggleSidebar: () => void;
 
   applyDelta: (delta: ConnectionDelta) => void;
   setStatus: (update: StatusUpdate) => void;
@@ -31,6 +34,9 @@ export const useStudio = create<StudioState>((set) => ({
   errors: {},
   topics: {},
   paused: false,
+  sidebarCollapsed: false,
+
+  toggleSidebar: () => set((s) => ({ sidebarCollapsed: !s.sidebarCollapsed })),
 
   applyDelta: (delta) =>
     set((state) => {
